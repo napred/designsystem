@@ -1,0 +1,9 @@
+node_modules
+coverage
+**/__diff_output__/*
+!**/__diff_output__/.gitkeep
+*.log
+storybook-static
+.vscode
+.idea
+.cache

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createCleanTag allows to blacklist props from being passed to underlying component 1`] = `
+<span
+  dir="rtl"
+>
+  Test
+</span>
+`;
+
+exports[`createCleanTag allows to blacklist props from being passed to underlying component 2`] = `
+<span>
+  Test
+</span>
+`;
+
+exports[`createCleanTag allows to override component 1`] = `
+<span
+  style="color:blue"
+>
+  Test
+</span>
+`;
+
+exports[`createCleanTag creates a clean tag from custom component 1`] = `
+<span
+  style="color:blue"
+>
+  Test
+</span>
+`;
+
+exports[`createCleanTag creates a clean tag from string component 1`] = `
+<div
+  style="color:blue"
+/>
+`;

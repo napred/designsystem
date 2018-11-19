@@ -1,0 +1,26 @@
+{
+  "name": "ds",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": {
+    "name": "Michal Kvasničák",
+    "email": "michal.kvasnicak@gmail.com"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "styled-components": "^3.3.3"
+  },
+  "dependencies": {
+    "babel-jest": "^23.4.2",
+    "babel-plugin-inline-react-svg": "^0.5.2",
+    "lodash.debounce": "^4.0.8",
+    "react-display-name": "^0.2.4",
+    "react-render-html": "^0.6.0",
+    "react-transition-group": "^2.4.0"
+  },
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge.0"
+  }
+}

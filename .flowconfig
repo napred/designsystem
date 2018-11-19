@@ -1,0 +1,15 @@
+[ignore]
+.*/*.json
+
+[include]
+
+[libs]
+
+[lints]
+# temporarily disable this check so we can use knex
+deprecated-call-syntax=off
+
+[options]
+suppress_comment=\\(.\\|\n\\)*\\$FlowExpectError
+
+[strict]

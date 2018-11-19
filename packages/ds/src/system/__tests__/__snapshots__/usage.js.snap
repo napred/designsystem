@@ -1,0 +1,305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`design system usage works correctly 1`] = `
+Array [
+  .c0 {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<span
+    class="c0"
+  />,
+  .c0 {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  opacity: 1;
+}
+
+<span
+    class="c0"
+  />,
+  .c0 {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<span
+    class="c0"
+  />,
+  .c0 {
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<span
+    class="c0"
+  />,
+  .c0 {
+  opacity: 1;
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<span
+    class="c0"
+  />,
+  .c0 {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  display: block;
+}
+
+<div
+    class="c0"
+  />,
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<span
+    class="c0"
+  />,
+  .c1 {
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+.c0 {
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  display: block;
+}
+
+<span
+    class="c0 c1"
+  />,
+  .c1 {
+  color: tomato;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+.c0 {
+  color: tomato;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<span
+    class="c0 c1"
+  />,
+  .c1 {
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.c0 {
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  display: block;
+}
+
+<span
+    class="c0 c1"
+  />,
+  .c0 {
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<a
+    class="c0"
+  />,
+  .c0 {
+  display: black;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  display: black;
+}
+
+<p
+    class="c0"
+  />,
+  .c0 {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<p
+    class="c0"
+  />,
+  .c0 {
+  background-color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  background-color: tomato;
+}
+
+<p
+    class="c0"
+  />,
+  .c0 {
+  background-color: #D03C70;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  background-color: #D03C70;
+}
+
+<p
+    class="c0"
+  />,
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #D03C70;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  background-color: #D03C70;
+}
+
+<div
+    class="c0"
+  />,
+  .c0 {
+  background-color: black;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="c0"
+  />,
+  .c0 {
+  background-color: #FFFFFF;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="c0"
+  />,
+  .c0 {
+  background-color: black;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  display: block;
+}
+
+<div
+    class="c0"
+  />,
+  .c0 {
+  background-color: #FFFFFF;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  display: block;
+}
+
+<div
+    class="c0"
+  />,
+  .c0 {
+  background-color: black;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="c0"
+  />,
+  .c0 {
+  background-color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="c0"
+  />,
+  .c1 {
+  background-color: black;
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+.c0 {
+  color: tomato;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="c0 c1"
+  />,
+  .c1 {
+  background-color: black;
+  color: #FFFFFF;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+.c0 {
+  color: #FFFFFF;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="c0 c1"
+  />,
+  .c1 {
+  background-color: #FFFFFF;
+  color: #FFFFFF;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+.c0 {
+  background-color: #FFFFFF;
+  color: #FFFFFF;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="c0 c1"
+  />,
+]
+`;
