@@ -6,7 +6,7 @@ const bundles = [
   {
     type: bundleTypes.UNIVERSAL,
     entry: '@napred/ds',
-    externals: [],
+    externals: ['styled-components'],
   },
   // {
   //   type: bundleTypes.UNIVERSAL,
