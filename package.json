@@ -11,7 +11,7 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "flow": "npx lerna run flow",
-    "flow:update-types": "flow-mono create-symlinks flow-typed/.flowconfig && flow-mono install-types",
+    "flow:update-types": "flow-mono create-symlinks .flowconfig && flow-mono install-types",
     "lint": "eslint packages/**/src stories",
     "test": "jest --coverage",
     "test:ci": "jest --ci --coverage --runInBand",
