@@ -1,6 +1,6 @@
 {
   "name": "@napred/ds",
-  "version": "0.1.2",
+  "version": "0.1.7",
   "main": "dist/ds.cjs.js",
   "jsnext:main": "dist/ds.esm.js",
   "module": "dist/ds.esm.js",
@@ -32,8 +32,8 @@
     "react-display-name": "^0.2.4"
   },
   "devDependencies": {
-    "flow-bin": "^0.83.0",
     "enzyme": "^3.7.0",
+    "flow-bin": "^0.83.0",
     "jest": "^23.6.0"
   },
   "gitHead": "e94b1d302f40e6ababd4428447c22421d452b6ac",
