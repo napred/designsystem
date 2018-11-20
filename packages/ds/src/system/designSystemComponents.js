@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable react/prop-types, react/sort-comp */
 
-import React, { type Node, type ComponentType, type Context } from 'react';
+import React, { type Node, type Context } from 'react';
 import { injectGlobal } from 'styled-components';
 import type { SystemComponentProps } from './types';
 import Theme from './theme';
