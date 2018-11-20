@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { DesignSystemConsumer } from '../';
+import { DesignSystemConsumer } from '../designSystemComponents';
 import type { SystemComponentProps } from '../types';
 
 type IfViewportProps = {

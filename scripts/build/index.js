@@ -30,7 +30,7 @@ async function copyFlowTypes(name) {
 
 async function buildEverything() {
   const builtPackageFolders = readdirSync('packages').filter(dir => dir.charAt(0) !== '.');
-  await Promise.all(builtPackageFolders.map(dir => asyncRimRaf(`${dir}/dist`)));
+  await Promise.all(builtPackageFolders.map(dir => asyncRimRaf(`${dir}/dist/`)));
 
   // Run them serially for better console output
   // and to avoid any potential race conditions.

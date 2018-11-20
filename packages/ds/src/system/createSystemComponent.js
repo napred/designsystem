@@ -2,7 +2,7 @@
 
 import React, { type ComponentType } from 'react';
 import getDisplayName from 'react-display-name';
-import { DesignSystemConsumer } from '../system';
+import { DesignSystemConsumer } from './designSystemComponents';
 import applyStyles from './utilities/applyStyles';
 import normalizeComponent from './utilities/normalizeComponent';
 import { systemStyles, systemStylesPropsNames } from './styles';
