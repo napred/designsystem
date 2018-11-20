@@ -1,5 +1,6 @@
+# Napred Design System
 
-Napred Design-System
+[![CircleCI](https://circleci.com/gh/napred/designsystem/tree/master.svg?style=svg&circle-token=d27d4754b61f1cf0079a1458f835deddc5868c6e)](https://circleci.com/gh/napred/designsystem/tree/master)
 
 ## Development
 
