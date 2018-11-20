@@ -1,6 +1,6 @@
 const { rollup } = require('rollup');
 const babel = require('rollup-plugin-babel');
-const closure = require('rollup-plugin-closure-compiler-js');
+const closure = require('./plugins/closure-plugin');
 const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
 const replace = require('rollup-plugin-replace');

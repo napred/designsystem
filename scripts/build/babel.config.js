@@ -6,29 +6,23 @@ module.exports = function(options) {
     // https://github.com/babel/babel/issues/2877#issuecomment-245402025
     passPerPreset: true,
     presets: [
-      { plugins: ['transform-runtime'] },
-      {
-        passPerPreset: false,
-        presets: [
-          'react',
-          [
-            'env',
-            {
-              targets: {
-                node: 4,
-                browsers: '> 1%, last 2 versions',
-              },
-              modules: options.modules === false ? false : 'commonjs',
-            },
-          ],
-        ],
-      },
+      '@babel/react',
+      [
+        '@babel/env',
+        {
+          targets: {
+            node: 4,
+            browsers: '> 1%, last 2 versions',
+          },
+          modules: options.modules === false ? false : 'commonjs',
+        },
+      ],
     ],
     plugins: [
-      ['transform-class-properties', { loose: false }],
+      '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-export-default-from',
-      'transform-object-rest-spread',
-      'transform-runtime',
+      '@babel/plugin-proposal-object-rest-spread',
+      '@babel/plugin-transform-runtime',
     ],
   };
 

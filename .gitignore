@@ -7,3 +7,4 @@ storybook-static
 .vscode
 .idea
 .cache
+build

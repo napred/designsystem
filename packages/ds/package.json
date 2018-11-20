@@ -1,7 +1,7 @@
 {
   "name": "@napred/ds",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "index.js",
   "author": {
     "name": "Michal Kvasničák",
     "email": "michal.kvasnicak@gmail.com"
