@@ -76,7 +76,7 @@ export default class Theme {
     if (typeof this.spacing === 'number') {
       return this.spacing;
     }
-    console.log('bla');
+
     return typeof this.spacing[scale] !== 'undefined'
       ? this.spacing[scale]
       : this.spacing[this.spacing.length - 1];

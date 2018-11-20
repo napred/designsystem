@@ -1,9 +1,7 @@
 /**
- * @jest-environment jsdom
  * @flow
  */
 
-import 'jest-styled-components';
 import React from 'react';
 import { css } from 'styled-components';
 import { render } from 'enzyme';

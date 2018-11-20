@@ -1,14 +1,17 @@
 // @flow
 /* eslint-disable react/prop-types, react/sort-comp */
 
-import React, { type Node, type ComponentType } from 'react';
+import React, { type Node, type ComponentType, type Context } from 'react';
 import { injectGlobal } from 'styled-components';
 import type { SystemComponentProps } from './types';
 import Theme from './theme';
 
 import defaultTheme from './defaultTheme';
 
-const { Provider, Consumer } = React.createContext({
+const {
+  Provider,
+  Consumer,
+}: Context<SystemComponentProps & { viewportMatches: Array<boolean> }> = React.createContext({
   viewport: 0,
   viewportMatches: [true],
   system: defaultTheme,
@@ -146,6 +149,4 @@ export class DesignSystem extends React.Component<
   }
 }
 
-export const DesignSystemConsumer: ComponentType<{
-  children: (value: SystemComponentProps) => Node,
-}> = Consumer;
+export const DesignSystemConsumer = Consumer;
