@@ -7,6 +7,8 @@
     "access": "public"
   },
   "scripts": {
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
     "precommit": "lint-staged",
     "flow": "flow check",
     "lint": "eslint packages/**/src stories",
@@ -46,6 +48,7 @@
     "@storybook/addon-viewport": "^4.0.0-alpha.17",
     "@storybook/addons": "^4.0.0-alpha.17",
     "@storybook/react": "^4.0.0-alpha.17",
+    "all-contributors-cli": "^5.4.1",
     "babel-code-frame": "^6.26.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.1",
