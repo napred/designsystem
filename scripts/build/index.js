@@ -1,5 +1,6 @@
 const ora = require('ora');
 const chalk = require('chalk');
+const { readdirSync } = require('fs');
 
 const Bundles = require('./bundles');
 const Packaging = require('./packaging');
@@ -18,7 +19,7 @@ async function copyFlowTypes(name) {
   if (process.platform === 'win32') return;
 
   const srcDir = `packages/${name}/src`;
-  const outDir = `build/packages/${name}`;
+  const outDir = `packages/${name}/dist`;
 
   const msg = chalk.white.bold(`@napred/${name}`) + chalk.dim(` (flow types)`);
   const spinner = ora(msg).start();
@@ -28,7 +29,8 @@ async function copyFlowTypes(name) {
 }
 
 async function buildEverything() {
-  await asyncRimRaf('build');
+  const builtPackageFolders = readdirSync('packages').filter(dir => dir.charAt(0) !== '.');
+  await Promise.all(builtPackageFolders.map(dir => asyncRimRaf(`${dir}/dist`)));
 
   // Run them serially for better console output
   // and to avoid any potential race conditions.
