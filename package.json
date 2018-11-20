@@ -3,6 +3,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "precommit": "lint-staged",
     "flow": "flow check",
