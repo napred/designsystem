@@ -25,9 +25,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val);
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: 1, ...defaultProps })).toEqual({ 'font-size': 20 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -36,9 +36,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val, 1);
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: 0, ...defaultProps })).toEqual({ 'font-size': 16 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ 'font-size': 20 });
     });
 
@@ -47,9 +47,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val);
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: ['1', '2'], ...defaultProps })).toEqual({ 'font-size': 20 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -58,9 +58,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val, '2');
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: [0], ...defaultProps })).toEqual({ 'font-size': 16 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ 'font-size': 24 });
     });
 
@@ -69,9 +69,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val, ['1', '2']);
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: ['1'], ...defaultProps })).toEqual({ 'font-size': 20 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ 'font-size': 20 });
     });
 
@@ -86,9 +86,9 @@ describe('styler factories', () => {
 
       defaultProps.viewport = 1;
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: 8 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: 8 });
     });
 
@@ -101,18 +101,18 @@ describe('styler factories', () => {
         ['1', '2'],
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: 4 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: 4 });
 
       defaultProps.viewport = 2;
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: 8 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1', '3'], ...defaultProps })).toEqual({ test: 16 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: 8 });
     });
 
@@ -125,18 +125,18 @@ describe('styler factories', () => {
         '1',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: 4 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: 4 });
 
       defaultProps.viewport = 2;
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: 4 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1', '3'], ...defaultProps })).toEqual({ test: 16 });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: 4 });
     });
   });
@@ -147,9 +147,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes');
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: 1, ...defaultProps })).toEqual({ 'font-size': '20px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -158,9 +158,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes', 1);
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: 0, ...defaultProps })).toEqual({ 'font-size': '16px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ 'font-size': '20px' });
     });
 
@@ -169,9 +169,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes');
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: ['1', '2'], ...defaultProps })).toEqual({ 'font-size': '20px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -180,9 +180,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes', '2');
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: [0], ...defaultProps })).toEqual({ 'font-size': '16px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ 'font-size': '24px' });
     });
 
@@ -191,9 +191,9 @@ describe('styler factories', () => {
         fontSize?: number | string | Array<number | string> | void,
       }> = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes', ['1', '2']);
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ fontSize: ['1'], ...defaultProps })).toEqual({ 'font-size': '20px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ 'font-size': '20px' });
     });
   });
@@ -204,9 +204,9 @@ describe('styler factories', () => {
         color?: string | Array<string> | void,
       }> = createNumericSystemStyle('color', 'color', 'colors');
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ color: 'white', ...defaultProps })).toEqual({ color: '#FFFFFF' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -218,9 +218,9 @@ describe('styler factories', () => {
         'white',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ color: 'white', ...defaultProps })).toEqual({ color: '#FFFFFF' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ color: '#FFFFFF' });
     });
 
@@ -231,9 +231,9 @@ describe('styler factories', () => {
         'colors',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ color: ['white', 'black'], ...defaultProps })).toEqual({ color: '#FFFFFF' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -242,9 +242,9 @@ describe('styler factories', () => {
         color?: string | Array<string> | void,
       }> = createStringSystemStyle('color', 'color', 'colors', 'red');
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ color: ['white', 'red'], ...defaultProps })).toEqual({ color: '#FFFFFF' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ color: '#EA2E49' });
     });
 
@@ -253,14 +253,14 @@ describe('styler factories', () => {
         color?: string | Array<string> | void,
       }> = createStringSystemStyle('color', 'color', 'colors', ['white', 'red']);
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ color: ['white'], ...defaultProps })).toEqual({ color: '#FFFFFF' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ color: '#FFFFFF' });
 
       defaultProps.viewport = 1;
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ color: '#EA2E49' });
     });
   });

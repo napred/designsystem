@@ -1,6 +1,5 @@
 // @flow
 
-import React from 'react';
 import { ServerStyleSheet } from 'styled-components';
 import { renderToStaticMarkup } from 'react-dom/server';
 import os from 'os';

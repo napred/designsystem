@@ -40,6 +40,15 @@ export default class Theme {
     this.gutters = settings.gutters;
     this.importFonts = settings.importFonts || [];
     this.spacing = settings.spacing;
+
+    this.color.bind(this);
+    this.fonts.bind(this);
+    this.fontFamily.bind(this);
+    this.fontSize.bind(this);
+    this.get.bind(this);
+    this.gutter.bind(this);
+    this.mediaQueries.bind(this);
+    this.space.bind(this);
   }
 
   color(name: string, defaultColor?: string): string {
@@ -54,7 +63,7 @@ export default class Theme {
   }
 
   get(attributeName: string): Array<string | number> | { [key: string]: string | number } {
-    // $FlowExpectError
+    // $FlowFixMe
     const attributeValues = this[attributeName];
 
     if (attributeValues == null) {
@@ -76,7 +85,7 @@ export default class Theme {
     if (typeof this.spacing === 'number') {
       return this.spacing;
     }
-    console.log('bla');
+
     return typeof this.spacing[scale] !== 'undefined'
       ? this.spacing[scale]
       : this.spacing[this.spacing.length - 1];

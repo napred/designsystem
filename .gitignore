@@ -8,4 +8,5 @@ storybook-static
 .idea
 .cache
 build
-packages/**/dist
+packages/**/*.tgz
+dist

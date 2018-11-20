@@ -1,9 +1,7 @@
 /**
- * @jest-environment jsdom
  * @flow
  */
 
-import 'jest-styled-components';
 import React from 'react';
 import { render } from 'enzyme';
 import { createCleanTag } from '../../';

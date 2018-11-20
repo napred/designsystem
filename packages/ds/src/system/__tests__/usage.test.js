@@ -1,9 +1,7 @@
 /**
- * @jest-environment jsdom
  * @flow
  */
 
-import 'jest-styled-components';
 import React from 'react';
 import { css } from 'styled-components';
 import { render } from 'enzyme';
@@ -33,14 +31,14 @@ describe('design system usage', () => {
     const CssParagraph = createSystemComponent('p', [bgColor]);
     const BlackDiv = createSystemComponent('div');
 
-    // $FlowExpectError
+    // $FlowFixMe
     BlackDiv.defaultProps = {
       bgColor: 'black',
     };
 
     const WhiteDiv = createSystemComponent(BlackDiv);
     const TomatoDiv = createSystemComponent(WhiteDiv);
-    // $FlowExpectError
+    // $FlowFixMe
     TomatoDiv.defaultProps = {
       color: 'tomato',
     };

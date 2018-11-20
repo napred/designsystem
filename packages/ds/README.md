@@ -1,2 +1,1 @@
-
-Napred Design system component
+# @napred/ds

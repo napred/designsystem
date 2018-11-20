@@ -1,7 +1,7 @@
 // @flow
 
 import getDisplayName from 'react-display-name';
-// $FlowExpectError
+// $FlowFixMe
 import styled, { isStyledComponent } from 'styled-components';
 import type { ComponentType } from 'react';
 import createCleanTag from './createCleanTag';

@@ -1,16 +1,11 @@
 // @flow
-/* eslint-disable no-use-before-define */
 
 import React, { type ComponentType } from 'react';
 import Theme from './theme';
 
-// extracts props from composed styler
-export type ExtractStylesProps = <T>(StyleFn<T>) => T;
-
-export type ExtractSystemComponentProps = <T>(SystemComponent<T>) => T;
-
 export type StyleFn<Props: Object> = {
   propNames: Array<string>,
+  // eslint-disable-next-line no-undef
   [[call]]: <T: Object>(p: StyleFn<T>) => StyleFn<T & Props>,
 };
 
@@ -26,3 +21,8 @@ export type SystemComponentProps = {
   system: Theme,
   viewport: number,
 };
+
+// extracts props from composed styler
+export type ExtractStylesProps = <T>(StyleFn<T>) => T;
+
+export type ExtractSystemComponentProps = <T>(SystemComponent<T>) => T;
