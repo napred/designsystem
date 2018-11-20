@@ -40,6 +40,7 @@
   "scripts": {
     "build": "rollup -c",
     "flow": "flow check",
+    "flow:update-types": "flow-typed update",
     "prebuild": "rimraf dist",
     "prepublishOnly": "npm run build"
   }

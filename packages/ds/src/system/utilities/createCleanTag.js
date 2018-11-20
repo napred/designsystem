@@ -12,7 +12,7 @@ export default function createCleanTag<T: Object>(
   tag: string | ComponentType<T>,
   defaultBlacklist?: Array<string> = [],
 ): ComponentType<T & Props> {
-  // $FlowExpectError
+  // $FlowFixMe
   return React.forwardRef(({ as: Tag = tag, blacklist = defaultBlacklist, ...rest }, ref) =>
     React.createElement(Tag, {
       ref,

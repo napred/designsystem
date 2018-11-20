@@ -26,9 +26,9 @@ describe('simple style factories', () => {
 
       defaultProps.viewport = 1;
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '2' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '2' });
     });
 
@@ -40,17 +40,17 @@ describe('simple style factories', () => {
         ['1', '2'],
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '1' });
 
       defaultProps.viewport = 2;
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '2' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1', '3'], ...defaultProps })).toEqual({ test: '3' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '2' });
     });
 
@@ -62,17 +62,17 @@ describe('simple style factories', () => {
         '1',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '1' });
 
       defaultProps.viewport = 2;
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1', '3'], ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '1' });
     });
 
@@ -83,18 +83,18 @@ describe('simple style factories', () => {
         val => val,
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
 
       defaultProps.viewport = 2;
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1', '3'], ...defaultProps })).toEqual({ test: '3' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
   });
@@ -111,9 +111,9 @@ describe('simple style factories', () => {
         ...defaultProps,
       };
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(props)).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -124,9 +124,9 @@ describe('simple style factories', () => {
         '2',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: '1', ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '2' });
     });
 
@@ -136,9 +136,9 @@ describe('simple style factories', () => {
         'test',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -149,9 +149,9 @@ describe('simple style factories', () => {
         '2',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '2' });
     });
 
@@ -162,9 +162,9 @@ describe('simple style factories', () => {
         ['3', '2'],
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ testLeft: '1', testRight: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ testLeft: '3', testRight: '3' });
     });
 
@@ -177,9 +177,9 @@ describe('simple style factories', () => {
 
       defaultProps.viewport = 1;
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ testLeft: '2', testRight: '2' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ testLeft: '2', testRight: '2' });
     });
 
@@ -190,16 +190,16 @@ describe('simple style factories', () => {
         ['3', '2'],
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ testLeft: '1', testRight: '1' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ testLeft: '3', testRight: '3' });
 
       defaultProps.viewport = 2;
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ testLeft: '2', testRight: '2' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ testLeft: '2', testRight: '2' });
     });
   });
@@ -211,9 +211,9 @@ describe('simple style factories', () => {
         'test',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: '1', ...defaultProps })).toEqual({ test: '1px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -224,9 +224,9 @@ describe('simple style factories', () => {
         '2',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: '1', ...defaultProps })).toEqual({ test: '1px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '2px' });
     });
 
@@ -236,9 +236,9 @@ describe('simple style factories', () => {
         'test',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({});
     });
 
@@ -249,9 +249,9 @@ describe('simple style factories', () => {
         '2',
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '2px' });
     });
 
@@ -262,9 +262,9 @@ describe('simple style factories', () => {
         ['1', '2'],
       );
 
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler({ test: ['1'], ...defaultProps })).toEqual({ test: '1px' });
-      // $FlowExpectError
+      // $FlowFixMe
       expect(styler(defaultProps)).toEqual({ test: '1px' });
     });
   });
