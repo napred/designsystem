@@ -4,6 +4,12 @@
   "main": "dist/ds.cjs.js",
   "jsnext:main": "dist/ds.esm.js",
   "module": "dist/ds.esm.js",
+  "keywords": [
+    "react",
+    "design-system",
+    "css-in-js",
+    "ui"
+  ],
   "contributors": [
     {
       "name": "Michal Kvasničák",
