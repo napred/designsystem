@@ -1,7 +1,9 @@
 # Napred Design System
 
-[![CircleCI](https://circleci.com/gh/napred/designsystem/tree/master.svg?style=svg&circle-token=d27d4754b61f1cf0079a1458f835deddc5868c6e)](https://circleci.com/gh/napred/designsystem/tree/master)
+![CircleCI](https://img.shields.io/circleci/project/github/napred/designsystem/master.svg?style=flat-square)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+![Version](https://img.shields.io/npm/v/@napred/ds.svg?style=flat-square)
+![License](https://img.shields.io/npm/l/@napred/ds.svg?style=flat-square)
 
 ## Development
 
@@ -19,6 +21,7 @@ Under the hood are [jest-image-snapshot](https://github.com/americanexpress/jest
 <!-- prettier-ignore -->
 | [<img src="https://avatars1.githubusercontent.com/u/174716?v=4" width="100px;"/><br /><sub><b>Michal Kvasničák</b></sub>](https://github.com/michalkvasnicak)<br />[💬](#question-michalkvasnicak "Answering Questions") [💻](https://github.com/napred/@napred/designsystem/commits?author=michalkvasnicak "Code") [🎨](#design-michalkvasnicak "Design") [📖](https://github.com/napred/@napred/designsystem/commits?author=michalkvasnicak "Documentation") [💡](#example-michalkvasnicak "Examples") [🤔](#ideas-michalkvasnicak "Ideas, Planning, & Feedback") [👀](#review-michalkvasnicak "Reviewed Pull Requests") [⚠️](https://github.com/napred/@napred/designsystem/commits?author=michalkvasnicak "Tests") | [<img src="https://avatars1.githubusercontent.com/u/373788?v=4" width="100px;"/><br /><sub><b>Juraj Hríb</b></sub>](https://github.com/jurajhrib)<br />[💬](#question-jurajhrib "Answering Questions") [💻](https://github.com/napred/@napred/designsystem/commits?author=jurajhrib "Code") [🎨](#design-jurajhrib "Design") [📖](https://github.com/napred/@napred/designsystem/commits?author=jurajhrib "Documentation") [💡](#example-jurajhrib "Examples") [🤔](#ideas-jurajhrib "Ideas, Planning, & Feedback") [👀](#review-jurajhrib "Reviewed Pull Requests") [⚠️](https://github.com/napred/@napred/designsystem/commits?author=jurajhrib "Tests") |
 | :---: | :---: |
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
