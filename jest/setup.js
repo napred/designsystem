@@ -1,7 +1,8 @@
 // @flow
 /* eslint-disable import/no-extraneous-dependencies, node/no-unpublished-require */
 
-require('jest-styled-components');
+import 'react-testing-library/cleanup-after-each';
+
 const Adapter = require('enzyme-adapter-react-16');
 const { configure } = require('enzyme');
 const { configureToMatchImageSnapshot } = require('jest-image-snapshot');

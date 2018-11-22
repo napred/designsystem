@@ -30,17 +30,20 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "styled-components": "^3.4.10"
+    "react": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-dom": "^16.7.0-alpha.0 || >=16.7.0"
   },
   "dependencies": {
-    "react-display-name": "^0.2.4"
+    "emotion": "^9.2.12",
+    "@emotion/is-prop-valid": "^0.7.1"
   },
   "devDependencies": {
     "enzyme": "^3.7.0",
     "flow-bin": "^0.83.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "react": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-testing-library": "^5.3.0"
   },
   "gitHead": "e94b1d302f40e6ababd4428447c22421d452b6ac",
   "scripts": {

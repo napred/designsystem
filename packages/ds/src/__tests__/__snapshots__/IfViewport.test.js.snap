@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IfViewport system component renders only for matched viewports (array prop) 1`] = `
+<DocumentFragment>
+  <div>
+    A
+  </div>
+</DocumentFragment>
+`;
+
+exports[`IfViewport system component renders only for matched viewports (greater than or equal) 1`] = `
+<DocumentFragment>
+  <div>
+    A
+  </div>
+</DocumentFragment>
+`;
+
+exports[`IfViewport system component renders only for matched viewports (greater than) 1`] = `
+<DocumentFragment>
+  <div>
+    A
+  </div>
+</DocumentFragment>
+`;
+
+exports[`IfViewport system component renders only for matched viewports (less than or equal) 1`] = `
+<DocumentFragment>
+  <div>
+    A
+  </div>
+</DocumentFragment>
+`;
+
+exports[`IfViewport system component renders only for matched viewports (less than) 1`] = `
+<DocumentFragment>
+  <div>
+    A
+  </div>
+</DocumentFragment>
+`;
+
+exports[`IfViewport system component renders only for matched viewports (scalar prop) 1`] = `
+<DocumentFragment>
+  <div>
+    A
+  </div>
+</DocumentFragment>
+`;

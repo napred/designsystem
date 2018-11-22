@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`design system usage works correctly with default system stylers 1`] = `
+<DocumentFragment>
+  <div
+    class="emotion-0"
+  >
+    Default Box
+  </div>
+  .emotion-0 {
+  color: #3B5998;
+}
+
+<div
+    class="emotion-0"
+    color="blue"
+  >
+    Blue box
+  </div>
+  .emotion-0 {
+  color: #3CD048;
+}
+
+<h1
+    class="emotion-0"
+    color="green"
+  >
+    Green title
+  </h1>
+  .emotion-0 {
+  color: #3CD048;
+  padding: 4px;
+  margin: 0px;
+  background-color: black;
+}
+
+<div
+    class="emotion-0 emotion-0"
+    color="green"
+  >
+    Green RedBox
+  </div>
+</DocumentFragment>
+`;
