@@ -11,6 +11,19 @@ describe('createCssStyle', () => {
     theme: defaultTheme,
   });
 
+  it('works with simple string', () => {
+    const styler = createCssStyle(
+      ['color'],
+      `
+        color: blue;
+      `,
+    );
+
+    expect(styler.propNames).toEqual(['color']);
+    expect(styler.stripProps).toEqual(['color']);
+    expect(styler.apply({}, system)).toEqual('css-1aj1g6z');
+  });
+
   it('works with simple style', () => {
     const styler = createCssStyle(
       ['color'],
@@ -22,6 +35,14 @@ describe('createCssStyle', () => {
     expect(styler.propNames).toEqual(['color']);
     expect(styler.stripProps).toEqual(['color']);
     expect(styler.apply({}, system)).toEqual('css-1aj1g6z');
+  });
+
+  it('works with simple object', () => {
+    const styler = createCssStyle(['color'], { color: 'blue' });
+
+    expect(styler.propNames).toEqual(['color']);
+    expect(styler.stripProps).toEqual(['color']);
+    expect(styler.apply({}, system)).toEqual('css-14ksm7b');
   });
 
   it('works with function', () => {
