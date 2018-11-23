@@ -3,7 +3,7 @@
 import { createComponent } from '@napred/ds';
 
 const Image = createComponent('Image', 'img', {
-  styles: {
+  style: {
     display: 'inline-block',
     maxWidth: '100%',
     height: 'auto',
