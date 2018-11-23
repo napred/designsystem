@@ -1,5 +1,6 @@
 // @flow
 
+// $FlowFixMe
 import { useCallback, useMemo, useState } from 'react';
 import type { StyleCache } from '../cache';
 import type { Styler } from '../styles';

@@ -13,6 +13,7 @@ import { createCssStyle } from '../';
 describe('createCssStyle', () => {
   it('works with simple string', () => {
     const styles = [createCssStyle(['test'], 'color: blue;')];
+    // $FlowFixMe
     const { asFragment } = render(
       <DesignSystem styles={styles}>
         <Box />
@@ -31,6 +32,7 @@ describe('createCssStyle', () => {
         `,
       ),
     ];
+    // $FlowFixMe
     const { asFragment } = render(
       <DesignSystem styles={styles}>
         <Box />
@@ -42,6 +44,7 @@ describe('createCssStyle', () => {
 
   it('works with simple object', () => {
     const styles = [createCssStyle(['test'], { color: 'blue' })];
+    // $FlowFixMe
     const { asFragment } = render(
       <DesignSystem styles={styles}>
         <Box />
@@ -61,6 +64,7 @@ describe('createCssStyle', () => {
           `,
       ),
     ];
+    // $FlowFixMe
     const { asFragment } = render(
       <DesignSystem styles={styles}>
         <Box color="blue" />

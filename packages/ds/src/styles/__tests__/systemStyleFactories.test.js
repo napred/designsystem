@@ -18,6 +18,7 @@ describe('styler factories', () => {
     it('works with simple value (without default value)', () => {
       const styles = [createSystemStyle('test', 'test', 'spacing', val => val)];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -31,6 +32,7 @@ describe('styler factories', () => {
     it('works with simple value (with default value)', () => {
       const styles = [createSystemStyle('test', 'test', 'spacing', val => val, 1)];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box fontSize={0} />
@@ -44,6 +46,7 @@ describe('styler factories', () => {
     it('works with responsive value (without default value)', () => {
       const styles = [createSystemStyle('test', 'test', 'spacing', val => val)];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem styles={styles}>
           <Box test={['1', '2']} />
@@ -66,6 +69,7 @@ describe('styler factories', () => {
     it('works with responsive value (with default simple value)', () => {
       const styles = [createSystemStyle('test', 'test', 'spacing', val => val, '2')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={[0]} />
@@ -79,6 +83,7 @@ describe('styler factories', () => {
     it('works with responsive value (with default responsive value)', () => {
       const styles = [createSystemStyle('test', 'test', 'spacing', val => val, ['1', '2'])];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={['1']} />
@@ -92,6 +97,7 @@ describe('styler factories', () => {
     it('takes the value from default responsive value if is not specified in prop (with default)', () => {
       const styles = [createSystemStyle('test', 'test', 'spacing', val => val, ['1', '2'])];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem is={1} styles={styles}>
           <Box fontSize={['1']} />
@@ -112,6 +118,7 @@ describe('styler factories', () => {
     it('takes last value from responsive value if breakpoint exceeds the range (with default responsive)', () => {
       const styles = [createSystemStyle('test', 'test', 'spacing', val => val, ['1', '2'])];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem is={1} styles={styles}>
           <Box test={['1']} />
@@ -143,6 +150,7 @@ describe('styler factories', () => {
     it('takes last value from responsive value if breakpoint exceeds the range (with default simple)', () => {
       const styles = [createSystemStyle('test', 'test', 'spacing', val => val, '1')];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem styles={styles}>
           <Box test={['1']} />
@@ -169,6 +177,7 @@ describe('styler factories', () => {
     it('works with simple value (without default value)', () => {
       const styles = [createNumericSystemStyle('test', 'test', 'fontSizes')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -182,6 +191,7 @@ describe('styler factories', () => {
     it('works with simple value (with default value)', () => {
       const styles = [createNumericSystemStyle('test', 'test', 'fontSizes', 1)];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -195,6 +205,7 @@ describe('styler factories', () => {
     it('works with responsive value (without default value)', () => {
       const styles = [createNumericSystemStyle('test', 'test', 'fontSizes')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={['1', '2']} />
@@ -208,6 +219,7 @@ describe('styler factories', () => {
     it('works with responsive value (with default simple value)', () => {
       const styles = [createNumericSystemStyle('test', 'test', 'fontSizes', '2')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={[0]} />
@@ -221,6 +233,7 @@ describe('styler factories', () => {
     it('works with responsive value (with default responsive value)', () => {
       const styles = [createNumericSystemStyle('test', 'test', 'fontSizes', ['1', '2'])];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={['1']} />
@@ -236,6 +249,7 @@ describe('styler factories', () => {
     it('works with simple value (without default value)', () => {
       const styles = [createStringSystemStyle('test', 'test', 'colors')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test="white" />
@@ -249,6 +263,7 @@ describe('styler factories', () => {
     it('works with simple value (with default value)', () => {
       const styles = [createStringSystemStyle('test', 'test', 'colors', 'white')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test="black" />
@@ -262,6 +277,7 @@ describe('styler factories', () => {
     it('works with responsive value (without default value)', () => {
       const styles = [createStringSystemStyle('test', 'test', 'colors', 'white')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={['white', 'black']} />
@@ -275,6 +291,7 @@ describe('styler factories', () => {
     it('works with responsive value (with default simple value)', () => {
       const styles = [createStringSystemStyle('test', 'test', 'colors', 'red')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={['white', 'red']} />
@@ -288,6 +305,7 @@ describe('styler factories', () => {
     it('works with responsive value (with default responsive value)', () => {
       const styles = [createStringSystemStyle('test', 'test', 'colors', ['white', 'red'])];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem styles={styles}>
           <Box test={['white']} />

@@ -14,6 +14,7 @@ describe('simple style factories', () => {
     it('takes the value from default responsive value if is not specified in prop (with default)', () => {
       const styles = [createStyle('test', 'test', val => val, ['1', '2'])];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem is={1} styles={styles}>
           <Box test={1} />
@@ -27,6 +28,7 @@ describe('simple style factories', () => {
     it('takes last value from responsive value if breakpoint exceeds the range (with default responsive)', () => {
       const styles = [createStyle('test', 'test', val => val, ['1', '2'])];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -50,6 +52,7 @@ describe('simple style factories', () => {
     it('takes last value from responsive value if breakpoint exceeds the range (with default simple)', () => {
       const styles = [createStyle('test', 'test', val => val, '1')];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -73,6 +76,7 @@ describe('simple style factories', () => {
     it('takes last value from responsive value if breakpoint exceeds the range (without default)', () => {
       const styles = [createStyle('test', 'test', val => val)];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -98,6 +102,7 @@ describe('simple style factories', () => {
     it('works with simple value (without default value)', () => {
       const styles = [createStringStyle('test', 'test')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -111,6 +116,7 @@ describe('simple style factories', () => {
     it('works with simple value (with default value)', () => {
       const styles = [createStringStyle('test', 'test', '2')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -124,6 +130,7 @@ describe('simple style factories', () => {
     it('works with responsive value (without default value)', () => {
       const styles = [createStringStyle('test', 'test')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={[1]} />
@@ -137,6 +144,7 @@ describe('simple style factories', () => {
     it('works with responsive value (with default simple value)', () => {
       const styles = [createStringStyle('test', 'test', '2')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={[1]} />
@@ -150,6 +158,7 @@ describe('simple style factories', () => {
     it('works with responsive value (with default responsive value)', () => {
       const styles = [createStringStyle('test', ['testLeft', 'testRight'], ['3', '2'])];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={[1]} />
@@ -163,6 +172,7 @@ describe('simple style factories', () => {
     it('takes the value from default responsive value if is not specified in prop (with default)', () => {
       const styles = [createStringStyle('test', ['testLeft', 'testRight'], ['3', '2'])];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem is={1} styles={styles}>
           <Box test={[1]} />
@@ -176,6 +186,7 @@ describe('simple style factories', () => {
     it('takes last value from responsive value if breakpoint exceeds the range (with default)', () => {
       const styles = [createStringStyle('test', ['testLeft', 'testRight'], ['3', '2'])];
 
+      // $FlowFixMe
       const { asFragment, rerender } = render(
         <DesignSystem styles={styles}>
           <Box test={[1]} />
@@ -198,6 +209,7 @@ describe('simple style factories', () => {
     it('works with simple value (without default value)', () => {
       const styles = [createNumericStyle('test', 'test')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -211,6 +223,7 @@ describe('simple style factories', () => {
     it('works with simple value (with default value)', () => {
       const styles = [createNumericStyle('test', 'test', '2')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={1} />
@@ -224,6 +237,7 @@ describe('simple style factories', () => {
     it('works with responsive value (without default value)', () => {
       const styles = [createNumericStyle('test', 'test')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={[1]} />
@@ -237,6 +251,7 @@ describe('simple style factories', () => {
     it('works with responsive value (with default simple value)', () => {
       const styles = [createNumericStyle('test', 'test', '2')];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={[1]} />
@@ -250,6 +265,7 @@ describe('simple style factories', () => {
     it('works with responsive value (with default responsive value)', () => {
       const styles = [createNumericStyle('test', 'test', ['1', '2'])];
 
+      // $FlowFixMe
       const { asFragment } = render(
         <DesignSystem styles={styles}>
           <Box test={[1]} />

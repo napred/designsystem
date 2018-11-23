@@ -16,7 +16,12 @@ type Cache = {
 
 type Options = {
   cache: Cache,
-  cacheKeyFn?: (props: Object, cacheProps: Array<string>, namespace?: Array<string>) => string,
+  cacheKeyFn?: (
+    props: Object,
+    cacheProps: Array<string>,
+    viewport: number,
+    namespace?: Array<string>,
+  ) => string,
   componentStyles: { [componentName: string]: Array<Styler<any>> },
   globalStyles: Array<Styler<any>>,
 };

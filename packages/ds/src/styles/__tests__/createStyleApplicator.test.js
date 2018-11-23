@@ -26,6 +26,7 @@ describe('createStyleApplicator', () => {
   ];
 
   it('works correctly for no props', () => {
+    // $FlowFixMe
     const { asFragment } = render(
       <DesignSystem styleApplicatorFactory={createStyleApplicator} styles={styles}>
         <Box />
@@ -36,6 +37,7 @@ describe('createStyleApplicator', () => {
   });
 
   it('works correctly for props and viewport', () => {
+    // $FlowFixMe
     const { asFragment, rerender } = render(
       <DesignSystem styleApplicatorFactory={createStyleApplicator} styles={styles}>
         <Box color="#ff0000" />
