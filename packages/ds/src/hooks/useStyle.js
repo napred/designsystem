@@ -8,6 +8,7 @@ export default function useStyle(
   options: {
     cacheProps?: Array<string>,
     style?: string | Object | ((props: Object) => any),
+    styles?: Array<Styler>,
   },
 ): string {
   const ds = useDesignSystem();

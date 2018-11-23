@@ -33,4 +33,45 @@ describe('design system usage', () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('works correctly with custom cache', () => {
+    const recs = {};
+    const cache = {
+      get: jest.fn().mockImplementation(name => recs[name]),
+      set: jest.fn().mockImplementation((name, val) => {
+        recs[name] = val;
+        return val;
+      }),
+    };
+
+    // $FlowFixMe
+    const { asFragment } = render(
+      <DesignSystem cache={cache}>
+        <Box as={RedBox} className="p1" color="green" p={1} m={0} bgColor="black">
+          Green RedBox
+        </Box>
+        <Box as={RedBox} className="p1" color="green" p={1} m={0} bgColor="black">
+          Green RedBox
+        </Box>
+        <Box as={RedBox} className="p2" color="green" p={2} m={0} bgColor="black">
+          Green RedBox
+        </Box>
+        <Box as={RedBox} className="p2" color="green" p={2} m={0} bgColor="black">
+          Green RedBox
+        </Box>
+        <Box as={RedBox} className="m1" color="green" p={2} m={1} bgColor="black">
+          Green RedBox
+        </Box>
+        <Box as={RedBox} className="m1" color="green" p={2} m={1} bgColor="black">
+          Green RedBox
+        </Box>
+      </DesignSystem>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+
+    expect(cache.get).toHaveBeenCalledTimes(12);
+    expect(cache.set).toHaveBeenCalledTimes(3);
+    expect(recs).not.toEqual({});
+  });
 });

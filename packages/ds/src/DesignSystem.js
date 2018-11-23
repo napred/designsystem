@@ -6,11 +6,10 @@ import DesignSystemContext from './context';
 import defaultTheme from './defaultTheme';
 import { createSystem } from './system';
 import { createNullCache, type StyleCache } from './cache';
-import { createStyleApplicator, styles as systemStyles, type Styler } from './styles';
+import { createStyleApplicator, styleList, type Styler } from './styles';
 import type { Theme } from './theme';
 
 const defaultCache = createNullCache();
-const baseStyles = Object.keys(systemStyles).map(name => systemStyles[name]);
 
 export const DesignSystemConsumer = DesignSystemContext.Consumer;
 
@@ -37,7 +36,7 @@ export default function DesignSystem({
     createSystem({
       cache,
       componentStyles,
-      globalStyles: [...baseStyles, ...styles],
+      globalStyles: [...styleList, ...styles],
       styleApplicatorFactory,
       theme,
       viewport: is,

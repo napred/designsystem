@@ -1,5 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`design system usage works correctly with custom cache 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 4px;
+}
+
+<div
+    class="p1  emotion-0  emotion-0"
+  >
+    Green RedBox
+  </div>
+  .emotion-0 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 4px;
+}
+
+<div
+    class="p1  emotion-0  emotion-0"
+  >
+    Green RedBox
+  </div>
+  .emotion-0 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 8px;
+}
+
+<div
+    class="p2  emotion-0  emotion-0"
+  >
+    Green RedBox
+  </div>
+  .emotion-0 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 8px;
+}
+
+<div
+    class="p2  emotion-0  emotion-0"
+  >
+    Green RedBox
+  </div>
+  .emotion-0 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 4px;
+  padding: 8px;
+}
+
+<div
+    class="m1  emotion-0  emotion-0"
+  >
+    Green RedBox
+  </div>
+  .emotion-0 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 4px;
+  padding: 8px;
+}
+
+<div
+    class="m1  emotion-0  emotion-0"
+  >
+    Green RedBox
+  </div>
+</DocumentFragment>
+`;
+
 exports[`design system usage works correctly with default system stylers 1`] = `
 <DocumentFragment>
   .emotion-0 {
@@ -35,16 +124,16 @@ exports[`design system usage works correctly with default system stylers 1`] = `
     Green title
   </h1>
   .emotion-0 {
-  color: #3CD048;
   background-color: black;
-  margin: 0px;
-  padding: 4px;
+  color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  margin: 0px;
+  padding: 4px;
 }
 
 <div
-    class="emotion-0 emotion-0"
+    class="emotion-0  emotion-0"
   >
     Green RedBox
   </div>

@@ -62,12 +62,32 @@ export default function createStyleApplicator({
         style: componentStyle,
       } = {},
     ) => {
+      let className = '';
+
+      // first we need to generate local styles for component
+      // if there are styles for component
+      // generate the class name for them
+      if (componentStyle != null) {
+        // cache only props length is more than 0
+        const styleKey =
+          componentCacheProps.length > 0 ? cacheKeyFn(props, componentCacheProps) : null;
+        className = styleKey ? cache.get(styleKey) : '';
+
+        if (className == null) {
+          if (typeof componentStyle === 'string' || typeof componentStyle === 'object') {
+            className = cache.set(styleKey, css(componentStyle));
+          } else {
+            className = cache.set(styleKey, css(componentStyle(props)));
+          }
+        }
+      }
+
       // first look if we have styles
       const key = cacheKeyFn(props, cacheProps);
 
-      let className = cache.get(key);
+      let stylesClassName = cache.get(key);
 
-      if (className == null) {
+      if (stylesClassName == null) {
         const clsName = css(
           [...globalStyles, ...(componentStyles[componentName] || [])].reduce((result, style) => {
             const appliedStyle = style.apply(props, system);
@@ -76,31 +96,14 @@ export default function createStyleApplicator({
           }, []),
         );
 
-        className = cache.set(key, clsName);
-
-        // if there are styles for component
-        // generate the class name for them
-        if (componentStyle != null) {
-          const styleKey =
-            componentCacheProps.length > 0 ? cacheKeyFn(props, componentCacheProps) : '';
-          let componentClassName = cache.get(styleKey);
-
-          if (componentClassName == null) {
-            if (typeof componentStyle === 'string' || typeof componentStyle === 'object') {
-              componentClassName = cache.set(styleKey, css(componentStyle));
-            } else {
-              componentClassName = cache.set(styleKey, css(componentStyle(props)));
-            }
-          }
-
-          if (componentClassName) {
-            className = `${className} ${componentClassName}`;
-          }
-        }
+        stylesClassName = cache.set(key, clsName);
       }
 
       // if there is a className in props, extend it
-      className = props.className ? `${props.className} ${className}` : className;
+      className = (props.className
+        ? `${props.className} ${className} ${stylesClassName}`
+        : `${className} ${stylesClassName}`
+      ).trim();
 
       // if there are stripProps in props, extend final stripProps
       return [
