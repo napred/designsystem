@@ -32,16 +32,21 @@ export default function DesignSystem({
   is = 0,
   theme = defaultTheme,
 }: Props) {
-  const [context] = useState(() =>
-    createSystem({
-      cache,
-      componentStyles,
-      globalStyles: [...styleList, ...styles],
-      styleApplicatorFactory,
-      theme,
-      viewport: is,
-    }),
-  );
+  const [previousViewport, setPreviousViewport] = useState(is);
+  const [globalStyles] = useState(() => [...styleList, ...styles]);
+  const system = createSystem({
+    cache,
+    componentStyles,
+    globalStyles,
+    styleApplicatorFactory,
+    theme,
+    viewport: is,
+  });
 
-  return <DesignSystemContext.Provider value={context}>{children}</DesignSystemContext.Provider>;
+  if (previousViewport !== is) {
+    setPreviousViewport(is);
+    system.setViewport(is);
+  }
+
+  return <DesignSystemContext.Provider value={system}>{children}</DesignSystemContext.Provider>;
 }

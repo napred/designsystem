@@ -1,5 +1,6 @@
 // @flow
 
+import { useCallback, useMemo, useState } from 'react';
 import type { StyleCache } from '../cache';
 import type { Styler } from '../styles';
 import type { Theme } from '../theme';
@@ -17,6 +18,7 @@ export type System = {
 
 export type SystemAPI = System & {
   applyStyles(componentName: string, props: Object, componentOptions?: ComponentOptions): Object,
+  setViewport(viewport: number): void,
 };
 
 export type SystemSettings = {
@@ -36,17 +38,26 @@ export default function createSystem({
   theme,
   viewport = 0,
 }: SystemSettings): SystemAPI {
-  const styleApplicator = styleApplicatorFactory({
-    cache,
-    componentStyles,
-    globalStyles,
-  });
+  const [currentViewport, setViewport] = useState(viewport);
+  const styleApplicator = useMemo(
+    () => styleApplicatorFactory({ cache, componentStyles, globalStyles }),
+    [cache, componentStyles, globalStyles],
+  );
+  const applyStyles = useCallback(
+    (componentName: string, props: Object, options?: ComponentOptions): Object =>
+      styleApplicator.applyStyles(
+        componentName,
+        props,
+        { theme, viewport: currentViewport },
+        options,
+      ),
+    [currentViewport, theme],
+  );
 
   return {
-    applyStyles: (componentName: string, props: Object, options?: ComponentOptions): Object =>
-      styleApplicator.applyStyles(componentName, props, { theme, viewport }, options),
-    propBlacklist: styleApplicator.stripProps,
+    applyStyles,
+    setViewport,
     theme,
-    viewport,
+    viewport: currentViewport,
   };
 }

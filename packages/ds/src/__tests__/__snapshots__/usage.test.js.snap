@@ -2,7 +2,7 @@
 
 exports[`design system usage works correctly with custom cache 1`] = `
 <DocumentFragment>
-  .emotion-0 {
+  .css-oe3qx1 {
   background-color: black;
   color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -12,11 +12,11 @@ exports[`design system usage works correctly with custom cache 1`] = `
 }
 
 <div
-    class="p1 emotion-0"
+    class="p1 css-oe3qx1"
   >
     Green RedBox
   </div>
-  .emotion-0 {
+  .css-oe3qx1 {
   background-color: black;
   color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -26,11 +26,11 @@ exports[`design system usage works correctly with custom cache 1`] = `
 }
 
 <div
-    class="p1 emotion-0"
+    class="p1 css-oe3qx1"
   >
     Green RedBox
   </div>
-  .emotion-0 {
+  .css-wdfc82 {
   background-color: black;
   color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -40,11 +40,11 @@ exports[`design system usage works correctly with custom cache 1`] = `
 }
 
 <div
-    class="p2 emotion-0"
+    class="p2 css-wdfc82"
   >
     Green RedBox
   </div>
-  .emotion-0 {
+  .css-wdfc82 {
   background-color: black;
   color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -54,11 +54,11 @@ exports[`design system usage works correctly with custom cache 1`] = `
 }
 
 <div
-    class="p2 emotion-0"
+    class="p2 css-wdfc82"
   >
     Green RedBox
   </div>
-  .emotion-0 {
+  .css-1pfivsk {
   background-color: black;
   color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -68,11 +68,11 @@ exports[`design system usage works correctly with custom cache 1`] = `
 }
 
 <div
-    class="m1 emotion-0"
+    class="m1 css-1pfivsk"
   >
     Green RedBox
   </div>
-  .emotion-0 {
+  .css-1pfivsk {
   background-color: black;
   color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -82,7 +82,7 @@ exports[`design system usage works correctly with custom cache 1`] = `
 }
 
 <div
-    class="m1 emotion-0"
+    class="m1 css-1pfivsk"
   >
     Green RedBox
   </div>
@@ -91,39 +91,39 @@ exports[`design system usage works correctly with custom cache 1`] = `
 
 exports[`design system usage works correctly with default system stylers 1`] = `
 <DocumentFragment>
-  .emotion-0 {
+  .css-1iuax7x {
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
 }
 
 <div
-    class="emotion-0"
+    class="css-1iuax7x"
   >
     Default Box
   </div>
-  .emotion-0 {
+  .css-1dl3ieo {
   color: #3B5998;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
 }
 
 <div
-    class="emotion-0"
+    class="css-1dl3ieo"
   >
     Blue box
   </div>
-  .emotion-0 {
+  .css-1e6piw7 {
   color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
 }
 
 <h1
-    class="emotion-0"
+    class="css-1e6piw7"
   >
     Green title
   </h1>
-  .emotion-0 {
+  .css-oe3qx1 {
   background-color: black;
   color: #3CD048;
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -133,7 +133,7 @@ exports[`design system usage works correctly with default system stylers 1`] = `
 }
 
 <div
-    class="emotion-0"
+    class="css-oe3qx1"
   >
     Green RedBox
   </div>
