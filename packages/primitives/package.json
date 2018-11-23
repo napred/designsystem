@@ -1,6 +1,6 @@
 {
   "name": "@napred/primitives",
-  "version": "0.1.0-alpha.0",
+  "version": "0.2.0-alpha.3",
   "main": "dist/primitives.cjs.js",
   "jsnext:main": "dist/primitives.esm.js",
   "module": "dist/primitives.esm.js",
