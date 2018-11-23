@@ -782,18 +782,6 @@
   dependencies:
     "@emotion/memoize" "^0.6.6"
 
-"@emotion/is-prop-valid@^0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.7.1.tgz#f822adf68b64b63e6cf1a41c2beee803fc576c3b"
-  integrity sha512-2p7VxoA7V8chp3NX+B9IdB5GEiZJyzJmAjudqdFZzmeZyk73sLeqvy6nItrzsRvbteYj7KsAybrP5l3x1vGprA==
-  dependencies:
-    "@emotion/memoize" "0.7.1"
-
-"@emotion/memoize@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.1.tgz#e93c13942592cf5ef01aa8297444dc192beee52f"
-  integrity sha512-Qv4LTqO11jepd5Qmlp3M1YEjBumoTHcHFdgPTQ+sFlIL5myi/7xu/POwP7IRu6odBdmLXdtIs1D6TuW6kbwbbg==
-
 "@emotion/memoize@^0.6.1", "@emotion/memoize@^0.6.6":
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.6.6.tgz#004b98298d04c7ca3b4f50ca2035d4f60d2eed1b"

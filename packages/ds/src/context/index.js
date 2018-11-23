@@ -1,11 +1,10 @@
 // @flow
 
-import { createContext } from 'react';
-import createSystem from './createSystem';
+import { createContext, type Context } from 'react';
+import type { System } from '../system';
 
-export { createSystem };
 export * from './types';
 
-const DesignSystemContext = createContext(createSystem());
+const DesignSystemContext: Context<System> = createContext(({}: any));
 
 export default DesignSystemContext;

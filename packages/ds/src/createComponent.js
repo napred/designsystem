@@ -6,28 +6,34 @@ import { cleanProps } from './utilities';
 
 type Props = {
   as?: string | ComponentType<*>,
-  className?: string,
+};
+
+type Options<TProps: *> = {
+  cacheProps?: Array<string>,
+  defaultProps?: $Shape<TProps>,
+  stripProps?: Array<string>,
+  style?: string | Object | ((props: TProps) => string),
 };
 
 export default function createComponent<TProps: *>(
   componentName: string,
   component: string | ComponentType<TProps>,
-  defaultStyle?: string | Object | Function,
-  defaultProps?: Object,
+  options?: Options = {},
 ): StatelessFunctionalComponent<TProps> {
-  const factory = ({ as = component, className, ...restProps }: Props) => {
-    const clsName = useStyle(componentName, defaultStyle, restProps, className);
+  const factory = ({ as = component, ...restProps }: Props) => {
+    const [styleProps, stripProps] = useStyle(componentName, restProps, options);
 
     return createElement(as, {
-      className: clsName,
-      ...(typeof as === 'string' ? cleanProps(restProps) : restProps),
+      ...(typeof as === 'string'
+        ? cleanProps(styleProps, stripProps)
+        : { ...styleProps, stripProps }),
     });
   };
 
   factory.displayName = componentName;
 
-  if (defaultProps) {
-    factory.defaultProps = defaultProps;
+  if (options.defaultProps) {
+    factory.defaultProps = options.defaultProps;
   }
 
   return factory;

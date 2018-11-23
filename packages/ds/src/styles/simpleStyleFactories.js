@@ -57,6 +57,7 @@ export function createStyle<T: Object>(
       return formatStyleResult(propValue, cssAttributes, formatter);
     },
     propNames: [propName],
+    stripProps: [propName],
   };
 }
 

@@ -16,5 +16,6 @@ export default function createCssStyle<TProps>(
       return style(props, system);
     },
     propNames,
+    stripProps: propNames,
   };
 }

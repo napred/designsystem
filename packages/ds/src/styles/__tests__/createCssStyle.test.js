@@ -1,10 +1,16 @@
 // @flow
 
 import { css } from 'emotion';
-import { createSystem } from '../../context';
-import { createCssStyle } from '../';
+import defaultTheme from '../../defaultTheme';
+import { createSystem } from '../../system';
+import { createCssStyle, createStyleApplicator } from '../';
 
 describe('createCssStyle', () => {
+  const system = createSystem({
+    styleApplicatorFactory: createStyleApplicator,
+    theme: defaultTheme,
+  });
+
   it('works with simple style', () => {
     const styler = createCssStyle(
       ['color'],
@@ -14,7 +20,8 @@ describe('createCssStyle', () => {
     );
 
     expect(styler.propNames).toEqual(['color']);
-    expect(styler.apply({}, createSystem())).toEqual('css-1aj1g6z');
+    expect(styler.stripProps).toEqual(['color']);
+    expect(styler.apply({}, system)).toEqual('css-1aj1g6z');
   });
 
   it('works with function', () => {
@@ -27,6 +34,7 @@ describe('createCssStyle', () => {
     );
 
     expect(styler.propNames).toEqual(['color']);
-    expect(styler.apply({ color: 'blue' }, createSystem())).toEqual('css-b0nm20');
+    expect(styler.stripProps).toEqual(['color']);
+    expect(styler.apply({ color: 'blue' }, system)).toEqual('css-b0nm20');
   });
 });

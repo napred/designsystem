@@ -15,9 +15,9 @@ export function createSystemStyle<T: Object>(
   const cssAttributes: Array<string> = Array.isArray(cssAttribute) ? cssAttribute : [cssAttribute];
 
   return {
-    apply: (props: Object, { get, viewport: bp }: System) => {
+    apply: (props: Object, { theme, viewport: bp }: System) => {
       const propValue = props[propName] == null ? defaultValue : props[propName];
-      const systemValue = get(systemName);
+      const systemValue = theme.get(systemName);
 
       if (propValue == null) {
         return formatStyleResult(null, cssAttributes, formatter);
@@ -60,6 +60,7 @@ export function createSystemStyle<T: Object>(
       return formatStyleResult(systemVal, cssAttributes, formatter);
     },
     propNames: [propName],
+    stripProps: [propName],
   };
 }
 

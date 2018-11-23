@@ -1,11 +1,16 @@
 // @flow
 /* eslint-disable max-nested-callbacks */
 
-import { createSystem } from '../../context';
+import defaultTheme from '../../defaultTheme';
+import { createSystem } from '../../system';
+import { createStyleApplicator } from '../';
 import { createNumericStyle, createStringStyle, createStyle } from '../simpleStyleFactories';
 
 describe('simple style factories', () => {
-  const system = createSystem({ baseStyles: [] });
+  const system = createSystem({
+    styleApplicatorFactory: createStyleApplicator,
+    theme: defaultTheme,
+  });
 
   beforeEach(() => {
     system.viewport = 0;
