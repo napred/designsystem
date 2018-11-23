@@ -1,63 +1,72 @@
-// @flow
+/**
+ * @flow
+ * @jest-environment jsdom
+ */
 
+import React from 'react';
+import { render } from 'react-testing-library';
 import { css } from 'emotion';
-import defaultTheme from '../../defaultTheme';
-import { createNullCache } from '../../cache';
-import { createSystem } from '../../system';
-import { createCssStyle, createStyleApplicator } from '../';
+
+import { Box, DesignSystem } from '../../';
+import { createCssStyle } from '../';
 
 describe('createCssStyle', () => {
-  const system = createSystem({
-    cache: createNullCache(),
-    styleApplicatorFactory: createStyleApplicator,
-    theme: defaultTheme,
-  });
-
   it('works with simple string', () => {
-    const styler = createCssStyle(
-      ['color'],
-      `
-        color: blue;
-      `,
+    const styles = [createCssStyle(['test'], 'color: blue;')];
+    const { asFragment } = render(
+      <DesignSystem styles={styles}>
+        <Box />
+      </DesignSystem>,
     );
 
-    expect(styler.propNames).toEqual(['color']);
-    expect(styler.stripProps).toEqual(['color']);
-    expect(styler.apply({}, system)).toEqual('css-1aj1g6z');
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('works with simple style', () => {
-    const styler = createCssStyle(
-      ['color'],
-      css`
-        color: blue;
-      `,
+    const styles = [
+      createCssStyle(
+        ['test'],
+        css`
+          color: blue;
+        `,
+      ),
+    ];
+    const { asFragment } = render(
+      <DesignSystem styles={styles}>
+        <Box />
+      </DesignSystem>,
     );
 
-    expect(styler.propNames).toEqual(['color']);
-    expect(styler.stripProps).toEqual(['color']);
-    expect(styler.apply({}, system)).toEqual('css-1aj1g6z');
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('works with simple object', () => {
-    const styler = createCssStyle(['color'], { color: 'blue' });
+    const styles = [createCssStyle(['test'], { color: 'blue' })];
+    const { asFragment } = render(
+      <DesignSystem styles={styles}>
+        <Box />
+      </DesignSystem>,
+    );
 
-    expect(styler.propNames).toEqual(['color']);
-    expect(styler.stripProps).toEqual(['color']);
-    expect(styler.apply({}, system)).toEqual('css-14ksm7b');
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('works with function', () => {
-    const styler = createCssStyle(
-      ['color'],
-      props =>
-        css`
-          color: ${props.color};
-        `,
+    const styles = [
+      createCssStyle(
+        ['test'],
+        props =>
+          css`
+            color: ${props.color};
+          `,
+      ),
+    ];
+    const { asFragment } = render(
+      <DesignSystem styles={styles}>
+        <Box color="blue" />
+      </DesignSystem>,
     );
 
-    expect(styler.propNames).toEqual(['color']);
-    expect(styler.stripProps).toEqual(['color']);
-    expect(styler.apply({ color: 'blue' }, system)).toEqual('css-b0nm20');
+    expect(asFragment()).toMatchSnapshot();
   });
 });

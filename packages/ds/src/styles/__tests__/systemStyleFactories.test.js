@@ -1,10 +1,12 @@
-// @flow
-/* eslint-disable max-nested-callbacks */
+/**
+ * @flow
+ * @jest-environment jsdom
+ */
 
-import defaultTheme from '../../defaultTheme';
-import { createNullCache } from '../../cache';
-import { createSystem } from '../../system';
-import { createStyleApplicator } from '../';
+import React from 'react';
+import { render } from 'react-testing-library';
+
+import { Box, DesignSystem } from '../../';
 import {
   createNumericSystemStyle,
   createStringSystemStyle,
@@ -12,166 +14,297 @@ import {
 } from '../systemStyleFactories';
 
 describe('styler factories', () => {
-  const system = createSystem({
-    cache: createNullCache(),
-    styleApplicatorFactory: createStyleApplicator,
-    theme: defaultTheme,
-  });
-
-  beforeEach(() => {
-    system.viewport = 0;
-  });
-
   describe('createSystemStyle', () => {
     it('works with simple value (without default value)', () => {
-      const styler = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val);
+      const styles = [createSystemStyle('test', 'test', 'spacing', val => val)];
 
-      expect(styler.apply({ fontSize: 1 }, system)).toEqual({ 'font-size': 20 });
-      expect(styler.apply({}, system)).toEqual({});
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={1} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with simple value (with default value)', () => {
-      const styler = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val, 1);
+      const styles = [createSystemStyle('test', 'test', 'spacing', val => val, 1)];
 
-      expect(styler.apply({ fontSize: 0 }, system)).toEqual({ 'font-size': 16 });
-      expect(styler.apply({}, system)).toEqual({ 'font-size': 20 });
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box fontSize={0} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (without default value)', () => {
-      const styler = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val);
+      const styles = [createSystemStyle('test', 'test', 'spacing', val => val)];
 
-      expect(styler.apply({ fontSize: ['1', '2'] }, system)).toEqual({ 'font-size': 20 });
-      expect(styler.apply({}, system)).toEqual({});
+      const { asFragment, rerender } = render(
+        <DesignSystem styles={styles}>
+          <Box test={['1', '2']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
+
+      rerender(
+        <DesignSystem is={1} styles={styles}>
+          <Box test={['1', '2']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (with default simple value)', () => {
-      const styler = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val, '2');
+      const styles = [createSystemStyle('test', 'test', 'spacing', val => val, '2')];
 
-      expect(styler.apply({ fontSize: [0] }, system)).toEqual({ 'font-size': 16 });
-      expect(styler.apply({}, system)).toEqual({ 'font-size': 24 });
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={[0]} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (with default responsive value)', () => {
-      const styler = createSystemStyle('fontSize', 'font-size', 'fontSizes', val => val, [
-        '1',
-        '2',
-      ]);
+      const styles = [createSystemStyle('test', 'test', 'spacing', val => val, ['1', '2'])];
 
-      expect(styler.apply({ fontSize: ['1'] }, system)).toEqual({ 'font-size': 20 });
-      expect(styler.apply({}, system)).toEqual({ 'font-size': 20 });
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={['1']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('takes the value from default responsive value if is not specified in prop (with default)', () => {
-      const styler = createSystemStyle('test', 'test', 'spacing', val => val, ['1', '2']);
+      const styles = [createSystemStyle('test', 'test', 'spacing', val => val, ['1', '2'])];
 
-      system.viewport = 1;
+      const { asFragment, rerender } = render(
+        <DesignSystem is={1} styles={styles}>
+          <Box fontSize={['1']} />
+        </DesignSystem>,
+      );
 
-      expect(styler.apply({ test: ['1'] }, system)).toEqual({ test: 8 });
-      expect(styler.apply({}, system)).toEqual({ test: 8 });
+      expect(asFragment()).toMatchSnapshot();
+
+      rerender(
+        <DesignSystem is={1} styles={styles}>
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('takes last value from responsive value if breakpoint exceeds the range (with default responsive)', () => {
-      const styler = createSystemStyle('test', 'test', 'spacing', val => val, ['1', '2']);
+      const styles = [createSystemStyle('test', 'test', 'spacing', val => val, ['1', '2'])];
 
-      expect(styler.apply({ test: ['1'] }, system)).toEqual({ test: 4 });
-      expect(styler.apply({}, system)).toEqual({ test: 4 });
+      const { asFragment, rerender } = render(
+        <DesignSystem is={1} styles={styles}>
+          <Box test={['1']} />
+          <Box />
+        </DesignSystem>,
+      );
 
-      system.viewport = 2;
+      expect(asFragment()).toMatchSnapshot();
 
-      expect(styler.apply({ test: ['1'] }, system)).toEqual({ test: 8 });
-      expect(styler.apply({ test: ['1', '3'] }, system)).toEqual({ test: 16 });
-      expect(styler.apply({}, system)).toEqual({ test: 8 });
+      rerender(
+        <DesignSystem is={2} styles={styles}>
+          <Box test={['1']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
+
+      rerender(
+        <DesignSystem is={2} styles={styles}>
+          <Box test={['1', '3']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('takes last value from responsive value if breakpoint exceeds the range (with default simple)', () => {
-      const styler = createSystemStyle('test', 'test', 'spacing', val => val, '1');
+      const styles = [createSystemStyle('test', 'test', 'spacing', val => val, '1')];
 
-      expect(styler.apply({ test: ['1'] }, system)).toEqual({ test: 4 });
-      expect(styler.apply({}, system)).toEqual({ test: 4 });
+      const { asFragment, rerender } = render(
+        <DesignSystem styles={styles}>
+          <Box test={['1']} />
+          <Box test={['1', '3']} />
+          <Box />
+        </DesignSystem>,
+      );
 
-      system.viewport = 2;
+      expect(asFragment()).toMatchSnapshot();
 
-      expect(styler.apply({ test: ['1'] }, system)).toEqual({ test: 4 });
-      expect(styler.apply({ test: ['1', '3'] }, system)).toEqual({ test: 16 });
-      expect(styler.apply({}, system)).toEqual({ test: 4 });
+      rerender(
+        <DesignSystem is={2} styles={styles}>
+          <Box test={['1']} />
+          <Box test={['1', '3']} />
+          <Box />,
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
   describe('createSystemNumericStyler', () => {
     it('works with simple value (without default value)', () => {
-      const styler = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes');
+      const styles = [createNumericSystemStyle('test', 'test', 'fontSizes')];
 
-      expect(styler.apply({ fontSize: 1 }, system)).toEqual({ 'font-size': '20px' });
-      expect(styler.apply({}, system)).toEqual({});
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={1} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with simple value (with default value)', () => {
-      const styler = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes', 1);
+      const styles = [createNumericSystemStyle('test', 'test', 'fontSizes', 1)];
 
-      expect(styler.apply({ fontSize: 0 }, system)).toEqual({ 'font-size': '16px' });
-      expect(styler.apply({}, system)).toEqual({ 'font-size': '20px' });
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={1} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (without default value)', () => {
-      const styler = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes');
+      const styles = [createNumericSystemStyle('test', 'test', 'fontSizes')];
 
-      expect(styler.apply({ fontSize: ['1', '2'] }, system)).toEqual({ 'font-size': '20px' });
-      expect(styler.apply({}, system)).toEqual({});
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={['1', '2']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (with default simple value)', () => {
-      const styler = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes', '2');
+      const styles = [createNumericSystemStyle('test', 'test', 'fontSizes', '2')];
 
-      expect(styler.apply({ fontSize: [0] }, system)).toEqual({ 'font-size': '16px' });
-      expect(styler.apply({}, system)).toEqual({ 'font-size': '24px' });
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={[0]} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (with default responsive value)', () => {
-      const styler = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes', ['1', '2']);
+      const styles = [createNumericSystemStyle('test', 'test', 'fontSizes', ['1', '2'])];
 
-      expect(styler.apply({ fontSize: ['1'] }, system)).toEqual({ 'font-size': '20px' });
-      expect(styler.apply({}, system)).toEqual({ 'font-size': '20px' });
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={['1']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 
   describe('createSystemStringStyler', () => {
     it('works with simple value (without default value)', () => {
-      const styler = createNumericSystemStyle('color', 'color', 'colors');
+      const styles = [createStringSystemStyle('test', 'test', 'colors')];
 
-      expect(styler.apply({ color: 'white' }, system)).toEqual({ color: '#FFFFFF' });
-      expect(styler.apply({}, system)).toEqual({});
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test="white" />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with simple value (with default value)', () => {
-      const styler = createStringSystemStyle('color', 'color', 'colors', 'white');
+      const styles = [createStringSystemStyle('test', 'test', 'colors', 'white')];
 
-      expect(styler.apply({ color: 'white' }, system)).toEqual({ color: '#FFFFFF' });
-      expect(styler.apply({}, system)).toEqual({ color: '#FFFFFF' });
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test="black" />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (without default value)', () => {
-      const styler = createStringSystemStyle('color', 'color', 'colors');
+      const styles = [createStringSystemStyle('test', 'test', 'colors', 'white')];
 
-      expect(styler.apply({ color: ['white', 'black'] }, system)).toEqual({ color: '#FFFFFF' });
-      expect(styler.apply({}, system)).toEqual({});
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={['white', 'black']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (with default simple value)', () => {
-      const styler = createStringSystemStyle('color', 'color', 'colors', 'red');
+      const styles = [createStringSystemStyle('test', 'test', 'colors', 'red')];
 
-      expect(styler.apply({ color: ['white', 'red'] }, system)).toEqual({ color: '#FFFFFF' });
-      expect(styler.apply({}, system)).toEqual({ color: '#EA2E49' });
+      const { asFragment } = render(
+        <DesignSystem styles={styles}>
+          <Box test={['white', 'red']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
 
     it('works with responsive value (with default responsive value)', () => {
-      const styler = createStringSystemStyle('color', 'color', 'colors', ['white', 'red']);
+      const styles = [createStringSystemStyle('test', 'test', 'colors', ['white', 'red'])];
 
-      expect(styler.apply({ color: ['white'] }, system)).toEqual({ color: '#FFFFFF' });
-      expect(styler.apply({}, system)).toEqual({ color: '#FFFFFF' });
+      const { asFragment, rerender } = render(
+        <DesignSystem styles={styles}>
+          <Box test={['white']} />
+          <Box />
+        </DesignSystem>,
+      );
 
-      system.viewport = 1;
+      expect(asFragment()).toMatchSnapshot();
 
-      expect(styler.apply({}, system)).toEqual({ color: '#EA2E49' });
+      rerender(
+        <DesignSystem is={1} styles={styles}>
+          <Box test={['white']} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
     });
   });
 });
