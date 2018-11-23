@@ -5,15 +5,13 @@
 
 import React from 'react';
 import { render } from 'react-testing-library';
-import { Box, DesignSystem } from '../';
+import { createComponent, Box, DesignSystem } from '../';
 
-function RedBox(props) {
-  return <Box {...props} />;
-}
-
-RedBox.defaultProps = {
-  color: 'red',
-};
+const RedBox = createComponent('RedBox', Box, {
+  defaultProps: {
+    color: 'red',
+  },
+});
 
 describe('design system usage', () => {
   it('works correctly with default system stylers', () => {
@@ -70,7 +68,7 @@ describe('design system usage', () => {
 
     expect(asFragment()).toMatchSnapshot();
 
-    expect(cache.get).toHaveBeenCalledTimes(12);
+    expect(cache.get).toHaveBeenCalledTimes(6);
     expect(cache.set).toHaveBeenCalledTimes(3);
     expect(recs).not.toEqual({});
   });

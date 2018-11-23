@@ -7,7 +7,7 @@ import type { Theme } from '../theme';
 type ComponentOptions = {
   cacheProps?: Array<string>,
   stripProps?: Array<string>,
-  style?: string | Object | ((props: Object) => string),
+  styles?: Array<Styler<any>>,
 };
 
 export type System = {

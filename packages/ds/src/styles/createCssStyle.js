@@ -7,6 +7,7 @@ import type { Styler } from './types';
 export default function createCssStyle<TProps>(
   propNames: Array<string>,
   style: string | Object | ((props: TProps, system: System) => string),
+  stripProps?: Array<string>,
 ): Styler<TProps> {
   return {
     apply: (props: TProps, system: System) => {
@@ -17,6 +18,6 @@ export default function createCssStyle<TProps>(
       return style(props, system);
     },
     propNames,
-    stripProps: propNames,
+    stripProps: stripProps || propNames,
   };
 }
