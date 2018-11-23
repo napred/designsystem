@@ -1,6 +1,6 @@
 {
   "name": "@napred/primitives",
-  "version": "0.2.0-alpha.3",
+  "version": "0.2.0-alpha.4",
   "main": "dist/primitives.cjs.js",
   "jsnext:main": "dist/primitives.esm.js",
   "module": "dist/primitives.esm.js",
@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@napred/ds": "^0.2.0-alpha.3"
+    "@napred/ds": "^0.2.0-alpha.4"
   },
   "devDependencies": {
     "enzyme": "^3.7.0",
