@@ -3,7 +3,7 @@
 import { createComponent } from '@napred/ds';
 
 const Link = createComponent('Link', 'a', {
-  styles: {
+  style: {
     textDecoration: 'none',
     cursor: 'pointer',
   },
