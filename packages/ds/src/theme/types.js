@@ -18,5 +18,5 @@ export type ThemeSettings = {
 };
 
 export type Theme = {
-  get(attributeName: string): any,
+  get(attributeName: string, defaultValue?: any): any,
 };

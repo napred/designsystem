@@ -4,7 +4,7 @@
 import React, { useState, type Node } from 'react';
 import DesignSystemContext from './context';
 import defaultTheme from './defaultTheme';
-import { useBreakpointDetection } from './hooks';
+import { useBreakpointDetection, useStyleReset } from './hooks';
 import { createSystem } from './system';
 import { createNullCache, type StyleCache } from './cache';
 import { createStyleApplicator, styleList, type Styler } from './styles';
@@ -44,6 +44,7 @@ export default function DesignSystem({
     viewport: is,
   });
   useBreakpointDetection(currentViewport, system);
+  useStyleReset(system);
 
   if (currentViewport !== is) {
     setCurrentViewport(is);
