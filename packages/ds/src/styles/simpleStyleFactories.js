@@ -3,7 +3,7 @@
 import convertUnit from '../utilities/convertUnit';
 import formatStyleResult from './formatStyleResult';
 import type { Styler } from './types';
-import type { System } from '../context/types';
+import type { System } from '../system';
 
 export function createStyle<T: Object>(
   propName: string,

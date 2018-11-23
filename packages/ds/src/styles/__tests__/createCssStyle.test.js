@@ -2,11 +2,13 @@
 
 import { css } from 'emotion';
 import defaultTheme from '../../defaultTheme';
+import { createNullCache } from '../../cache';
 import { createSystem } from '../../system';
 import { createCssStyle, createStyleApplicator } from '../';
 
 describe('createCssStyle', () => {
   const system = createSystem({
+    cache: createNullCache(),
     styleApplicatorFactory: createStyleApplicator,
     theme: defaultTheme,
   });

@@ -1,12 +1,12 @@
 // @flow
 
-import { createElement, type ComponentType, type StatelessFunctionalComponent } from 'react';
-import createCssStyle from './styles/createCssStyle';
+import { createElement, type Component, type StatelessFunctionalComponent } from 'react';
+import { createCssStyle, type Styler } from './styles';
 import { useStyle } from './hooks';
 import { cleanProps } from './utilities';
 
 type Props = {
-  as?: string | ComponentType<*>,
+  as?: any,
 };
 
 type Options<TProps: *> = {
@@ -19,8 +19,8 @@ type Options<TProps: *> = {
 
 export default function createComponent<TProps: *>(
   componentName: string,
-  component: string | ComponentType<TProps>,
-  options?: Options = {},
+  component: string | StatelessFunctionalComponent<TProps> | Component<TProps>,
+  options?: Options<TProps> = {},
 ): StatelessFunctionalComponent<TProps> {
   // now create styles
   const opts = {

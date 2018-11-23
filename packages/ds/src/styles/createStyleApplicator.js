@@ -2,6 +2,8 @@
 
 import { css } from 'emotion';
 import type { Styler } from './types';
+import type { System } from '../system';
+import type { Theme } from '../theme';
 
 export const COMPONENT_PATH_PROP_NAME = 'compPath';
 export const STRIP_PROPS_PROP_NAME = 'stripProps';
@@ -34,7 +36,7 @@ type StyleApplicator = {
     props: Object,
     system: System,
     componentOptions?: ComponentOptions,
-  ) => [Object, Array<string>, Array<Styler<any>>],
+  ) => Object,
 };
 
 function generateCacheKey(props, cacheProps, namespace?: Array<string> = []) {
@@ -81,16 +83,16 @@ export default function createStyleApplicator({
 
   return {
     applyStyles: (
-      componentName,
-      props,
-      system,
+      componentName: string,
+      props: Object,
+      system: System,
       {
         cacheProps: componentCacheProps = [],
         passthrough = false,
         stripProps: componentStripProps = [],
         styles: componentStyles = [],
-      } = {},
-    ) => {
+      }: ComponentOptions = {},
+    ): Object => {
       const compPath = props.compPath ? [...props.compPath, componentName] : [componentName];
       const parentStripProps = props.stripProps || systemStripProps;
       const parentStylers = props.stylers || [];
@@ -131,7 +133,7 @@ export default function createStyleApplicator({
             key,
             applyStyles(props, system, [
               ...globalStyles,
-              ...(componentStyles[componentName] || []),
+              ...(componentStylesRegistry[componentName] || []),
             ]),
           );
         }

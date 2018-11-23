@@ -1,5 +1,6 @@
 // @flow
 
+import type { Styler } from '../styles';
 import useDesignSystem from './useDesignSystem';
 
 export default function useStyle(
@@ -7,10 +8,10 @@ export default function useStyle(
   props: Object,
   options: {
     cacheProps?: Array<string>,
-    styles?: Array<Styler>,
+    styles?: Array<Styler<any>>,
     stripProps?: Array<string>,
   },
-): string {
+): Object {
   const ds = useDesignSystem();
 
   return ds.applyStyles(componentName, props, options);

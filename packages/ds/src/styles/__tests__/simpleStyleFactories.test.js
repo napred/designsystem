@@ -2,12 +2,14 @@
 /* eslint-disable max-nested-callbacks */
 
 import defaultTheme from '../../defaultTheme';
+import { createNullCache } from '../../cache';
 import { createSystem } from '../../system';
 import { createStyleApplicator } from '../';
 import { createNumericStyle, createStringStyle, createStyle } from '../simpleStyleFactories';
 
 describe('simple style factories', () => {
   const system = createSystem({
+    cache: createNullCache(),
     styleApplicatorFactory: createStyleApplicator,
     theme: defaultTheme,
   });

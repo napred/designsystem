@@ -2,6 +2,7 @@
 /* eslint-disable max-nested-callbacks */
 
 import defaultTheme from '../../defaultTheme';
+import { createNullCache } from '../../cache';
 import { createSystem } from '../../system';
 import { createStyleApplicator } from '../';
 import {
@@ -12,6 +13,7 @@ import {
 
 describe('styler factories', () => {
   const system = createSystem({
+    cache: createNullCache(),
     styleApplicatorFactory: createStyleApplicator,
     theme: defaultTheme,
   });

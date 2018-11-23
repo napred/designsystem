@@ -2,8 +2,8 @@
 
 // $FlowFixMe
 import { useContext } from 'react';
-import DesignSystemContext, { type System } from '../context';
+import DesignSystemContext, { type SystemAPI } from '../context';
 
-export default function useDesignSystem(): System {
+export default function useDesignSystem(): SystemAPI {
   return useContext(DesignSystemContext);
 }

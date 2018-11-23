@@ -1,7 +1,7 @@
 // @flow
 
 import { css } from 'emotion';
-import type { System } from '../context';
+import type { System } from '../system';
 import type { Styler } from './types';
 
 export default function createCssStyle<TProps>(

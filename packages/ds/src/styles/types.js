@@ -1,6 +1,6 @@
 // @flow
 
-import type { System } from '../context';
+import type { System } from '../system';
 
 export type Styler<TProps: *> = {
   apply: (props: TProps, designSystem: System) => any,

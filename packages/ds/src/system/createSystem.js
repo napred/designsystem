@@ -11,16 +11,18 @@ type ComponentOptions = {
 };
 
 export type System = {
-  applyStyles(componentName: string, props: Object, componentOptions?: ComponentOptions): Object,
-  propBlacklist: Array<string>,
   theme: Theme,
   viewport: number,
 };
 
+export type SystemAPI = System & {
+  applyStyles(componentName: string, props: Object, componentOptions?: ComponentOptions): Object,
+};
+
 export type SystemSettings = {
   cache: StyleCache,
-  componentStyles?: { [componentName: string]: Array<Styler> },
-  globalStyles?: Array<Styler>,
+  componentStyles?: { [componentName: string]: Array<Styler<any>> },
+  globalStyles?: Array<Styler<any>>,
   styleApplicatorFactory: any,
   theme: Theme,
   viewport?: number,
@@ -33,7 +35,7 @@ export default function createSystem({
   styleApplicatorFactory,
   theme,
   viewport = 0,
-}: SystemSettings) {
+}: SystemSettings): SystemAPI {
   const styleApplicator = styleApplicatorFactory({
     cache,
     componentStyles,
@@ -41,7 +43,7 @@ export default function createSystem({
   });
 
   return {
-    applyStyles: (componentName, props, options) =>
+    applyStyles: (componentName: string, props: Object, options?: ComponentOptions): Object =>
       styleApplicator.applyStyles(componentName, props, { theme, viewport }, options),
     propBlacklist: styleApplicator.stripProps,
     theme,

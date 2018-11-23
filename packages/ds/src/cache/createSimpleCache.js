@@ -1,6 +1,8 @@
 // @flow
 
-export default function createSimpleCache() {
+import type { StyleCache } from './types';
+
+export default function createSimpleCache(): StyleCache {
   const recs = {};
 
   return {
