@@ -47,7 +47,7 @@ const prodPlugins = [
   }),
 ];
 
-const globals = { react: 'React', 'styled-components': 'styled' };
+const globals = { react: 'React', emotion: 'emotion' };
 const umdBase = {
   input,
   external: Object.keys(globals),
