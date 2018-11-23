@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@napred/ds": "^0.2.0-alpha.2"
+    "@napred/ds": "^0.2.0-alpha.3"
   },
   "devDependencies": {
     "enzyme": "^3.7.0",
