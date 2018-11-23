@@ -39,12 +39,12 @@ type StyleApplicator = {
   ) => Object,
 };
 
-function generateCacheKey(props, cacheProps, namespace?: Array<string> = []) {
+function generateCacheKey(props, cacheProps, viewport: number, namespace?: Array<string> = []) {
   if (namespace.length === 0) {
-    return JSON.stringify(props, cacheProps);
+    return JSON.stringify([props, viewport], cacheProps);
   }
 
-  return JSON.stringify([props, namespace], cacheProps);
+  return JSON.stringify([props, viewport, namespace], cacheProps);
 }
 
 function applyStyles(
@@ -109,7 +109,9 @@ export default function createStyleApplicator({
         if (componentStyles.length > 0) {
           // cache only props length is more than 0
           const styleKey =
-            componentCacheProps.length > 0 ? cacheKeyFn(props, componentCacheProps, compPath) : '';
+            componentCacheProps.length > 0
+              ? cacheKeyFn(props, componentCacheProps, system.viewport, compPath)
+              : '';
           let componentClsName = cache.get(styleKey);
 
           if (componentClsName == null) {
@@ -124,7 +126,7 @@ export default function createStyleApplicator({
         }
 
         // first look if we have styles
-        const key = cacheKeyFn(props, systemCacheProps);
+        const key = cacheKeyFn(props, systemCacheProps, system.viewport);
 
         let stylesClassName = cache.get(key);
 

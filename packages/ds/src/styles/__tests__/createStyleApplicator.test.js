@@ -1,167 +1,64 @@
-// @flow
+/**
+ * @flow
+ * @jest-environment jsdom
+ */
 
+import React from 'react';
 import { css } from 'emotion';
-import defaultTheme from '../../defaultTheme';
-import { createNullCache } from '../../cache';
-import { createSystem } from '../../system';
+import { render } from 'react-testing-library';
 import {
-  createStyleApplicator,
-  COMPONENT_PATH_PROP_NAME,
-  STRIP_PROPS_PROP_NAME,
-  STYLERS_PROP_NAME,
+  Box,
+  DesignSystem,
   createCssStyle,
   createStringStyle,
-  styles as allStyles,
-} from '../';
+  createStyleApplicator,
+} from '../../';
 
 describe('createStyleApplicator', () => {
-  const system = createSystem({
-    cache: createNullCache(),
-    globalStyles: [
-      allStyles.color,
-      createStringStyle('test', 'test'),
-      createCssStyle(
-        ['position'],
-        props => css`
-          position: ${props.position};
-        `,
-      ),
-    ],
-    styleApplicatorFactory: createStyleApplicator,
-    theme: defaultTheme,
+  const styles = [
+    createStringStyle('test', 'test'),
+    createCssStyle(
+      ['pos'],
+      props => css`
+        position: ${props.pos};
+      `,
+    ),
+  ];
+
+  it('works correctly for no props', () => {
+    const { asFragment } = render(
+      <DesignSystem styleApplicatorFactory={createStyleApplicator} styles={styles}>
+        <Box />
+      </DesignSystem>,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  describe('passthrough', () => {
-    it('works correctly for no props', () => {
-      expect(system.applyStyles('', {}, { passthrough: true })).toEqual({
-        className: '',
-        [COMPONENT_PATH_PROP_NAME]: [''],
-        [STRIP_PROPS_PROP_NAME]: [
-          COMPONENT_PATH_PROP_NAME,
-          STRIP_PROPS_PROP_NAME,
-          STYLERS_PROP_NAME,
-          'color',
-          'test',
-          'position',
-        ],
-        [STYLERS_PROP_NAME]: [],
-      });
-    });
+  it('works correctly for props and viewport', () => {
+    const { asFragment, rerender } = render(
+      <DesignSystem styleApplicatorFactory={createStyleApplicator} styles={styles}>
+        <Box color="#ff0000" />
+        <Box color={['#ff0000', '#000000']} />
+      </DesignSystem>,
+    );
 
-    it('works correctly for props', () => {
-      expect(
-        system.applyStyles(
-          '',
-          {
-            color: '#ff0000',
-          },
-          { passthrough: true },
-        ),
-      ).toEqual({
-        className: '',
-        color: '#ff0000',
-        [COMPONENT_PATH_PROP_NAME]: [''],
-        [STRIP_PROPS_PROP_NAME]: [
-          COMPONENT_PATH_PROP_NAME,
-          STRIP_PROPS_PROP_NAME,
-          STYLERS_PROP_NAME,
-          'color',
-          'test',
-          'position',
-        ],
-        [STYLERS_PROP_NAME]: [],
-      });
-    });
-  });
+    const viewport0 = asFragment();
 
-  describe('render style', () => {
-    it('works correctly for no props', () => {
-      expect(system.applyStyles('', {})).toEqual({
-        className: expect.stringMatching(/^css-.+$/),
-        [COMPONENT_PATH_PROP_NAME]: [''],
-        [STRIP_PROPS_PROP_NAME]: [
-          COMPONENT_PATH_PROP_NAME,
-          STRIP_PROPS_PROP_NAME,
-          STYLERS_PROP_NAME,
-          'color',
-          'test',
-          'position',
-        ],
-        [STYLERS_PROP_NAME]: [],
-      });
-    });
+    expect(viewport0).toMatchSnapshot();
 
-    it('works correctly for props', () => {
-      expect(
-        system.applyStyles(
-          '',
-          {
-            color: '#ff0000',
-          },
-          {},
-        ),
-      ).toEqual({
-        className: expect.stringMatching(/^css-.+$/),
-        color: '#ff0000',
-        [COMPONENT_PATH_PROP_NAME]: [''],
-        [STRIP_PROPS_PROP_NAME]: [
-          COMPONENT_PATH_PROP_NAME,
-          STRIP_PROPS_PROP_NAME,
-          STYLERS_PROP_NAME,
-          'color',
-          'test',
-          'position',
-        ],
-        [STYLERS_PROP_NAME]: [],
-      });
+    // now change viewport
+    rerender(
+      <DesignSystem is={1} styleApplicatorFactory={createStyleApplicator} styles={styles}>
+        <Box color="#ff0000" />
+        <Box color={['#ff0000', '#000000']} />
+      </DesignSystem>,
+    );
 
-      expect(
-        system.applyStyles(
-          '',
-          {
-            test: 'test',
-          },
-          {},
-        ),
-      ).toEqual({
-        className: expect.stringMatching(/^css-.+$/),
-        test: 'test',
-        [COMPONENT_PATH_PROP_NAME]: [''],
-        [STRIP_PROPS_PROP_NAME]: [
-          COMPONENT_PATH_PROP_NAME,
-          STRIP_PROPS_PROP_NAME,
-          STYLERS_PROP_NAME,
-          'color',
-          'test',
-          'position',
-        ],
-        [STYLERS_PROP_NAME]: [],
-      });
+    const viewport1 = asFragment();
 
-      expect(
-        system.applyStyles(
-          '',
-          {
-            color: 'blue',
-            test: 'test',
-          },
-          {},
-        ),
-      ).toEqual({
-        className: expect.stringMatching(/^css-.+$/),
-        color: 'blue',
-        test: 'test',
-        [COMPONENT_PATH_PROP_NAME]: [''],
-        [STRIP_PROPS_PROP_NAME]: [
-          COMPONENT_PATH_PROP_NAME,
-          STRIP_PROPS_PROP_NAME,
-          STYLERS_PROP_NAME,
-          'color',
-          'test',
-          'position',
-        ],
-        [STYLERS_PROP_NAME]: [],
-      });
-    });
+    expect(viewport1).toMatchSnapshot();
+
+    expect(viewport1).not.toEqual(viewport0);
   });
 });
