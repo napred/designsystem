@@ -1,6 +1,6 @@
 {
   "name": "@napred/ds",
-  "version": "0.2.0-alpha.1",
+  "version": "0.2.0-alpha.2",
   "main": "dist/ds.cjs.js",
   "jsnext:main": "dist/ds.esm.js",
   "module": "dist/ds.esm.js",
