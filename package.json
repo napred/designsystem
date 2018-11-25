@@ -15,7 +15,8 @@
     "test:ci": "jest --ci --coverage --runInBand",
     "test:watch": "jest --watch",
     "storybook:build": "build-storybook",
-    "storybook:run": "start-storybook -p 6006"
+    "storybook:run": "start-storybook -p 6006",
+    "typecheck": "lerna run typecheck"
   },
   "lint-staged": {
     "src/**/*.json": [
