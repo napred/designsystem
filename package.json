@@ -10,9 +10,7 @@
     "build": "npx lerna run build",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "flow": "npx lerna run flow",
-    "flow:update-types": "npx lerna run flow:update-types",
-    "lint": "eslint packages/**/src stories",
+    "lint": "tslint -p . && lerna run lint",
     "test": "jest --coverage",
     "test:ci": "jest --ci --coverage --runInBand",
     "test:watch": "jest --watch",
@@ -24,12 +22,12 @@
       "prettier --write",
       "git add"
     ],
-    "src/**/*.js": [
-      "eslint --fix",
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
       "git add"
     ],
-    "stories/**/*.js": [
-      "eslint --fix",
+    "stories/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
       "git add"
     ]
   },
@@ -54,7 +52,12 @@
     "@storybook/addon-viewport": "^4.0.7",
     "@storybook/addons": "^4.0.7",
     "@storybook/react": "^4.0.7",
+    "@types/jest": "^23.3.9",
+    "@types/react": "^16.7.7",
+    "@types/react-dom": "^16.0.10",
+    "@types/storybook__react": "^4.0.0",
     "all-contributors-cli": "^5.4.1",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
@@ -81,6 +84,7 @@
     "prettier": "^1.10.2",
     "puppeteer": "^1.10.0",
     "react": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.3",
@@ -91,6 +95,11 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-terser": "^3.0.0"
+    "rollup-plugin-terser": "^3.0.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.1.6"
   }
 }
