@@ -1,3 +1,4 @@
+export * from '@napred/primitives';
 export * from './form';
 export * from './layout';
 
