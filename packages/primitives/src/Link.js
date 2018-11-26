@@ -14,6 +14,4 @@ Link.defaultProps = {
   color: 'grey',
 };
 
-Link.displayName = 'Link';
-
 export default Link;

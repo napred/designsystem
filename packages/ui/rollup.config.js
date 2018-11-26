@@ -8,7 +8,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 
 const input = 'src/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
-const name = 'NapredPrimitives';
+const name = 'NapredUi';
 
 const babelCJS = {
   presets: [['@babel/preset-env'], '@babel/preset-react'],
@@ -47,7 +47,7 @@ const prodPlugins = [
   }),
 ];
 
-const globals = {};
+const globals = { react: 'React' };
 const umdBase = {
   input,
   external: Object.keys(globals),
@@ -64,7 +64,7 @@ const umdDevConfig = {
   ...umdBase,
   output: {
     ...umdBase.output,
-    file: 'dist/primitives.umd.js',
+    file: 'dist/ui.umd.js',
   },
   plugins: umdBase.plugins.concat(
     replace({
@@ -77,7 +77,7 @@ const umdProdConfig = {
   ...umdBase,
   output: {
     ...umdBase.output,
-    file: 'dist/primitives.umd.min.js',
+    file: 'dist/ui.umd.min.js',
   },
   plugins: umdBase.plugins.concat(prodPlugins),
 };
@@ -86,7 +86,7 @@ const cjsConfig = {
   input,
   external,
   output: {
-    file: 'dist/primitives.cjs.js',
+    file: 'dist/ui.cjs.js',
     format: 'cjs',
   },
   plugins: commonPlugins(babelCJS),
@@ -96,7 +96,7 @@ const esmConfig = {
   input,
   external,
   output: {
-    file: 'dist/primitives.esm.js',
+    file: 'dist/ui.esm.js',
     format: 'esm',
   },
   plugins: commonPlugins(babelESM),

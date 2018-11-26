@@ -1,0 +1,58 @@
+{
+  "name": "@napred/ui",
+  "version": "0.2.0-alpha.4",
+  "main": "dist/ui.cjs.js",
+  "jsnext:main": "dist/ui.esm.js",
+  "module": "dist/ui.esm.js",
+  "keywords": [
+    "react",
+    "design-system",
+    "css-in-js",
+    "ui"
+  ],
+  "contributors": [
+    {
+      "name": "Michal Kvasničák",
+      "url": "https://github.com/michalkvasnicak"
+    },
+    {
+      "name": "Juraj Hríb",
+      "url": "https://github.com/jurajhrib"
+    }
+  ],
+  "files": [
+    "dist",
+    "src",
+    "!__tests__"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@napred/ds": "^0.2.0-alpha.4",
+    "emotion": "^9.2.12",
+    "lodash.debounce": "^4.0.8",
+    "react-transition-group": "^2.4.0"
+
+  },
+  "devDependencies": {
+    "enzyme": "^3.7.0",
+    "flow-bin": "^0.83.0",
+    "jest": "^23.6.0",
+    "react": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-testing-library": "^5.3.0"
+  },
+  "gitHead": "e94b1d302f40e6ababd4428447c22421d452b6ac",
+  "scripts": {
+    "build": "rollup -c && npm run gen-flow-cjs && npm run gen-flow-esm",
+    "flow": "flow check",
+    "flow:watch": "flow watch",
+    "flow:update-types": "flow-typed update",
+    "gen-flow-cjs": "echo \"// @flow\nexport * from '../src/index.js';\" > ./dist/ui.cjs.js.flow",
+    "gen-flow-esm": "echo \"// @flow\nexport * from '../src/index.js';\" > ./dist/ui.esm.js.flow",
+    "prebuild": "rimraf dist",
+    "prepublishOnly": "npm run build"
+  }
+}
