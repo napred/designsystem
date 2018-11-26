@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable react/sort-comp, no-return-assign, prefer-reflect */
 
-import { createCssStyle, systemComponent } from '@napred/ds';
+import { createCssStyle, createComponent } from '@napred/ds';
 import debounce from 'lodash.debounce';
 import { css } from 'emotion';
 import React, { useState } from 'react';
@@ -9,7 +9,7 @@ import Transition from 'react-transition-group/Transition';
 import Input from './Input';
 import Menu, { MenuItem } from '../Menu';
 
-const AutocompleteBase = systemComponent('AutocompleteBase', 'div', {
+const AutocompleteBase = createComponent('AutocompleteBase', 'div', {
   styles: [
     createCssStyle(
       ['suggestions'],

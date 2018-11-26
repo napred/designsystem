@@ -7,7 +7,7 @@ import Menu, { MenuSubheader } from './Menu';
 import Button from './form/Button';
 import SvgImage from './SvgImage';
 import Divider from './Divider';
-import { CloseIcon } from '../assets/icons';
+import { CloseIcon } from './assets';
 
 type Props = {
   origin?: 'left' | 'right',

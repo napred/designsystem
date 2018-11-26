@@ -2,7 +2,7 @@
 
 import React from 'react';
 import SvgImage from './SvgImage';
-import { CloseIcon } from '../assets/icons';
+import { CloseIcon } from './assets';
 
 type Props = {
   inverted: boolean,

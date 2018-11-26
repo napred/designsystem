@@ -6,6 +6,7 @@ export { default as Absolute } from './Absolute';
 export { default as Avatar } from './Avatar';
 export { default as Badge } from './Badge';
 export { default as BlockLink } from './BlockLink';
+export { default as Circle } from './Circle';
 export { default as Close } from './Close';
 export { default as Divider } from './Divider';
 export { default as Drawer } from './Drawer';

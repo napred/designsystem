@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { createCssStyle, systemComponent } from '@napred/ds';
+import { createCssStyle, createComponent } from '@napred/ds';
 import Fixed from './Fixed';
 import Overlay from './Overlay';
 import Portal from './Portal';
@@ -46,7 +46,7 @@ type Props = {
 
 const drawerStyle = createCssStyle(['open', 'side'], { ...transform, ...side }, ['open', 'side']);
 
-const DrawerBase = systemComponent('DrawerBase', Fixed, { styles: [drawerStyle] });
+const DrawerBase = createComponent('DrawerBase', Fixed, { styles: [drawerStyle] });
 
 // $FlowExpectError
 DrawerBase.defaultProps = {

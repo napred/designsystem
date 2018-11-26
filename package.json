@@ -87,6 +87,7 @@
     "react": "^16.7.0-alpha.0 || >=16.7.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-values": "^0.3.3",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.3",
     "rollup-plugin-babel": "^4.0.3",

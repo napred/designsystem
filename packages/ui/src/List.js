@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { css } from 'emotion';
-import { createCleanTag, createCssStyle, createComponent } from '@napred/ds';
+import { createCleanTag, createComponent } from '@napred/ds';
 
 const BaseListItem = createCleanTag('li');
 

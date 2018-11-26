@@ -1,6 +1,6 @@
 // @flow
 
-import { createCssStyle, systemComponent, type StyleFn } from '@napred/ds';
+import { createCssStyle, createComponent, type StyleFn } from '@napred/ds';
 import { css } from 'emotion';
 import * as React from 'react';
 import LoadingDots from '../LoadingDots';
@@ -90,7 +90,7 @@ const btnVariants: StyleFn<{ hoverColor?: string, variant?: ButtonVariants }> = 
   },
 );
 
-const Button = systemComponent('Button', 'button', {
+const Button = createComponent('Button', 'button', {
   styles: [
     createCssStyle(
       ['hoverColor', 'loading', 'variant'],
