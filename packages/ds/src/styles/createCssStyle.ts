@@ -1,6 +1,6 @@
 import { css, Interpolation } from 'emotion';
 import { ISystem } from '../system';
-import { IStyler } from './types';
+import { IStyler } from '../types';
 
 export default function createCssStyle<TProps extends object>(
   propNames: string[],

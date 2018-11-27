@@ -1,6 +1,6 @@
+import { IStyler } from '../../types';
 import { createNumericStyle, createStringStyle } from '../simpleStyleFactories';
 import { createNumericSystemStyle, createStringSystemStyle } from '../systemStyleFactories';
-import { IStyler } from '../types';
 
 export const borderColor: IStyler<{
   borderColor?: string | string[] | void;

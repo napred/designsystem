@@ -2,13 +2,13 @@
  * @jest-environment jsdom
  */
 
-import { css } from 'emotion';
 import React from 'react';
 // tslint:disable-next-line:no-implicit-dependencies
 import { render } from 'react-testing-library';
 
-import { createCssStyle } from '../';
-import { Box, DesignSystem } from '../../';
+import { createComponent, createCssStyle, css, DesignSystem } from '../../';
+
+const Box = createComponent('Box', 'div');
 
 describe('createCssStyle', () => {
   it('works with simple string', () => {

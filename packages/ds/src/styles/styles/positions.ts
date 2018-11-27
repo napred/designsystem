@@ -1,5 +1,5 @@
+import { IStyler } from '../../types';
 import { createNumericStyle, createStringStyle } from '../simpleStyleFactories';
-import { IStyler } from '../types';
 
 export type Position = 'absolute' | 'fixed' | 'relative' | 'sticky';
 

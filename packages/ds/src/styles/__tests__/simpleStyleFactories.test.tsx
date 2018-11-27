@@ -6,8 +6,10 @@ import React from 'react';
 // tslint:disable-next-line:no-implicit-dependencies
 import { render } from 'react-testing-library';
 
-import { Box, DesignSystem } from '../../';
+import { createComponent, DesignSystem } from '../../';
 import { createNumericStyle, createStringStyle, createStyle } from '../simpleStyleFactories';
+
+const Box = createComponent('Box', 'div');
 
 describe('simple style factories', () => {
   describe('createStyler', () => {

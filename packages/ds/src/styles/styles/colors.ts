@@ -1,6 +1,6 @@
+import { IStyler } from '../../types';
 import { createStringStyle } from '../simpleStyleFactories';
 import { createStringSystemStyle } from '../systemStyleFactories';
-import { IStyler } from '../types';
 
 export const color: IStyler<{ color?: string | string[] | void }> = createStringSystemStyle(
   'color',

@@ -1,48 +1,10 @@
 import { css } from 'emotion';
-import { ISystem } from '../system';
 import { ITheme } from '../theme';
-import { IStyler } from './types';
+import { IStyleApplicator, IStyler, StyleApplicatorFactory } from '../types';
 
 export const COMPONENT_PATH_PROP_NAME = 'compPath';
 export const STRIP_PROPS_PROP_NAME = 'stripProps';
 export const STYLERS_PROP_NAME = 'stylers';
-
-interface ICache {
-  get(name: string): any;
-  set(name: string, value: any): any;
-}
-
-interface IOptions {
-  cache: ICache;
-  cacheKeyFn?: (
-    props: object,
-    cacheProps: string[],
-    viewport: number,
-    namespace?: string[],
-  ) => string;
-  componentStyles: { [componentName: string]: Array<IStyler<any>> };
-  globalStyles: Array<IStyler<any>>;
-}
-
-interface IComponentOptions {
-  cacheProps?: string[];
-  /**
-   * should we only pass styles through
-   * or should we generate style?
-   */
-  passthrough?: boolean;
-  stripProps?: string[];
-  styles?: Array<IStyler<any>>;
-}
-
-interface IStyleApplicator {
-  applyStyles: (
-    componentName: string,
-    props: object,
-    system: ISystem,
-    componentOptions?: IComponentOptions,
-  ) => object;
-}
 
 function generateCacheKey(
   props: { [key: string]: any },
@@ -71,12 +33,16 @@ function applyStyles(
   );
 }
 
-export default function createStyleApplicator({
+interface IUsedStyleProps {
+  className: string;
+}
+
+const factory: StyleApplicatorFactory = function createStyleApplicator({
   cache,
   componentStyles: componentStylesRegistry,
   cacheKeyFn = generateCacheKey,
   globalStyles,
-}: IOptions): IStyleApplicator {
+}): IStyleApplicator<IUsedStyleProps> {
   const systemCacheProps = ([] as string[]).concat(...globalStyles.map(styler => styler.propNames));
   const systemStripProps = [
     COMPONENT_PATH_PROP_NAME,
@@ -92,21 +58,26 @@ export default function createStyleApplicator({
   );
 
   return {
-    applyStyles: (
-      componentName: string,
-      props: { [key: string]: any },
-      system: ISystem,
+    apply: (
+      componentName,
+      props,
+      system,
       {
         cacheProps: componentCacheProps = [],
         passthrough = false,
         stripProps: componentStripProps = [],
         styles: componentStyles = [],
-      }: IComponentOptions = {},
-    ): { [key: string]: any } => {
-      const compPath = props.compPath ? [...props.compPath, componentName] : [componentName];
-      const parentStripProps = props.stripProps || systemStripProps;
-      const parentStylers = props.stylers || [];
-      let className = props.className || '';
+      } = {},
+    ) => {
+      const {
+        className: parentClassName,
+        compPath = [],
+        stylers = [],
+        stripProps = systemStripProps,
+        ...restProps
+      } = props as any; // temporary workaround because
+      const localComponentPath = [...(compPath as string[]), componentName];
+      let className: string = (parentClassName as null | string) || '';
 
       // if passthrough is defined, it means that this component is not final in render tree
       // and won't be rendered to HTML
@@ -154,11 +125,15 @@ export default function createStyleApplicator({
         className = className ? `${className} ${stylesClassName}` : stylesClassName;
       }
 
-      const stylers = [...parentStylers, ...componentStyles];
-      const stripProps = [...parentStripProps, ...componentStripProps];
-
-      // if there are stripProps in props, extend final stripProps
-      return { ...props, className, compPath, stylers, stripProps };
+      return {
+        ...(restProps || {}),
+        className,
+        compPath: localComponentPath,
+        stripProps: [...stripProps, ...componentStripProps],
+        stylers: [...(stylers as Array<IStyler<any>>), ...componentStyles],
+      };
     },
   };
-}
+};
+
+export default factory;

@@ -5,7 +5,9 @@
 import React from 'react';
 // tslint:disable-next-line:no-implicit-dependencies
 import { render } from 'react-testing-library';
-import { Box, createComponent, DesignSystem } from '../';
+import { createComponent, DesignSystem } from '../';
+
+const Box = createComponent('Box', 'div');
 
 const RedBox = createComponent('RedBox', Box, {
   defaultProps: {

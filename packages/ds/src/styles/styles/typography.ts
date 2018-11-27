@@ -1,6 +1,6 @@
+import { IStyler } from '../../types';
 import { createNumericStyle, createStringStyle } from '../simpleStyleFactories';
 import { createNumericSystemStyle, createStringSystemStyle } from '../systemStyleFactories';
-import { IStyler } from '../types';
 
 export const fontFamily: IStyler<{
   fontFamily?: string | string[] | void;

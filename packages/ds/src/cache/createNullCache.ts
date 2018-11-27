@@ -1,4 +1,4 @@
-import { IStyleCache } from './types';
+import { IStyleCache } from '../types';
 
 /** Simple cache that doesn't cache at all */
 export default function createNullCache(): IStyleCache {

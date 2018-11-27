@@ -1,4 +1,4 @@
-import { IStyleCache } from './types';
+import { IStyleCache } from '../types';
 
 /** Simple cache */
 export default function createSimpleCache(): IStyleCache {

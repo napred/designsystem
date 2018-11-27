@@ -1,5 +1,5 @@
+import { IStyler } from '../../types';
 import { createNumericStyle, createStringStyle } from '../simpleStyleFactories';
-import { IStyler } from '../types';
 
 export type AlignItems = 'stretch' | 'center' | 'flex-start' | 'flex-end' | 'baseline';
 export type JustifyContent =

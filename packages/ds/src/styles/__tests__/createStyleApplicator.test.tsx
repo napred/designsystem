@@ -7,12 +7,14 @@ import React from 'react';
 // tslint:disable-next-line:no-implicit-dependencies
 import { render } from 'react-testing-library';
 import {
-  Box,
+  createComponent,
   createCssStyle,
   createStringStyle,
   createStyleApplicator,
   DesignSystem,
 } from '../../';
+
+const Box = createComponent('Box', 'div');
 
 describe('createStyleApplicator', () => {
   const styles = [

@@ -1,7 +1,7 @@
 import { ISystem } from '../system';
+import { IStyler } from '../types';
 import convertUnit from '../utilities/convertUnit';
 import formatStyleResult from './formatStyleResult';
-import { IStyler } from './types';
 
 export function createStyle<T extends object>(
   propName: string,

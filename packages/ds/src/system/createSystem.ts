@@ -1,16 +1,12 @@
 import { useCallback, useMemo, useState } from 'react';
-import { IStyleCache } from '../cache';
-import { IStyler } from '../styles';
 import { ITheme } from '../theme';
-
-interface IComponentOptions {
-  /** Used these props for style cache */
-  cacheProps?: string[];
-  /** Prevent these props from being rendered to HTML */
-  stripProps?: string[];
-  /** Component's local styles */
-  styles?: Array<IStyler<any>>;
-}
+import {
+  IComponentOptions,
+  IStyleCache,
+  IStyler,
+  IStylingOptions,
+  StyleApplicatorFactory,
+} from '../types';
 
 export interface ISystem {
   /** Current theme */
@@ -23,7 +19,7 @@ export type SystemAPI = ISystem & {
   applyStyles<TProps extends object>(
     componentName: string,
     props: TProps,
-    componentOptions?: IComponentOptions,
+    componentOptions?: IStylingOptions,
   ): TProps;
   /** Sets viewport, this is used by useBreakpointDetection */
   setViewport(viewport: number): void;
@@ -33,7 +29,7 @@ export interface ISystemSettings {
   cache: IStyleCache;
   componentStyles?: { [componentName: string]: Array<IStyler<any>> };
   globalStyles?: Array<IStyler<any>>;
-  styleApplicatorFactory: any;
+  styleApplicatorFactory: StyleApplicatorFactory;
   theme: ITheme;
   viewport?: number;
 }
@@ -58,14 +54,9 @@ export default function createSystem({
     <TProps extends object>(
       componentName: string,
       props: TProps,
-      options?: IComponentOptions,
+      options: IComponentOptions = {},
     ): TProps =>
-      styleApplicator.applyStyles(
-        componentName,
-        props,
-        { theme, viewport: currentViewport },
-        options,
-      ),
+      styleApplicator.apply(componentName, props, { theme, viewport: currentViewport }, options),
     [currentViewport, theme],
   );
 

@@ -1,16 +1,15 @@
+import { extractStylerProps } from '../types';
 import * as styles from './styles';
-import { extractStylerProps } from './types';
 
 export { styles };
 
 export { default as createCssStyle } from './createCssStyle';
 export { default as createStyleApplicator } from './createStyleApplicator';
 export * from './createStyleApplicator';
-export * from './types';
 export * from './simpleStyleFactories';
 export * from './systemStyleFactories';
 
-export type IStylerProps = extractStylerProps<typeof styles.alignContent> &
+export type StylerProps = extractStylerProps<typeof styles.alignContent> &
   extractStylerProps<typeof styles.alignItems> &
   extractStylerProps<typeof styles.alignSelf> &
   extractStylerProps<typeof styles.bgColor> &

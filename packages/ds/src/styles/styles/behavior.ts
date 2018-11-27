@@ -1,5 +1,5 @@
+import { IStyler } from '../../types';
 import { createStringStyle } from '../simpleStyleFactories';
-import { IStyler } from '../types';
 
 export type Overflow = 'scroll' | 'hidden' | 'visible' | 'overlay';
 

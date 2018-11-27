@@ -1,11 +1,12 @@
 import React, { ReactElement, ReactNode, useState } from 'react';
-import { createNullCache, IStyleCache } from './cache';
+import { createNullCache } from './cache';
 import DesignSystemContext from './context';
 import defaultTheme from './defaultTheme';
 import { useBreakpointDetection, useStyleReset } from './hooks';
-import { createStyleApplicator, IStyler, styleList } from './styles';
+import { createStyleApplicator, styleList } from './styles';
 import { createSystem } from './system';
 import { ITheme } from './theme';
+import { IStyleCache, IStyler } from './types';
 
 const defaultCache = createNullCache();
 

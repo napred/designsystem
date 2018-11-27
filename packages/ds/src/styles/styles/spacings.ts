@@ -1,5 +1,5 @@
+import { IStyler } from '../../types';
 import { createNumericSystemStyle } from '../systemStyleFactories';
-import { IStyler } from '../types';
 
 export const m: IStyler<{
   m?: number | string | Array<number | string> | void;

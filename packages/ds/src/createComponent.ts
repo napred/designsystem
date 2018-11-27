@@ -1,28 +1,23 @@
 import { Interpolation } from 'emotion';
 import { Component, createElement, FunctionComponent } from 'react';
 import { useStyle } from './hooks';
-import { createCssStyle, IStyler, IStylerProps } from './styles';
+import { createCssStyle, StylerProps } from './styles';
+import { IStyler, IStylingOptions } from './types';
 import { cleanProps } from './utilities';
 
-export interface IDSProps extends IStylerProps {
+export type DSProps = {
   /**
    * Can be used to override underlying element (if DSComponent is passed, it will be extended by it's styles)
    */
   as?: string | FunctionComponent<any> | Component<any> | IDSComponent<any>;
-}
+} & StylerProps;
 
 /** Component's options */
-interface IOptions<TProps extends object> {
-  /** Which props should be used for style cache? */
-  cacheProps?: string[];
+interface IOptions<TProps extends object> extends IStylingOptions {
   /** Component's default props */
-  defaultProps?: Partial<TProps & IDSProps & { [key: string]: any }>;
-  /** Which props should be stripped from final HTML? */
-  stripProps?: string[];
+  defaultProps?: Partial<TProps & DSProps & { [key: string]: any }>;
   /** Component's style */
   style?: Interpolation | ((props: TProps) => string);
-  /** Component's custom styles */
-  styles?: Array<IStyler<any>>;
 }
 
 export interface IDSComponent<TProps extends object> extends FunctionComponent<TProps> {
@@ -45,7 +40,7 @@ export default function createComponent<TProps extends object>(
    * Optional component's options
    */
   { cacheProps = [], defaultProps, stripProps = [], style, styles }: IOptions<TProps> = {},
-): IDSComponent<TProps & IDSProps & { [key: string]: any }> {
+): IDSComponent<TProps & DSProps & { [key: string]: any }> {
   const opts = {
     cacheProps,
     stripProps,
