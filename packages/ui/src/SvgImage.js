@@ -37,15 +37,13 @@ const SvgImage = createComponent('SvgImage', Svg, {
   `,
   cacheProps: ['fill'],
   stripProps: ['fill'],
+  defaultProps: {
+    fill: 'primary',
+    focusable: 'false',
+    fontSize: 2,
+    height: '1em',
+    width: '1em',
+  },
 });
-
-// $FlowExpectError
-SvgImage.defaultProps = {
-  fill: 'primary',
-  focusable: 'false',
-  fontSize: 2,
-  height: '1em',
-  width: '1em',
-};
 
 export default SvgImage;

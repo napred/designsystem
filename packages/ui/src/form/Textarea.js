@@ -22,16 +22,14 @@ const Textarea = createComponent('Textarea', 'textarea', {
       `,
     ),
   ],
+  defaultProps: {
+    borderColor: 'greyLight',
+    borderStyle: 'solid',
+    borderRadius: 0,
+    borderWidth: 1,
+    p: 2,
+    my: 0,
+  },
 });
-
-// $FlowExpectError
-Textarea.defaultProps = {
-  borderColor: 'greyLight',
-  borderStyle: 'solid',
-  borderRadius: 0,
-  borderWidth: 1,
-  p: 2,
-  my: 0,
-};
 
 export default Textarea;

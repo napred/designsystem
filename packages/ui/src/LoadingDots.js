@@ -33,14 +33,8 @@ const LoadingDot = createComponent('LoadingDot', 'div', {
         height: 0.6em;
         margin: 0 0.2em;
         width: 0.6em;
-
-        ${dark
-          ? css`
-              border: 0.1em solid ${theme.get('color', 'turqoiseDark')};
-            `
-          : css`
-              border: 0.1em solid ${theme.get('color', 'greyLightest')};
-            `};
+        border: 0.1em solid
+          ${dark ? theme.get('color', 'turqoiseDark') : theme.get('color', 'greyLightest')};
 
         animation: ${loadingDotAnimation} 1s ease infinite;
         animation-delay: ${animationDelay || '0ms'};
@@ -52,7 +46,7 @@ const LoadingDot = createComponent('LoadingDot', 'div', {
 
 export default function LoadingDots({ dark, ...restProps }: { dark?: boolean }) {
   return (
-    <LoadingDotsWrapper className="a-ld" {...restProps}>
+    <LoadingDotsWrapper {...restProps}>
       <LoadingDot dark={dark} />
       <LoadingDot dark={dark} animationDelay="200ms" />
       <LoadingDot dark={dark} animationDelay="400ms" />

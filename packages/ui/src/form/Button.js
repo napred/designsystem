@@ -12,88 +12,105 @@ type ButtonVariants = 'default' | 'lightTransparent' | 'primary' | 'transparent'
 const btnVariants: StyleFn<{ hoverColor?: string, variant?: ButtonVariants }> = createVariants(
   'variant',
   {
-    primary: ({ disabled, hoverColor }, { theme }) => css`
-      background-color: ${theme.get('color', 'primary')};
-      color: ${theme.get('color', 'greyLighter')};
+    primary: [
+      ['hoverColor', 'loading', 'variant'],
+      ({ disabled, hoverColor }, { theme }) => css`
+        background-color: ${theme.get('color', 'primary')};
+        color: ${theme.get('color', 'greyLighter')};
 
-      ${!disabled &&
-        css`
-          &:hover {
-            background-color: ${theme.get('color', 'primaryLight')};
+        ${!disabled &&
+          css`
+            &:hover {
+              background-color: ${theme.get('color', 'primaryLight')};
 
-            * {
-              color: ${theme.get('color', hoverColor, 'greyLightest')};
+              * {
+                color: ${theme.get('color', hoverColor, 'greyLightest')};
 
-              svg path:last-child {
-                fill: ${theme.get('color', hoverColor, 'greyLightest')};
+                svg path:last-child {
+                  fill: ${theme.get('color', hoverColor, 'greyLightest')};
+                }
               }
             }
-          }
-        `};
-    `,
-    lightTransparent: ({ disabled, hoverColor }, { theme }) => css`
-      background-color: ${theme.get('color', 'lighterTransparent')};
-      border-color: ${theme.get('color', 'turqoiseDark')};
-      color: ${theme.get('color', 'turqoiseDark')};
+          `};
+      `,
+      ['hoverColor', 'loading', 'variant'],
+    ],
+    lightTransparent: [
+      ['hoverColor', 'loading', 'variant'],
+      ({ disabled, hoverColor }, { theme }) => css`
+        background-color: ${theme.get('color', 'lighterTransparent')};
+        border-color: ${theme.get('color', 'turqoiseDark')};
+        color: ${theme.get('color', 'turqoiseDark')};
 
-      ${!disabled &&
-        css`
-          &:hover {
-            background-color: ${theme.get('color', 'greyLightest')};
-            border-color: ${theme.get('color', 'primary')};
-            color: ${theme.get('color', hoverColor, 'primary')};
-
-            * {
+        ${!disabled &&
+          css`
+            &:hover {
+              background-color: ${theme.get('color', 'greyLightest')};
+              border-color: ${theme.get('color', 'primary')};
               color: ${theme.get('color', hoverColor, 'primary')};
 
-              svg path:last-child {
-                fill: ${theme.get('color', hoverColor, 'primary')};
+              * {
+                color: ${theme.get('color', hoverColor, 'primary')};
+
+                svg path:last-child {
+                  fill: ${theme.get('color', hoverColor, 'primary')};
+                }
               }
             }
-          }
-        `};
-    `,
-    transparent: ({ disabled, hoverColor, color }, { theme }) => css`
-      background-color: transparent;
-      border-color: transparent;
-      color: ${color ? theme.get('color', color) : theme.get('color', 'greyDark')};
+          `};
+      `,
+      ['hoverColor', 'loading', 'variant'],
+    ],
+    transparent: [
+      ['hoverColor', 'loading', 'variant'],
+      ({ disabled, hoverColor, color }, { theme }) => css`
+        background-color: transparent;
+        border-color: transparent;
+        color: ${color ? theme.get('color', color) : theme.get('color', 'greyDark')};
 
-      ${!disabled &&
-        css`
-          &:hover {
-            color: ${hoverColor ? theme.get('color', hoverColor) : theme.get('color', 'primary')};
-          }
-        `};
-    `,
+        ${!disabled &&
+          css`
+            &:hover {
+              color: ${hoverColor ? theme.get('color', hoverColor) : theme.get('color', 'primary')};
+            }
+          `};
+      `,
+      ['hoverColor', 'loading', 'variant'],
+    ],
+    default: [
+      ['hoverColor', 'loading', 'variant'],
+      ({ disabled, hoverColor, bgColor }, { theme }) => css`
+        background-color: ${bgColor ? theme.get('color', bgColor) : theme.get('color', 'white')};
+        border-color: ${bgColor ? theme.get('color', bgColor) : theme.get('color', 'greyLight')};
+        color: ${bgColor ? theme.get('color', 'white') : theme.get('color', 'greyDark')};
 
-    default: ({ disabled, hoverColor, bgColor }, { theme }) => css`
-      background-color: ${bgColor ? theme.get('color', bgColor) : theme.get('color', 'white')};
-      border-color: ${bgColor ? theme.get('color', bgColor) : theme.get('color', 'greyLight')};
-      color: ${bgColor ? theme.get('color', 'white') : theme.get('color', 'greyDark')};
-
-      ${!disabled &&
-        css`
-          &:hover {
-            border-color: ${bgColor ? theme.get('color', bgColor) : theme.get('color', 'primary')};
-            color: ${theme.get('color', hoverColor, bgColor ? 'white' : 'primary')};
-
-            * {
+        ${!disabled &&
+          css`
+            &:hover {
+              border-color: ${bgColor
+                ? theme.get('color', bgColor)
+                : theme.get('color', 'primary')};
               color: ${theme.get('color', hoverColor, bgColor ? 'white' : 'primary')};
 
-              svg path:last-child {
-                fill: ${theme.get('color', hoverColor, bgColor ? 'white' : 'primary')};
+              * {
+                color: ${theme.get('color', hoverColor, bgColor ? 'white' : 'primary')};
+
+                svg path:last-child {
+                  fill: ${theme.get('color', hoverColor, bgColor ? 'white' : 'primary')};
+                }
               }
             }
-          }
-        `};
-    `,
+          `};
+      `,
+      ['hoverColor', 'loading', 'variant'],
+    ],
   },
 );
 
 const Button = createComponent('Button', 'button', {
   styles: [
     createCssStyle(
-      ['hoverColor', 'loading', 'variant'],
+      ['disabled'],
       ({ disabled }) => css`
         border-color: transparent;
         outline: none;
@@ -118,11 +135,11 @@ const Button = createComponent('Button', 'button', {
               cursor: pointer;
             `};
       `,
-      ['hoverColor', 'loading', 'variant'],
+      [],
     ),
     btnVariants,
     createCssStyle(
-      ['hoverColor', 'loading', 'variant'],
+      ['loading'],
       ({ loading }) => css`
         ${!loading
           ? ''
@@ -138,22 +155,19 @@ const Button = createComponent('Button', 'button', {
               }
             `};
       `,
-      ['hoverColor', 'loading', 'variant'],
     ),
   ],
+  defaultProps: {
+    borderWidth: '1px',
+    borderRadius: 0,
+    borderStyle: 'solid',
+    display: 'inline-block',
+    fontWeight: 600,
+    position: 'relative',
+    px: 3,
+    py: 2,
+  },
 });
-
-// $FlowExpectError
-Button.defaultProps = {
-  borderWidth: '1px',
-  borderRadius: 0,
-  borderStyle: 'solid',
-  display: 'inline-block',
-  fontWeight: 600,
-  position: 'relative',
-  px: 3,
-  py: 2,
-};
 
 type Props = {
   children: React.Node | React.Node[],

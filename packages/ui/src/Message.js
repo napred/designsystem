@@ -27,24 +27,21 @@ const msgVariants: StyleFn<{ variant?: MessageVariants }> = createVariants('vari
 const Message = createComponent('Message', Flex, {
   styles: [
     createCssStyle(
-      ['variant'],
+      [],
       (props, { theme }) => css`
         background-color: ${theme.get('color', 'blue')};
       `,
-      ['variant'],
     ),
     msgVariants,
   ],
+  defaultProps: {
+    borderRadius: 0,
+    px: 3,
+    py: 2,
+    fontWeight: 'bold',
+    bgColor: 'blue',
+    color: 'white',
+  },
 });
-
-// $FlowExpectError
-Message.defaultProps = {
-  borderRadius: 0,
-  px: 3,
-  py: 2,
-  fontWeight: 'bold',
-  bgColor: 'blue',
-  color: 'white',
-};
 
 export default Message;

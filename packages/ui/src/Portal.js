@@ -55,7 +55,7 @@ function Portal(props: Props) {
 
 Portal.defaultProps = {
   containerId: 'portal-root',
-  removeOnUnmount: false,
+  removeOnUnmount: true,
 };
 
 export default Portal;

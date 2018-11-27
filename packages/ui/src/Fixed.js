@@ -2,11 +2,10 @@
 
 import { createComponent } from '@napred/ds';
 
-const Fixed = createComponent('Fixed', 'div');
-
-// $FlowExpectError
-Fixed.defaultProps = {
-  position: 'fixed',
-};
+const Fixed = createComponent('Fixed', 'div', {
+  defaultProps: {
+    position: 'fixed',
+  },
+});
 
 export default Fixed;

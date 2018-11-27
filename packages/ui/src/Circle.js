@@ -12,15 +12,13 @@ const Circle = createComponent('Circle', Badge, {
     -webkit-box-align: center;
     box-sizing: border-box;
   `,
+  defaultProps: {
+    width: '24px',
+    height: '24px',
+    px: 0,
+    py: 1,
+    fontSize: 1,
+  },
 });
-
-// $FlowExpectError
-Circle.defaultProps = {
-  width: '24px',
-  height: '24px',
-  px: 0,
-  py: 1,
-  fontSize: 1,
-};
 
 export default Circle;

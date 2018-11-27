@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 
 import Menu, { MenuItem, MenuSubheader } from '../../packages/ui/src/Menu';
 import Button from '../../packages/ui/src/form/Button';
-import CloseIcon from '../../packages/ui/src/assets';
+import { CloseIcon } from '../../packages/ui/src/assets';
 import SvgImage from '../../packages/ui/src/SvgImage';
 
 const menuStories = storiesOf('Components/Menu', module);

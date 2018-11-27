@@ -17,17 +17,14 @@ const Input = createComponent('Input', 'input', {
       `,
     ),
   ],
+  defaultProps: {
+    borderColor: 'greyLight',
+    borderStyle: 'solid',
+    borderRadius: 0,
+    borderWidth: 1,
+    p: 2,
+    m: 0,
+  },
 });
-
-Input.displayName = 'Input';
-// $FlowExpectError
-Input.defaultProps = {
-  borderColor: 'greyLight',
-  borderStyle: 'solid',
-  borderRadius: 0,
-  borderWidth: 1,
-  p: 2,
-  m: 0,
-};
 
 export default Input;

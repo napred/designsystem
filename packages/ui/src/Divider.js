@@ -9,15 +9,13 @@ const Divider = createComponent('Divider', 'hr', {
     borderLeft: 0,
     borderRight: 0,
   },
+  defaultProps: {
+    borderColor: 'greyLight',
+    borderStyle: 'solid',
+    minHeight: '2px',
+    mx: 0,
+    my: 3,
+  },
 });
-
-// $FlowExpectError
-Divider.defaultProps = {
-  borderColor: 'greyLight',
-  borderStyle: 'solid',
-  minHeight: '2px',
-  mx: 0,
-  my: 3,
-};
 
 export default Divider;

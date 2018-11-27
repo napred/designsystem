@@ -23,13 +23,11 @@ const Row = createComponent('Row', 'div', {
       ['gutters'],
     ),
   ],
+  defaultProps: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
 });
-
-// $FlowExpectError
-Row.defaultProps = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-};
 
 export default Row;

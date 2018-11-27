@@ -5,9 +5,7 @@ import React from 'react';
 import Popover from './Popover';
 import { List, ListItem, ListSubheader } from './List';
 
-const BaseMenuItem = ListItem;
-
-export const MenuItem = createComponent('MenuItem', BaseMenuItem);
+export const MenuItem = ListItem;
 export const MenuSubheader = ListSubheader;
 
 type BorderRadius = number | string | null | void;

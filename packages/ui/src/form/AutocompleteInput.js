@@ -4,7 +4,7 @@
 import { createCssStyle, createComponent } from '@napred/ds';
 import debounce from 'lodash.debounce';
 import { css } from 'emotion';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Transition from 'react-transition-group/Transition';
 import Input from './Input';
 import Menu, { MenuItem } from '../Menu';
@@ -12,7 +12,7 @@ import Menu, { MenuItem } from '../Menu';
 const AutocompleteBase = createComponent('AutocompleteBase', 'div', {
   styles: [
     createCssStyle(
-      ['suggestions'],
+      [],
       css`
         display: inline-block;
         position: relative;
@@ -23,13 +23,11 @@ const AutocompleteBase = createComponent('AutocompleteBase', 'div', {
       `,
     ),
   ],
+  defaultProps: {
+    px: 0,
+    py: 0,
+  },
 });
-
-// $FlowExpectError
-AutocompleteBase.defaultProps = {
-  px: 0,
-  py: 0,
-};
 
 type Props = {
   disabled?: boolean,
@@ -69,40 +67,52 @@ export default function AutocompleteInput(props: Props) {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
 
-  const handleAutocomplete = debounce(async (e: SyntheticInputEvent<HTMLInputElement>) => {
-    try {
-      setLoading(true);
+  const handleAutocomplete = useCallback(
+    debounce(async (e: SyntheticInputEvent<HTMLInputElement>) => {
+      try {
+        setLoading(true);
 
-      const res = await onAutocomplete(e);
+        const res = await onAutocomplete(e);
 
-      setResults(res);
-    } finally {
-      setLoading(false);
-    }
-  }, debounceTime);
+        setResults(res);
+      } finally {
+        setLoading(false);
+      }
+    }, debounceTime),
+    [debounceTime, onAutocomplete, setLoading, setResults],
+  );
 
-  function handleChange(e: SyntheticInputEvent<HTMLInputElement>) {
-    if (!loading) {
-      // persist for onAutocomplete
-      e.persist();
+  const handleChange = useCallback(
+    (e: SyntheticInputEvent<HTMLInputElement>) => {
+      if (!loading) {
+        // persist for onAutocomplete
+        e.persist();
 
-      onChange(e);
+        onChange(e);
 
-      handleAutocomplete(e);
-    }
-  }
+        handleAutocomplete(e);
+      }
+    },
+    [onChange],
+  );
 
-  function handleBlur(e: Event) {
-    setFocused(false);
+  const handleBlur = useCallback(
+    (e: Event) => {
+      setFocused(false);
 
-    onBlur(e);
-  }
+      onBlur(e);
+    },
+    [onBlur],
+  );
 
-  function handleFocus(e: Event) {
-    setFocused(true);
+  const handleFocus = useCallback(
+    (e: Event) => {
+      setFocused(true);
 
-    onFocus(e);
-  }
+      onFocus(e);
+    },
+    [onFocus],
+  );
 
   function renderResults() {
     if (!focused || results.length === 0) {

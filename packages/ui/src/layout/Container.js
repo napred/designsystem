@@ -16,11 +16,9 @@ const Container = createComponent('Container', 'div', {
       `,
     ),
   ],
+  defaultProps: {
+    maxWidth: [0, 1, 2, 3],
+  },
 });
-
-// $FlowExpectError
-Container.defaultProps = {
-  maxWidth: [0, 1, 2, 3],
-};
 
 export default Container;

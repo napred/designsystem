@@ -7,12 +7,10 @@ const Popover = createComponent('Popover', Absolute, {
   style: {
     outline: 'none',
   },
+  defaultProps: {
+    overflowX: 'hidden',
+    overflowY: 'auto',
+  },
 });
-
-// $FlowExpectError
-Popover.defaultProps = {
-  overflowX: 'hidden',
-  overflowY: 'auto',
-};
 
 export default Popover;

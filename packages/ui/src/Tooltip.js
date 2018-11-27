@@ -62,9 +62,9 @@ const Tooltip = createComponent('Tooltip', Message, {
     }
   `,
   tooltipVariants,
+  defaultProps: {
+    variant: 'default',
+  },
 });
-
-// $FlowExpectError
-Tooltip.defaultProps = {};
 
 export default Tooltip;

@@ -9,16 +9,14 @@ const Badge = createComponent('Badge', 'div', {
     -webkit-font-smoothing: antialiased;
     vertical-align: middle;
   `,
+  defaultProps: {
+    borderRadius: 0,
+    bgColor: 'blue',
+    color: 'white',
+    px: 1,
+    py: 0,
+    m: 0,
+  },
 });
-
-// $FlowExpectError
-Badge.defaultProps = {
-  borderRadius: 0,
-  bgColor: 'blue',
-  color: 'white',
-  px: 1,
-  py: 0,
-  m: 0,
-};
 
 export default Badge;

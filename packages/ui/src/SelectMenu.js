@@ -2,7 +2,7 @@
 
 import { IfViewport } from '@napred/ds';
 import { Title, Box } from '@napred/primitives';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Menu, { MenuSubheader } from './Menu';
 import Button from './form/Button';
 import SvgImage from './SvgImage';
@@ -14,8 +14,6 @@ type Props = {
   title?: ?React.Node,
   renderButton: (opened: boolean, set: (value: boolean) => any) => React.Node,
   renderMenuContent: (opened: boolean, set: (value: boolean) => any) => React.Node,
-  onBlur: (e: any) => any,
-  onFocus: (e: any) => any,
 };
 
 function SelectMenu(props: Props) {
@@ -40,7 +38,7 @@ function SelectMenu(props: Props) {
         >
           <IfViewport is={[0, 1]}>
             {() => (
-              <React.Fragment>
+              <Fragment>
                 <MenuSubheader alignItems="center">
                   {typeof title === 'string' ? <Title>{title}</Title> : title}
                   <Button
@@ -48,7 +46,7 @@ function SelectMenu(props: Props) {
                     alignItems="center"
                     justifyContent="center"
                     px={0}
-                    ml={'auto'}
+                    ml="auto"
                     variant="transparent"
                     onClick={() => setFocused(false)}
                   >
@@ -56,7 +54,7 @@ function SelectMenu(props: Props) {
                   </Button>
                 </MenuSubheader>
                 <Divider my={0} />
-              </React.Fragment>
+              </Fragment>
             )}
           </IfViewport>
           {renderMenuContent(focused, setFocused)}
@@ -68,8 +66,6 @@ function SelectMenu(props: Props) {
 
 SelectMenu.defaultProps = {
   origin: 'left',
-  onBlur: () => {},
-  onFocus: () => {},
 };
 
 export default SelectMenu;

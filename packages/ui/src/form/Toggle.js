@@ -40,18 +40,16 @@ const Toggle = createComponent('Toggle', 'div', {
       ['height', 'borderWidth'],
     ),
   ],
+  defaultProps: {
+    borderWidth: 1,
+    borderRadius: 3,
+    borderStyle: 'transparent',
+    borderColor: 'grey',
+    height: 24,
+    role: 'checkbox',
+    width: 40,
+    disabled: false,
+  },
 });
-
-// $FlowExpectError
-Toggle.defaultProps = {
-  borderWidth: 1,
-  borderRadius: 3,
-  borderStyle: 'transparent',
-  borderColor: 'grey',
-  height: 24,
-  role: 'checkbox',
-  width: 40,
-  disabled: false,
-};
 
 export default Toggle;

@@ -2,12 +2,10 @@
 
 import React from 'react';
 import { css } from 'emotion';
-import { createCleanTag, createComponent } from '@napred/ds';
+import { createComponent } from '@napred/ds';
 
-const BaseListItem = createCleanTag('li');
-
-function RoledListItem({ button, ...rest }: { button?: boolean }) {
-  return <BaseListItem role={button ? 'button' : undefined} {...rest} />;
+function BaseListItem({ button, ...rest }: { button?: boolean }) {
+  return <li role={button ? 'button' : undefined} {...rest} />;
 }
 
 export const List = createComponent('List', 'ul', {
@@ -24,6 +22,10 @@ export const List = createComponent('List', 'ul', {
       background-color: ${theme.get('color', 'greyLighter')};
     }
   `,
+  defaultProps: {
+    p: 0,
+    m: 0,
+  },
 });
 
 export const OrderedList = createComponent('OrderedList', 'ol', {
@@ -41,44 +43,34 @@ export const OrderedList = createComponent('OrderedList', 'ol', {
         background-color: ${theme.get('color', 'greyLighter')};
       }
     `,
+  defaultProps: {
+    p: 0,
+  },
 });
 
-// $FlowExpectError
-OrderedList.defaultProps = {
-  p: 0,
-};
-
 const itemStyle = {
-  style: {
-    display: 'flex',
-    listStyle: 'none',
-    width: '100%',
+  display: 'flex',
+  listStyle: 'none',
+  width: '100%',
+};
+
+export const ListItem = createComponent('ListItem', BaseListItem, {
+  style: itemStyle,
+  defaultProps: {
+    px: 3,
+    py: 2,
+    bgColor: 'white',
+    alignItems: 'center',
   },
-};
+});
 
-export const ListItem = createComponent('ListItem', RoledListItem, itemStyle);
-
-export const ListSubheader = createComponent('ListSubheader', 'li', itemStyle);
-
-// $FlowExpectError
-ListSubheader.defaultProps = {
-  px: 3,
-  py: 2,
-  bgColor: 'white',
-  fontWeight: 600,
-  fontSize: '0.9em',
-};
-
-// $FlowExpectError
-ListItem.defaultProps = {
-  px: 3,
-  py: 2,
-  bgColor: 'white',
-  alignItems: 'center',
-};
-
-// $FlowExpectError
-List.defaultProps = {
-  p: 0,
-  m: 0,
-};
+export const ListSubheader = createComponent('ListSubheader', 'li', {
+  style: itemStyle,
+  defaultProps: {
+    px: 3,
+    py: 2,
+    bgColor: 'white',
+    fontWeight: 600,
+    fontSize: '0.9em',
+  },
+});

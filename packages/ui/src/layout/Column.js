@@ -12,12 +12,10 @@ const width: StyleFn<{
 
 const Column = createComponent('Column', 'div', {
   styles: [width, createCssStyle([], { boxSizing: 'border-box' })],
+  defaultProps: {
+    className: 'ds-col',
+    flex: '0 0 auto',
+  },
 });
-
-// $FlowExpectError
-Column.defaultProps = {
-  className: 'ds-col',
-  flex: '0 0 auto',
-};
 
 export default Column;

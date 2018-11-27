@@ -8,7 +8,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 
 const input = 'src/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
-const name = 'NapredPrimitives';
+const name = 'napred.primitives';
 
 const babelCJS = {
   presets: [['@babel/preset-env'], '@babel/preset-react'],

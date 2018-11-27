@@ -44,7 +44,7 @@ type Props = {
   side: 'left' | 'top' | 'bottom' | 'right',
 };
 
-const drawerStyle = createCssStyle(['open', 'side'], { ...transform, ...side }, ['open', 'side']);
+const drawerStyle = createCssStyle(['open', 'side'], { ...transform, ...side });
 
 const DrawerBase = createComponent('DrawerBase', Fixed, { styles: [drawerStyle] });
 
@@ -55,9 +55,7 @@ DrawerBase.defaultProps = {
   width: ['100%', '75%', '50%'],
 };
 
-export default function Drawer(props: Props) {
-  const { containerId, overlayed, ...rest } = props;
-
+export default function Drawer({ containerId, overlayed, ...rest }: Props) {
   return (
     <Portal containerId={containerId}>
       <DrawerBase {...rest} />

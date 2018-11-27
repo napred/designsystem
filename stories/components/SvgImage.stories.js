@@ -4,7 +4,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import CloseIcon from '../../packages/ui/src/assets';
+import { CloseIcon } from '../../packages/ui/src/assets';
 import SvgImage from '../../packages/ui/src/SvgImage';
 
 const svgImageStories = storiesOf('Components/SvgImage', module);
