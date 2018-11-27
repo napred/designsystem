@@ -1,8 +1,22 @@
-import { ITheme, IThemeSettings } from './types';
+import { ITheme } from '../types';
+import { IThemeSettings } from './types';
 
 export default function createTheme(settings: IThemeSettings): ITheme {
   return {
-    get: (attributeName: string, defaultValue?: any): any => {
+    color(valueOrName, defaultValueOrName) {
+      const color = settings.colors[valueOrName];
+
+      if (color == null) {
+        if (defaultValueOrName != null) {
+          return settings.colors[defaultValueOrName] || defaultValueOrName;
+        }
+
+        return valueOrName;
+      }
+
+      return color;
+    },
+    get(attributeName, defaultValue) {
       const attributeValues = settings[attributeName];
 
       if (attributeValues == null) {

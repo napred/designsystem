@@ -3,10 +3,6 @@ export interface IFontPalette {
   [extra: string]: string;
 }
 
-export interface ITheme {
-  get(attributeName: string, defaultValue?: any): any;
-}
-
 export interface IThemeSettings {
   borderRadiuses: Array<string | number>;
   breakpoints: string[];

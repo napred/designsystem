@@ -5,6 +5,11 @@ export interface IComponentOptions extends IStylingOptions {
   passthrough?: boolean;
 }
 
+/** Keeps custom styles by component names */
+export interface IComponentStylesRegistry {
+  [componentName: string]: Array<IStyler<any>>;
+}
+
 export interface IStyleCache {
   get<T = any>(name: string): T | void;
   set<T = any>(name: string, value: T): T;
@@ -45,8 +50,10 @@ export interface IStyleApplicator<TStyleProps extends object = object> {
   ): IInternalDSProps & TStyleProps & TProps;
 }
 
-export interface IComponentStylesRegistry {
-  [componentName: string]: Array<IStyler<any>>;
+export interface ITheme {
+  /** Returns specific color or color from palette */
+  color(valueOrName: string, defaultValueOrName?: string): string | void;
+  get(attributeName: string, defaultValue?: any): any;
 }
 
 export type StyleCacheKeyFn = (
