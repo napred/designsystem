@@ -1,10 +1,10 @@
 import { useCallback, useMemo, useState } from 'react';
-import { ITheme } from '../theme';
 import {
   IComponentOptions,
   IStyleCache,
   IStyler,
   IStylingOptions,
+  ITheme,
   StyleApplicatorFactory,
 } from '../types';
 

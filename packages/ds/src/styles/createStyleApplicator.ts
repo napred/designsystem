@@ -1,6 +1,5 @@
 import { css } from 'emotion';
-import { ITheme } from '../theme';
-import { IStyleApplicator, IStyler, StyleApplicatorFactory } from '../types';
+import { IStyleApplicator, IStyler, ITheme, StyleApplicatorFactory } from '../types';
 
 export const COMPONENT_PATH_PROP_NAME = 'compPath';
 export const STRIP_PROPS_PROP_NAME = 'stripProps';

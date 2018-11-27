@@ -5,8 +5,7 @@ import defaultTheme from './defaultTheme';
 import { useBreakpointDetection, useStyleReset } from './hooks';
 import { createStyleApplicator, styleList } from './styles';
 import { createSystem } from './system';
-import { ITheme } from './theme';
-import { IStyleCache, IStyler } from './types';
+import { IStyleCache, IStyler, ITheme } from './types';
 
 const defaultCache = createNullCache();
 
