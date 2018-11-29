@@ -15,7 +15,7 @@
     "test:ci": "jest --ci --coverage --runInBand",
     "test:watch": "jest --watch",
     "storybook:build": "build-storybook",
-    "storybook:run": "start-storybook -p 6006",
+    "storybook:run": "npx lerna run build && start-storybook -p 6006"
     "typecheck": "lerna run typecheck"
   },
   "lint-staged": {
@@ -46,6 +46,7 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
+    "babel-plugin-inline-react-svg": "^0.5.2",
     "@storybook/addon-actions": "^4.0.7",
     "@storybook/addon-knobs": "^4.0.7",
     "@storybook/addon-links": "^4.0.7",

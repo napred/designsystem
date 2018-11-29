@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 // tslint:disable-next-line:no-implicit-dependencies
 import React from 'react';
 
-import { createComponent } from '../../packages/ds/src';
+import { createComponent } from '@napred/ds';
 
 const RedSpan = createComponent('RedSpan', 'span');
 const Text = createComponent('Text', 'div');

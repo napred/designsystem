@@ -12,7 +12,7 @@ const name = 'napred.ui';
 
 const babelCJS = {
   presets: [['@babel/preset-env'], '@babel/preset-react'],
-  plugins: ['@babel/plugin-proposal-class-properties'],
+  plugins: ['@babel/plugin-proposal-class-properties', 'babel-plugin-inline-react-svg'],
   exclude: /node_modules/,
 };
 const babelESM = {
@@ -21,6 +21,7 @@ const babelESM = {
   plugins: [
     '@babel/plugin-proposal-class-properties',
     ['@babel/transform-runtime', { useESModules: true }],
+    'babel-plugin-inline-react-svg',
   ],
   exclude: /node_modules/,
 };
@@ -35,6 +36,9 @@ const commonPlugins = babelConfig => [
   babel(babelConfig),
   commonjs({
     ignoreGlobal: true,
+    namedExports: {
+      'react-dom': ['createPortal'],
+    },
   }),
 ];
 

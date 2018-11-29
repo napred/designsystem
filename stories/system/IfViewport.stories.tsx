@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 // tslint:disable-next-line:no-implicit-dependencies
 import * as React from 'react';
 
-import { IfViewport } from '../../packages/ds/src';
+import { IfViewport } from '@napred/ds';
 
 const systemStories = storiesOf('IfViewport', module);
 

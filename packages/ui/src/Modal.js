@@ -1,9 +1,9 @@
 // @flow
 /* eslint-disable react/sort-comp, no-multi-assign */
 
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { Flex } from '@napred/primitives';
 
-import Flex from './Flex';
 import Overlay from './Overlay';
 import Portal from './Portal';
 

@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 import { MenuItem } from '../../packages/ui/src/Menu';
 import Button from '../../packages/ui/src/form/Button';
 import SelectMenu from '../../packages/ui/src/SelectMenu';
-import Flex from '../../packages/ui/src/Flex';
+import Flex from '../../packages/primitives/src/Flex';
 
 const selectMenuStories = storiesOf('Components/SelectMenu', module);
 

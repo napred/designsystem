@@ -6,7 +6,7 @@ import { css } from 'emotion';
 import { storiesOf } from '@storybook/react';
 
 import { createCssStyle, IfViewport, createComponent } from '@napred/ds';
-import { Column, Row } from '../../packages/ui/src/layout';
+import { Column, Row } from '@napred/ui';
 
 const layoutStories = storiesOf('Components/Layout/Whole layout', module);
 

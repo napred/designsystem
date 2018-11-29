@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 
 import Button from '../../packages/ui/src/form/Button';
-import Flex from '../../packages/ui/src/Flex';
+import Flex from '../../packages/primitives/src/Flex';
 import Link from '../../packages/primitives/src/Link';
 
 const buttonStories = storiesOf('Components/Form/Button', module);

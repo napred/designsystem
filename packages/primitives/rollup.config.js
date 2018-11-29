@@ -35,6 +35,17 @@ const commonPlugins = babelConfig => [
   babel(babelConfig),
   commonjs({
     ignoreGlobal: true,
+    namedExports: {
+      react: [
+        'useEffect',
+        'createContext',
+        'useContext',
+        'useMemo',
+        'useState',
+        'useCallback',
+        'createElement',
+      ],
+    },
   }),
 ];
 

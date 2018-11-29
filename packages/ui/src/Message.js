@@ -1,9 +1,8 @@
 // @flow
 
 import { createComponent, createCssStyle, type StyleFn } from '@napred/ds';
+import { Flex } from '@napred/primitives';
 import { css } from 'emotion';
-
-import Flex from './Flex';
 import createVariants from './styles/createVariants';
 
 type MessageVariants = 'default' | 'error' | 'warning' | 'success';
@@ -32,7 +31,7 @@ const Message = createComponent('Message', Flex, {
         background-color: ${theme.get('color', 'blue')};
       `,
     ),
-    msgVariants,
+    // msgVariants,
   ],
   defaultProps: {
     borderRadius: 0,

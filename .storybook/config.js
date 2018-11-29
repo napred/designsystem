@@ -2,7 +2,7 @@ import React from 'react';
 import { addDecorator, configure } from '@storybook/react';
 import { configureViewport } from '@storybook/addon-viewport';
 import { withKnobs } from '@storybook/addon-knobs';
-import { DesignSystem } from '../packages/ds/src';
+import { DesignSystem } from '@napred/ds';
 
 // automatically import all files ending in *.stories.tsx
 const req = require.context('../stories', true, /.stories.tsx$/);
