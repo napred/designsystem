@@ -15,7 +15,7 @@
     "test:ci": "jest --ci --coverage --runInBand",
     "test:watch": "jest --watch",
     "storybook:build": "build-storybook",
-    "storybook:run": "npx lerna run build && start-storybook -p 6006"
+    "storybook:run": "npx lerna run build && start-storybook -p 6006",
     "typecheck": "lerna run typecheck"
   },
   "lint-staged": {
@@ -103,6 +103,6 @@
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.16.0",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.2.1"
   }
 }
