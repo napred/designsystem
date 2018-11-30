@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css, Interpolation } from 'emotion';
 import { IStyleApplicator, IStyler, ITheme, StyleApplicatorFactory } from '../types';
 
 export const COMPONENT_PATH_PROP_NAME = 'compPath';
@@ -24,11 +24,11 @@ function applyStyles(
   styles: Array<IStyler<any>>,
 ): string {
   return css(
-    styles.reduce((result: Array<string | object>, style) => {
+    styles.reduce((result, style) => {
       const appliedStyle = style.apply(props, system);
 
       return [...result, typeof appliedStyle === 'object' ? css(appliedStyle) : appliedStyle];
-    }, []),
+    }, [] as Interpolation[]),
   );
 }
 
