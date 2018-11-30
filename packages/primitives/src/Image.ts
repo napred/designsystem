@@ -1,5 +1,3 @@
-// @flow
-
 import { createComponent } from '@napred/ds';
 
 const Image = createComponent('Image', 'img', {

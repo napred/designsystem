@@ -1,5 +1,3 @@
-// @flow
-
 import { createComponent } from '@napred/ds';
 
 const Card = createComponent('Card', 'div');

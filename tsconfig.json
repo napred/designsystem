@@ -24,5 +24,6 @@
     "target": "es5"
   },
   "include": ["packages/*/src/**/*", "stories/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "references": [{ "path": "./packages/ds" }, { "path": "./packages/primitives" }]
 }

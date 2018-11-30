@@ -1,5 +1,3 @@
-// @flow
-
 export { default as Box } from './Box';
 export { default as Card, CardFooter, CardHeader } from './Card';
 export { default as Flex } from './Flex';

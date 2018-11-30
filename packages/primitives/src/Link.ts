@@ -1,17 +1,13 @@
-// @flow
-
 import { createComponent } from '@napred/ds';
 
 const Link = createComponent('Link', 'a', {
+  defaultProps: {
+    color: 'grey',
+  },
   style: {
-    textDecoration: 'none',
     cursor: 'pointer',
+    textDecoration: 'none',
   },
 });
-
-// $FlowExpectError
-Link.defaultProps = {
-  color: 'grey',
-};
 
 export default Link;
