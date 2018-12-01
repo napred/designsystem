@@ -1,7 +1,7 @@
 import { IStyler } from '../../types';
 import { createStringStyle } from '../simpleStyleFactories';
 
-export type Overflow = 'scroll' | 'hidden' | 'visible' | 'overlay';
+export type Overflow = 'auto' | 'scroll' | 'hidden' | 'visible' | 'overlay';
 
 export const overflow: IStyler<{
   overflow?: Overflow | Array<Overflow | null | undefined> | null | undefined;
