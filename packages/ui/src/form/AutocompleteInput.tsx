@@ -1,4 +1,4 @@
-import { createComponent, createCssStyle } from '@napred/ds';
+import { createComponent, createCssStyle, DSProps } from '@napred/ds';
 import { css } from 'emotion';
 import debounce from 'lodash.debounce';
 import React, { ChangeEvent, SyntheticEvent, useCallback, useState } from 'react';
@@ -29,7 +29,7 @@ AutocompleteBase.defaultProps = {
   py: 0,
 };
 
-interface IProps<T> {
+interface IProps<T> extends DSProps {
   disabled?: boolean;
   className?: string;
   debounceTime?: number;

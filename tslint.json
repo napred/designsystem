@@ -2,6 +2,8 @@
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "rules": {
     "jsx-boolean-value": false,
+    "jsx-no-lambda": false,
+    "no-implicit-dependencies": false,
     "no-empty": false
   }
 }

@@ -3,7 +3,7 @@ import { CloseIcon } from './assets';
 import SvgImage from './SvgImage';
 
 interface IProps {
-  inverted: boolean;
+  inverted?: boolean;
 }
 
 export default function Close({ inverted, ...props }: IProps) {

@@ -37,7 +37,7 @@ const tooltipVariants = createVariants<any, { variant?: TooltipVariants }>('vari
   `,
 });
 
-const Tooltip = createComponent<{ error: any }>('Tooltip', Message, {
+const Tooltip = createComponent<{ error?: any }>('Tooltip', Message, {
   style: ({ error }, { theme }) => css`
     position: absolute;
     border-radius: 2px;

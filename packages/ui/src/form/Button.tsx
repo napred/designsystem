@@ -1,6 +1,6 @@
 import { createComponent, createCssStyle, DSProps } from '@napred/ds';
 import { css } from 'emotion';
-import React, { ReactElement } from 'react';
+import React, { ReactNode } from 'react';
 import LoadingDots from '../LoadingDots';
 import createVariants from '../styles/createVariants';
 
@@ -159,13 +159,14 @@ Button.defaultProps = {
 };
 
 interface IProps extends DSProps {
-  children?: ReactElement<any>;
-  disabled: boolean;
+  children?: ReactNode;
+  disabled?: boolean;
   hoverColor?: string;
-  loading: boolean;
-  loadingDotsProps: DSProps;
+  loading?: boolean;
+  loadingDotsProps?: DSProps;
   onClick?: () => any;
   variant?: ButtonVariants;
+  [key: string]: any;
 }
 
 function preventClick(e: MouseEvent) {

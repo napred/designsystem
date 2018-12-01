@@ -1,10 +1,10 @@
 import { createComponent } from '@napred/ds';
 import { css } from 'emotion';
-import React, { ComponentType, ReactElement } from 'react';
+import React, { ComponentType, ReactNode } from 'react';
 
 import Row from '../layout/Row';
 
-const BaseGroup: ComponentType<{ children?: ReactElement<any> }> = ({ children, ...props }) => (
+const BaseGroup: ComponentType<{ children?: ReactNode }> = ({ children, ...props }) => (
   <Row {...props}>{children}</Row>
 );
 
