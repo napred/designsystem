@@ -49,6 +49,7 @@ export type StylerProps = extractStylerProps<typeof styles.alignContent> &
   extractStylerProps<typeof styles.minWidth> &
   extractStylerProps<typeof styles.maxHeight> &
   extractStylerProps<typeof styles.maxWidth> &
+  extractStylerProps<typeof styles.opacity> &
   extractStylerProps<typeof styles.overflow> &
   extractStylerProps<typeof styles.overflowX> &
   extractStylerProps<typeof styles.overflowY> &
