@@ -1,13 +1,16 @@
 import { createComponent } from '@napred/ds';
 
 const Link = createComponent('Link', 'a', {
-  defaultProps: {
-    color: 'grey',
-  },
   style: {
     cursor: 'pointer',
     textDecoration: 'none',
   },
 });
+
+// temporary fix because if we use defaultProps in config object
+// it will require them :(
+Link.defaultProps = {
+  color: 'grey',
+};
 
 export default Link;
