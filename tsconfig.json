@@ -25,5 +25,9 @@
   },
   "include": ["packages/*/src/**/*", "stories/**/*"],
   "exclude": ["node_modules"],
-  "references": [{ "path": "./packages/ds" }, { "path": "./packages/primitives" }]
+  "references": [
+    { "path": "./packages/ds" },
+    { "path": "./packages/primitives" },
+    { "path": "./packages/ui" }
+  ]
 }

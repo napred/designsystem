@@ -2,11 +2,18 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
-import flow from 'rollup-plugin-flow';
 import { terser } from 'rollup-plugin-terser';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 
-const input = 'src/index.js';
+function onwarn(message) {
+  const suppressed = ['UNRESOLVED_IMPORT', 'THIS_IS_UNDEFINED'];
+
+  if (!suppressed.find(code => message.code === code)) {
+    console.warn(message.message);
+  }
+}
+
+const input = 'dist/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 const name = 'napred.ui';
 
@@ -15,22 +22,8 @@ const babelCJS = {
   plugins: ['@babel/plugin-proposal-class-properties', 'babel-plugin-inline-react-svg'],
   exclude: /node_modules/,
 };
-const babelESM = {
-  runtimeHelpers: true,
-  presets: [['@babel/preset-env'], '@babel/preset-react'],
-  plugins: [
-    '@babel/plugin-proposal-class-properties',
-    ['@babel/transform-runtime', { useESModules: true }],
-    'babel-plugin-inline-react-svg',
-  ],
-  exclude: /node_modules/,
-};
 
 const commonPlugins = babelConfig => [
-  flow({
-    // needed for sourcemaps to be properly generated
-    pretty: true,
-  }),
   sourceMaps(),
   nodeResolve(),
   babel(babelConfig),
@@ -55,13 +48,14 @@ const globals = { react: 'React' };
 const umdBase = {
   input,
   external: Object.keys(globals),
+  onwarn,
   output: {
     format: 'umd',
     globals,
     name,
     sourcemap: true,
   },
-  plugins: commonPlugins(babelESM),
+  plugins: commonPlugins(babelCJS),
 };
 
 const umdDevConfig = {
@@ -89,6 +83,7 @@ const umdProdConfig = {
 const cjsConfig = {
   input,
   external,
+  onwarn,
   output: {
     file: 'dist/ui.cjs.js',
     format: 'cjs',
@@ -96,14 +91,4 @@ const cjsConfig = {
   plugins: commonPlugins(babelCJS),
 };
 
-const esmConfig = {
-  input,
-  external,
-  output: {
-    file: 'dist/ui.esm.js',
-    format: 'esm',
-  },
-  plugins: commonPlugins(babelESM),
-};
-
-export default [umdDevConfig, umdProdConfig, cjsConfig, esmConfig];
+export default [umdDevConfig, umdProdConfig, cjsConfig];
