@@ -2,7 +2,7 @@ import { Interpolation } from 'emotion';
 import { Component, createElement, FunctionComponent } from 'react';
 import { useStyle } from './hooks';
 import { createCssStyle, StylerProps } from './styles';
-import { IStyler, IStylingOptions } from './types';
+import { IStyler, IStylingOptions, StylingFn } from './types';
 import { cleanProps } from './utilities';
 
 export type DSProps = {
@@ -17,7 +17,7 @@ interface IOptions<TProps extends object> extends IStylingOptions {
   /** Component's default props */
   defaultProps?: Partial<TProps & DSProps & { [key: string]: any }>;
   /** Component's style */
-  style?: Interpolation | ((props: TProps) => string);
+  style?: Interpolation | StylingFn<TProps>;
 }
 
 export interface IDSComponent<TProps extends object> extends FunctionComponent<TProps> {

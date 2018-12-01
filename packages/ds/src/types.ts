@@ -25,7 +25,7 @@ export interface IStylingOptions {
 }
 
 export interface IStyler<TProps extends object> {
-  apply: (props: TProps, designSystem: ISystem) => any;
+  apply: StylingFn<TProps>;
   propNames: string[];
   stripProps: string[];
 }
@@ -71,3 +71,5 @@ export type StyleApplicatorFactory = <TProps extends object = {}>(
     globalStyles: Array<IStyler<any>>;
   },
 ) => IStyleApplicator<TProps>;
+
+export type StylingFn<TProps extends object> = (props: TProps, designSystem: ISystem) => any;
