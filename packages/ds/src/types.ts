@@ -52,7 +52,12 @@ export interface IStyleApplicator<TStyleProps extends object = object> {
 
 export interface ITheme {
   /** Returns specific color or color from palette */
-  color(valueOrName: string, defaultValueOrName?: string): string | void;
+  color(
+    /** The name of color in palette, if not found, is used unless default value is set and is found */
+    valueOrName: string,
+    /** Default value or name from palette */
+    defaultValueOrName?: string,
+  ): string;
   get(attributeName: string, defaultValue?: any): any;
 }
 
