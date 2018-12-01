@@ -1,12 +1,10 @@
 {
   "name": "@napred/ds",
-  "version": "0.2.0-alpha.3",
   "main": "dist/ds.umd.js",
   "jsnext:main": "dist/index.js",
   "module": "dist/index.js",
-  "typings": [
-    "dist/index.d.js"
-  ],
+  "typings": "dist/index.d.js",
+  "version": "0.2.0-alpha.4",
   "keywords": [
     "react",
     "design-system",
@@ -47,7 +45,7 @@
     "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
     "react-testing-library": "^5.3.0",
     "tslint": "^5.11.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.2.1"
   },
   "gitHead": "e94b1d302f40e6ababd4428447c22421d452b6ac",
   "scripts": {

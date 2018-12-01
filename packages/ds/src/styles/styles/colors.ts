@@ -2,17 +2,30 @@ import { IStyler } from '../../types';
 import { createStringStyle } from '../simpleStyleFactories';
 import { createStringSystemStyle } from '../systemStyleFactories';
 
-export const color: IStyler<{ color?: string | string[] | void }> = createStringSystemStyle(
+export type Color = string | null | undefined;
+type Opacity = number | string | null | undefined;
+type Shadow = string | null | undefined;
+
+export const bgColor: IStyler<{
+  /** Specifies background color */
+  bgColor?: Color | Color[];
+}> = createStringSystemStyle('bgColor', 'background-color', 'colors');
+
+export const borderColor: IStyler<{
+  borderColor?: Color | Color[];
+}> = createStringSystemStyle('borderColor', 'border-color', 'colors');
+
+export const color: IStyler<{ color?: Color | Color[] }> = createStringSystemStyle(
   'color',
   'color',
   'colors',
 );
 
-export const bgColor: IStyler<{
-  /** Specifies background color */
-  bgColor?: string | string[] | void;
-}> = createStringSystemStyle('bgColor', 'background-color', 'colors');
+export const opacity: IStyler<{ opacity?: Opacity | Opacity[] }> = createStringStyle(
+  'opacity',
+  'opacity',
+);
 
 export const shadow: IStyler<{
-  shadow?: string | string[] | void;
+  shadow?: Shadow | Shadow[];
 }> = createStringStyle('shadow', 'box-shadow');

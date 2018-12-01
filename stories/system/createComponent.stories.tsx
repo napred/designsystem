@@ -1,11 +1,6 @@
-// @flow
-
-// tslint:disable-next-line:no-implicit-dependencies
+import { createComponent } from '@napred/ds';
 import { storiesOf } from '@storybook/react';
-// tslint:disable-next-line:no-implicit-dependencies
 import React from 'react';
-
-import { createComponent } from '../../packages/ds/src';
 
 const RedSpan = createComponent('RedSpan', 'span');
 const Text = createComponent('Text', 'div');

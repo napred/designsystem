@@ -1,20 +1,19 @@
 import { css, Interpolation } from 'emotion';
-import { ISystem } from '../system';
-import { IStyler } from '../types';
+import { IStyler, StylingFn } from '../types';
 
 export default function createCssStyle<TProps extends object>(
   propNames: string[],
-  style: Interpolation | ((props: TProps, system: ISystem) => Interpolation),
+  style: Interpolation | StylingFn<TProps>,
   stripProps?: string[],
 ): IStyler<TProps> {
   return {
-    apply: (props: TProps, system: ISystem) => {
+    apply: (props, system) => {
       if (style == null) {
         return style;
       }
 
       if (typeof style === 'function') {
-        return (style as any)(props, system);
+        return (style as StylingFn<TProps>)(props, system);
       }
 
       return css(style);
