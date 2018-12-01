@@ -1,4 +1,5 @@
 export * from './cache';
+export * from './createComponent';
 export * from './css';
 export * from './hooks';
 export * from './styles';
