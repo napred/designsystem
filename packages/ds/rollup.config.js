@@ -57,6 +57,7 @@ export default [
     external,
     input,
     output: {
+      exports: 'named',
       file: 'dist/ds.cjs.min.js',
       format: 'cjs',
     },

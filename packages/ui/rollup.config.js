@@ -65,6 +65,7 @@ export default [
     external,
     input,
     output: {
+      exports: 'named',
       file: 'dist/ui.cjs.min.js',
       format: 'cjs',
     },

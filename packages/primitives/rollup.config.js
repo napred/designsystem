@@ -58,6 +58,7 @@ export default [
     external,
     input,
     output: {
+      exports: 'named',
       file: 'dist/primitives.cjs.min.js',
       format: 'cjs',
     },
