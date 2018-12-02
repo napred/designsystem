@@ -1,9 +1,11 @@
 {
   "name": "@napred/primitives",
   "version": "0.2.0-alpha.4",
-  "main": "dist/primitives.umd.js",
-  "jsnext:main": "dist/index.js",
-  "module": "dist/index.js",
+  "browser": "dist/primitives.umd.js",
+  "main": "dist/primitives.cjs.js",
+  "umd:main": "dist/primitives.umd.js",
+  "jsnext:main": "dist/primitives.m.js",
+  "module": "dist/primitives.m.js",
   "typings": "dist/index.d.js",
   "keywords": [
     "react",
@@ -30,6 +32,7 @@
     "access": "public"
   },
   "license": "MIT",
+  "sideEffects": false,
   "dependencies": {
     "@napred/ds": "^0.2.0-alpha.4"
   },
@@ -46,7 +49,7 @@
   "scripts": {
     "build": "tsc && rollup -c",
     "lint": "tslint -p .",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist temp",
     "prepublishOnly": "npm run build",
     "typecheck": "tsc --noEmit"
   }

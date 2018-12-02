@@ -2,10 +2,13 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
+    "declarationDir": "dist",
+    "jsx": "preserve",
+    "outDir": "temp",
     "rootDir": "src",
-    "outDir": "dist"
+    "target": "esnext"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
+  "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
   "references": [{ "path": "../ds" }]
 }

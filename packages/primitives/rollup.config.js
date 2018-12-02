@@ -1,119 +1,128 @@
 import nodeResolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
+import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import sourceMaps from 'rollup-plugin-sourcemaps';
 
-function onwarn(message) {
-  const suppressed = ['UNRESOLVED_IMPORT', 'THIS_IS_UNDEFINED'];
-
-  if (!suppressed.find(code => message.code === code)) {
-    console.warn(message.message);
-  }
-}
-
-const input = 'dist/index.js';
+const input = 'temp/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 const name = 'napred.primitives';
 
-/* const commonPlugins = () => [
-  sourceMaps(),
-  nodeResolve(),
-  commonjs({
-    ignoreGlobal: true,
-    namedExports: {
-      react: [
-        'useEffect',
-        'createContext',
-        'useContext',
-        'useMemo',
-        'useState',
-        'useCallback',
-        'createElement',
-      ],
+const babelCJS = {
+  babelrc: false,
+  presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+  exclude: /node_modules/,
+};
+
+const babelESM = {
+  exclude: /node_modules/,
+  runtimeHelpers: true,
+  presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+};
+
+const commonjsOptions = {
+  include: /node_modules/,
+};
+
+const globals = {
+  '@napred/ds': 'napred.ds',
+  emotion: 'emotion',
+  react: 'React',
+  'react-dom': 'ReactDOM',
+};
+
+export default [
+  // cjs dev
+  {
+    external,
+    input,
+    output: {
+      exports: 'named',
+      file: 'dist/primitives.cjs.js',
+      format: 'cjs',
     },
-  }),
-];*/
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      commonjs({
+        ignoreGlobal: true,
+      }),
+      babel(babelCJS),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+    ],
+  },
 
-const prodPlugins = [
-  replace({
-    'process.env.NODE_ENV': JSON.stringify('production'),
-  }),
-  terser({
-    sourcemap: true,
-  }),
+  // cjs prod, min
+  {
+    external,
+    input,
+    output: {
+      file: 'dist/primitives.cjs.min.js',
+      format: 'cjs',
+    },
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      commonjs(),
+      babel(babelCJS),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+      terser({
+        sourcemap: true,
+      }),
+    ],
+  },
+
+  // esm
+  {
+    input,
+    external,
+    output: {
+      file: 'dist/primitives.m.js',
+      format: 'esm',
+    },
+    plugins: [
+      babel(babelESM),
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      commonjs({
+        ignoreGlobal: true,
+      }),
+    ],
+  },
+
+  // umd
+  {
+    input,
+    output: { exports: 'named', file: 'dist/primitives.umd.js', format: 'umd', name, globals },
+    external: Object.keys(globals),
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      babel(babelESM),
+      commonjs(commonjsOptions),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+    ],
+  },
+
+  // umd prod
+  {
+    input,
+    output: { exports: 'named', file: 'dist/primitives.umd.min.js', format: 'umd', name, globals },
+    external: Object.keys(globals),
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      babel(babelESM),
+      commonjs(commonjsOptions),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+      terser({
+        sourcemap: true,
+      }),
+    ],
+  },
 ];
-
-const globals = {};
-const umdBase = {
-  input,
-  external: Object.keys(globals),
-  output: {
-    format: 'umd',
-    globals,
-    name,
-    sourcemap: true,
-  },
-  onwarn,
-  plugins: [
-    sourceMaps(),
-    nodeResolve(),
-    commonjs({
-      ignoreGlobal: true,
-      namedExports: {
-        react: [
-          'useEffect',
-          'createContext',
-          'useContext',
-          'useMemo',
-          'useState',
-          'useCallback',
-          'createElement',
-        ],
-      },
-    }),
-  ],
-};
-
-const umdDevConfig = {
-  ...umdBase,
-  output: {
-    ...umdBase.output,
-    file: 'dist/primitives.umd.js',
-  },
-  plugins: umdBase.plugins.concat(
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-    }),
-  ),
-};
-
-const umdProdConfig = {
-  ...umdBase,
-  output: {
-    ...umdBase.output,
-    file: 'dist/primitives.umd.min.js',
-  },
-  plugins: umdBase.plugins.concat(prodPlugins),
-};
-
-const cjsConfig = {
-  input,
-  external,
-  output: {
-    file: 'dist/primitives.cjs.js',
-    format: 'cjs',
-    sourcemaps: true,
-  },
-  onwarn,
-  plugins: [
-    sourceMaps(),
-    nodeResolve(),
-    commonjs({
-      ignore: ['emotion', 'react'],
-      ignoreGlobal: true,
-    }),
-  ],
-};
-
-export default [umdDevConfig, umdProdConfig, cjsConfig];
