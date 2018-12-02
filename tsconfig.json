@@ -25,7 +25,7 @@
     "typeRoots": ["node_modules/@types", "./@types"]
   },
   "include": ["packages/*/src/**/*", "stories/**/*"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "__tests__"],
   "references": [
     { "path": "./packages/ds" },
     { "path": "./packages/primitives" },

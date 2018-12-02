@@ -1,4 +1,4 @@
-import { createComponent, createCssStyle } from '@napred/ds';
+import { createComponent, createCssStyle, DSProps } from '@napred/ds';
 import React from 'react';
 import Fixed from './Fixed';
 import Overlay from './Overlay';
@@ -36,7 +36,7 @@ const transform = ({ open, side: toSide }: IDrawerBaseProps) => ({
   transform: open ? null : transforms[toSide] || transforms.left,
 });
 
-interface IDrawerBaseProps {
+interface IDrawerBaseProps extends DSProps {
   open: boolean;
   side: keyof (typeof transforms);
 }
@@ -60,7 +60,7 @@ interface IDrawerProps extends IDrawerBaseProps {
   overlayed: boolean;
 }
 
-export default function Drawer({ containerId, overlayed, ...rest }: IDrawerProps) {
+function Drawer({ containerId, overlayed, ...rest }: IDrawerProps) {
   return (
     <Portal containerId={containerId}>
       <DrawerBase {...rest} />
@@ -75,3 +75,5 @@ Drawer.defaultProps = {
   overlayed: false,
   side: 'left',
 };
+
+export default Drawer;

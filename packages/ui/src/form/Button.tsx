@@ -174,7 +174,7 @@ function preventClick(e: MouseEvent) {
   e.stopPropagation();
 }
 
-export default function ButtonComponent({
+function ButtonComponent({
   disabled,
   children,
   hoverColor,
@@ -216,3 +216,5 @@ ButtonComponent.defaultProps = {
   loading: false,
   loadingDotsProps: {},
 };
+
+export default ButtonComponent;

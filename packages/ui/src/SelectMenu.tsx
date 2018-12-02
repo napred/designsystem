@@ -1,6 +1,6 @@
 import { IfViewport } from '@napred/ds';
 import { Box, Title } from '@napred/primitives';
-import React, { Fragment, ReactElement, useCallback, useState } from 'react';
+import React, { Fragment, ReactNode, useCallback, useState } from 'react';
 import { CloseIcon } from './assets';
 import Divider from './Divider';
 import Button from './form/Button';
@@ -9,9 +9,9 @@ import SvgImage from './SvgImage';
 
 interface IProps {
   origin?: 'left' | 'right';
-  title?: ReactElement<any>;
-  renderButton: (opened: boolean, set: (value: boolean) => any) => ReactElement<any>;
-  renderMenuContent: (opened: boolean, set: (value: boolean) => any) => ReactElement<any>;
+  title?: ReactNode;
+  renderButton: (opened: boolean, set: (value: boolean) => any) => ReactNode;
+  renderMenuContent: (opened: boolean, set: (value: boolean) => any) => ReactNode;
 }
 
 function SelectMenu(props: IProps) {

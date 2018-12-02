@@ -3,92 +3,140 @@ import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import sourceMaps from 'rollup-plugin-sourcemaps';
+import svgr from '@svgr/rollup';
 
-function onwarn(message) {
-  const suppressed = ['UNRESOLVED_IMPORT', 'THIS_IS_UNDEFINED'];
-
-  if (!suppressed.find(code => message.code === code)) {
-    console.warn(message.message);
-  }
-}
-
-const input = 'dist/index.js';
+const input = 'temp/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 const name = 'napred.ui';
 
 const babelCJS = {
-  presets: [['@babel/preset-env'], '@babel/preset-react'],
-  plugins: ['@babel/plugin-proposal-class-properties', 'babel-plugin-inline-react-svg'],
+  babelrc: false,
+  presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
   exclude: /node_modules/,
 };
 
-const commonPlugins = babelConfig => [
-  sourceMaps(),
-  nodeResolve(),
-  babel(babelConfig),
-  commonjs({
-    ignoreGlobal: true,
-    namedExports: {
-      'react-dom': ['createPortal'],
+const babelESM = {
+  exclude: /node_modules/,
+  runtimeHelpers: true,
+  presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+};
+
+const commonjsOptions = {
+  include: /node_modules/,
+};
+
+const globals = {
+  '@napred/ds': 'napred.ds',
+  '@napred/primitives': 'napred.primitives',
+  emotion: 'emotion',
+  react: 'React',
+  'react-dom': 'ReactDOM',
+};
+
+export default [
+  // cjs dev
+  {
+    external,
+    input,
+    output: {
+      exports: 'named',
+      file: 'dist/ui.cjs.js',
+      format: 'cjs',
     },
-  }),
+    plugins: [
+      nodeResolve({
+        extensions: ['.js', '.jsx'],
+      }),
+      commonjs({
+        ignoreGlobal: true,
+        namedExports: {
+          '@napred/primitives': ['Box', 'Card', 'Flex', 'Image', 'Link', 'Text', 'Title'],
+          'react-transition-group': ['Transition'],
+        },
+      }),
+      svgr(),
+      babel(babelCJS),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+    ],
+  },
+
+  // cjs prod, min
+  {
+    external,
+    input,
+    output: {
+      file: 'dist/ui.cjs.min.js',
+      format: 'cjs',
+    },
+    plugins: [
+      nodeResolve({
+        extensions: ['.js', '.jsx'],
+      }),
+      commonjs(),
+      svgr(),
+      babel(babelCJS),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+      terser({
+        sourcemap: true,
+      }),
+    ],
+  },
+
+  // esm
+  {
+    input,
+    external,
+    output: {
+      file: 'dist/ui.m.js',
+      format: 'esm',
+    },
+    plugins: [
+      svgr(),
+      babel(babelESM),
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx', '.json'],
+      }),
+      commonjs({
+        ignoreGlobal: true,
+        namedExports: {
+          'react-transition-group': ['Transition'],
+        },
+      }),
+    ],
+  },
+
+  // umd
+  {
+    input,
+    output: { exports: 'named', file: 'dist/ui.umd.js', format: 'umd', name, globals },
+    external: Object.keys(globals),
+    plugins: [
+      nodeResolve({
+        extensions: ['.js', '.jsx'],
+      }),
+      svgr(),
+      babel(babelESM),
+      commonjs(commonjsOptions),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+    ],
+  },
+
+  // umd prod
+  {
+    input,
+    output: { exports: 'named', file: 'dist/ui.umd.min.js', format: 'umd', name, globals },
+    external: Object.keys(globals),
+    plugins: [
+      nodeResolve({
+        extensions: ['.js', '.jsx'],
+      }),
+      svgr(),
+      babel(babelESM),
+      commonjs(commonjsOptions),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+      terser({
+        sourcemap: true,
+      }),
+    ],
+  },
 ];
-
-const prodPlugins = [
-  replace({
-    'process.env.NODE_ENV': JSON.stringify('production'),
-  }),
-  terser({
-    sourcemap: true,
-  }),
-];
-
-const globals = { react: 'React' };
-const umdBase = {
-  input,
-  external: Object.keys(globals),
-  onwarn,
-  output: {
-    format: 'umd',
-    globals,
-    name,
-    sourcemap: true,
-  },
-  plugins: commonPlugins(babelCJS),
-};
-
-const umdDevConfig = {
-  ...umdBase,
-  output: {
-    ...umdBase.output,
-    file: 'dist/ui.umd.js',
-  },
-  plugins: umdBase.plugins.concat(
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-    }),
-  ),
-};
-
-const umdProdConfig = {
-  ...umdBase,
-  output: {
-    ...umdBase.output,
-    file: 'dist/ui.umd.min.js',
-  },
-  plugins: umdBase.plugins.concat(prodPlugins),
-};
-
-const cjsConfig = {
-  input,
-  external,
-  onwarn,
-  output: {
-    file: 'dist/ui.cjs.js',
-    format: 'cjs',
-  },
-  plugins: commonPlugins(babelCJS),
-};
-
-export default [umdDevConfig, umdProdConfig, cjsConfig];

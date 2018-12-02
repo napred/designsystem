@@ -44,7 +44,7 @@ interface IProps<T> extends DSProps {
   value?: string | void;
 }
 
-export default function AutocompleteInput<T>(props: IProps<T>) {
+function AutocompleteInput<T>(props: IProps<T>) {
   const {
     debounceTime,
     defaultValue,
@@ -167,3 +167,5 @@ AutocompleteInput.defaultProps = {
   onFocus: () => {},
   onSuggestionClick: () => {},
 };
+
+export default AutocompleteInput;

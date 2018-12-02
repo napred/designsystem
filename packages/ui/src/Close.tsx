@@ -6,7 +6,7 @@ interface IProps {
   inverted?: boolean;
 }
 
-export default function Close({ inverted, ...props }: IProps) {
+function Close({ inverted, ...props }: IProps) {
   return (
     <SvgImage
       cursor="pointer"
@@ -25,3 +25,5 @@ export default function Close({ inverted, ...props }: IProps) {
 Close.defaultProps = {
   inverted: false,
 };
+
+export default Close;

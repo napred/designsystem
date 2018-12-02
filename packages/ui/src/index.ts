@@ -1,4 +1,4 @@
-export * from '@napred/primitives';
+export * from './assets';
 export * from './form';
 export * from './layout';
 
@@ -23,3 +23,7 @@ export { default as Portal } from './Portal';
 export { default as SelectMenu } from './SelectMenu';
 export { default as SvgImage } from './SvgImage';
 export { default as Tooltip } from './Tooltip';
+
+// if you put this on the start of the file
+// rollup will generate invalid build
+export * from '@napred/primitives';

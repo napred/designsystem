@@ -13,7 +13,7 @@ interface IProps extends DSProps {
   popoverProps: DSProps;
 }
 
-export default function Menu({
+function Menu({
   borderRadius,
   bottom,
   children,
@@ -60,3 +60,5 @@ Menu.defaultProps = {
 };
 
 Menu.displayName = 'Menu';
+
+export default Menu;
