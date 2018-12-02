@@ -10,7 +10,7 @@ const inputStories = storiesOf('Components/Form/AutocompleteInput', module);
 inputStories.add('default width and type', () => (
   <StringValue>
     {({ set, value }: { set: (val: string) => any; value: string }) => (
-      <Input
+      <Input<string>
         p={1}
         placeholder="Write something to show suggestions"
         onAutocomplete={e => {
@@ -41,7 +41,7 @@ inputStories.add('default width and type', () => (
 inputStories.add('Full screen rounded with placeholder', () => (
   <StringValue>
     {({ set, value }: { set: (val: string) => any; value: string }) => (
-      <Input
+      <Input<string>
         px={1}
         py={1}
         width={'100%'}

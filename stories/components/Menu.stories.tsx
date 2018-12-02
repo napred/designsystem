@@ -1,8 +1,7 @@
-import { Button, Menu, MenuItem, MenuSubheader, SvgImage } from '@napred/ui';
+import { Button, CloseIcon, Menu, MenuItem, MenuSubheader, SvgImage } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React, { Fragment } from 'react';
 import { BooleanValue } from 'react-values';
-import CloseIcon from '../../packages/ui/assets/close.svg';
 
 const menuStories = storiesOf('Components/Menu', module);
 
