@@ -1,10 +1,12 @@
 {
   "name": "@napred/ds",
-  "main": "dist/ds.umd.js",
-  "jsnext:main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "dist/index.d.js",
   "version": "0.2.0-alpha.4",
+  "browser": "dist/ds.umd.js",
+  "main": "dist/ds.cjs.js",
+  "umd:main": "dist/ds.umd.js",
+  "jsnext:main": "dist/ds.m.js",
+  "module": "dist/ds.m.js",
+  "typings": "dist/index.d.js",
   "keywords": [
     "react",
     "design-system",
@@ -51,7 +53,7 @@
   "scripts": {
     "build": "tsc && rollup -c",
     "lint": "tslint -p .",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist temp",
     "prepublishOnly": "npm run build",
     "typecheck": "tsc --noEmit"
   },

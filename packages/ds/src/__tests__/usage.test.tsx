@@ -3,17 +3,14 @@
  */
 
 import React from 'react';
-// tslint:disable-next-line:no-implicit-dependencies
 import { render } from 'react-testing-library';
 import { createComponent, DesignSystem } from '../';
 
 const Box = createComponent('Box', 'div');
 
-const RedBox = createComponent('RedBox', Box, {
-  defaultProps: {
-    color: 'red',
-  },
-});
+const RedBox = createComponent('RedBox', Box);
+
+RedBox.defaultProps = { color: 'red' };
 
 describe('design system usage', () => {
   it('works correctly with default system stylers', () => {

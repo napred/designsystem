@@ -1,6 +1,6 @@
 import { IStyler } from '../../types';
 import { createNumericStyle, createStringStyle } from '../simpleStyleFactories';
-import { createNumericSystemStyle, createStringSystemStyle } from '../systemStyleFactories';
+import { createNumericSystemStyle } from '../systemStyleFactories';
 
 type BorderRadius = number | string | void | null;
 type BorderStyle = string | null | undefined;
