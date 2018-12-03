@@ -89,11 +89,11 @@ const btnVariants = createVariants<
   },
   {
     cacheProps: ['variant', 'disabled', 'hoverColor'],
-    stripProps: ['variant', 'disabled', 'hoverColor'],
+    stripProps: ['variant', 'hoverColor'],
   },
 );
 
-const Button = createComponent('Button', 'button', {
+const ButtonComponent = createComponent('Button', 'button', {
   styles: [
     createCssStyle(
       ['disabled'],
@@ -123,20 +123,21 @@ const Button = createComponent('Button', 'button', {
       [],
     ),
     btnVariants,
-    createCssStyle(
-      ['loading'],
-      ({ loading }) => loading ? css`
+    createCssStyle(['loading'], ({ loading }) =>
+      loading
+        ? css`
+            color: transparent;
+            background-color: pink;
+
+            &:hover {
               color: transparent;
-              background-color: pink;
+            }
 
-              &:hover {
-                color: transparent;
-              }
-
-              & *:not(div) {
-                visibility: hidden;
-              }
-      ` : null,
+            & *:not(div) {
+              visibility: hidden;
+            }
+          `
+        : null,
     ),
   ],
 });
@@ -171,7 +172,7 @@ function preventClick(e: MouseEvent) {
   e.stopPropagation();
 }
 
-function ButtonComponent({
+function Button({
   disabled,
   children,
   hoverColor,
@@ -181,7 +182,7 @@ function ButtonComponent({
   ...rest
 }: IProps) {
   return (
-    <Button
+    <ButtonComponent
       disabled={disabled}
       hoverColor={hoverColor}
       loading={loading}
@@ -202,14 +203,14 @@ function ButtonComponent({
         />
       ) : null}
       {children}
-    </Button>
+    </ButtonComponent>
   );
 }
 
-ButtonComponent.defaultProps = {
+Button.defaultProps = {
   disabled: false,
   loading: false,
   loadingDotsProps: {},
 };
 
-export default ButtonComponent;
+export default Button;
