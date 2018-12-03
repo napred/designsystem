@@ -183,8 +183,6 @@ function ButtonComponent({
   variant,
   ...rest
 }: IProps) {
-  const lightDots = variant === 'primary';
-
   return (
     <Button
       disabled={disabled}
@@ -196,7 +194,7 @@ function ButtonComponent({
     >
       {loading ? (
         <LoadingDots
-          dark={!lightDots}
+          dark={variant === 'primary'}
           p={0}
           position="absolute"
           top={0}
