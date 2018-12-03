@@ -24,11 +24,14 @@ function applyStyles(
   styles: Array<IStyler<any>>,
 ): string {
   return css(
-    styles.reduce((result, style) => {
-      const appliedStyle = style.apply(props, system);
+    styles.reduce(
+      (result, style) => {
+        const appliedStyle = style.apply(props, system);
 
-      return [...result, typeof appliedStyle === 'object' ? css(appliedStyle) : appliedStyle];
-    }, [] as Interpolation[]),
+        return [...result, typeof appliedStyle === 'object' ? css(appliedStyle) : appliedStyle];
+      },
+      [] as Interpolation[],
+    ),
   );
 }
 
@@ -75,6 +78,8 @@ const factory: StyleApplicatorFactory = function createStyleApplicator({
         stripProps = systemStripProps,
         ...restProps
       } = props as any; // temporary workaround because
+      // merge passthrough stylers with component stylers
+      const localStylers = [...stylers, ...componentStyles];
       const localComponentPath = [...(compPath as string[]), componentName];
       let className: string = (parentClassName as null | string) || '';
 
@@ -86,7 +91,7 @@ const factory: StyleApplicatorFactory = function createStyleApplicator({
         // first we need to generate local styles for component
         // if there are styles for component
         // generate the class name for them
-        if (componentStyles.length > 0) {
+        if (localStylers.length > 0) {
           // cache only props length is more than 0
           const styleKey =
             componentCacheProps.length > 0
@@ -95,7 +100,7 @@ const factory: StyleApplicatorFactory = function createStyleApplicator({
           let componentClsName = cache.get(styleKey);
 
           if (componentClsName == null) {
-            componentClsName = applyStyles(props, system, componentStyles);
+            componentClsName = applyStyles(props, system, localStylers);
 
             if (styleKey) {
               cache.set(styleKey, componentClsName);
@@ -129,7 +134,7 @@ const factory: StyleApplicatorFactory = function createStyleApplicator({
         className,
         compPath: localComponentPath,
         stripProps: [...stripProps, ...componentStripProps],
-        stylers: [...(stylers as Array<IStyler<any>>), ...componentStyles],
+        stylers: localStylers,
       };
     },
   };
