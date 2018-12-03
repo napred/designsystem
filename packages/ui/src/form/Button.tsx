@@ -144,7 +144,7 @@ const ButtonComponent = createComponent('Button', 'button', {
 
 // temporary fix because if we use defaultProps in config object
 // it will require them :(
-Button.defaultProps = {
+ButtonComponent.defaultProps = {
   borderColor: 'transparent',
   borderRadius: 0,
   borderStyle: 'solid',
