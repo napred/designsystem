@@ -82,7 +82,7 @@ const btnVariants = createVariants<
       ${!disabled &&
         css`
           &:hover {
-            color: ${theme.get(hoverColor || 'primary')};
+            color: ${theme.color(hoverColor || 'primary')};
           }
         `};
     `,
