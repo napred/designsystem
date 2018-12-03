@@ -16,7 +16,7 @@ inputStories.add('default width and type', () => (
         onAutocomplete={e => {
           action('onAutocomplete')(e);
 
-          if (!e.currentTarget.value) {
+          if (!e.target.value) {
             return [];
           }
 
@@ -50,7 +50,7 @@ inputStories.add('Full screen rounded with placeholder', () => (
         onAutocomplete={e => {
           action('onAutocomplete')(e);
 
-          if (!e.currentTarget.value) {
+          if (!e.target.value) {
             return [];
           }
 
