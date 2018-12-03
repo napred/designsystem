@@ -1,4 +1,5 @@
 import { createComponent, createCssStyle, DSProps } from '@napred/ds';
+import { css } from 'emotion';
 import React from 'react';
 import Fixed from './Fixed';
 import Overlay from './Overlay';
@@ -41,7 +42,10 @@ interface IDrawerBaseProps extends DSProps {
   side: keyof (typeof transforms);
 }
 
-const drawerStyle = createCssStyle(['open', 'side'], { ...transform, ...side });
+const drawerStyle = createCssStyle(['open', 'side'], (props: IDrawerBaseProps) => ({
+  ...transform(props),
+  ...side(props),
+}));
 
 const DrawerBase = createComponent<IDrawerBaseProps>('DrawerBase', Fixed, {
   styles: [drawerStyle],
