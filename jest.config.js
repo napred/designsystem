@@ -9,6 +9,12 @@ module.exports = {
   snapshotSerializers: ['enzyme-to-json/serializer'],
   collectCoverageFrom: ['packages/**/src/**/*.{js,jsx,ts,tsx}'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  moduleNameMapper: {
+    '@napred/ds': '<rootDir>/packages/ds/src',
+    '@napred/primitives': '<rootDir>/packages/primitives/src',
+    '@napred/ui': '<rootDir>/packages/ui/src',
+    '\\.svg': '<rootDir>/jest/transformSvg.js',
+  },
   testRegex: '(/test/(?!test-utils\b)\b.*|\\.(test|spec))\\.(ts|tsx|js)$',
   transform: {
     '^.+\\.jsx?$': './jest/transformJs.js',
