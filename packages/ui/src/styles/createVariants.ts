@@ -9,14 +9,18 @@ interface IVariantsStylerOptions {
   stripProps?: string[];
 }
 
-export default function createVariants<TProps extends object, TVariantProps = { variant: string }>(
+export default function createVariants<
+  TProps extends { [key: string]: any },
+  TVariantProps = { variant: string }
+>(
   propName: keyof TVariantProps,
   variants: { [variant: string]: Interpolation | StylingFn<TProps & TVariantProps> },
   { cacheProps = [], defaultVariant = 'default', stripProps = [] }: IVariantsStylerOptions = {},
 ): IStyler<TProps & TVariantProps> {
   return {
     apply: (props, system) => {
-      const styler = variants[propName as string] || variants[defaultVariant];
+      const variant = props[propName as string] || defaultVariant;
+      const styler = variants[variant];
 
       if (styler == null) {
         return;
