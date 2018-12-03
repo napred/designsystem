@@ -1,7 +1,6 @@
 {
   "name": "@napred/ds",
   "version": "0.2.0-alpha.4",
-  "browser": "dist/ds.umd.js",
   "main": "dist/ds.cjs.js",
   "umd:main": "dist/ds.umd.js",
   "jsnext:main": "dist/ds.m.js",

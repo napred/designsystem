@@ -1,7 +1,6 @@
 {
   "name": "@napred/primitives",
   "version": "0.2.0-alpha.4",
-  "browser": "dist/primitives.umd.js",
   "main": "dist/primitives.cjs.js",
   "umd:main": "dist/primitives.umd.js",
   "jsnext:main": "dist/primitives.m.js",
