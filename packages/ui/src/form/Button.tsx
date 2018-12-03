@@ -125,21 +125,18 @@ const Button = createComponent('Button', 'button', {
     btnVariants,
     createCssStyle(
       ['loading'],
-      ({ loading }) => css`
-        ${!loading
-          ? ''
-          : css`
+      ({ loading }) => loading ? css`
               color: transparent;
+              background-color: pink;
 
               &:hover {
                 color: transparent;
               }
 
-              & > *:not(.a-ld) {
+              & *:not(div) {
                 visibility: hidden;
               }
-            `};
-      `,
+      ` : null,
     ),
   ],
 });
@@ -194,7 +191,7 @@ function ButtonComponent({
     >
       {loading ? (
         <LoadingDots
-          dark={variant === 'primary'}
+          dark={variant !== 'primary'}
           p={0}
           position="absolute"
           top={0}

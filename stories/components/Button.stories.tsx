@@ -10,7 +10,7 @@ const Wrapper = ({ color, children }: any) => (
   <Flex
     bgColor={color || 'greyLight'}
     height="100vh"
-    width="vw"
+    width="100vw"
     justifyContent="center"
     alignItems="center"
   >

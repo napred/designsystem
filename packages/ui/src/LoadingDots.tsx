@@ -30,11 +30,10 @@ const LoadingDot = createComponent<{ animationDelay?: string; dark?: boolean }>(
         ['dark', 'animationDelay'],
         ({ dark, animationDelay }, { theme }) => css`
           border-radius: 50%;
-          border: 0.1em solid ${theme.get('color', 'greyLightest')};
           height: 0.6em;
           margin: 0 0.2em;
           width: 0.6em;
-          border: 0.1em solid ${dark ? theme.color('turqoiseDark') : theme.color('greyLightest')};
+          border: 0.1em solid ${dark ? theme.get('colors', 'turqoiseDark') : theme.get('colors', 'greyLightest')};
 
           animation: ${loadingDotAnimation} 1s ease infinite;
           animation-delay: ${animationDelay || '0ms'};
