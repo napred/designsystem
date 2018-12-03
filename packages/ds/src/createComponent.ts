@@ -50,7 +50,7 @@ export default function createComponent<TProps extends object = {}, TAsProps ext
   const opts = {
     cacheProps,
     stripProps,
-    styles: [] as Array<IStyler<any>>,
+    styles: styles || [],
   };
 
   // convert style to styler

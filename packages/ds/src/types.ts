@@ -24,7 +24,7 @@ export interface IStylingOptions {
   stripProps?: string[];
 }
 
-export interface IStyler<TProps extends object> {
+export interface IStyler<TProps extends { [key: string]: any }> {
   apply: StylingFn<TProps>;
   propNames: string[];
   stripProps: string[];
