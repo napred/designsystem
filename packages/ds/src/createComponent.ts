@@ -2,7 +2,7 @@ import { Interpolation } from 'emotion';
 import { ComponentType, createElement, FunctionComponent } from 'react';
 import { useStyle } from './hooks';
 import { createCssStyle, StylerProps } from './styles';
-import { IStyler, IStylingOptions, StylingFn } from './types';
+import { IStylingOptions, StylingFn } from './types';
 import { cleanProps } from './utilities';
 
 export type DSProps = {
