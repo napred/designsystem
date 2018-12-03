@@ -1,7 +1,7 @@
 import { createComponent, createCssStyle, DSProps } from '@napred/ds';
 import { css } from 'emotion';
 import debounce from 'lodash.debounce';
-import React, { ChangeEvent, SyntheticEvent, useCallback, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import Menu, { MenuItem } from '../Menu';
 import Input from './Input';
@@ -34,7 +34,7 @@ interface IProps<T> extends DSProps {
   className?: string;
   debounceTime?: number;
   defaultValue?: string | void;
-  onAutocomplete: (e: SyntheticEvent<HTMLInputElement>) => Promise<T[]> | T[];
+  onAutocomplete: (e: ChangeEvent<HTMLInputElement>) => Promise<T[]> | T[];
   onBlur: (e: any) => any;
   onFocus: (e: any) => any;
   onChange: (e: ChangeEvent<HTMLInputElement>) => any;
@@ -65,7 +65,7 @@ function AutocompleteInput<T>(props: IProps<T>) {
   const [results, setResults] = useState([] as T[]);
 
   const handleAutocomplete = useCallback(
-    debounce(async (e: SyntheticEvent<HTMLInputElement>) => {
+    debounce(async (e: ChangeEvent<HTMLInputElement>) => {
       try {
         setLoading(true);
 
