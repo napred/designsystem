@@ -1,6 +1,6 @@
-import { BlockLink } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { BlockLink } from '../../packages/ui/src';
 
 const linkStories = storiesOf('Components/BlockLink', module);
 

@@ -1,6 +1,6 @@
-import { IfViewport } from '@napred/ds';
 import { storiesOf } from '@storybook/react';
 import React, { Fragment } from 'react';
+import { IfViewport } from '../../packages/ds/src';
 
 const systemStories = storiesOf('IfViewport', module);
 

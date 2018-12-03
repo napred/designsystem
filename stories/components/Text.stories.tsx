@@ -1,6 +1,6 @@
-import { Text } from '@napred/primitives';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Text } from '../../packages/primitives/src';
 
 const textStories = storiesOf('Components/Typography/Text', module);
 

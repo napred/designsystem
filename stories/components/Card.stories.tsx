@@ -1,7 +1,7 @@
-import { Card, CardFooter, CardHeader } from '@napred/primitives';
-import { Button, Group } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Card, CardFooter, CardHeader } from '../../packages/primitives/src';
+import { Button, Group } from '../../packages/ui/src';
 
 const cardStories = storiesOf('Components/Card', module);
 

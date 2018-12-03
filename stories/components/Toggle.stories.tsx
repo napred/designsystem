@@ -1,7 +1,7 @@
-import { Toggle } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { BooleanValue } from 'react-values';
+import { Toggle } from '../../packages/ui/src';
 
 const toggleStories = storiesOf('Components/Form/Toggle', module);
 

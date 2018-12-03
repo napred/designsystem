@@ -1,6 +1,6 @@
-import { Absolute, Close } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Absolute, Close } from '../../packages/ui/src';
 
 const closeStories = storiesOf('Components/Close', module);
 

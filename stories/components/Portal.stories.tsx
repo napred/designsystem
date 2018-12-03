@@ -1,6 +1,6 @@
-import { Portal } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Portal } from '../../packages/ui/src';
 
 const portalStories = storiesOf('Components/Portal', module);
 

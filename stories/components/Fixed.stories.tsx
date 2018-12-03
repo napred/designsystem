@@ -1,6 +1,6 @@
-import { Fixed } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Fixed } from '../../packages/ui/src';
 
 const fixedStories = storiesOf('Components/Fixed', module);
 

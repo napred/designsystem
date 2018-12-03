@@ -1,6 +1,6 @@
-import { Button, Group } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Button, Group } from '../../packages/ui/src';
 
 const groupStories = storiesOf('Components/Form/Group', module);
 

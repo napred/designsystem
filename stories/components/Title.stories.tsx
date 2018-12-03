@@ -1,6 +1,6 @@
-import { Title } from '@napred/primitives';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+import { Title } from '../../packages/primitives/src';
 
 const titleStories = storiesOf('Components/Typography/Title', module);
 

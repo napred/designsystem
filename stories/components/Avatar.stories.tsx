@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { Avatar } from '@napred/ui';
+import { Avatar } from '../../packages/ui/src';
 
 const avatarStories = storiesOf('Components/Avatar', module);
 

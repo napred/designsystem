@@ -1,6 +1,6 @@
-import { Image } from '@napred/primitives';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Image } from '../../packages/primitives/src';
 
 const imageStories = storiesOf('Components/Image', module);
 

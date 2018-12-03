@@ -1,6 +1,6 @@
-import { Radio } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Radio } from '../../packages/ui/src';
 
 const radioStories = storiesOf('Components/Form/Radio', module);
 

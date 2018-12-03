@@ -1,6 +1,6 @@
-import { Drawer } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+import { Drawer } from '../../packages/ui/src';
 
 const drawerStories = storiesOf('Components/Drawer', module);
 

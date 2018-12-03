@@ -1,10 +1,10 @@
-import { createComponent } from '@napred/ds';
-import { Modal } from '@napred/ui';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { css } from 'emotion';
 import React from 'react';
+import { createComponent } from '../../packages/ds/src';
+import { Modal } from '../../packages/ui/src';
 
 const modalStories = storiesOf('Components/Modal', module);
 

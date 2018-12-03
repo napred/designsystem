@@ -1,6 +1,6 @@
-import { List, ListItem, ListSubheader } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { List, ListItem, ListSubheader } from '../../packages/ui/src';
 
 const listStories = storiesOf('Components/List', module);
 

@@ -1,8 +1,8 @@
-import { Flex, Link } from '@napred/primitives';
-import { Button } from '@napred/ui';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Flex, Link } from '../../packages/primitives/src';
+import { Button } from '../../packages/ui/src';
 
 const buttonStories = storiesOf('Components/Form/Button', module);
 

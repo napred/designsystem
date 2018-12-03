@@ -1,6 +1,6 @@
-import { Label } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Label } from '../../packages/ui/src';
 
 const labelStories = storiesOf('Components/Form/Label', module);
 

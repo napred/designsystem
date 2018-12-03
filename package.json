@@ -7,7 +7,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npx lerna run build",
+    "build": "npm run build:root && npm run build:packages",
+    "build:root": "npx tsc -p .",
+    "prebuild:root": "npx rimraf dist",
+    "build:packages": "npx lerna run build",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "lint": "tslint -p . && lerna run lint",
@@ -15,8 +18,10 @@
     "test:ci": "jest --ci --coverage --runInBand",
     "test:watch": "jest --watch",
     "storybook:build": "build-storybook",
-    "storybook:run": "npx lerna run build && start-storybook -p 6006",
-    "typecheck": "lerna run typecheck"
+    "storybook:run": "start-storybook -p 6006",
+    "typecheck": "npm run typecheck:root && npm run typecheck:packages",
+    "typecheck:root": "npx tsc -p . --noEmit",
+    "typecheck:packages": "npx lerna run typecheck"
   },
   "lint-staged": {
     "src/**/*.json": [
@@ -49,6 +54,7 @@
     "@storybook/addon-viewport": "^4.0.7",
     "@storybook/addons": "^4.0.7",
     "@storybook/react": "^4.0.7",
+    "@svgr/webpack": "^4.1.0",
     "@types/jest": "^23.3.9",
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",

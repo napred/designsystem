@@ -1,8 +1,8 @@
-import { createComponent, IfViewport } from '@napred/ds';
-import { Column, Container, Row } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import { css } from 'emotion';
 import React, { Fragment } from 'react';
+import { createComponent, IfViewport } from '../../packages/ds/src';
+import { Column, Container, Row } from '../../packages/ui/src';
 
 const containerStories = storiesOf('Components/Layout/Container', module);
 

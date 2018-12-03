@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React, { Fragment } from 'react';
 
-import { Input, Tooltip } from '@napred/ui';
+import { Input, Tooltip } from '../../packages/ui/src';
 
 const tooltipStories = storiesOf('Components/Tooltip', module);
 

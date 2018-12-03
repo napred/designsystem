@@ -1,6 +1,6 @@
-import { createComponent } from '@napred/ds';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { createComponent } from '../../packages/ds/src';
 
 const RedSpan = createComponent('RedSpan', 'span');
 const Text = createComponent('Text', 'div');

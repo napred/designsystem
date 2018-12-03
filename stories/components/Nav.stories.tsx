@@ -1,6 +1,6 @@
-import { Button, Nav, NavEnd, NavItem, NavStart } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Button, Nav, NavEnd, NavItem, NavStart } from '../../packages/ui/src';
 
 const navStories = storiesOf('Components/Nav', module);
 

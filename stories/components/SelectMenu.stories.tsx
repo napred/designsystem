@@ -1,7 +1,7 @@
-import { Flex } from '@napred/primitives';
-import { Button, MenuItem, SelectMenu } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Flex } from '../../packages/primitives/src';
+import { Button, MenuItem, SelectMenu } from '../../packages/ui/src';
 
 const selectMenuStories = storiesOf('Components/SelectMenu', module);
 

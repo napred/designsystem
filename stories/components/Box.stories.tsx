@@ -1,6 +1,6 @@
-import { Box } from '@napred/primitives';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Box } from '../../packages/primitives/src';
 
 const boxStories = storiesOf('Components/Box', module);
 

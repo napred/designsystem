@@ -1,6 +1,6 @@
-import { CloseIcon, SvgImage } from '@napred/ui';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { CloseIcon, SvgImage } from '../../packages/ui/src';
 
 const svgImageStories = storiesOf('Components/SvgImage', module);
 

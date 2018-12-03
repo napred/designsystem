@@ -2,7 +2,12 @@
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@napred/ds": ["packages/ds/src"],
+      "@napred/primitives": ["packages/primitives/src"],
+      "@napred/ui": ["packages/ui/src"]
+    },
     "declaration": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
@@ -16,8 +21,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "outDir": "build/lib",
-    "rootDirs": ["stories"],
+    "outDir": "dist",
     "sourceMap": true,
     "strict": true,
     "suppressImplicitAnyIndexErrors": true,
@@ -25,10 +29,5 @@
     "typeRoots": ["node_modules/@types", "./@types"]
   },
   "include": ["packages/*/src/**/*", "stories/**/*"],
-  "exclude": ["node_modules", "__tests__"],
-  "references": [
-    { "path": "./packages/ds" },
-    { "path": "./packages/primitives" },
-    { "path": "./packages/ui" }
-  ]
+  "exclude": ["node_modules", "__tests__"]
 }

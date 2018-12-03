@@ -1,7 +1,7 @@
-import { Textarea } from '@napred/ui';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Textarea } from '../../packages/ui/src';
 
 const textareaStories = storiesOf('Components/Form/Textarea', module);
 

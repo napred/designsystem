@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { StringValue } from 'react-values';
 
-import { AutocompleteInput as Input } from '@napred/ui';
+import { AutocompleteInput as Input } from '../../packages/ui/src';
 
 const inputStories = storiesOf('Components/Form/AutocompleteInput', module);
 

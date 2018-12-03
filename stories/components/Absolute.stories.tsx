@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { Absolute } from '@napred/ui';
+import { Absolute } from '../../packages/ui/src';
 
 const absoluteStories = storiesOf('Components/Absolute', module);
 

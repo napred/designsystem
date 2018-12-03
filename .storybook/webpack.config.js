@@ -1,3 +1,4 @@
+const { resolve: resolvePath } = require('path');
 // const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -26,8 +27,18 @@ module.exports = (baseConfig, env, defaultConfig) => {
       transpileOnly: true,
     },
   });
+  defaultConfig.module.rules.push({
+    test: /\\.svg$/,
+    loader: require.resolve('@svgr/webpack'),
+  });
   defaultConfig.plugins.push(/* new TSDocgenPlugin(), */ new ForkTsCheckerWebpackPlugin());
   defaultConfig.resolve.extensions.push('.ts', '.tsx');
+  defaultConfig.resolve.alias = {
+    ...defaultConfig.resolve.alias,
+    '@napred/ds': resolvePath(__dirname, '../packages/ds/src'),
+    '@napred/primitives': resolvePath(__dirname, '../packages/primitives/src'),
+    '@napred/ui': resolvePath(__dirname, '../packages/ui/src'),
+  };
 
   return defaultConfig;
 };
