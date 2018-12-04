@@ -3,6 +3,11 @@ const { resolve: resolvePath } = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = (baseConfig, env, defaultConfig) => {
+  defaultConfig.module.rules.forEach((rule, i) => {
+    if (rule.loader && rule.loader.includes('file-loader')) {
+      defaultConfig.module.rules[i].exclude = [/\.svg$/];
+    }
+  });
   // push storysource plugin
   defaultConfig.module.rules.push({
     test: /\.stories\.jsx?$/,
@@ -27,8 +32,8 @@ module.exports = (baseConfig, env, defaultConfig) => {
       transpileOnly: true,
     },
   });
-  defaultConfig.module.rules.push({
-    test: /\\.svg$/,
+  defaultConfig.module.rules.unshift({
+    test: /\.svg$/,
     loader: require.resolve('@svgr/webpack'),
   });
   defaultConfig.plugins.push(/* new TSDocgenPlugin(), */ new ForkTsCheckerWebpackPlugin());

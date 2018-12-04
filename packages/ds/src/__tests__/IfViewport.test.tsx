@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import React from 'react';
 // tslint:disable-next-line:no-implicit-dependencies
 import { render } from 'react-testing-library';

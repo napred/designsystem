@@ -278,6 +278,29 @@ exports[`simple style factories createStringStyler works with simple value (with
 </DocumentFragment>
 `;
 
+exports[`simple style factories createStringStyler works with simple value of existing css property (without default value) 1`] = `
+<DocumentFragment>
+  .css-98usgm {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  z-index: 3;
+}
+
+<div
+    class="css-98usgm"
+  />
+  .css-1iuax7x {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="css-1iuax7x"
+  />
+</DocumentFragment>
+`;
+
 exports[`simple style factories createStyler takes last value from responsive value if breakpoint exceeds the range (with default responsive) 1`] = `
 <DocumentFragment>
   .css-1hrlp0i {

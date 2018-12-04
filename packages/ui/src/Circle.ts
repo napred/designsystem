@@ -4,7 +4,6 @@ import Badge from './Badge';
 
 const Circle = createComponent('Circle', Badge, {
   style: css`
-    border-radius: 99999px;
     align-items: center;
     text-align: center;
     -webkit-box-align: center;
@@ -15,6 +14,7 @@ const Circle = createComponent('Circle', Badge, {
 // temporary fix because if we use defaultProps in config object
 // it will require them :(
 Circle.defaultProps = {
+  borderRadius: '99999px',
   fontSize: 1,
   height: '24px',
   px: 0,

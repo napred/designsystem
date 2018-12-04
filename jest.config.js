@@ -15,6 +15,7 @@ module.exports = {
     '@napred/ui': '<rootDir>/packages/ui/src',
     '\\.svg': '<rootDir>/jest/transformSvg.js',
   },
+  testEnvironment: 'jsdom',
   testRegex: '(/test/(?!test-utils\b)\b.*|\\.(test|spec))\\.(ts|tsx|js)$',
   transform: {
     '^.+\\.jsx?$': './jest/transformJs.js',

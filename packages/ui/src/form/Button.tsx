@@ -12,7 +12,8 @@ const btnVariants = createVariants<
 >(
   'variant',
   {
-    default: ({ disabled, hoverColor, bgColor }, { theme }) => css`
+    default: ({ disabled, hoverColor, bgColor }, { theme }) => {
+      return css`
       background-color: ${theme.color(bgColor || 'white')};
       border-color: ${theme.color(bgColor || 'greyLight')};
       color: ${theme.color(bgColor ? 'white' : 'greyDark')};
@@ -32,7 +33,7 @@ const btnVariants = createVariants<
             }
           }
         `};
-    `,
+    `;},
     lightTransparent: ({ disabled, hoverColor }, { theme }) => css`
       background-color: ${theme.color('lighterTransparent')};
       border-color: ${theme.color('turqoiseDark')};
@@ -58,6 +59,7 @@ const btnVariants = createVariants<
     primary: ({ disabled, hoverColor }, { theme }) => css`
       background-color: ${theme.color('primary')};
       color: ${theme.color('greyLighter')};
+      border-color: transparent;
 
       ${!disabled &&
         css`
@@ -127,7 +129,6 @@ const ButtonComponent = createComponent('Button', 'button', {
       loading
         ? css`
             color: transparent;
-            background-color: pink;
 
             &:hover {
               color: transparent;
@@ -145,7 +146,6 @@ const ButtonComponent = createComponent('Button', 'button', {
 // temporary fix because if we use defaultProps in config object
 // it will require them :(
 ButtonComponent.defaultProps = {
-  borderColor: 'transparent',
   borderRadius: 0,
   borderStyle: 'solid',
   borderWidth: '1px',

@@ -1,9 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
 import React from 'react';
-// tslint:disable-next-line:no-implicit-dependencies
 import { render } from 'react-testing-library';
 
 import { createComponent, DesignSystem } from '../../';
@@ -109,6 +104,18 @@ describe('simple style factories', () => {
 
       expect(asFragment()).toMatchSnapshot();
     });
+
+    it('works with simple value of existing css property (without default value)', () => {
+      const { asFragment } = render(
+        <DesignSystem>
+          <Box fontWeight={600} zIndex={3} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
+    });
+
 
     it('works with simple value (with default value)', () => {
       const styles = [createStringStyle('test', 'test', '2')];

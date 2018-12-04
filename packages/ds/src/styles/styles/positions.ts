@@ -25,4 +25,4 @@ export const top: IStyler<{
 
 export const zIndex: IStyler<{
   zIndex?: number | string | Array<number | string> | void;
-}> = createStringStyle('zIndex', 'z-index');
+}> = createStringStyle('zIndex', 'zIndex');

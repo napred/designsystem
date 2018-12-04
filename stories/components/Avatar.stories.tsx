@@ -6,5 +6,5 @@ import { Avatar } from '../../packages/ui/src';
 const avatarStories = storiesOf('Components/Avatar', module);
 
 avatarStories.add('default avatar', () => (
-  <Avatar src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2048&q=20" />
+  <Avatar src="https://images.unsplash.com/photo-1484589065579-248aad0d8b13?w=2048&q=20" />
 ));

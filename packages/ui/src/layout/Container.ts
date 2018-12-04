@@ -5,13 +5,14 @@ const Container = createComponent('Container', 'div', {
   styles: [
     createCssStyle(
       [],
-      (_, { theme, viewport }) => css`
+      (_, { theme, viewport }) => {
+        return css`
         margin-left: auto;
         margin-right: auto;
-        padding-left: ${convertUnit(theme.get('gutter', viewport))};
-        padding-right: ${convertUnit(theme.get('gutter', viewport))};
+        padding-left: ${convertUnit(theme.getResponsiveValue('gutters', viewport))};
+        padding-right: ${convertUnit(theme.getResponsiveValue('gutters', viewport))};
         width: 100%;
-      `,
+      `},
     ),
   ],
 });

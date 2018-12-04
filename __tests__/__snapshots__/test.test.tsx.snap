@@ -2,7 +2,7 @@
 
 exports[`test works correctly 1`] = `
 <DocumentFragment>
-  .css-pb5krf {
+  .css-fisdg {
   outline: none;
   vertical-align: middle;
   text-align: center;
@@ -24,17 +24,17 @@ exports[`test works correctly 1`] = `
   opacity: 0.6;
   background-color: #D03C70;
   color: #F7F7F7;
+  border-color: transparent;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.css-pb5krf:focus {
+.css-fisdg:focus {
   outline: 0;
 }
 
-.css-n4spb2 {
-  border-color: transparent;
+.css-t4gf00 {
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
@@ -42,7 +42,7 @@ exports[`test works correctly 1`] = `
   display: inline-block;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
-  font-weight: 600px;
+  font-weight: 600;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 8px;
@@ -51,7 +51,7 @@ exports[`test works correctly 1`] = `
 }
 
 <a
-    class="css-pb5krf css-n4spb2"
+    class="css-fisdg css-t4gf00"
     disabled=""
   >
     Trololo

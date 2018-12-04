@@ -15,7 +15,7 @@ export default function createCssStyle<TProps extends object>(
       if (typeof style === 'function') {
         return (style as StylingFn<TProps>)(props, system);
       }
-
+      
       return css(style);
     },
     propNames,

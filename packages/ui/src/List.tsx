@@ -17,7 +17,7 @@ export const List = createComponent('List', 'ul', {
     }
 
     & > *[role='button']:hover {
-      background-color: ${theme.get('color', 'greyLighter')};
+      background-color: ${theme.color('greyLighter')};
     }
   `,
 });
@@ -41,7 +41,7 @@ export const OrderedList = createComponent('OrderedList', 'ol', {
       }
 
       & > *[role='button']:hover {
-        background-color: ${theme.get('color', 'greyLighter')};
+        background-color: ${theme.color('greyLighter')};
       }
     `,
 });

@@ -17,15 +17,15 @@ export type JustifyContent =
 
 export const alignContent: IStyler<{
   alignContent?: string | string[] | void;
-}> = createStringStyle('alignContent', 'align-content');
+}> = createStringStyle('alignContent', 'alignContent');
 
 export const alignItems: IStyler<{
   alignItems?: AlignItems | AlignItems[] | void;
-}> = createStringStyle('alignItems', 'align-items');
+}> = createStringStyle('alignItems', 'alignItems');
 
 export const alignSelf: IStyler<{
   alignSelf?: string | string[] | void;
-}> = createStringStyle('alignSelf', 'align-self');
+}> = createStringStyle('alignSelf', 'alignSelf');
 
 export const flex: IStyler<{
   flex?: number | string | Array<number | string> | void;
@@ -33,15 +33,15 @@ export const flex: IStyler<{
 
 export const flexBasis: IStyler<{
   flexBasis?: string | number | Array<string | number> | void;
-}> = createNumericStyle('flexBasis', 'flex-basis');
+}> = createNumericStyle('flexBasis', 'flexBasis');
 
 export const flexDirection: IStyler<{
   flexDirection?: string | string[] | void;
-}> = createStringStyle('flexDirection', 'flex-direction');
+}> = createStringStyle('flexDirection', 'flexDirection');
 
 export const flexGrow: IStyler<{
   flexGrow?: string | number | Array<string | number> | void;
-}> = createStringStyle('flexGrow', 'flex-grow');
+}> = createStringStyle('flexGrow', 'flexGrow');
 
 export const flexOrder: IStyler<{
   flexOrder?: string | number | Array<string | number> | void;
@@ -49,12 +49,12 @@ export const flexOrder: IStyler<{
 
 export const flexShrink: IStyler<{
   flexShrink?: string | number | Array<string | number> | void;
-}> = createStringStyle('flexShrink', 'flex-shrink');
+}> = createStringStyle('flexShrink', 'flexShrink');
 
 export const flexWrap: IStyler<{
   flexWrap?: string | string[] | void;
-}> = createStringStyle('flexWrap', 'flex-wrap');
+}> = createStringStyle('flexWrap', 'flexWrap');
 
 export const justifyContent: IStyler<{
   justifyContent?: JustifyContent | JustifyContent[] | void;
-}> = createStringStyle('justifyContent', 'justify-content');
+}> = createStringStyle('justifyContent', 'justifyContent');

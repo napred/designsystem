@@ -6,26 +6,26 @@ const listStories = storiesOf('Components/List', module);
 
 listStories.add('list', () => (
   <List>
-    <ListItem>Nanuky Lunar</ListItem>
-    <ListItem>Biosféra</ListItem>
-    <ListItem>CountryLife</ListItem>
+    <ListItem>A</ListItem>
+    <ListItem>B</ListItem>
+    <ListItem>C</ListItem>
   </List>
 ));
 
 listStories.add('clickable list', () => (
   <List>
-    <ListItem button>Nanuky Lunar</ListItem>
-    <ListItem button>Biosféra</ListItem>
-    <ListItem button>CountryLife</ListItem>
+    <ListItem button>A</ListItem>
+    <ListItem button>B</ListItem>
+    <ListItem button>C</ListItem>
   </List>
 ));
 
 listStories.add('clickable list with subheaders', () => (
   <List>
-    <ListSubheader>Doprava Atoto</ListSubheader>
-    <ListItem button>Nanuky Lunar</ListItem>
-    <ListSubheader>Externí doprava</ListSubheader>
-    <ListItem button>Biosféra</ListItem>
-    <ListItem button>CountryLife</ListItem>
+    <ListSubheader>1</ListSubheader>
+    <ListItem button>A</ListItem>
+    <ListSubheader>2</ListSubheader>
+    <ListItem button>B</ListItem>
+    <ListItem button>C</ListItem>
   </List>
 ));

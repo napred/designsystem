@@ -9,11 +9,11 @@ export const overflow: IStyler<{
 
 export const overflowX: IStyler<{
   overflowX?: Overflow | Array<Overflow | null | undefined> | null | undefined;
-}> = createStringStyle('overflowX', 'overflow-x');
+}> = createStringStyle('overflowX', 'overflowX');
 
 export const overflowY: IStyler<{
   overflowY?: Overflow | Array<Overflow | null | undefined> | null | undefined;
-}> = createStringStyle('overflowY', 'overflow-y');
+}> = createStringStyle('overflowY', 'overflowY');
 
 export const transition: IStyler<{
   transition?: string | Array<string | null | undefined> | null | undefined;
