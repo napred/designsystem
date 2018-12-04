@@ -13,7 +13,7 @@ const Toggle = createComponent<IProps>('Toggle', 'div', {
       ({ disabled, height, checked, borderWidth }, { theme }) => css`
       cursor: pointer;
       display: inline-flex;
-      background-color: ${checked ? theme.color('primary') : theme.color('greyLight')}
+      background-color: ${checked ? theme.color('primary') : theme.color('greyLight')};
       transition-property: background-color;
       transition-duration: .2s;
       transition-timing-function: ease-out;
@@ -36,7 +36,7 @@ const Toggle = createComponent<IProps>('Toggle', 'div', {
         transition-timing-function: ease-out;
         transform: ${checked ? 'translateX(16px)' : 'translateX(0)'};
       }
-      &:focus: {
+      &:focus {
         outline: 0;
       }
   `,

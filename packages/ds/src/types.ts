@@ -59,6 +59,7 @@ export interface ITheme {
     defaultValueOrName?: string,
   ): string;
   get(attributeName: string, defaultValue?: any): any;
+  getResponsiveValue(attributeName: string, viewport: number ,defaultValue?: any): any;
 }
 
 export type StyleCacheKeyFn = (

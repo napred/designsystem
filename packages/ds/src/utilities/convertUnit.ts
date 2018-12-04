@@ -13,6 +13,5 @@ export default function convertUnit(w: number | string): string {
   }
 
   const isInteger = w.toString().indexOf('.') === -1;
-
   return `${isInteger ? num : num * 100}${isInteger ? 'px' : '%'}`;
 }

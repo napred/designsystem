@@ -35,5 +35,23 @@ export default function createTheme(settings: IThemeSettings): ITheme {
 
       return attributeValues;
     },
+
+    getResponsiveValue(attributeName, viewport, defaultValue) {
+      const attributeValues = settings[attributeName];
+
+      if (attributeValues == null) {
+        if (defaultValue == null) {
+          throw new Error(`There is no ${attributeName} defined in theme`);
+        } else {
+          return defaultValue;
+        }
+      } else if (
+        Array.isArray(attributeValues)
+      ) {
+        return attributeValues[viewport] || attributeValues[attributeValues.length - 1];
+      }
+
+      return attributeValues;
+    },
   };
 }

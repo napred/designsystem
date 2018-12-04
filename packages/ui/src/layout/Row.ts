@@ -5,19 +5,20 @@ const Row = createComponent('Row', 'div', {
   styles: [
     createCssStyle(
       ['gutters'],
-      ({ gutters }, { theme, viewport }) => css`
+      ({ gutters }, { theme, viewport }) => { 
+        return css`
         ${!gutters
           ? ''
           : css`
-              margin-left: ${convertUnit(-theme.get('gutter', viewport) / 2)};
-              margin-right: ${convertUnit(-theme.get('gutter', viewport) / 2)};
+              margin-left: ${convertUnit(-theme.getResponsiveValue('gutters', viewport) / 2)};
+              margin-right: ${convertUnit(-theme.getResponsiveValue('gutters', viewport) / 2)};
 
               & > .ds-col {
-                padding-left: ${convertUnit(theme.get('gutter', viewport) / 2)};
-                padding-right: ${convertUnit(theme.get('gutter', viewport) / 2)};
+                padding-left: ${convertUnit(theme.getResponsiveValue('gutters', viewport) / 2)};
+                padding-right: ${convertUnit(theme.getResponsiveValue('gutters', viewport) / 2)};
               }
             `};
-      `,
+      `},
       ['gutters'],
     ),
   ],
