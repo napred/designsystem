@@ -19,7 +19,7 @@
     "test:watch": "jest --watch",
     "storybook:build": "build-storybook",
     "storybook:run": "start-storybook -p 6006",
-    "typecheck": "npm run typecheck:root && npm run typecheck:packages",
+    "typecheck": "npm run typecheck:root",
     "typecheck:root": "npx tsc -p . --noEmit",
     "typecheck:packages": "npx lerna run typecheck"
   },
