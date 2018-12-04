@@ -113,7 +113,7 @@ describe('simple style factories', () => {
     it('works with simple value of existing css property (without default value)', () => {
       const { asFragment } = render(
         <DesignSystem>
-          <Box fontWeight={600} />
+          <Box fontWeight={600} zIndex={3} />
           <Box />
         </DesignSystem>,
       );

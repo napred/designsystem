@@ -280,14 +280,15 @@ exports[`simple style factories createStringStyler works with simple value (with
 
 exports[`simple style factories createStringStyler works with simple value of existing css property (without default value) 1`] = `
 <DocumentFragment>
-  .css-19jix90 {
+  .css-98usgm {
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
   font-weight: 600;
+  z-index: 3;
 }
 
 <div
-    class="css-19jix90"
+    class="css-98usgm"
   />
   .css-1iuax7x {
   font-family: "Palanquin","Helvetica",sans-serif;

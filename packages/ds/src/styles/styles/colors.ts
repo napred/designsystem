@@ -9,11 +9,11 @@ type Shadow = string | null | undefined;
 export const bgColor: IStyler<{
   /** Specifies background color */
   bgColor?: Color | Color[];
-}> = createStringSystemStyle('bgColor', 'background-color', 'colors');
+}> = createStringSystemStyle('bgColor', 'backgroundColor', 'colors');
 
 export const borderColor: IStyler<{
   borderColor?: Color | Color[];
-}> = createStringSystemStyle('borderColor', 'border-color', 'colors');
+}> = createStringSystemStyle('borderColor', 'borderColor', 'colors');
 
 export const color: IStyler<{ color?: Color | Color[] }> = createStringSystemStyle(
   'color',
@@ -28,4 +28,4 @@ export const opacity: IStyler<{ opacity?: Opacity | Opacity[] }> = createStringS
 
 export const shadow: IStyler<{
   shadow?: Shadow | Shadow[];
-}> = createStringStyle('shadow', 'box-shadow');
+}> = createStringStyle('shadow', 'boxShadow');

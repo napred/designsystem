@@ -8,21 +8,21 @@ type Size = number | string | null | undefined;
 
 export const borderRadius: IStyler<{
   borderRadius?: BorderRadius | BorderRadius[];
-}> = createNumericSystemStyle('borderRadius', 'border-radius', 'borderRadiuses');
+}> = createNumericSystemStyle('borderRadius', 'borderRadius', 'borderRadiuses');
 
 export const borderRadiusTopLeft: IStyler<{
   borderRadiusTopLeft?: BorderRadius | BorderRadius[];
-}> = createNumericSystemStyle('borderRadiusTopLeft', 'border-top-left-radius', 'borderRadiuses');
+}> = createNumericSystemStyle('borderRadiusTopLeft', 'borderTopLeftRadius', 'borderRadiuses');
 
 export const borderRadiusTopRight: IStyler<{
   borderRadiusTopRight?: BorderRadius | BorderRadius[];
-}> = createNumericSystemStyle('borderRadiusTopRight', 'border-top-right-radius', 'borderRadiuses');
+}> = createNumericSystemStyle('borderRadiusTopRight', 'borderTopRightRadius', 'borderRadiuses');
 
 export const borderRadiusBottomLeft: IStyler<{
   borderRadiusBottomLeft?: BorderRadius | BorderRadius[];
 }> = createNumericSystemStyle(
   'borderRadiusBottomLeft',
-  'border-bottom-left-radius',
+  'borderBottomLeftRadius',
   'borderRadiuses',
 );
 
@@ -30,17 +30,17 @@ export const borderRadiusBottomRight: IStyler<{
   borderRadiusBottomRight?: BorderRadius | BorderRadius[];
 }> = createNumericSystemStyle(
   'borderRadiusBottomRight',
-  'border-bottom-right-radius',
+  'borderBottomRightRadius',
   'borderRadiuses',
 );
 
 export const borderStyle: IStyler<{
   borderStyle?: BorderStyle | BorderStyle[];
-}> = createStringStyle('borderStyle', 'border-style');
+}> = createStringStyle('borderStyle', 'borderStyle');
 
 export const borderWidth: IStyler<{
   borderWidth?: Size | Size[];
-}> = createNumericStyle('borderWidth', 'border-width');
+}> = createNumericStyle('borderWidth', 'borderWidth');
 
 export const display: IStyler<{
   display?: string | string[] | void;
@@ -52,19 +52,19 @@ export const height: IStyler<{
 
 export const minHeight: IStyler<{
   minHeight?: Size | Size[];
-}> = createNumericStyle('minHeight', 'min-height');
+}> = createNumericStyle('minHeight', 'minHeight');
 
 export const minWidth: IStyler<{
   minWidth?: Size | Size[];
-}> = createNumericStyle('minWidth', 'min-width');
+}> = createNumericStyle('minWidth', 'minWidth');
 
 export const maxHeight: IStyler<{
   maxHeight?: Size | Size[];
-}> = createNumericStyle('maxHeight', 'max-height');
+}> = createNumericStyle('maxHeight', 'maxHeight');
 
 export const maxWidth: IStyler<{
   maxWidth?: Size | Size[];
-}> = createNumericSystemStyle('maxWidth', 'max-width', 'containerSizes');
+}> = createNumericSystemStyle('maxWidth', 'maxWidth', 'containerSizes');
 
 export const width: IStyler<{
   width?: Size | Size[];

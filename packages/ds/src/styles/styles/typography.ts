@@ -4,32 +4,32 @@ import { createNumericSystemStyle, createStringSystemStyle } from '../systemStyl
 
 export const fontFamily: IStyler<{
   fontFamily?: string | string[] | void;
-}> = createStringSystemStyle('fontFamily', 'font-family', 'fontFamilies', 'default');
+}> = createStringSystemStyle('fontFamily', 'fontFamily', 'fontFamilies', 'default');
 
 export const fontSize: IStyler<{
   fontSize?: number | string | Array<number | string> | void;
-}> = createNumericSystemStyle('fontSize', 'font-size', 'fontSizes', 0);
+}> = createNumericSystemStyle('fontSize', 'fontSize', 'fontSizes', 0);
 
 export const fontWeight: IStyler<{
   fontWeight?: number | string | Array<number | string> | void;
-}> = createStringStyle('fontWeight', 'font-weight');
+}> = createStringStyle('fontWeight', 'fontWeight');
 
 export const lineHeight: IStyler<{
   lineHeight?: number | string | Array<number | string> | void;
-}> = createNumericStyle('lineHeight', 'line-height');
+}> = createNumericStyle('lineHeight', 'lineHeight');
 
 export const textAlign: IStyler<{
   textAlign?: string | string[] | void;
-}> = createStringStyle('textAlign', 'text-align');
+}> = createStringStyle('textAlign', 'textAlign');
 
 export const textOverflow: IStyler<{
   textOverflow?: string | string[] | void;
-}> = createStringStyle('textOverflow', 'text-overflow');
+}> = createStringStyle('textOverflow', 'textOverflow');
 
 export const textTransform: IStyler<{
   textTransform?: 'uppercase' | 'lowercase' | 'capitalize';
-}> = createStringStyle('textTransform', 'text-transform');
+}> = createStringStyle('textTransform', 'textTransform');
 
 export const whiteSpace: IStyler<{
   whiteSpace?: string | string[] | void;
-}> = createStringStyle('whiteSpace', 'white-space');
+}> = createStringStyle('whiteSpace', 'whiteSpace');

@@ -33,7 +33,7 @@ exports[`test works correctly 1`] = `
   outline: 0;
 }
 
-.css-n4spb2 {
+.css-13bke8w {
   border-color: transparent;
   border-radius: 5px;
   border-style: solid;
@@ -42,7 +42,7 @@ exports[`test works correctly 1`] = `
   display: inline-block;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
-  font-weight: 600px;
+  font-weight: 600;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 8px;
@@ -51,7 +51,7 @@ exports[`test works correctly 1`] = `
 }
 
 <a
-    class="css-pb5krf css-n4spb2"
+    class="css-pb5krf css-13bke8w"
     disabled=""
   >
     Trololo
