@@ -1,5 +1,4 @@
 import { createComponent, createCssStyle, DSProps } from '@napred/ds';
-import { css } from 'emotion';
 import React from 'react';
 import Fixed from './Fixed';
 import Overlay from './Overlay';

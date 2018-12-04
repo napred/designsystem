@@ -110,6 +110,18 @@ describe('simple style factories', () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
+    it('works with simple value of existing css property (without default value)', () => {
+      const { asFragment } = render(
+        <DesignSystem>
+          <Box fontWeight={600} />
+          <Box />
+        </DesignSystem>,
+      );
+
+      expect(asFragment()).toMatchSnapshot();
+    });
+
+
     it('works with simple value (with default value)', () => {
       const styles = [createStringStyle('test', 'test', '2')];
 
