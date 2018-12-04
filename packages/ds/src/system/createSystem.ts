@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   IComponentOptions,
   IStyleCache,
@@ -50,7 +50,7 @@ export default function createSystem({
     () => styleApplicatorFactory({ cache, componentStyles, globalStyles }),
     [cache, componentStyles, globalStyles],
   );
-  const applyStyles = useCallback(
+  const applyStyles = useMemo(() =>
     <TProps extends object>(
       componentName: string,
       props: TProps,

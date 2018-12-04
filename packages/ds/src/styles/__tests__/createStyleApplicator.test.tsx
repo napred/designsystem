@@ -1,10 +1,5 @@
-/**
- * @jest-environment jsdom
- */
-
 import { css } from 'emotion';
 import React from 'react';
-// tslint:disable-next-line:no-implicit-dependencies
 import { render } from 'react-testing-library';
 import {
   createComponent,
