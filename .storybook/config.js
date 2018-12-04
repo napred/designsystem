@@ -1,13 +1,11 @@
-import * as React from 'react';
-import { defaultTheme, DesignSystem, Theme } from '../packages/ds/src/system/index';
-import { injectGlobal } from 'styled-components';
+import React from 'react';
 import { addDecorator, configure } from '@storybook/react';
 import { configureViewport } from '@storybook/addon-viewport';
-import { array, color, withKnobs } from '@storybook/addon-knobs';
-import { colors } from '../packages/ds/src/system/defaultTheme';
+import { withKnobs } from '@storybook/addon-knobs';
+import { DesignSystem } from '../packages/ds/src';
 
-// automatically import all files ending in *.stories.js
-const req = require.context('../stories', true, /.stories.js$/);
+// automatically import all files ending in *.stories.tsx
+const req = require.context('../stories', true, /.stories.tsx$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
@@ -16,19 +14,7 @@ function loadStories() {
 addDecorator(withKnobs);
 
 addDecorator(storyFn => {
-  const theme = new Theme({
-    borderRadiuses: defaultTheme.borderRadiuses,
-    breakpoints: defaultTheme.breakpoints,
-    colors,
-    containerSizes: array('containerSizes', defaultTheme.containerSizes, ',', 'THEME'),
-    fontFamilies: defaultTheme.fontFamilies,
-    fontSizes: array('fontSizes', defaultTheme.fontSizes, ',', 'THEME'),
-    gutters: array('gutters', defaultTheme.gutters, ',', 'THEME'),
-    importFonts: defaultTheme.importFonts,
-    spacing: array('spacing', defaultTheme.spacing, ',', 'THEME'),
-  });
-
-  return <DesignSystem theme={theme}>{storyFn()}</DesignSystem>;
+  return <DesignSystem>{storyFn()}</DesignSystem>;
 });
 
 configureViewport({

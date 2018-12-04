@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`design system usage works correctly with custom cache 1`] = `
+<DocumentFragment>
+  .css-oe3qx1 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 4px;
+}
+
+<div
+    class="p1 css-oe3qx1"
+  >
+    Green RedBox
+  </div>
+  .css-oe3qx1 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 4px;
+}
+
+<div
+    class="p1 css-oe3qx1"
+  >
+    Green RedBox
+  </div>
+  .css-wdfc82 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 8px;
+}
+
+<div
+    class="p2 css-wdfc82"
+  >
+    Green RedBox
+  </div>
+  .css-wdfc82 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 8px;
+}
+
+<div
+    class="p2 css-wdfc82"
+  >
+    Green RedBox
+  </div>
+  .css-1pfivsk {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 4px;
+  padding: 8px;
+}
+
+<div
+    class="m1 css-1pfivsk"
+  >
+    Green RedBox
+  </div>
+  .css-1pfivsk {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 4px;
+  padding: 8px;
+}
+
+<div
+    class="m1 css-1pfivsk"
+  >
+    Green RedBox
+  </div>
+</DocumentFragment>
+`;
+
+exports[`design system usage works correctly with default system stylers 1`] = `
+<DocumentFragment>
+  .css-1iuax7x {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="css-1iuax7x"
+  >
+    Default Box
+  </div>
+  .css-1dl3ieo {
+  color: #3B5998;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<div
+    class="css-1dl3ieo"
+  >
+    Blue box
+  </div>
+  .css-1e6piw7 {
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+}
+
+<h1
+    class="css-1e6piw7"
+  >
+    Green title
+  </h1>
+  .css-oe3qx1 {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 4px;
+}
+
+<div
+    class="css-oe3qx1"
+  >
+    Green RedBox
+  </div>
+</DocumentFragment>
+`;

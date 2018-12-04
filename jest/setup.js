@@ -1,7 +1,10 @@
 // @flow
 /* eslint-disable import/no-extraneous-dependencies, node/no-unpublished-require */
 
-require('jest-styled-components');
+import 'react-testing-library/cleanup-after-each';
+import * as emotion from 'emotion';
+import { createSerializer } from 'jest-emotion';
+
 const Adapter = require('enzyme-adapter-react-16');
 const { configure } = require('enzyme');
 const { configureToMatchImageSnapshot } = require('jest-image-snapshot');
@@ -19,3 +22,11 @@ const toMatchImageSnapshot = configureToMatchImageSnapshot({
 });
 
 expect.extend({ toMatchImageSnapshot });
+
+expect.addSnapshotSerializer(
+  createSerializer(emotion, {
+    classNameReplacer(className) {
+      return className;
+    },
+  }),
+);

@@ -1,6 +1,6 @@
 // @flow
 
-import { ServerStyleSheet } from 'styled-components';
+import { renderStylesToString } from 'emotion-server';
 import { renderToStaticMarkup } from 'react-dom/server';
 import os from 'os';
 import path from 'path';
@@ -9,14 +9,10 @@ import fs from 'fs';
 export function renderPage(element: React$Element<*>, logCss?: boolean = false): string {
   const filePath = path.join(os.tmpdir(), `rendered-page-${Date.now()}.html`);
 
-  const sheet = new ServerStyleSheet();
-  const renderedView = renderToStaticMarkup(sheet.collectStyles(element));
-  // $FlowExpectError
-  const styles = sheet.getStyleTags();
+  const renderedView = renderStylesToString(renderToStaticMarkup(element));
 
   if (logCss) {
     // eslint-disable-next-line no-console
-    console.log(styles);
     console.log(renderedView);
   }
 
@@ -38,7 +34,6 @@ export function renderPage(element: React$Element<*>, logCss?: boolean = false):
           text-size-adjust: 100%;
         }
       </style>
-      ${styles}
     </head>
     <body>
       <div id="root">
