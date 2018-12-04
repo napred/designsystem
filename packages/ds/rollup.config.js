@@ -2,104 +2,127 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
-import flow from 'rollup-plugin-flow';
 import { terser } from 'rollup-plugin-terser';
-import sourceMaps from 'rollup-plugin-sourcemaps';
 
-const input = 'src/index.js';
+const input = 'temp/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
-const name = 'NapredDesignSystem';
+const name = 'napred.ds';
 
 const babelCJS = {
-  presets: [['@babel/preset-env'], '@babel/preset-react'],
-  plugins: ['@babel/plugin-proposal-class-properties'],
+  babelrc: false,
+  presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
   exclude: /node_modules/,
 };
+
 const babelESM = {
-  runtimeHelpers: true,
-  presets: [['@babel/preset-env'], '@babel/preset-react'],
-  plugins: [
-    '@babel/plugin-proposal-class-properties',
-    ['@babel/transform-runtime', { useESModules: true }],
-  ],
   exclude: /node_modules/,
+  runtimeHelpers: true,
+  presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
 };
 
-const commonPlugins = babelConfig => [
-  flow({
-    // needed for sourcemaps to be properly generated
-    pretty: true,
-  }),
-  sourceMaps(),
-  nodeResolve(),
-  babel(babelConfig),
-  commonjs({
-    ignoreGlobal: true,
-  }),
+const commonjsOptions = {
+  include: /node_modules/,
+};
+
+const globals = {
+  emotion: 'emotion',
+  react: 'React',
+  'react-dom': 'ReactDOM',
+};
+
+export default [
+  // cjs dev
+  {
+    external,
+    input,
+    output: {
+      exports: 'named',
+      file: 'dist/ds.cjs.js',
+      format: 'cjs',
+    },
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      commonjs({
+        ignoreGlobal: true,
+      }),
+      babel(babelCJS),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+    ],
+  },
+
+  // cjs prod, min
+  {
+    external,
+    input,
+    output: {
+      exports: 'named',
+      file: 'dist/ds.cjs.min.js',
+      format: 'cjs',
+    },
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      commonjs(),
+      babel(babelCJS),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+      terser({
+        sourcemap: true,
+      }),
+    ],
+  },
+
+  // esm
+  {
+    input,
+    external,
+    output: {
+      file: 'dist/ds.m.js',
+      format: 'esm',
+    },
+    plugins: [
+      babel(babelESM),
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      commonjs({
+        ignoreGlobal: true,
+      }),
+    ],
+  },
+
+  // umd
+  {
+    input,
+    output: { exports: 'named', file: 'dist/ds.umd.js', format: 'umd', name, globals },
+    external: Object.keys(globals),
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      babel(babelESM),
+      commonjs(commonjsOptions),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+    ],
+  },
+
+  // umd prod
+  {
+    input,
+    output: { exports: 'named', file: 'dist/ds.umd.min.js', format: 'umd', name, globals },
+    external: Object.keys(globals),
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      babel(babelESM),
+      commonjs(commonjsOptions),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+      terser({
+        sourcemap: true,
+      }),
+    ],
+  },
 ];
-
-const prodPlugins = [
-  replace({
-    'process.env.NODE_ENV': JSON.stringify('production'),
-  }),
-  terser({
-    sourcemap: true,
-  }),
-];
-
-const globals = { react: 'React', emotion: 'emotion' };
-const umdBase = {
-  input,
-  external: Object.keys(globals),
-  output: {
-    format: 'umd',
-    globals,
-    name,
-    sourcemap: true,
-  },
-  plugins: commonPlugins(babelESM),
-};
-
-const umdDevConfig = {
-  ...umdBase,
-  output: {
-    ...umdBase.output,
-    file: 'dist/ds.umd.js',
-  },
-  plugins: umdBase.plugins.concat(
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-    }),
-  ),
-};
-
-const umdProdConfig = {
-  ...umdBase,
-  output: {
-    ...umdBase.output,
-    file: 'dist/ds.umd.min.js',
-  },
-  plugins: umdBase.plugins.concat(prodPlugins),
-};
-
-const cjsConfig = {
-  input,
-  external,
-  output: {
-    file: 'dist/ds.cjs.js',
-    format: 'cjs',
-  },
-  plugins: commonPlugins(babelCJS),
-};
-
-const esmConfig = {
-  input,
-  external,
-  output: {
-    file: 'dist/ds.esm.js',
-    format: 'esm',
-  },
-  plugins: commonPlugins(babelESM),
-};
-
-export default [umdDevConfig, umdProdConfig, cjsConfig, esmConfig];

@@ -4,8 +4,8 @@ import { configureViewport } from '@storybook/addon-viewport';
 import { withKnobs } from '@storybook/addon-knobs';
 import { DesignSystem } from '../packages/ds/src';
 
-// automatically import all files ending in *.stories.js
-const req = require.context('../stories', true, /.stories.js$/);
+// automatically import all files ending in *.stories.tsx
+const req = require.context('../stories', true, /.stories.tsx$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));

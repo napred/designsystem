@@ -7,29 +7,29 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npx lerna run build",
+    "build": "npm run build:root && npm run build:packages",
+    "build:root": "npx tsc -p .",
+    "prebuild:root": "npx rimraf dist",
+    "build:packages": "npx lerna run build",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "flow": "npx lerna run flow",
-    "flow:update-types": "npx lerna run flow:update-types",
-    "lint": "eslint packages/**/src stories",
+    "lint": "tslint -p . && lerna run lint",
     "test": "jest --coverage",
     "test:ci": "jest --ci --coverage --runInBand",
     "test:watch": "jest --watch",
     "storybook:build": "build-storybook",
-    "storybook:run": "start-storybook -p 6006"
+    "storybook:run": "start-storybook -p 6006",
+    "typecheck": "npm run typecheck:root",
+    "typecheck:root": "npx tsc -p . --noEmit",
+    "typecheck:packages": "npx lerna run typecheck"
   },
   "lint-staged": {
     "src/**/*.json": [
       "prettier --write",
       "git add"
     ],
-    "src/**/*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "stories/**/*.js": [
-      "eslint --fix",
+    "stories/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
       "git add"
     ]
   },
@@ -54,11 +54,19 @@
     "@storybook/addon-viewport": "^4.0.7",
     "@storybook/addons": "^4.0.7",
     "@storybook/react": "^4.0.7",
+    "@svgr/webpack": "^4.1.0",
+    "@types/jest": "^23.3.9",
+    "@types/react": "^16.7.7",
+    "@types/react-dom": "^16.0.10",
+    "@types/storybook__addon-actions": "^3.4.1",
+    "@types/storybook__addon-knobs": "^3.4.1",
+    "@types/storybook__react": "^4.0.0",
     "all-contributors-cli": "^5.4.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.0-beta.6",
+    "babel-plugin-inline-react-svg": "^0.5.2",
     "emotion-server": "^9.2.11",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
@@ -71,6 +79,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.6.1",
+    "fork-ts-checker-webpack-plugin": "^0.5.0",
     "husky": "^1.1.4",
     "jest": "^23.6.0",
     "jest-emotion": "^9.2.11",
@@ -81,16 +90,27 @@
     "prettier": "^1.10.2",
     "puppeteer": "^1.10.0",
     "react": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
+    "react-testing-library": "^5.3.1",
+    "react-values": "^0.3.3",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.3",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.1.6",
-    "rollup-plugin-flow": "^1.1.1",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-terser": "^3.0.0"
+    "rollup-plugin-terser": "^3.0.0",
+    "ts-jest": "^23.10.5",
+    "ts-loader": "^5.3.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.1"
+  },
+  "resolutions": {
+    "event-stream": "^4.0.1"
   }
 }
