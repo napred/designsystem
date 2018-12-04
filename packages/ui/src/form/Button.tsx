@@ -13,9 +13,6 @@ const btnVariants = createVariants<
   'variant',
   {
     default: ({ disabled, hoverColor, bgColor }, { theme }) => {
-      console.log('barvicka');
-      console.log(bgColor);
-      console.log(theme.color(bgColor || 'greyLight'));
       return css`
       background-color: ${theme.color(bgColor || 'white')};
       border-color: ${theme.color(bgColor || 'greyLight')};
