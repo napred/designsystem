@@ -23,9 +23,7 @@
     }
   ],
   "files": [
-    "dist",
-    "src",
-    "!__tests__"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
