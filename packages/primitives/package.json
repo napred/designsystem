@@ -1,6 +1,6 @@
 {
   "name": "@napred/primitives",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/primitives.cjs.js",
   "umd:main": "dist/primitives.umd.js",
   "jsnext:main": "dist/primitives.m.js",
@@ -31,7 +31,7 @@
   "license": "MIT",
   "sideEffects": false,
   "dependencies": {
-    "@napred/ds": "^0.2.0"
+    "@napred/ds": "^0.2.1"
   },
   "devDependencies": {
     "enzyme": "^3.7.0",
