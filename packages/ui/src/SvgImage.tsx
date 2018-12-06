@@ -1,10 +1,10 @@
 import { createComponent } from '@napred/ds';
 import { css } from 'emotion';
-import React, { Children, ComponentType, ReactElement } from 'react';
+import React, { Children, ComponentType, ReactNode } from 'react';
 import getResponsiveValue from './utils/getResponsiveValue';
 
 interface IProps {
-  children?: ReactElement<any>;
+  children?: ReactNode;
   fill?: string | string[];
   icon?: ComponentType<any>;
   titleAccess?: null | string;
