@@ -56,8 +56,8 @@
     "@storybook/react": "^4.0.7",
     "@svgr/webpack": "^4.1.0",
     "@types/jest": "^23.3.9",
-    "@types/react": "^16.7.7",
-    "@types/react-dom": "^16.0.10",
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
     "@types/storybook__addon-actions": "^3.4.1",
     "@types/storybook__addon-knobs": "^3.4.1",
     "@types/storybook__react": "^4.0.0",
@@ -111,6 +111,8 @@
     "typescript": "^3.2.1"
   },
   "resolutions": {
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
     "event-stream": "^4.0.1"
   }
 }
