@@ -39,6 +39,9 @@ module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.resolve.extensions.push('.ts', '.tsx');
   defaultConfig.resolve.alias = {
     ...defaultConfig.resolve.alias,
+    // hack because yarn workspaces are copying react everywhere so we need to set up only one destination
+    react: resolvePath(__dirname, '../node_modules/react'),
+    'react-dom': resolvePath(__dirname, '../node_modules/react-dom'),
     '@napred/ds': resolvePath(__dirname, '../../ds/src'),
     '@napred/primitives': resolvePath(__dirname, '../../primitives/src'),
     '@napred/ui': resolvePath(__dirname, '../../ui/src'),
