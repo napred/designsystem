@@ -30,19 +30,23 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.7.0-alpha.0 || >=16.7.0",
-    "react-dom": "^16.7.0-alpha.0 || >=16.7.0"
+    "react": "^16.7.0-alpha.0 || >=16.7.0"
   },
   "dependencies": {
     "@types/react": "^16.7.13",
-    "@types/react-dom": "^16.0.11",
     "emotion": "^9.2.12"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/react-dom": "^16.0.11",
+    "emotion-server": "^9.2.12",
     "jest": "^23.6.0",
+    "jest-emotion": "^9.2.11",
     "react": "^16.7.0-alpha.0 || >=16.7.0",
     "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
     "react-testing-library": "^5.3.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.5",
     "tslint": "^5.11.0",
     "typescript": "^3.2.1"
   },
