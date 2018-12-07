@@ -43,7 +43,6 @@
     "@svgr/rollup": "^4.1.0",
     "@types/lodash.debounce": "^4.0.4",
     "@types/react-transition-group": "^2.0.14",
-    "enzyme": "^3.7.0",
     "jest": "^23.6.0",
     "react": "^16.7.0-alpha.0 || >=16.7.0",
     "react-dom": "^16.7.0-alpha.0 || >=16.7.0",

@@ -34,7 +34,6 @@
     "@napred/ds": "^0.2.2"
   },
   "devDependencies": {
-    "enzyme": "^3.7.0",
     "jest": "^23.6.0",
     "react": "^16.7.0-alpha.0 || >=16.7.0",
     "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
