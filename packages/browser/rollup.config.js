@@ -6,7 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 
 const input = 'temp/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
-const name = 'napred.ds';
+const name = 'napred.browser';
 
 const babelCJS = {
   babelrc: false,
@@ -25,6 +25,7 @@ const commonjsOptions = {
 };
 
 const globals = {
+  '@napred/ds': 'napred.ds',
   emotion: 'emotion',
   react: 'React',
   'react-dom': 'ReactDOM',
@@ -37,7 +38,7 @@ export default [
     input,
     output: {
       exports: 'named',
-      file: 'dist/ds.cjs.js',
+      file: 'dist/browser.cjs.js',
       format: 'cjs',
     },
     plugins: [
@@ -58,7 +59,7 @@ export default [
     input,
     output: {
       exports: 'named',
-      file: 'dist/ds.cjs.min.js',
+      file: 'dist/browser.cjs.min.js',
       format: 'cjs',
     },
     plugins: [
@@ -79,7 +80,7 @@ export default [
     input,
     external,
     output: {
-      file: 'dist/ds.m.js',
+      file: 'dist/browser.m.js',
       format: 'esm',
     },
     plugins: [
@@ -96,7 +97,7 @@ export default [
   // umd
   {
     input,
-    output: { exports: 'named', file: 'dist/ds.umd.js', format: 'umd', name, globals },
+    output: { exports: 'named', file: 'dist/browser.umd.js', format: 'umd', name, globals },
     external: Object.keys(globals),
     plugins: [
       nodeResolve({
@@ -111,7 +112,7 @@ export default [
   // umd prod
   {
     input,
-    output: { exports: 'named', file: 'dist/ds.umd.min.js', format: 'umd', name, globals },
+    output: { exports: 'named', file: 'dist/browser.umd.min.js', format: 'umd', name, globals },
     external: Object.keys(globals),
     plugins: [
       nodeResolve({
