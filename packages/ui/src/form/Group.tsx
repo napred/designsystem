@@ -1,5 +1,4 @@
-import { createComponent } from '@napred/ds';
-import { css } from 'emotion';
+import { createComponent, css } from '@napred/browser';
 import React, { ComponentType, ReactNode } from 'react';
 
 import Row from '../layout/Row';

@@ -1,4 +1,4 @@
-import { IStyler, StylingFn } from '@napred/ds';
+import { IStyler, StylingFn } from '@napred/browser';
 import { Interpolation } from 'emotion';
 
 interface IVariantsStylerOptions {

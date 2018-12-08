@@ -1,4 +1,4 @@
-import { DSProps } from '@napred/ds';
+import { DSProps } from '@napred/browser';
 import React, { ReactNode } from 'react';
 import { List, ListItem, ListSubheader } from './List';
 import Popover from './Popover';

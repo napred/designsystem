@@ -1,24 +1,25 @@
-import { convertUnit, createComponent, createCssStyle } from '@napred/ds';
+import { convertUnit, createComponent, createStyle } from '@napred/browser';
 import { css } from 'emotion';
 
 const Row = createComponent('Row', 'div', {
   styles: [
-    createCssStyle(
+    createStyle(
       ['gutters'],
-      ({ gutters }, { theme, viewport }) => { 
+      ({ gutters }, { theme, viewport }) => {
         return css`
-        ${!gutters
-          ? ''
-          : css`
-              margin-left: ${convertUnit(-theme.getResponsiveValue('gutters', viewport) / 2)};
-              margin-right: ${convertUnit(-theme.getResponsiveValue('gutters', viewport) / 2)};
+          ${!gutters
+            ? ''
+            : css`
+                margin-left: ${convertUnit(-theme.getResponsiveValue('gutters', viewport) / 2)};
+                margin-right: ${convertUnit(-theme.getResponsiveValue('gutters', viewport) / 2)};
 
-              & > .ds-col {
-                padding-left: ${convertUnit(theme.getResponsiveValue('gutters', viewport) / 2)};
-                padding-right: ${convertUnit(theme.getResponsiveValue('gutters', viewport) / 2)};
-              }
-            `};
-      `},
+                & > .ds-col {
+                  padding-left: ${convertUnit(theme.getResponsiveValue('gutters', viewport) / 2)};
+                  padding-right: ${convertUnit(theme.getResponsiveValue('gutters', viewport) / 2)};
+                }
+              `};
+        `;
+      },
       ['gutters'],
     ),
   ],

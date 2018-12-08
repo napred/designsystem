@@ -11,5 +11,5 @@
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
-  "references": [{ "path": "../ds" }, { "path": "../primitives" }]
+  "references": [{ "path": "../browser" }, { "path": "../primitives" }]
 }

@@ -1,5 +1,4 @@
-import { createComponent } from '@napred/ds';
-import { css } from 'emotion';
+import { createComponent, css } from '@napred/browser';
 import React from 'react';
 
 function BaseListItem({ button, ...rest }: { button?: boolean }) {

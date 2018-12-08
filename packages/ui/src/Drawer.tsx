@@ -1,4 +1,4 @@
-import { createComponent, createCssStyle, DSProps } from '@napred/ds';
+import { createComponent, createStyle, DSProps } from '@napred/browser';
 import React from 'react';
 import Fixed from './Fixed';
 import Overlay from './Overlay';
@@ -41,7 +41,7 @@ interface IDrawerBaseProps extends DSProps {
   side: keyof (typeof transforms);
 }
 
-const drawerStyle = createCssStyle(['open', 'side'], (props: IDrawerBaseProps) => ({
+const drawerStyle = createStyle(['open', 'side'], (props: IDrawerBaseProps) => ({
   ...transform(props),
   ...side(props),
 }));

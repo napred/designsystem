@@ -1,4 +1,4 @@
-import { createComponent } from '@napred/ds';
+import { createComponent } from '@napred/browser';
 import Absolute from './Absolute';
 
 const Popover = createComponent('Popover', Absolute, {

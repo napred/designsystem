@@ -1,4 +1,4 @@
-import { IfViewport } from '@napred/ds';
+import { IfViewport } from '@napred/browser';
 import { Box, Title } from '@napred/primitives';
 import React, { Fragment, ReactNode, useCallback, useState } from 'react';
 import { CloseIcon } from './assets';

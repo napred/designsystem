@@ -1,6 +1,5 @@
-import { createComponent } from '@napred/ds';
+import { createComponent, css } from '@napred/browser';
 import { Flex } from '@napred/primitives';
-import { css } from 'emotion';
 import createVariants from './styles/createVariants';
 
 type MessageVariants = 'default' | 'error' | 'warning' | 'success';

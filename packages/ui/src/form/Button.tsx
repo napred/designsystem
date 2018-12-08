@@ -1,5 +1,4 @@
-import { createComponent, createCssStyle, DSProps } from '@napred/ds';
-import { css } from 'emotion';
+import { createComponent, createStyle, css, DSProps } from '@napred/browser';
 import React, { ReactNode } from 'react';
 import LoadingDots from '../LoadingDots';
 import createVariants from '../styles/createVariants';
@@ -14,26 +13,27 @@ const btnVariants = createVariants<
   {
     default: ({ disabled, hoverColor, bgColor }, { theme }) => {
       return css`
-      background-color: ${theme.color(bgColor || 'white')};
-      border-color: ${theme.color(bgColor || 'greyLight')};
-      color: ${theme.color(bgColor ? 'white' : 'greyDark')};
+        background-color: ${theme.color(bgColor || 'white')};
+        border-color: ${theme.color(bgColor || 'greyLight')};
+        color: ${theme.color(bgColor ? 'white' : 'greyDark')};
 
-      ${!disabled &&
-        css`
-          &:hover {
-            border-color: ${theme.color(bgColor || 'primary')};
-            color: ${theme.color(hoverColor, bgColor ? 'white' : 'primary')};
-
-            * {
+        ${!disabled &&
+          css`
+            &:hover {
+              border-color: ${theme.color(bgColor || 'primary')};
               color: ${theme.color(hoverColor, bgColor ? 'white' : 'primary')};
 
-              svg path:last-child {
-                fill: ${theme.color(hoverColor, bgColor ? 'white' : 'primary')};
+              * {
+                color: ${theme.color(hoverColor, bgColor ? 'white' : 'primary')};
+
+                svg path:last-child {
+                  fill: ${theme.color(hoverColor, bgColor ? 'white' : 'primary')};
+                }
               }
             }
-          }
-        `};
-    `;},
+          `};
+      `;
+    },
     lightTransparent: ({ disabled, hoverColor }, { theme }) => css`
       background-color: ${theme.color('lighterTransparent')};
       border-color: ${theme.color('turqoiseDark')};
@@ -97,7 +97,7 @@ const btnVariants = createVariants<
 
 const ButtonComponent = createComponent('Button', 'button', {
   styles: [
-    createCssStyle(
+    createStyle(
       ['disabled'],
       ({ disabled }) => css`
         outline: none;
@@ -125,7 +125,7 @@ const ButtonComponent = createComponent('Button', 'button', {
       [],
     ),
     btnVariants,
-    createCssStyle(['loading'], ({ loading }) =>
+    createStyle(['loading'], ({ loading }) =>
       loading
         ? css`
             color: transparent;

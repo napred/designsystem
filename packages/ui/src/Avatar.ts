@@ -1,4 +1,4 @@
-import { createComponent } from '@napred/ds';
+import { createComponent } from '@napred/browser';
 import { Image } from '@napred/primitives';
 
 const Avatar = createComponent('Avatar', Image, {

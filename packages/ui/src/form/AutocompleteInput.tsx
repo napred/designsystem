@@ -1,5 +1,4 @@
-import { createComponent, createCssStyle, DSProps } from '@napred/ds';
-import { css } from 'emotion';
+import { createComponent, createStyle, css, DSProps } from '@napred/browser';
 import debounce from 'lodash.debounce';
 import React, { ChangeEvent, useCallback, useState } from 'react';
 import { Transition } from 'react-transition-group';
@@ -8,7 +7,7 @@ import Input from './Input';
 
 const AutocompleteBase = createComponent('AutocompleteBase', 'div', {
   styles: [
-    createCssStyle(
+    createStyle(
       [],
       css`
         display: inline-block;

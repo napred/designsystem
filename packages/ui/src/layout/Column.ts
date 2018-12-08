@@ -1,4 +1,4 @@
-import { createComponent, createNumericStyle } from '@napred/ds';
+import { createComponent, createNumericStyle } from '@napred/browser';
 
 export interface IProps {
   width?: null | number | string | void | Array<null | number | string | void>;
