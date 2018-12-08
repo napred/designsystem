@@ -28,28 +28,34 @@ export interface ICreateComponentFactoryOptions {
   createStyle: StylerCreatorFn;
 }
 
-export type ComponentFactory<TProps extends object = {}, TAsProps extends object = {}> = (
-  /**
-   * Name of the component, should be unique
-   * Name is used to apply custom styles from DesignSystem componentStyles registry
-   */
-  componentName: string,
-  /**
-   * Underlying component that is being rendered
-   */
-  component: string | ComponentType<TAsProps> | IDSComponent<TAsProps>,
-  /**
-   * Optional component's options
-   */
-  options?: IComponentFactoryOptions<TProps & TAsProps & DSProps & { [key: string]: any }>,
-) => IDSComponent<TProps & TAsProps & DSProps & { [key: string]: any }>;
-
 /** Create DS component factory */
-export default function createComponentFactory({
-  createStyle,
-}: ICreateComponentFactoryOptions): ComponentFactory {
-  return function createComponent(componentName, component, options = {}) {
-    const { cacheProps = [], stripProps = [], style, styles = [] } = options;
+export default function createComponentFactory<
+  TPropsDefault extends object = {},
+  TAsPropsDefault extends object = {}
+>({ createStyle }: ICreateComponentFactoryOptions) {
+  return function createComponent<
+    TProps extends object = TPropsDefault,
+    TAsProps extends object = TAsPropsDefault
+  >(
+    /**
+     * Name of the component, should be unique
+     * Name is used to apply custom styles from DesignSystem componentStyles registry
+     */
+    componentName: string,
+    /**
+     * Underlying component that is being rendered
+     */
+    component: string | ComponentType<TAsProps> | IDSComponent<TAsProps>,
+    /**
+     * Optional component's options
+     */
+    {
+      cacheProps = [],
+      stripProps = [],
+      style,
+      styles = [],
+    }: IComponentFactoryOptions<TProps & TAsProps & DSProps & { [key: string]: any }> = {},
+  ): IDSComponent<TProps & TAsProps & DSProps & { [key: string]: any }> {
     const opts = {
       cacheProps,
       stripProps,
