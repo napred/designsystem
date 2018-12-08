@@ -10,15 +10,13 @@
     "build:packages": "npx lerna run build",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "lint": "tslint -p . && lerna run lint",
+    "lint": "lerna run lint",
     "test": "jest --coverage",
     "test:ci": "jest --ci --coverage --runInBand",
     "test:watch": "jest --watch",
     "storybook:build": "npx lerna run storybook:build",
-    "storybook:run": "np lerna run storybook:run",
-    "typecheck": "npm run typecheck:root",
-    "typecheck:root": "npx tsc -p . --noEmit",
-    "typecheck:packages": "npx lerna run typecheck"
+    "storybook:run": "npx lerna run storybook:run",
+    "typecheck": "npx lerna run typecheck"
   },
   "lint-staged": {
     "src/**/*.json": [

@@ -5,6 +5,7 @@
     "jsx-no-lambda": false,
     "no-implicit-dependencies": false,
     "no-submodule-imports": false,
-    "no-empty": false
+    "no-empty": false,
+    "no-unused-variable": true
   }
 }
