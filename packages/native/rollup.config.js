@@ -1,12 +1,9 @@
 import nodeResolve from 'rollup-plugin-node-resolve';
-import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
-import { terser } from 'rollup-plugin-terser';
 
 const input = 'temp/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
-const name = 'napred.ds';
 
 const babelCJS = {
   babelrc: false,
@@ -15,29 +12,20 @@ const babelCJS = {
 };
 
 const babelESM = {
+  babelrc: false,
   exclude: /node_modules/,
   runtimeHelpers: true,
   presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
 };
 
-const commonjsOptions = {
-  include: /node_modules/,
-};
-
-const globals = {
-  emotion: 'emotion',
-  react: 'React',
-  'react-dom': 'ReactDOM',
-};
-
 export default [
-  // cjs dev
+  // cjs
   {
     external,
     input,
     output: {
       exports: 'named',
-      file: 'dist/ds.cjs.js',
+      file: 'dist/native.cjs.js',
       format: 'cjs',
     },
     plugins: [
@@ -48,29 +36,6 @@ export default [
         ignoreGlobal: true,
       }),
       babel(babelCJS),
-      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
-    ],
-  },
-
-  // cjs prod, min
-  {
-    external,
-    input,
-    output: {
-      exports: 'named',
-      file: 'dist/ds.cjs.min.js',
-      format: 'cjs',
-    },
-    plugins: [
-      nodeResolve({
-        extensions: ['.mjs', '.js', '.jsx'],
-      }),
-      commonjs(),
-      babel(babelCJS),
-      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-      terser({
-        sourcemap: true,
-      }),
     ],
   },
 
@@ -79,7 +44,7 @@ export default [
     input,
     external,
     output: {
-      file: 'dist/ds.m.js',
+      file: 'dist/native.m.js',
       format: 'esm',
     },
     plugins: [
@@ -89,39 +54,6 @@ export default [
       }),
       commonjs({
         ignoreGlobal: true,
-      }),
-    ],
-  },
-
-  // umd
-  {
-    input,
-    output: { exports: 'named', file: 'dist/ds.umd.js', format: 'umd', name, globals },
-    external: Object.keys(globals),
-    plugins: [
-      nodeResolve({
-        extensions: ['.mjs', '.js', '.jsx'],
-      }),
-      babel(babelESM),
-      commonjs(commonjsOptions),
-      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
-    ],
-  },
-
-  // umd prod
-  {
-    input,
-    output: { exports: 'named', file: 'dist/ds.umd.min.js', format: 'umd', name, globals },
-    external: Object.keys(globals),
-    plugins: [
-      nodeResolve({
-        extensions: ['.mjs', '.js', '.jsx'],
-      }),
-      babel(babelESM),
-      commonjs(commonjsOptions),
-      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-      terser({
-        sourcemap: true,
       }),
     ],
   },
