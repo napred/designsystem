@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React, { Fragment } from 'react';
-import { IfViewport } from '../../../ds/src';
+import { IfViewport } from '../../../browser/src';
 
 const systemStories = storiesOf('IfViewport', module);
 

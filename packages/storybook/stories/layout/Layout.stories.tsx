@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import { css } from 'emotion';
 import React, { Fragment } from 'react';
-import { createComponent, IfViewport } from '../../../ds/src';
+import { createComponent, IfViewport } from '../../../browser/src';
 import { Column, Row } from '../../../ui/src';
 
 const layoutStories = storiesOf('Components/Layout/Whole layout', module);

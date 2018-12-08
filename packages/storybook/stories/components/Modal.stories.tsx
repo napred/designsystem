@@ -3,7 +3,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { css } from 'emotion';
 import React from 'react';
-import { createComponent } from '../../../ds/src';
+import { createComponent } from '../../../browser/src';
 import { Modal } from '../../../ui/src';
 
 const modalStories = storiesOf('Components/Modal', module);

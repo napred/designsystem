@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { createComponent } from '../../../ds/src';
+import { createComponent } from '../../../browser/src';
 
 const RedSpan = createComponent('RedSpan', 'span');
 const Text = createComponent('Text', 'div');
