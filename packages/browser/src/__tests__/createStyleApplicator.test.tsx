@@ -3,18 +3,18 @@ import React from 'react';
 import { render } from 'react-testing-library';
 import {
   createComponent,
-  createCssStyle,
   createStringStyle,
+  createStyle,
   createStyleApplicator,
   DesignSystem,
-} from '../../';
+} from '../';
 
 const Box = createComponent('Box', 'div');
 
 describe('createStyleApplicator', () => {
   const styles = [
     createStringStyle('test', 'test'),
-    createCssStyle(
+    createStyle(
       ['pos'],
       (props: { pos?: string }) => css`
         position: ${props.pos};

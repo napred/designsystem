@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createCssStyle works with function 1`] = `
+exports[`createStyle works with function 1`] = `
 <DocumentFragment>
   .css-ng7bw9 {
   color: #3B5998;
@@ -15,7 +15,7 @@ exports[`createCssStyle works with function 1`] = `
 </DocumentFragment>
 `;
 
-exports[`createCssStyle works with simple object 1`] = `
+exports[`createStyle works with simple object 1`] = `
 <DocumentFragment>
   .css-1f227de {
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -29,7 +29,7 @@ exports[`createCssStyle works with simple object 1`] = `
 </DocumentFragment>
 `;
 
-exports[`createCssStyle works with simple string 1`] = `
+exports[`createStyle works with simple string 1`] = `
 <DocumentFragment>
   .css-14q17fo {
   font-family: "Palanquin","Helvetica",sans-serif;
@@ -43,7 +43,7 @@ exports[`createCssStyle works with simple string 1`] = `
 </DocumentFragment>
 `;
 
-exports[`createCssStyle works with simple style 1`] = `
+exports[`createStyle works with simple style 1`] = `
 <DocumentFragment>
   .css-8xq7br {
   font-family: "Palanquin","Helvetica",sans-serif;

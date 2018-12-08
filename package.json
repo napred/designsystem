@@ -4,7 +4,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run build:root && npm run build:packages",
+    "build": "npm run build:packages",
     "build:root": "npx tsc -p .",
     "prebuild:root": "npx rimraf dist",
     "build:packages": "npx lerna run build",

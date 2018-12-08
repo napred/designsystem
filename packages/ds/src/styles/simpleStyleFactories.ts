@@ -3,7 +3,7 @@ import { IStyler } from '../types';
 import convertUnit from '../utilities/convertUnit';
 import formatStyleResult from './formatStyleResult';
 
-export function createStyle<T extends object>(
+export function createSimpleStyle<T extends object>(
   propName: string,
   cssAttribute: string | string[],
   formatter: (val: any) => string,
@@ -64,7 +64,7 @@ export function createNumericStyle<T extends object>(
   cssAttribute: string | string[],
   defaultValue?: number | string | Array<number | string> | void,
 ): IStyler<T> {
-  return createStyle(propName, cssAttribute, convertUnit, defaultValue);
+  return createSimpleStyle(propName, cssAttribute, convertUnit, defaultValue);
 }
 
 export function createStringStyle<T extends object>(
@@ -72,5 +72,5 @@ export function createStringStyle<T extends object>(
   cssAttribute: string | string[],
   defaultValue?: string | string[] | void,
 ): IStyler<T> {
-  return createStyle(propName, cssAttribute, val => val, defaultValue);
+  return createSimpleStyle(propName, cssAttribute, val => val, defaultValue);
 }

@@ -1,7 +1,7 @@
+import { IStyler, StylingFn } from '@napred/ds';
 import { css, Interpolation } from 'emotion';
-import { IStyler, StylingFn } from '../types';
 
-export default function createCssStyle<TProps extends object>(
+export default function createStyle<TProps extends object>(
   propNames: string[],
   style: Interpolation | StylingFn<TProps>,
   stripProps?: string[],
@@ -15,7 +15,7 @@ export default function createCssStyle<TProps extends object>(
       if (typeof style === 'function') {
         return (style as StylingFn<TProps>)(props, system);
       }
-      
+
       return css(style);
     },
     propNames,

@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 
-import { createComponent, createCssStyle, css, DesignSystem } from '../../';
+import { createComponent, createStyle, css, DesignSystem } from '../';
 
 const Box = createComponent('Box', 'div');
 
-describe('createCssStyle', () => {
+describe('createStyle', () => {
   it('works with simple string', () => {
-    const styles = [createCssStyle(['test'], 'color: blue;')];
+    const styles = [createStyle(['test'], 'color: blue;')];
     const { asFragment } = render(
       <DesignSystem styles={styles}>
         <Box />
@@ -19,7 +19,7 @@ describe('createCssStyle', () => {
 
   it('works with simple style', () => {
     const styles = [
-      createCssStyle(
+      createStyle(
         ['test'],
         css`
           color: blue;
@@ -36,7 +36,7 @@ describe('createCssStyle', () => {
   });
 
   it('works with simple object', () => {
-    const styles = [createCssStyle(['test'], { color: 'blue' })];
+    const styles = [createStyle(['test'], { color: 'blue' })];
     const { asFragment } = render(
       <DesignSystem styles={styles}>
         <Box />
@@ -48,7 +48,7 @@ describe('createCssStyle', () => {
 
   it('works with function', () => {
     const styles = [
-      createCssStyle(
+      createStyle(
         ['test'],
         (props: { color: string }) =>
           css`

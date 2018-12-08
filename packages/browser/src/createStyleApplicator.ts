@@ -1,5 +1,5 @@
+import { IStyleApplicator, IStyler, ITheme, StyleApplicatorFactory } from '@napred/ds';
 import { css, Interpolation } from 'emotion';
-import { IStyleApplicator, IStyler, ITheme, StyleApplicatorFactory } from '../types';
 
 export const COMPONENT_PATH_PROP_NAME = 'compPath';
 export const STRIP_PROPS_PROP_NAME = 'stripProps';

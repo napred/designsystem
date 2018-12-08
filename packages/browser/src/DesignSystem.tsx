@@ -1,11 +1,16 @@
+import {
+  createNullCache,
+  createSystem,
+  defaultTheme,
+  DesignSystemContext,
+  IStyleCache,
+  IStyler,
+  ITheme,
+  styleList,
+} from '@napred/ds';
 import React, { ReactElement, ReactNode, useState } from 'react';
-import { createNullCache } from './cache';
-import DesignSystemContext from './context';
-import defaultTheme from './defaultTheme';
+import createStyleApplicator from './createStyleApplicator';
 import { useBreakpointDetection, useStyleReset } from './hooks';
-import { createStyleApplicator, styleList } from './styles';
-import { createSystem } from './system';
-import { IStyleCache, IStyler, ITheme } from './types';
 
 const defaultCache = createNullCache();
 

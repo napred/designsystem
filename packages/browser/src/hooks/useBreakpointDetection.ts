@@ -1,5 +1,5 @@
+import { SystemAPI } from '@napred/ds';
 import { useEffect } from 'react';
-import { SystemAPI } from '../system';
 
 export default function useBreakpointDetection(currentViewport: number, system: SystemAPI): any {
   return useEffect(() => {

@@ -1,4 +1,5 @@
 import { ISystem } from './system';
+import { IThemeSettings } from './theme';
 
 export interface IComponentOptions extends IStylingOptions {
   /** Tell the system to generate (false) or passthrough (true) styles for underlying component */
@@ -58,8 +59,8 @@ export interface ITheme {
     /** Default value or name from palette */
     defaultValueOrName?: string,
   ): string;
-  get(attributeName: string, defaultValue?: any): any;
-  getResponsiveValue(attributeName: string, viewport: number ,defaultValue?: any): any;
+  get(attributeName: keyof IThemeSettings, defaultValue?: any): any;
+  getResponsiveValue(attributeName: string, viewport: number, defaultValue?: any): any;
 }
 
 export type StyleCacheKeyFn = (
@@ -77,5 +78,14 @@ export type StyleApplicatorFactory = <TProps extends object = {}>(
     globalStyles: Array<IStyler<any>>;
   },
 ) => IStyleApplicator<TProps>;
+
+export type StylerCreatorFn<TProps extends object = {}> = (
+  /** Prop names used in style, these props are used for caching too */
+  propNames: string[],
+  /** Style applied to component */
+  style: any,
+  /** Strip these on render */
+  stripProps?: string[],
+) => IStyler<TProps>;
 
 export type StylingFn<TProps extends object> = (props: TProps, designSystem: ISystem) => any;

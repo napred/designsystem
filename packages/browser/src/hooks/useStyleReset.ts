@@ -1,6 +1,6 @@
+import { SystemAPI } from '@napred/ds';
 import { injectGlobal } from 'emotion';
 import { useMemo } from 'react';
-import { SystemAPI } from '../system';
 
 function formatFontImports(imports: string[]): string {
   const css = imports.join(';');
