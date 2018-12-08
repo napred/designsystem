@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`style applicator works correctly for extended system component 1`] = `
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3B5998",
+          "color": "#FFFFFF",
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+        },
+      ]
+    }
+  />,
+  <Text
+    style={
+      Array [
+        Object {
+          "backgroundColor": "tomato",
+          "color": "#3CD048",
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+          "marginBottom": 4,
+          "marginLeft": 4,
+          "marginRight": 4,
+          "marginTop": 4,
+        },
+      ]
+    }
+  />,
+]
+`;
+
+exports[`style applicator works correctly for overridden system component 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#3B5998",
+        "color": "#FFFFFF",
+        "fontFamily": "Palanquin",
+        "fontSize": 16,
+        "fontWeight": "bold",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`style applicator works correctly for simple system component 1`] = `
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CD048",
+          "color": "#EA2E49",
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+        },
+      ]
+    }
+  />,
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#3B5998",
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+        },
+      ]
+    }
+  />,
+]
+`;
