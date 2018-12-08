@@ -10,5 +10,5 @@
   },
   "include": ["src/**/*.ts"],
   "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
-  "references": [{ "path": "../ds" }]
+  "references": [{ "path": "../browser" }]
 }

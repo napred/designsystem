@@ -25,6 +25,7 @@ const commonjsOptions = {
 };
 
 const globals = {
+  '@napred/browser': 'napred.browser',
   '@napred/ds': 'napred.ds',
   emotion: 'emotion',
   react: 'React',

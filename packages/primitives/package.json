@@ -31,7 +31,7 @@
   "license": "MIT",
   "sideEffects": false,
   "dependencies": {
-    "@napred/ds": "^0.2.2"
+    "@napred/browser": "^0.2.2"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
