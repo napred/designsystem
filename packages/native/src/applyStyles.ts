@@ -1,7 +1,9 @@
 import { IStyler, ITheme } from '@napred/ds';
+// @ts-ignore
 import transform from 'css-to-react-native';
 import { RegisteredStyle, StyleSheet } from 'react-native';
 import Stylis from 'stylis';
+import { StyleDefinition } from './types';
 
 const ROOT_CLASS_NAME = '$$root';
 
@@ -36,7 +38,7 @@ export default function applyStyles(
   /** Design system */
   system: { theme: ITheme; viewport: number },
   /** All collected styles for component */
-  styles: Array<IStyler<any>>,
+  styles: Array<IStyler<any, StyleDefinition>>,
 ): { default: RegisteredStyle<any> } {
   const parser = new Stylis();
   parser.use(createPlugin());

@@ -5,11 +5,13 @@ import {
   IStyleCache,
   IStyler,
   ITheme,
+  StyleApplicatorFactory,
   styleList,
 } from '@napred/ds';
 import React, { ReactNode, useState } from 'react';
 import createStyleApplicator from './createStyleApplicator';
 import defaultTheme from './defaultTheme';
+import { StyleDefinition } from './types';
 
 const defaultCache = createNullCache();
 
@@ -21,11 +23,11 @@ interface IProps {
   cache?: IStyleCache;
   children?: ReactNode;
   /** Component custom styles registry */
-  componentStyles?: { [componentName: string]: Array<IStyler<any>> };
+  componentStyles?: { [componentName: string]: Array<IStyler<any, StyleDefinition>> };
   /** Applicatory used to create style applicator */
-  styleApplicatorFactory?: any;
+  styleApplicatorFactory?: StyleApplicatorFactory<StyleDefinition>;
   /** Custom blobal styles */
-  styles?: Array<IStyler<any>>;
+  styles?: Array<IStyler<any, StyleDefinition>>;
   /**
    * Override viewport (default is 0)
    * Can be used to force rendering your application for different breakpoints
@@ -40,6 +42,7 @@ export default function DesignSystem({
   children,
   componentStyles = {},
   is = 0,
+  styleApplicatorFactory = createStyleApplicator,
   styles = [],
   theme = defaultTheme,
 }: IProps) {
@@ -49,7 +52,7 @@ export default function DesignSystem({
     cache,
     componentStyles,
     globalStyles,
-    styleApplicatorFactory: createStyleApplicator,
+    styleApplicatorFactory,
     theme,
     viewport: is,
   });

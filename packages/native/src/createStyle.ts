@@ -1,28 +1,14 @@
 import { IStyler, StylingFn } from '@napred/ds';
+import { StyleDefinition } from './types';
 
 export default function createStyle<TProps extends object>(
-  propNames: string[],
-  style: string | { [key: string]: any } | StylingFn<TProps>,
-  stripProps?: string[],
-): IStyler<TProps> {
+  propNames: Array<keyof TProps>,
+  style: StyleDefinition | StylingFn<TProps, StyleDefinition>,
+  stripProps?: Array<keyof TProps>,
+): IStyler<TProps, StyleDefinition> {
   return {
     apply: (props, system) => {
-      const appliedStyle =
-        typeof style === 'function' ? (style as StylingFn<TProps>)(props, system) : style;
-
-      if (typeof appliedStyle === 'string') {
-        return style;
-      } else if (
-        typeof appliedStyle === 'object' &&
-        appliedStyle != null &&
-        !Array.isArray(appliedStyle)
-      ) {
-        return style;
-      }
-
-      throw new Error(
-        `Invalid applied style type, ${typeof appliedStyle}, only css string or css object are allowed`,
-      );
+      return typeof style === 'function' ? style(props, system) : style;
     },
     propNames,
     stripProps: stripProps || propNames,
