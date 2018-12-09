@@ -1,4 +1,4 @@
-import { createComponent, createStyle, css, DSProps } from '@napred/browser';
+import { createComponent, createStyle, css, IDSProps, StylerProps } from '@napred/browser';
 import React, { ReactNode } from 'react';
 import LoadingDots from '../LoadingDots';
 import createVariants from '../styles/createVariants';
@@ -6,8 +6,8 @@ import createVariants from '../styles/createVariants';
 type ButtonVariants = 'default' | 'lightTransparent' | 'primary' | 'transparent';
 
 const btnVariants = createVariants<
-  any,
-  { disabled?: boolean; hoverColor?: string; variant?: ButtonVariants }
+  { bgColor?: string; color?: string; disabled?: boolean; hoverColor: string },
+  { variant?: ButtonVariants }
 >(
   'variant',
   {
@@ -95,7 +95,7 @@ const btnVariants = createVariants<
   },
 );
 
-const ButtonComponent = createComponent('Button', 'button', {
+const ButtonComponent = createComponent<IProps>('Button', 'button', {
   styles: [
     createStyle(
       ['disabled'],
@@ -138,7 +138,7 @@ const ButtonComponent = createComponent('Button', 'button', {
               visibility: hidden;
             }
           `
-        : null,
+        : '',
     ),
   ],
 });
@@ -156,12 +156,12 @@ ButtonComponent.defaultProps = {
   py: 2,
 };
 
-interface IProps extends DSProps {
+interface IProps extends IDSProps, StylerProps {
   children?: ReactNode;
   disabled?: boolean;
   hoverColor?: string;
   loading?: boolean;
-  loadingDotsProps?: DSProps;
+  loadingDotsProps?: IDSProps & StylerProps;
   onClick?: () => any;
   variant?: ButtonVariants;
   [key: string]: any;

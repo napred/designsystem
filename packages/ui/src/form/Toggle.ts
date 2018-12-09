@@ -1,8 +1,9 @@
 import { createComponent, createStyle, css } from '@napred/browser';
 
 export interface IProps {
-  disabled?: boolean;
+  borderWidth: number;
   checked?: boolean;
+  disabled?: boolean;
 }
 
 const Toggle = createComponent<IProps, {}>('Toggle', 'div', {

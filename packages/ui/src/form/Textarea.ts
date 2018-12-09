@@ -1,6 +1,6 @@
 import { createComponent, createStyle, css } from '@napred/browser';
 
-const Textarea = createComponent('Textarea', 'textarea', {
+const Textarea = createComponent<{}>('Textarea', 'textarea', {
   styles: [
     createStyle(
       [],

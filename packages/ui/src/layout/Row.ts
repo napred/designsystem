@@ -1,7 +1,7 @@
 import { convertUnit, createComponent, createStyle } from '@napred/browser';
 import { css } from 'emotion';
 
-const Row = createComponent('Row', 'div', {
+const Row = createComponent<{ gutters?: boolean }>('Row', 'div', {
   styles: [
     createStyle(
       ['gutters'],

@@ -1,7 +1,7 @@
 import { convertUnit, createComponent, createStyle } from '@napred/browser';
 import { css } from 'emotion';
 
-const Container = createComponent('Container', 'div', {
+const Container = createComponent<{}>('Container', 'div', {
   styles: [
     createStyle([], (_, { theme, viewport }) => {
       return css`

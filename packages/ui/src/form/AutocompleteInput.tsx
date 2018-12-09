@@ -1,11 +1,11 @@
-import { createComponent, createStyle, css, DSProps } from '@napred/browser';
+import { createComponent, createStyle, css, IDSProps } from '@napred/browser';
 import debounce from 'lodash.debounce';
 import React, { ChangeEvent, useCallback, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import Menu, { MenuItem } from '../Menu';
 import Input from './Input';
 
-const AutocompleteBase = createComponent('AutocompleteBase', 'div', {
+const AutocompleteBase = createComponent<{}>('AutocompleteBase', 'div', {
   styles: [
     createStyle(
       [],
@@ -28,7 +28,7 @@ AutocompleteBase.defaultProps = {
   py: 0,
 };
 
-interface IProps<T> extends DSProps {
+interface IProps<T> extends IDSProps {
   disabled?: boolean;
   className?: string;
   debounceTime?: number;

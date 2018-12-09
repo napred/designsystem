@@ -1,6 +1,6 @@
 import { createComponent, createStyle, css } from '@napred/browser';
 
-const Input = createComponent('Input', 'input', {
+const Input = createComponent<{}>('Input', 'input', {
   styles: [
     createStyle(
       [],
