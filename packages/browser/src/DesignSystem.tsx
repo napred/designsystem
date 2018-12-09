@@ -6,11 +6,13 @@ import {
   IStyleCache,
   IStyler,
   ITheme,
+  StyleApplicatorFactory,
   styleList,
 } from '@napred/ds';
-import React, { ReactElement, ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import createStyleApplicator from './createStyleApplicator';
 import { useBreakpointDetection, useStyleReset } from './hooks';
+import { StyleDefinition } from './types';
 
 const defaultCache = createNullCache();
 
@@ -22,11 +24,11 @@ interface IProps {
   cache?: IStyleCache;
   children?: ReactNode;
   /** Component custom styles registry */
-  componentStyles?: { [componentName: string]: Array<IStyler<any>> };
+  componentStyles?: { [componentName: string]: Array<IStyler<any, StyleDefinition>> };
   /** Applicatory used to create style applicator */
-  styleApplicatorFactory?: any;
+  styleApplicatorFactory?: StyleApplicatorFactory<StyleDefinition>;
   /** Custom blobal styles */
-  styles?: Array<IStyler<any>>;
+  styles?: Array<IStyler<any, StyleDefinition>>;
   /**
    * Override viewport (default is 0)
    * Can be used to force rendering your application for different breakpoints
@@ -40,11 +42,11 @@ export default function DesignSystem({
   cache = defaultCache,
   children,
   componentStyles = {},
+  is = 0,
   styles = [],
   styleApplicatorFactory = createStyleApplicator,
-  is = 0,
   theme = defaultTheme,
-}: IProps): ReactElement<any> | null {
+}: IProps) {
   const [currentViewport, setCurrentViewport] = useState(is);
   const [globalStyles] = useState(() => [...styleList, ...styles]);
   const system = createSystem({

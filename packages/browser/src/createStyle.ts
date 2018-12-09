@@ -1,22 +1,15 @@
 import { IStyler, StylingFn } from '@napred/ds';
-import { css, Interpolation } from 'emotion';
+import { css } from 'emotion';
+import { StyleDefinition } from './types';
 
 export default function createStyle<TProps extends object>(
-  propNames: string[],
-  style: Interpolation | StylingFn<TProps>,
-  stripProps?: string[],
-): IStyler<TProps> {
+  propNames: Array<keyof TProps>,
+  style: StyleDefinition | StylingFn<TProps, StyleDefinition>,
+  stripProps?: Array<keyof TProps>,
+): IStyler<TProps, StyleDefinition> {
   return {
     apply: (props, system) => {
-      if (style == null) {
-        return style;
-      }
-
-      if (typeof style === 'function') {
-        return (style as StylingFn<TProps>)(props, system);
-      }
-
-      return css(style);
+      return css(typeof style === 'function' ? style(props, system) : style);
     },
     propNames,
     stripProps: stripProps || propNames,

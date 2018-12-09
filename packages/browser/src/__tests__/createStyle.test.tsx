@@ -49,7 +49,7 @@ describe('createStyle', () => {
   it('works with function', () => {
     const styles = [
       createStyle(
-        ['test'],
+        ['color'],
         (props: { color: string }) =>
           css`
             color: ${props.color};

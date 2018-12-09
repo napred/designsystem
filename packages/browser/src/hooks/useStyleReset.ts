@@ -1,6 +1,7 @@
 import { SystemAPI } from '@napred/ds';
 import { injectGlobal } from 'emotion';
 import { useMemo } from 'react';
+import { StyleDefinition } from '../types';
 
 function formatFontImports(imports: string[]): string {
   const css = imports.join(';');
@@ -12,7 +13,7 @@ function formatFontImports(imports: string[]): string {
   return '';
 }
 
-export default function useStyleReset(system: SystemAPI): void {
+export default function useStyleReset(system: SystemAPI<StyleDefinition>): void {
   // call it only once
   useMemo(
     () => {

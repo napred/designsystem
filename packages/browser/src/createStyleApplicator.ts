@@ -1,5 +1,6 @@
-import { IStyleApplicator, IStyler, ITheme, StyleApplicatorFactory } from '@napred/ds';
+import { IStyler, ITheme, StyleApplicatorFactory } from '@napred/ds';
 import { css, Interpolation } from 'emotion';
+import { StyleDefinition } from './types';
 
 export const COMPONENT_PATH_PROP_NAME = 'compPath';
 export const STRIP_PROPS_PROP_NAME = 'stripProps';
@@ -39,23 +40,28 @@ interface IUsedStyleProps {
   className: string;
 }
 
-const factory: StyleApplicatorFactory = function createStyleApplicator({
+const factory: StyleApplicatorFactory<
+  StyleDefinition,
+  IUsedStyleProps
+> = function createStyleApplicator({
   cache,
   componentStyles: componentStylesRegistry,
   cacheKeyFn = generateCacheKey,
   globalStyles,
-}): IStyleApplicator<IUsedStyleProps> {
-  const systemCacheProps = ([] as string[]).concat(...globalStyles.map(styler => styler.propNames));
+}) {
+  const systemCacheProps = ([] as string[]).concat(
+    ...globalStyles.map(styler => styler.propNames as string[]),
+  );
   const systemStripProps = [
     COMPONENT_PATH_PROP_NAME,
     STRIP_PROPS_PROP_NAME,
     STYLERS_PROP_NAME,
-  ].concat(...globalStyles.map(styler => styler.stripProps));
+  ].concat(...globalStyles.map(styler => styler.stripProps as string[]));
 
   Object.keys(componentStylesRegistry).forEach(componentName =>
     componentStylesRegistry[componentName].forEach(styler => {
-      systemCacheProps.push(...styler.propNames);
-      systemStripProps.push(...styler.stripProps);
+      systemCacheProps.push(...(styler.propNames as string[]));
+      systemStripProps.push(...(styler.stripProps as string[]));
     }),
   );
 

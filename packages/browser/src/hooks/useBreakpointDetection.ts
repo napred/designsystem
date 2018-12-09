@@ -1,7 +1,11 @@
 import { SystemAPI } from '@napred/ds';
 import { useEffect } from 'react';
+import { StyleDefinition } from '../types';
 
-export default function useBreakpointDetection(currentViewport: number, system: SystemAPI): any {
+export default function useBreakpointDetection(
+  currentViewport: number,
+  system: SystemAPI<StyleDefinition>,
+): any {
   return useEffect(() => {
     const breakpoints: string[] = system.theme.get('breakpoints');
     const mediaQueryList: Array<{

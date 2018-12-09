@@ -2,6 +2,7 @@ export * from './createStyleApplicator';
 export * from './css';
 export * from './hooks';
 export * from './DesignSystem';
+export * from './types';
 
 export { default as css } from './css';
 export { default as createComponent } from './createComponent';
