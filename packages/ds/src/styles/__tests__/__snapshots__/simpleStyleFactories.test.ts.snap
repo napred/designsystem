@@ -66,7 +66,7 @@ Object {
 
 exports[`simple style factories createStyler takes last value from responsive value if breakpoint exceeds the range (with default simple) 4`] = `
 Object {
-  "test": "1",
+  "test": "3",
 }
 `;
 

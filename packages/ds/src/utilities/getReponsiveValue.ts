@@ -19,7 +19,11 @@ export default function getResponsiveValue(
   value: AllowedValueType[],
   defaultValue: AllowedValueType | AllowedValueType[],
 ): string | number | null {
-  const defaultLength = Array.isArray(defaultValue) ? defaultValue.length : 0;
+  const defaultLength = Array.isArray(defaultValue)
+    ? defaultValue.length
+    : defaultValue !== undefined
+    ? 1
+    : 0;
   const valueLength = value.length;
   const maxLength = Math.max(valueLength, defaultLength);
   let currentValue;
@@ -40,11 +44,6 @@ export default function getResponsiveValue(
     }
 
     return currentValue === undefined ? null : currentValue;
-  }
-
-  // if default is not an array and breakpoint exceeds values, use defaultValue
-  if (!Array.isArray(defaultValue) && breakpoint >= maxLength) {
-    return defaultValue;
   }
 
   const defaultValues = Array.isArray(defaultValue)

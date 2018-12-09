@@ -8,17 +8,16 @@ export function createSystemStyle<TProps extends object>(
   cssAttribute: string | string[],
   systemName: string,
   formatter: (value: number | string) => string | number,
-  defaultValue?: string | number | Array<string | number> | void,
+  defaultValue?: string | number | Array<string | number | undefined | null> | undefined | null,
 ): IStyler<TProps> {
   const cssAttributes: string[] = arrayize(cssAttribute);
-  const defaultValues = arrayize(defaultValue || []);
 
   return {
     apply: (props: TProps, { theme, viewport: bp }: ISystem) => {
       const propValue = arrayize<string | number | null | undefined>(props[propName] as any);
       const systemValue = theme.get(systemName);
 
-      const bpValue = getResponsiveValue(bp, propValue, defaultValues);
+      const bpValue = getResponsiveValue(bp, propValue, defaultValue);
 
       if (bpValue == null) {
         return formatStyleResult(null, cssAttributes, formatter);
@@ -45,7 +44,7 @@ export function createNumericSystemStyle<TProps extends object>(
   propName: keyof TProps,
   cssAttribute: string | string[],
   systemName: string,
-  defaultValue?: number | string | Array<number | string> | void,
+  defaultValue?: string | number | Array<string | number | undefined | null> | undefined | null,
 ): IStyler<TProps> {
   return createSystemStyle(propName, cssAttribute, systemName, convertUnit, defaultValue);
 }
@@ -54,7 +53,7 @@ export function createStringSystemStyle<TProps extends object>(
   propName: keyof TProps,
   cssAttribute: string | string[],
   systemName: string,
-  defaultValue?: string | string[] | void,
+  defaultValue?: string | number | Array<string | number | undefined | null> | undefined | null,
 ): IStyler<TProps> {
   return createSystemStyle(propName, cssAttribute, systemName, val => val, defaultValue);
 }
