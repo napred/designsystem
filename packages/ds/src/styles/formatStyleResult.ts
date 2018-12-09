@@ -2,7 +2,7 @@ export default function formatStyleResult(
   value: null | undefined | string | number,
   cssAttributes: string[],
   formatter: (val: string | number) => string | number,
-): { [cssAttr: string]: string | number } {
+): { [styleAttr: string]: string | number } {
   if (value == null) {
     return {};
   }

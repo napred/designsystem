@@ -1,21 +1,21 @@
-import { Interpolation } from 'emotion';
 import { ComponentType, createElement, FunctionComponent } from 'react';
 import { useStyle } from './hooks';
 import { StylerProps } from './styles';
 import { IStylingOptions, StylerCreatorFn, StylingFn } from './types';
 import { cleanProps } from './utilities';
 
-export type DSProps = {
+export interface IDSProps {
   /**
    * Can be used to override underlying element (if DSComponent is passed, it will be extended by it's styles)
    */
   as?: string | ComponentType<any> | IDSComponent<any>;
-} & StylerProps;
+} /*  & StylerProps; */
 
 /** Component's options */
-export interface IComponentFactoryOptions<TProps extends object> extends IStylingOptions {
+export interface IComponentFactoryOptions<TProps extends object, TStyle>
+  extends IStylingOptions<TProps, TStyle> {
   /** Component's style */
-  style?: Interpolation | StylingFn<TProps>;
+  style?: TStyle | StylingFn<TProps, TStyle>;
 }
 
 export interface IDSComponent<TProps extends object> extends FunctionComponent<TProps> {
@@ -23,16 +23,20 @@ export interface IDSComponent<TProps extends object> extends FunctionComponent<T
   $$nprdds: boolean;
 }
 
-export interface ICreateComponentFactoryOptions {
+export interface ICreateComponentFactoryOptions<TStyle> {
   /** Styler creator that will be used to convert options.style to styler */
-  createStyle: StylerCreatorFn;
+  createStyle: StylerCreatorFn<any, TStyle>;
 }
 
 /** Create DS component factory */
 export default function createComponentFactory<
+  /** Available global style props for a component */
+  TStyleProps extends object = StylerProps,
+  /** Allowed style definition types */
+  TStyle = {},
   TPropsDefault extends object = {},
   TAsPropsDefault extends object = {}
->({ createStyle }: ICreateComponentFactoryOptions) {
+>({ createStyle }: ICreateComponentFactoryOptions<TStyle>) {
   return function createComponent<
     TProps extends object = TPropsDefault,
     TAsProps extends object = TAsPropsDefault
@@ -54,8 +58,11 @@ export default function createComponentFactory<
       stripProps = [],
       style,
       styles = [],
-    }: IComponentFactoryOptions<TProps & TAsProps & DSProps & { [key: string]: any }> = {},
-  ): IDSComponent<TProps & TAsProps & DSProps & { [key: string]: any }> {
+    }: IComponentFactoryOptions<
+      TProps & TAsProps & IDSProps & TStyleProps & { [key: string]: any },
+      TStyle
+    > = {},
+  ): IDSComponent<TProps & TAsProps & IDSProps & TStyleProps & { [key: string]: any }> {
     const opts = {
       cacheProps,
       stripProps,
@@ -70,14 +77,14 @@ export default function createComponentFactory<
     // collect cacheProps and stripProps from styles
     if (styles) {
       styles.forEach(styler => {
-        opts.cacheProps.push(...styler.propNames);
-        opts.stripProps.push(...styler.stripProps);
+        opts.cacheProps.push(...(styler.propNames as string[]));
+        opts.stripProps.push(...(styler.stripProps as string[]));
       });
     }
 
     const factory = ({ as = component, ...restProps }) => {
       const isDsComp = typeof as !== 'string' && (as as IDSComponent<any>).$$nprdds;
-      const props = useStyle(componentName, restProps, {
+      const props = useStyle(componentName, restProps as TProps & TStyleProps & TAsProps, {
         ...opts,
         passthrough: isDsComp,
       });

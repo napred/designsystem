@@ -1,17 +1,12 @@
-import { IStylingOptions } from '../types';
+import { IComponentOptions } from '../types';
 import useDesignSystem from './useDesignSystem';
 
-interface IStyleOptions extends IStylingOptions {
-  /** Tell the system to generate (false) or passthrough (true) styles for underlying component */
-  passthrough?: boolean;
-}
-
-export default function useStyle(
+export default function useStyle<TProps extends object, TStyle>(
   componentName: string,
-  props: { [key: string]: any },
-  options: IStyleOptions,
-): { [key: string]: any } {
-  const ds = useDesignSystem();
+  props: TProps,
+  options: IComponentOptions<TProps, TStyle>,
+): { [propName: string]: any } {
+  const ds = useDesignSystem<TStyle>();
 
-  return ds.applyStyles(componentName, props, options);
+  return ds.applyStyles<TProps>(componentName, props, options);
 }
