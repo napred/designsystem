@@ -11,11 +11,19 @@ const transforms = {
   top: 'translateY(-100%)',
 };
 
-const side = ({ side: toSide }: IDrawerBaseProps) => {
+const side = ({
+  side: toSide,
+}: IDrawerBaseProps): {
+  bottom: null | number;
+  left: null | number;
+  right: null | number;
+  top: null | number;
+} => {
   if (!transforms[toSide]) {
     return {
       bottom: 0,
       left: 0,
+      right: null,
       top: 0,
     };
   }
