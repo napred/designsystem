@@ -1,27 +1,8 @@
-import { ComponentType, createElement, FunctionComponent } from 'react';
+import { createElement, FunctionComponent } from 'react';
 import { useStyle } from './hooks';
 import { StylerProps } from './styles';
-import { IStylingOptions, StylerCreatorFn, StylingFn } from './types';
+import { ComponentFactory, IDSComponent, StylerCreatorFn } from './types';
 import { cleanProps } from './utilities';
-
-export interface IDSProps {
-  /**
-   * Can be used to override underlying element (if DSComponent is passed, it will be extended by it's styles)
-   */
-  as?: string | ComponentType<any> | IDSComponent<any>;
-} /*  & StylerProps; */
-
-/** Component's options */
-export interface IComponentFactoryOptions<TProps extends object, TStyle>
-  extends IStylingOptions<TProps, TStyle> {
-  /** Component's style */
-  style?: TStyle | StylingFn<TProps, TStyle>;
-}
-
-export interface IDSComponent<TProps extends object> extends FunctionComponent<TProps> {
-  /** Specifies that component is DS component */
-  $$nprdds: boolean;
-}
 
 export interface ICreateComponentFactoryOptions<TStyle> {
   /** Styler creator that will be used to convert options.style to styler */
@@ -36,33 +17,16 @@ export default function createComponentFactory<
   TStyle = {},
   TPropsDefault extends object = {},
   TAsPropsDefault extends object = {}
->({ createStyle }: ICreateComponentFactoryOptions<TStyle>) {
-  return function createComponent<
-    TProps extends object = TPropsDefault,
-    TAsProps extends object = TAsPropsDefault
-  >(
-    /**
-     * Name of the component, should be unique
-     * Name is used to apply custom styles from DesignSystem componentStyles registry
-     */
-    componentName: string,
-    /**
-     * Underlying component that is being rendered
-     */
-    component: string | ComponentType<TAsProps> | IDSComponent<TAsProps>,
-    /**
-     * Optional component's options
-     */
-    {
-      cacheProps = [],
-      stripProps = [],
-      style,
-      styles = [],
-    }: IComponentFactoryOptions<
-      TProps & TAsProps & IDSProps & TStyleProps & { [key: string]: any },
-      TStyle
-    > = {},
-  ): IDSComponent<TProps & TAsProps & IDSProps & TStyleProps & { [key: string]: any }> {
+>({
+  createStyle,
+}: ICreateComponentFactoryOptions<TStyle>): ComponentFactory<
+  TStyleProps,
+  TStyle,
+  TPropsDefault,
+  TAsPropsDefault
+> {
+  return function createComponent(componentName, component, options = {}) {
+    const { cacheProps = [], stripProps = [], style, styles = [] } = options;
     const opts = {
       cacheProps,
       stripProps,
@@ -84,7 +48,7 @@ export default function createComponentFactory<
 
     const factory = ({ as = component, ...restProps }) => {
       const isDsComp = typeof as !== 'string' && (as as IDSComponent<any>).$$nprdds;
-      const props = useStyle(componentName, restProps as TProps & TStyleProps & TAsProps, {
+      const props = useStyle(componentName, restProps as any, {
         ...opts,
         passthrough: isDsComp,
       });

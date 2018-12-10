@@ -30,28 +30,13 @@
   },
   "license": "MIT",
   "sideEffects": false,
-  "dependencies": {
-    "@napred/browser": "^0.2.2"
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.2 || >=16.7.0"
   },
-  "devDependencies": {
-    "@types/jest": "^23.3.10",
-    "@types/react": "^16.7.13",
-    "jest": "^23.6.0",
-    "react": "^16.7.0-alpha.2 || >=16.7.0",
-    "react-dom": "^16.7.0-alpha.2 || >=16.7.0",
-    "react-testing-library": "^5.3.0",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.67.3",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^9.1.6",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-terser": "^3.0.0",
-    "ts-jest": "^23.10.5",
-    "tslint": "^5.11.0",
-    "typescript": "^3.2.1"
+  "dependencies": {
+    "@napred/browser": "^0.2.2",
+    "@napred/ds": "^0.2.2",
+    "@types/react": "^16.7.13"
   },
   "gitHead": "e94b1d302f40e6ababd4428447c22421d452b6ac",
   "scripts": {
@@ -59,6 +44,7 @@
     "lint": "tslint -p .",
     "prebuild": "rimraf dist temp",
     "prepublishOnly": "npm run build",
+    "test": "jest",
     "typecheck": "tsc --noEmit"
   }
 }

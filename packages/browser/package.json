@@ -30,23 +30,18 @@
   },
   "license": "MIT",
   "peerDependencies": {
+    "@napred/ds": "^0.2.2",
+    "@types/react": "^16.7.13",
     "react": "^16.7.0-alpha.2 || >=16.7.0"
   },
   "dependencies": {
-    "@napred/ds": "^0.2.2",
     "emotion": "^9.2.12"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.10",
-    "@types/react-dom": "^16.0.11",
     "emotion-server": "^9.2.12",
-    "jest": "^23.6.0",
     "jest-emotion": "^9.2.11",
-    "react": "^16.7.0-alpha.2 || >=16.7.0",
     "react-dom": "^16.7.0-alpha.2 || >=16.7.0",
-    "react-testing-library": "^5.3.0",
-    "rimraf": "^2.6.2",
-    "ts-jest": "^23.10.5"
+    "react-testing-library": "^5.3.0"
   },
   "gitHead": "e94b1d302f40e6ababd4428447c22421d452b6ac",
   "scripts": {
@@ -54,6 +49,7 @@
     "lint": "tslint -p .",
     "prebuild": "rimraf dist temp",
     "prepublishOnly": "npm run build",
+    "test": "jest",
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": false

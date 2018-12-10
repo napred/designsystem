@@ -3,9 +3,11 @@
   "compilerOptions": {
     "composite": true,
     "declarationDir": "dist",
+    "lib": ["es2018"],
     "outDir": "temp",
     "rootDir": "src",
-    "target": "esnext"
+    "target": "esnext",
+    "types": ["@napred/ds", "jest", "react", "react-native", "react-native-testing-library"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
