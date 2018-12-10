@@ -1,9 +1,9 @@
-import { createComponent } from '@napred/ds';
+import { createComponent, DSProps } from '@napred/ds';
 import { css } from 'emotion';
 import React, { Children, ComponentType, ReactNode } from 'react';
 import getResponsiveValue from './utils/getResponsiveValue';
 
-interface IProps {
+interface IProps extends DSProps {
   children?: ReactNode;
   fill?: string | string[];
   icon?: ComponentType<any>;
