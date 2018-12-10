@@ -13,7 +13,7 @@ textareaStories.add('Full screen with placeholder', () => (
   <Textarea
     p={1}
     onChange={action('onChange')}
-    width={'100%'}
+    width="100%"
     defaultValue="Pssst... type something here"
   />
 ));

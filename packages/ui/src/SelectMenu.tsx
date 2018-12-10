@@ -46,8 +46,8 @@ function SelectMenu(props: IProps) {
                     justifyContent="center"
                     px={0}
                     ml="auto"
-                    variant="transparent"
                     onClick={onClickClose}
+                    variant="transparent"
                   >
                     <SvgImage icon={CloseIcon} />
                   </Button>
