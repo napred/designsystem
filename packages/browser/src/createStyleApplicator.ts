@@ -22,7 +22,7 @@ function generateCacheKey(
 function applyStyles(
   props: { [key: string]: any },
   system: { theme: ITheme; viewport: number },
-  styles: Array<IStyler<any>>,
+  styles: Array<IStyler<any, StyleDefinition>>,
 ): string {
   return css(
     styles.reduce(
