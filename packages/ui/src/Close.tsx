@@ -1,4 +1,4 @@
-import { DSProps } from '@napred/ds/dist';
+import { DSProps } from '@napred/ds';
 import React from 'react';
 import { CloseIcon } from './assets';
 import SvgImage from './SvgImage';
