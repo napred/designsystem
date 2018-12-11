@@ -1,8 +1,14 @@
-import { createComponent, createStyle, css, DSProps } from '@napred/browser';
+import {
+  arrayize,
+  createComponent,
+  createStyle,
+  css,
+  DSProps,
+  getResponsiveValue,
+} from '@napred/browser';
 import React, { ReactNode } from 'react';
 import LoadingDots from '../LoadingDots';
 import createVariants from '../styles/createVariants';
-import getResponsiveValue from '../utils/getResponsiveValue';
 
 type ButtonVariants = 'default' | 'lightTransparent' | 'primary' | 'transparent';
 
@@ -11,26 +17,31 @@ const btnVariants = createVariants<IProps>(
   {
     default: ({ disabled, hoverColor, bgColor }: IProps, { theme, viewport }) => {
       return css`
-        background-color: ${theme.color(getResponsiveValue(bgColor, viewport) || 'white')};
-        border-color: ${theme.color(getResponsiveValue(bgColor, viewport) || 'greyLight')};
+        background-color: ${theme.color(getResponsiveValue(viewport, arrayize(bgColor)) as string || 'white')};
+        border-color: ${theme.color(
+          getResponsiveValue(viewport, arrayize(bgColor)) as string || 'greyLight',
+        )};
         color: ${theme.color(bgColor ? 'white' : 'greyDark')};
 
         ${!disabled &&
           css`
             &:hover {
-              border-color: ${theme.color(getResponsiveValue(bgColor, viewport) || 'primary')};
+              border-color: ${theme.color(
+              
+                  getResponsiveValue(viewport, arrayize(bgColor)) as string || 'primary',
+              )};
               color: ${theme.color(
-                getResponsiveValue(hoverColor, viewport) || bgColor ? 'white' : 'primary',
+                getResponsiveValue(viewport, arrayize(hoverColor)) as string || (bgColor ? 'white' : 'primary'),
               )};
 
               * {
                 color: ${theme.color(
-                  getResponsiveValue(hoverColor, viewport) || bgColor ? 'white' : 'primary',
+                  getResponsiveValue(viewport, arrayize(hoverColor)) as string || (bgColor ? 'white' : 'primary'),
                 )};
 
                 svg path:last-child {
                   fill: ${theme.color(
-                    getResponsiveValue(hoverColor, viewport) || bgColor ? 'white' : 'primary',
+                    getResponsiveValue(viewport, arrayize(hoverColor)) as string || (bgColor ? 'white' : 'primary'),
                   )};
                 }
               }
@@ -48,13 +59,13 @@ const btnVariants = createVariants<IProps>(
           &:hover {
             background-color: ${theme.color('greyLightest')};
             border-color: ${theme.color('primary')};
-            color: ${theme.color(getResponsiveValue(hoverColor, viewport) || 'primary')};
+            color: ${theme.color(getResponsiveValue(viewport, arrayize(hoverColor)) as string || 'primary')};
 
             * {
-              color: ${theme.color(getResponsiveValue(hoverColor, viewport) || 'primary')};
+              color: ${theme.color(getResponsiveValue(viewport, arrayize(hoverColor)) as string || 'primary')};
 
               svg path:last-child {
-                fill: ${theme.color(getResponsiveValue(hoverColor, viewport) || 'primary')};
+                fill: ${theme.color(getResponsiveValue(viewport, arrayize(hoverColor)) as string || 'primary')};
               }
             }
           }
@@ -71,10 +82,10 @@ const btnVariants = createVariants<IProps>(
             background-color: ${theme.color('primaryLight')};
 
             * {
-              color: ${theme.color(getResponsiveValue(hoverColor, viewport) || 'greyLightest')};
+              color: ${theme.color(getResponsiveValue(viewport, arrayize(hoverColor)) as string || 'greyLightest')};
 
               svg path:last-child {
-                fill: ${theme.color(getResponsiveValue(hoverColor, viewport) || 'greyLightest')};
+                fill: ${theme.color(getResponsiveValue(viewport, arrayize(hoverColor)) as string || 'greyLightest')};
               }
             }
           }
@@ -83,12 +94,12 @@ const btnVariants = createVariants<IProps>(
     transparent: ({ disabled, hoverColor, color }: IProps, { theme, viewport }) => css`
       background-color: transparent;
       border-color: transparent;
-      color: ${theme.color(getResponsiveValue(color, viewport) || 'greyDark')};
+      color: ${theme.color(getResponsiveValue(viewport, arrayize(color)) as string || 'greyDark')};
 
       ${!disabled &&
         css`
           &:hover {
-            color: ${theme.color(getResponsiveValue(hoverColor, viewport) || 'primary')};
+            color: ${theme.color(getResponsiveValue(viewport, arrayize(hoverColor)) as string || 'primary')};
           }
         `};
     `,

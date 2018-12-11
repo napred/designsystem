@@ -1,5 +1,5 @@
 import { createComponent, createStyle, css, DSProps } from '@napred/browser';
-import getResponsiveValue from '../utils/getResponsiveValue';
+import { arrayize, getResponsiveValue } from '@napred/ds';
 
 export interface IProps extends DSProps {
   checked?: boolean;
@@ -11,39 +11,45 @@ const Toggle = createComponent<IProps>('Toggle', 'div', {
   styles: [
     createStyle(
       ['disabled', 'height', 'checked', 'borderWidth'],
-      ({ disabled, height, checked, borderWidth }, { theme, viewport }) => css`
-        cursor: pointer;
-        display: inline-flex;
-        background-color: ${checked ? theme.color('primary') : theme.color('greyLight')};
-        transition-property: background-color;
-        transition-duration: 0.2s;
-        transition-timing-function: ease-out;
-        user-select: none;
-        ${disabled
-          ? css`
-              cursor: not-allowed;
-              filter: grayscale(10%);
-              opacity: 0.6;
-            `
-          : ''}
-        &::after {
-          content: ' ';
-          width: calc(${height}px - ${(getResponsiveValue<any>(borderWidth, viewport) || 0) * 4}px);
-          height: calc(
-            ${height}px - ${(getResponsiveValue<any>(borderWidth, viewport) || 0) * 4}px
-          );
-          border-radius: 16px;
-          margin: ${2 * (getResponsiveValue<any>(borderWidth, viewport) || 0)}px;
-          background-color: ${theme.get('color', 'white')};
-          transition-property: transform, color;
-          transition-duration: 0.1s;
+      ({ disabled, height, checked, borderWidth }, { theme, viewport }) => {
+        return css`
+          cursor: pointer;
+          display: inline-flex;
+          background-color: ${checked ? theme.color('primary') : theme.color('greyLight')};
+          transition-property: background-color;
+          transition-duration: 0.2s;
           transition-timing-function: ease-out;
-          transform: ${checked ? 'translateX(16px)' : 'translateX(0)'};
-        }
-        &:focus {
-          outline: 0;
-        }
-      `,
+          user-select: none;
+          ${disabled
+            ? css`
+                cursor: not-allowed;
+                filter: grayscale(10%);
+                opacity: 0.6;
+              `
+            : ''}
+          &::after {
+            content: ' ';
+            width: calc(
+              ${height}px -
+                ${Number(getResponsiveValue(viewport, arrayize(borderWidth), 0)) * 4}px
+            );
+            height: calc(
+              ${height}px -
+                ${Number(getResponsiveValue(viewport, arrayize(borderWidth), 0)) * 4}px
+            );
+            border-radius: 16px;
+            margin: ${2 * Number(getResponsiveValue(viewport, arrayize(borderWidth), viewport))}px;
+            background-color: ${theme.get('color', 'white')};
+            transition-property: transform, color;
+            transition-duration: 0.1s;
+            transition-timing-function: ease-out;
+            transform: ${checked ? 'translateX(16px)' : 'translateX(0)'};
+          }
+          &:focus {
+            outline: 0;
+          }
+        `;
+      },
       ['height', 'borderWidth'],
     ),
   ],
