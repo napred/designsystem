@@ -12,6 +12,9 @@ jobs:
       - restore_cache:
           key: yarndeps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
+          name: Upgrade yarn to 1.12.3
+          command: sudo npm install -g yarn@1.12.3
+      - run:
           name: Installing javascript dependencies
           command: yarn install --cache-folder ~/.yarn-cache
       - save_cache:
