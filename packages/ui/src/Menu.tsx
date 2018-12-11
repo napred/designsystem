@@ -1,4 +1,4 @@
-import { IDSProps, StylerProps } from '@napred/browser';
+import { DSProps } from '@napred/browser';
 import React, { ReactNode } from 'react';
 import { List, ListItem, ListSubheader } from './List';
 import Popover from './Popover';
@@ -6,11 +6,11 @@ import Popover from './Popover';
 export const MenuItem = ListItem;
 export const MenuSubheader = ListSubheader;
 
-interface IProps extends IDSProps, StylerProps {
+interface IProps extends DSProps {
   children?: ReactNode;
-  listProps: IDSProps;
+  listProps: DSProps;
   open: boolean;
-  popoverProps: IDSProps;
+  popoverProps: DSProps;
 }
 
 function Menu({

@@ -1,4 +1,4 @@
-import { createComponent, createStyle, css, IDSProps, StylerProps } from '@napred/browser';
+import { createComponent, createStyle, css, DSProps } from '@napred/browser';
 import React, { ReactNode } from 'react';
 import LoadingDots from '../LoadingDots';
 import createVariants from '../styles/createVariants';
@@ -160,12 +160,12 @@ ButtonComponent.defaultProps = {
   py: 2,
 };
 
-interface IProps extends IDSProps, StylerProps {
+interface IProps extends DSProps {
   children?: ReactNode;
   disabled?: boolean;
   hoverColor?: string;
   loading?: boolean;
-  loadingDotsProps?: IDSProps & StylerProps;
+  loadingDotsProps?: DSProps;
   onClick?: () => any;
   variant?: ButtonVariants | undefined;
   [key: string]: any;

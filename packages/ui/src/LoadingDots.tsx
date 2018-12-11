@@ -1,4 +1,4 @@
-import { createComponent, createStyle, IDSProps, StylerProps } from '@napred/browser';
+import { createComponent, createStyle, DSProps } from '@napred/browser';
 import { css, keyframes } from 'emotion';
 import React from 'react';
 
@@ -45,7 +45,7 @@ const LoadingDot = createComponent<{ animationDelay?: string; dark?: boolean }>(
   },
 );
 
-export interface IProps extends IDSProps, StylerProps {
+export interface IProps extends DSProps {
   dark?: boolean;
 }
 

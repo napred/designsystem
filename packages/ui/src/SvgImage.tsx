@@ -23,7 +23,7 @@ const Svg = ({ children, icon: Icon, titleAccess, ...rest }: IProps) => {
   return null;
 };
 
-const SvgImage = createComponent('SvgImage', Svg, {
+const SvgImage = createComponent<IProps>('SvgImage', Svg, {
   cacheProps: ['fill'],
   stripProps: ['fill'],
   style: ({ fill }, { theme, viewport }) => css`

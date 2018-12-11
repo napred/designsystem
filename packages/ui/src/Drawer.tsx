@@ -1,4 +1,4 @@
-import { createComponent, createStyle, IDSProps, StylerProps } from '@napred/browser';
+import { createComponent, createStyle, DSProps } from '@napred/browser';
 import React from 'react';
 import Fixed from './Fixed';
 import Overlay from './Overlay';
@@ -44,7 +44,7 @@ const transform = ({ open, side: toSide }: IDrawerBaseProps) => ({
   transform: open ? null : transforms[toSide] || transforms.left,
 });
 
-interface IDrawerBaseProps extends IDSProps, StylerProps {
+interface IDrawerBaseProps extends DSProps {
   open: boolean;
   side: keyof (typeof transforms);
 }

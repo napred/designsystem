@@ -1,4 +1,4 @@
-import { createComponent, createStyle, css, IDSProps } from '@napred/browser';
+import { createComponent, createStyle, css, DSProps } from '@napred/browser';
 import debounce from 'lodash.debounce';
 import React, { ChangeEvent, useCallback, useState } from 'react';
 import { Transition } from 'react-transition-group';
@@ -28,7 +28,7 @@ AutocompleteBase.defaultProps = {
   py: 0,
 };
 
-interface IProps<T> extends IDSProps {
+interface IProps<T> extends DSProps {
   disabled?: boolean;
   className?: string;
   debounceTime?: number;
