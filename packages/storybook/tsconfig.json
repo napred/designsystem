@@ -8,7 +8,8 @@
       "@napred/ds": ["../ds/src"],
       "@napred/native": ["../native/src"],
       "@napred/primitives": ["../primitives/src"],
-      "@napred/ui": ["../ui/src"]
+      "@napred/ui": ["../ui/src"],
+      "react-native": ["./@types/react-native/index.d.ts"]
     },
     "declaration": true,
     "emitDecoratorMetadata": true,
@@ -16,7 +17,6 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": ["es2018", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -28,7 +28,7 @@
     "strict": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "esnext",
-    "typeRoots": ["node_modules/@types", "./@types", "../../@types", "../../node_modules/@types"]
+    "typeRoots": ["node_modules/@types", "./@types"]
   },
   "include": ["stories/**/*"],
   "exclude": ["node_modules", "__tests__"]

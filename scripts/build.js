@@ -16,6 +16,3 @@ shell.exec('npm run build');
 
 shell.cd('../ui');
 shell.exec('npm run build');
-
-shell.cd('../storybook');
-shell.exec('npm run storybook:build');
