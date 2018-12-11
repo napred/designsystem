@@ -4,6 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
+      "@napred/browser": ["../browser/src"],
       "@napred/ds": ["../ds/src"],
       "@napred/native": ["../native/src"],
       "@napred/primitives": ["../primitives/src"],

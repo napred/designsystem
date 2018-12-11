@@ -1,17 +1,17 @@
-import { createComponent, createStyle, css } from '@napred/browser';
+import { createComponent, createStyle, css, DSProps } from '@napred/browser';
+import getResponsiveValue from '../utils/getResponsiveValue';
 
-export interface IProps {
-  borderWidth: number;
+export interface IProps extends DSProps {
   checked?: boolean;
-  height?: number;
   disabled?: boolean;
+  height?: number;
 }
 
 const Toggle = createComponent<IProps>('Toggle', 'div', {
   styles: [
     createStyle(
       ['disabled', 'height', 'checked', 'borderWidth'],
-      ({ disabled, height, checked, borderWidth }, { theme }) => css`
+      ({ disabled, height, checked, borderWidth }, { theme, viewport }) => css`
         cursor: pointer;
         display: inline-flex;
         background-color: ${checked ? theme.color('primary') : theme.color('greyLight')};
@@ -19,18 +19,21 @@ const Toggle = createComponent<IProps>('Toggle', 'div', {
         transition-duration: 0.2s;
         transition-timing-function: ease-out;
         user-select: none;
-        ${disabled &&
-          css`
-            cursor: not-allowed;
-            filter: grayscale(10%);
-            opacity: 0.6;
-          `}
+        ${disabled
+          ? css`
+              cursor: not-allowed;
+              filter: grayscale(10%);
+              opacity: 0.6;
+            `
+          : ''}
         &::after {
           content: ' ';
-          width: ${`calc(${height}px - ${4 * borderWidth}px)`};
-          height: ${`calc(${height}px - ${4 * borderWidth}px)`};
+          width: calc(${height}px - ${(getResponsiveValue<any>(borderWidth, viewport) || 0) * 4}px);
+          height: calc(
+            ${height}px - ${(getResponsiveValue<any>(borderWidth, viewport) || 0) * 4}px
+          );
           border-radius: 16px;
-          margin: ${`${2 * borderWidth}px`};
+          margin: ${2 * (getResponsiveValue<any>(borderWidth, viewport) || 0)}px;
           background-color: ${theme.get('color', 'white')};
           transition-property: transform, color;
           transition-duration: 0.1s;
