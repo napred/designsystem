@@ -4,10 +4,10 @@ import { DesignSystem } from '../../../native/src';
 import { Link } from '../../../primitives/src';
 import { Link as NativeLink } from '../../../primitives/src/native';
 
-const linkStories = storiesOf('Components/Link', module);
+const linkStories = storiesOf('Primitives/Link', module);
 
-linkStories.add('default', () => <Link href="/">Link</Link>);
-linkStories.add('native', () => (
+linkStories.add('web link', () => <Link href="/">Link</Link>);
+linkStories.add('native link', () => (
   <DesignSystem>
     <NativeLink href="/">Link</NativeLink>
   </DesignSystem>
