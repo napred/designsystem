@@ -17,7 +17,7 @@ type AllowedValueType = string | number | null | undefined; // null means that i
 export default function getResponsiveValue(
   breakpoint: number,
   value: AllowedValueType[],
-  defaultValue: AllowedValueType | AllowedValueType[],
+  defaultValue?: AllowedValueType | AllowedValueType[],
 ): string | number | null {
   const defaultLength = Array.isArray(defaultValue)
     ? defaultValue.length

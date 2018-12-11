@@ -81,7 +81,6 @@ export interface ITheme {
     defaultValueOrName?: string,
   ): string;
   get(attributeName: keyof IThemeSettings, defaultValue?: any): any;
-  getResponsiveValue(attributeName: string, viewport: number, defaultValue?: any): any;
 }
 
 export type ComponentFactory<

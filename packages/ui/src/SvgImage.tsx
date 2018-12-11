@@ -1,6 +1,5 @@
-import { createComponent, css } from '@napred/browser';
+import { arrayize, createComponent, css, getResponsiveValue } from '@napred/browser';
 import React, { Children, ComponentType, ReactNode } from 'react';
-import getResponsiveValue from './utils/getResponsiveValue';
 
 interface IProps {
   children?: ReactNode;
@@ -32,7 +31,7 @@ const SvgImage = createComponent<IProps>('SvgImage', Svg, {
     flex-shrink: 0;
 
     path:last-child {
-      fill: ${theme.color(fill ? getResponsiveValue<string>(fill, viewport) : 'transparent')};
+      fill: ${theme.color(fill ? getResponsiveValue(viewport, arrayize(fill)) as string : 'transparent')};
     }
   `,
 });
