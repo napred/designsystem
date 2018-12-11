@@ -1,7 +1,14 @@
-import { createComponent } from '@napred/browser';
+export const Card = {
+  defaultProps: {},
+  name: 'Card',
+};
 
-const Card = createComponent('Card', 'div');
-export const CardHeader = createComponent('CardHeader', 'div');
-export const CardFooter = createComponent('CardFooter', 'div');
+export const CardFooter = {
+  defaultProps: {},
+  name: 'CardFooter',
+};
 
-export default Card;
+export const CardHeader = {
+  defaultProps: {},
+  name: 'CardHeader',
+};

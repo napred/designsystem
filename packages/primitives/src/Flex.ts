@@ -1,11 +1,6 @@
-import { createComponent } from '@napred/browser';
-
-const Flex = createComponent('Flex', 'div');
-
-// temporary fix because if we use defaultProps in config object
-// it will require them :(
-Flex.defaultProps = {
+export const name = 'Flex';
+export const defaultProps = {
   display: 'flex',
+  // make it the same for web and native
+  flexDirection: 'row',
 };
-
-export default Flex;
