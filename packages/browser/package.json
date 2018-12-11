@@ -38,6 +38,7 @@
     "emotion": "^9.2.12"
   },
   "devDependencies": {
+    "@types/react-dom": "^16.0.11",
     "emotion-server": "^9.2.12",
     "jest-emotion": "^9.2.11",
     "react-dom": "^16.7.0-alpha.2 || >=16.7.0",
