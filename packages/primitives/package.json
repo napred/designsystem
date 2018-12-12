@@ -24,7 +24,9 @@
     }
   ],
   "files": [
-    "dist"
+    "dist",
+    "native.d.ts",
+    "native.js"
   ],
   "publishConfig": {
     "access": "public"
