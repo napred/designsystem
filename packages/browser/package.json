@@ -1,6 +1,6 @@
 {
   "name": "@napred/browser",
-  "version": "0.2.3-alpha.0",
+  "version": "0.3.0-alpha.0",
   "main": "dist/browser.cjs.js",
   "umd:main": "dist/browser.umd.js",
   "jsnext:main": "dist/browser.m.js",
