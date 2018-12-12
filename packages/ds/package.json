@@ -35,11 +35,12 @@
   },
   "devDependencies": {
     "react-dom": "^16.7.0-alpha.2 || >=16.7.0",
-    "react-testing-library": "^5.3.0"
+    "react-testing-library": "^5.3.0",
+    "typescript": "^3.2.2"
   },
-  "gitHead": "e94b1d302f40e6ababd4428447c22421d452b6ac",
+  "gitHead": "e1ebe2b90254e41d366a7641dfd014ea834858a0",
   "scripts": {
-    "build": "tsc && rollup -c",
+    "build": "npx tsc && rollup -c",
     "lint": "tslint -p .",
     "prebuild": "rimraf dist temp",
     "prepublishOnly": "npm run build",
