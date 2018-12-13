@@ -6,11 +6,11 @@ import {
   IStyler,
   ITheme,
   StyleApplicatorFactory,
-  styleList,
 } from '@napred/ds';
 import React, { ReactNode, useState } from 'react';
 import createStyleApplicator from './createStyleApplicator';
 import defaultTheme from './defaultTheme';
+import { nativeStyleList } from './styleList';
 import { StyleDefinition } from './types';
 
 const defaultCache = createNullCache();
@@ -47,7 +47,7 @@ export default function DesignSystem({
   theme = defaultTheme,
 }: IProps) {
   const [currentViewport, setCurrentViewport] = useState(is);
-  const [globalStyles] = useState(() => [...styleList, ...styles]);
+  const [globalStyles] = useState(() => [...nativeStyleList, ...styles]);
   const system = createSystem({
     cache,
     componentStyles,

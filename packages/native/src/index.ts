@@ -1,5 +1,6 @@
 export * from './createStyleApplicator';
 export * from './DesignSystem';
+export * from './styleList';
 export * from './types';
 
 export { default as createComponent } from './createComponent';

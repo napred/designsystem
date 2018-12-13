@@ -1,8 +1,12 @@
-import { ComponentFactory, createComponentFactory, StylerProps } from '@napred/ds';
+import { ComponentFactory, createComponentFactory } from '@napred/ds';
 import createStyle from './createStyle';
+import { NativeStylerProps } from './styleList';
 import { StyleDefinition } from './types';
 
-const createComponent: ComponentFactory<StylerProps, StyleDefinition> = createComponentFactory({
+const createComponent: ComponentFactory<
+  NativeStylerProps,
+  StyleDefinition
+> = createComponentFactory({
   createStyle,
 });
 
