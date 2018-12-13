@@ -72,7 +72,7 @@ export function createScaledFontSizeSystemStyle<TProps extends object>(
       const sizeIndex = getResponsiveValue(bp, arrayize(props.fontSize as any), 0);
       const size = theme.get('fontSizes')[sizeIndex || 0] || sizeIndex;
 
-      const value = getResponsiveValue(bp, arrayize(props[propName] as any), theme.get('lineHeight') || defaultValue);
+      const value = getResponsiveValue(bp, arrayize(props[propName] as any), theme.get(propName as string) || defaultValue);
 
       if (Number.isNaN(Number(value))) {
         // try to parse value and units
