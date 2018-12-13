@@ -2,59 +2,64 @@
 
 exports[`createStyleApplicator works correctly for no props 1`] = `
 <DocumentFragment>
-  .css-19gnnpj {
+  .css-9ehc2m {
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
 }
 
 <div
-    class="css-19gnnpj"
+    class="css-9ehc2m"
   />
 </DocumentFragment>
 `;
 
 exports[`createStyleApplicator works correctly for props and viewport 1`] = `
 <DocumentFragment>
-  .css-1nc8hru {
+  .css-j1x65f {
   color: #ff0000;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
 }
 
 <div
-    class="css-1nc8hru"
+    class="css-j1x65f"
   />
-  .css-1nc8hru {
+  .css-j1x65f {
   color: #ff0000;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
 }
 
 <div
-    class="css-1nc8hru"
+    class="css-j1x65f"
   />
 </DocumentFragment>
 `;
 
 exports[`createStyleApplicator works correctly for props and viewport 2`] = `
 <DocumentFragment>
-  .css-1nc8hru {
+  .css-j1x65f {
   color: #ff0000;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
 }
 
 <div
-    class="css-1nc8hru"
+    class="css-j1x65f"
   />
-  .css-pk4fcu {
+  .css-o473nl {
   color: #000000;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
 }
 
 <div
-    class="css-pk4fcu"
+    class="css-o473nl"
   />
 </DocumentFragment>
 `;
