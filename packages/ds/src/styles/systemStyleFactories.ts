@@ -57,3 +57,43 @@ export function createStringSystemStyle<TProps extends object>(
 ): IStyler<TProps> {
   return createSystemStyle(propName, cssAttribute, systemName, val => val, defaultValue);
 }
+
+export function createScaledFontSizeSystemStyle<TProps extends object>(
+  propName: keyof TProps,
+  defaultValue?: string | number | Array<string | number | undefined | null> | undefined | null,
+): IStyler<TProps> {
+  return {
+    apply: (
+      props: TProps & {
+        fontSize?: string | number | Array<string | number | undefined | null> | undefined | null;
+      },
+      { theme, viewport: bp }: ISystem,
+    ) => {
+      const sizeIndex = getResponsiveValue(bp, arrayize(props.fontSize as any), 0);
+      const size = theme.get('fontSizes')[sizeIndex || 0] || sizeIndex;
+
+      const value = getResponsiveValue(bp, arrayize(props[propName] as any), theme.get(propName as string) || defaultValue);
+
+      if (Number.isNaN(Number(value))) {
+        // try to parse value and units
+        return {
+          [propName]: (value as string).replace(
+            /^(-?\d+(?:\.\d+)?)(?:\s*([a-zA-Z%]+))?$/,
+            (_, parsedNumber, parsedUnit) => {
+              return convertUnit(
+                parsedUnit === '%' ? size : parsedNumber,
+                parsedUnit === '%' ? parsedNumber / 100 : 1,
+              );
+            },
+          ),
+        };
+      }
+
+      return {
+        [propName]: convertUnit(size, Number(value)),
+      };
+    },
+    propNames: [propName],
+    stripProps: [propName],
+  };
+}

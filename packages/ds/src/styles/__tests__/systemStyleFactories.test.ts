@@ -1,6 +1,7 @@
 import theme from '../../defaultTheme';
 import {
   createNumericSystemStyle,
+  createScaledFontSizeSystemStyle,
   createStringSystemStyle,
   createSystemStyle,
 } from '../systemStyleFactories';
@@ -99,6 +100,25 @@ describe('styler factories', () => {
       const style = createStringSystemStyle<{ test?: any }>('test', 'test', 'colors');
 
       expect(style.apply({ test: 'white' }, { theme, viewport: 0 })).toMatchSnapshot();
+    });
+  });
+
+  describe('createSystemFontSizeRatioStyler', () => {
+    it('works correctly (returns unit)', () => {
+      const style = createScaledFontSizeSystemStyle<{
+        lineHeight?: any;
+        fontSize?: string | number | Array<string | number | undefined | null> | undefined | null;
+      }>('lineHeight');
+
+      expect(style.apply({ lineHeight: 1 }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: 1.2 }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: [2, 1] }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: "120%" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: "30px" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: "2em" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: ["120%", "140%"] }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: ["30px", "36px"] }, { theme, viewport: 0 })).toMatchSnapshot();
+
     });
   });
 });

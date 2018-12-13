@@ -2,57 +2,61 @@
 
 exports[`createStyle works with function 1`] = `
 <DocumentFragment>
-  .css-ng7bw9 {
+  .css-114av29 {
   color: #3B5998;
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
   color: blue;
 }
 
 <div
-    class="css-ng7bw9"
+    class="css-114av29"
   />
 </DocumentFragment>
 `;
 
 exports[`createStyle works with simple object 1`] = `
 <DocumentFragment>
-  .css-1f227de {
+  .css-144sxof {
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
   color: blue;
 }
 
 <div
-    class="css-1f227de"
+    class="css-144sxof"
   />
 </DocumentFragment>
 `;
 
 exports[`createStyle works with simple string 1`] = `
 <DocumentFragment>
-  .css-14q17fo {
+  .css-hkdax8 {
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
   color: blue;
 }
 
 <div
-    class="css-14q17fo"
+    class="css-hkdax8"
   />
 </DocumentFragment>
 `;
 
 exports[`createStyle works with simple style 1`] = `
 <DocumentFragment>
-  .css-8xq7br {
+  .css-1s1nckb {
   font-family: "Palanquin","Helvetica",sans-serif;
   font-size: 16px;
+  line-height: normal;
   color: blue;
 }
 
 <div
-    class="css-8xq7br"
+    class="css-1s1nckb"
   />
 </DocumentFragment>
 `;

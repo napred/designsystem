@@ -23,6 +23,7 @@ const theme = createTheme({
   fontSizes: defaultTheme.get('fontSizes'),
   gutters: defaultTheme.get('gutters'),
   // importFonts: defaultTheme.get('importFonts'),
+  lineHeight: '150%',
   spacing: defaultTheme.get('spacing'),
 });
 
