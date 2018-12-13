@@ -1,6 +1,7 @@
 import theme from '../../defaultTheme';
 import {
   createNumericSystemStyle,
+  createScaledFontSizeSystemStyle,
   createStringSystemStyle,
   createSystemStyle,
 } from '../systemStyleFactories';
@@ -99,6 +100,25 @@ describe('styler factories', () => {
       const style = createStringSystemStyle<{ test?: any }>('test', 'test', 'colors');
 
       expect(style.apply({ test: 'white' }, { theme, viewport: 0 })).toMatchSnapshot();
+    });
+  });
+
+  describe('createSystemFontSizeRatioStyler', () => {
+    it('works correctly (returns unit)', () => {
+      const style = createScaledFontSizeSystemStyle<{
+        test?: any;
+        fontSize?: string | number | Array<string | number | undefined | null> | undefined | null;
+      }>('test');
+
+      expect(style.apply({ test: 1 }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ test: 1.2 }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ test: [2, 1] }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ test: "120%" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ test: "30px" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ test: "2em" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ test: ["120%", "140%"] }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ test: ["30px", "36px"] }, { theme, viewport: 0 })).toMatchSnapshot();
+
     });
   });
 });

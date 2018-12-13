@@ -10,6 +10,7 @@ Array [
           "color": "#FFFFFF",
           "fontFamily": "Palanquin",
           "fontSize": 16,
+          "lineHeight": 24,
         },
       ]
     }
@@ -22,6 +23,7 @@ Array [
           "color": "#3CD048",
           "fontFamily": "Palanquin",
           "fontSize": 16,
+          "lineHeight": 24,
           "marginBottom": 4,
           "marginLeft": 4,
           "marginRight": 4,
@@ -43,6 +45,7 @@ exports[`style applicator works correctly for overridden system component 1`] = 
         "fontFamily": "Palanquin",
         "fontSize": 16,
         "fontWeight": "bold",
+        "lineHeight": 24,
       },
     ]
   }
@@ -59,6 +62,7 @@ Array [
           "color": "#EA2E49",
           "fontFamily": "Palanquin",
           "fontSize": 16,
+          "lineHeight": 24,
         },
       ]
     }
@@ -70,6 +74,7 @@ Array [
           "color": "#3B5998",
           "fontFamily": "Palanquin",
           "fontSize": 16,
+          "lineHeight": 24,
         },
       ]
     }

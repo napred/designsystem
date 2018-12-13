@@ -8,6 +8,7 @@ describe('applyStyles', () => {
     const cssStringStyle: IStyler<{ marginBottom?: string }> = {
       apply: (props: { marginBottom?: string }) => `
         font-size: 10px;
+        line-height: 20px;
         margin-top: 90px;
         margin-bottom: ${props.marginBottom || '80px'};
         `,
@@ -18,6 +19,7 @@ describe('applyStyles', () => {
     expect(applyStyles({}, { theme, viewport: 0 }, [cssStringStyle])).toEqual({
       default: {
         fontSize: 10,
+        lineHeight: 20,
         marginBottom: 80,
         marginTop: 90,
       },
@@ -27,6 +29,7 @@ describe('applyStyles', () => {
       {
         default: {
           fontSize: 10,
+          lineHeight: 20,
           marginBottom: 60,
           marginTop: 90,
         },

@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 1`] = `
+Object {
+  "test": "16px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 2`] = `
+Object {
+  "test": "19.2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 3`] = `
+Object {
+  "test": "32px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 4`] = `
+Object {
+  "test": "19.2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 5`] = `
+Object {
+  "test": "30px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 6`] = `
+Object {
+  "test": "2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 7`] = `
+Object {
+  "test": "19.2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 8`] = `
+Object {
+  "test": "30px",
+}
+`;
+
 exports[`styler factories createSystemNumericStyler works correctly (returns unit) 1`] = `
 Object {
   "test": "4px",

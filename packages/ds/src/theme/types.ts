@@ -12,6 +12,7 @@ export interface IThemeSettings {
   fontSizes: number[];
   gutters: number[];
   importFonts?: string[];
+  lineHeight: string,
   spacing: number[];
   [key: string]: any;
 }
