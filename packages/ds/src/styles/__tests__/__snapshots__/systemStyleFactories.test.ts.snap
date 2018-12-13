@@ -2,49 +2,49 @@
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 1`] = `
 Object {
-  "test": "16px",
+  "lineHeight": "16px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 2`] = `
 Object {
-  "test": "19.2px",
+  "lineHeight": "19.2px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 3`] = `
 Object {
-  "test": "32px",
+  "lineHeight": "32px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 4`] = `
 Object {
-  "test": "19.2px",
+  "lineHeight": "19.2px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 5`] = `
 Object {
-  "test": "30px",
+  "lineHeight": "30px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 6`] = `
 Object {
-  "test": "2px",
+  "lineHeight": "2px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 7`] = `
 Object {
-  "test": "19.2px",
+  "lineHeight": "19.2px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 8`] = `
 Object {
-  "test": "30px",
+  "lineHeight": "30px",
 }
 `;
 

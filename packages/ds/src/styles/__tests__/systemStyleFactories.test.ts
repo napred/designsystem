@@ -106,18 +106,18 @@ describe('styler factories', () => {
   describe('createSystemFontSizeRatioStyler', () => {
     it('works correctly (returns unit)', () => {
       const style = createScaledFontSizeSystemStyle<{
-        test?: any;
+        lineHeight?: any;
         fontSize?: string | number | Array<string | number | undefined | null> | undefined | null;
-      }>('test');
+      }>('lineHeight');
 
-      expect(style.apply({ test: 1 }, { theme, viewport: 0 })).toMatchSnapshot();
-      expect(style.apply({ test: 1.2 }, { theme, viewport: 0 })).toMatchSnapshot();
-      expect(style.apply({ test: [2, 1] }, { theme, viewport: 0 })).toMatchSnapshot();
-      expect(style.apply({ test: "120%" }, { theme, viewport: 0 })).toMatchSnapshot();
-      expect(style.apply({ test: "30px" }, { theme, viewport: 0 })).toMatchSnapshot();
-      expect(style.apply({ test: "2em" }, { theme, viewport: 0 })).toMatchSnapshot();
-      expect(style.apply({ test: ["120%", "140%"] }, { theme, viewport: 0 })).toMatchSnapshot();
-      expect(style.apply({ test: ["30px", "36px"] }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: 1 }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: 1.2 }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: [2, 1] }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: "120%" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: "30px" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: "2em" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: ["120%", "140%"] }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: ["30px", "36px"] }, { theme, viewport: 0 })).toMatchSnapshot();
 
     });
   });
