@@ -51,7 +51,7 @@ OrderedList.defaultProps = {
   p: 0,
 };
 
-const itemStyle = {
+export const itemStyle = {
   display: 'flex',
   listStyle: 'none',
   width: '100%',

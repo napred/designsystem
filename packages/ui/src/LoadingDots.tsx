@@ -12,14 +12,14 @@ const LoadingDotsWrapper = createComponent('LoadingDotsWrapper', 'div', {
 });
 
 const loadingDotAnimation = keyframes`
-    50% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  `;
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
 
 const LoadingDot = createComponent<{ animationDelay?: string; dark?: boolean }>(
   'LoadingDot',
