@@ -1,13 +1,15 @@
-import { createComponent, css } from '@napred/browser';
+import { createComponent } from '@napred/browser';
 import Badge from './Badge';
 
+export const style = {
+  alignItems: 'center',
+  boxAlign: 'center',
+  boxSizing: 'border-box',
+  textAlign: 'center',
+};
+
 const Circle = createComponent('Circle', Badge, {
-  style: css`
-    align-items: center;
-    text-align: center;
-    -webkit-box-align: center;
-    box-sizing: border-box;
-  `,
+  style,
 });
 
 // temporary fix because if we use defaultProps in config object

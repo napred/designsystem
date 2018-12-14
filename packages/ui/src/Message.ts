@@ -4,7 +4,7 @@ import createVariants from './styles/createVariants';
 
 type MessageVariants = 'default' | 'error' | 'warning' | 'success';
 
-const msgVariants = createVariants<any, { variant?: MessageVariants }>('variant', {
+export const msgVariants = createVariants<any, { variant?: MessageVariants }>('variant', {
   default: (_, { theme }) => css`
     background-color: ${theme.color('blue', 'transparent')};
   `,

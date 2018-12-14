@@ -1,7 +1,8 @@
 import { convertUnit, createComponent, createStyle, getResponsiveValue } from '@napred/browser';
+import { Box } from '@napred/primitives';
 import { css } from 'emotion';
 
-const Container = createComponent<{}>('Container', 'div', {
+const Container = createComponent<{}>('Container', Box, {
   styles: [
     createStyle([], (_, { theme, viewport }) => {
       return css`

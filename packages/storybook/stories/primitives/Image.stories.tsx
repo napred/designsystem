@@ -12,6 +12,6 @@ imageStories.add('web', () => (
 
 imageStories.add('native', () => (
   <DesignSystem>
-    <NativeImage source="https://images.unsplash.com/photo-1484589065579-248aad0d8b13?w=2048&q=20" />
+    <NativeImage width={480} height={480} source="https://images.unsplash.com/photo-1484589065579-248aad0d8b13?w=2048&q=20" />
   </DesignSystem>
 ));
