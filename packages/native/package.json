@@ -1,6 +1,6 @@
 {
   "name": "@napred/native",
-  "version": "0.3.2-alpha.1",
+  "version": "0.3.2-alpha.2",
   "main": "dist/native.cjs.js",
   "jsnext:main": "dist/native.m.js",
   "module": "dist/native.m.js",
