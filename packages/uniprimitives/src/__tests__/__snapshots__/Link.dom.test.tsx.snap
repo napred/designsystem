@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders as anchor in DOM 1`] = `
+<DocumentFragment>
+  <a
+    data-focusable="true"
+    dir="auto"
+    role="link"
+    style="background-color: rgba(0, 0, 0, 0); border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; box-sizing: border-box; cursor: pointer; display: inline; font-family: Palanquin; font-size: 16px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 24px; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; text-decoration: none; white-space: pre-wrap; word-wrap: break-word;"
+  >
+    Link
+  </a>
+</DocumentFragment>
+`;
