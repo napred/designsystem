@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "declarationDir": "dist",
+    "lib": ["es2018"],
+    "outDir": "temp",
+    "rootDir": "src",
+    "target": "esnext",
+    "types": [
+      "@napred/ds",
+      "@napred/native",
+      "expect-puppeteer",
+      "jest-image-snapshot",
+      "jest-environment-puppeteer",
+      "jest",
+      "puppeteer",
+      "react",
+      "react-native",
+      "react-native-testing-library"
+    ]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
+  "references": [{ "path": "../ds" }, { "path": "../native" }]
+}
