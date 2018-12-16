@@ -16,6 +16,8 @@ module.exports = {
     '@napred/ds': '<rootDir>/../ds/src',
     '@napred/native': '<rootDir>/../native/src',
     '@napred/uniprimitives': '<rootDir>/src',
+    '^react$': '<rootDir>/node_modules/react',
+    '^react-dom$': '<rootDir>/node_modules/react-dom',
     '^react-native$': '<rootDir>/node_modules/react-native-web/dist/cjs',
   },
   testEnvironment: 'jest-environment-puppeteer',
