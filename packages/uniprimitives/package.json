@@ -55,6 +55,7 @@
     "react-art": "16.7.0-alpha.2 || >=16.7.0",
     "react-dom": "^16.7.0-alpha.2 || >=16.7.0",
     "react-native-web": "^0.9.9",
+    "react-testing-library": "^5.4.0",
     "typescript": "^3.2.2"
   },
   "gitHead": "e1ebe2b90254e41d366a7641dfd014ea834858a0",
