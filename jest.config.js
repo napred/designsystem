@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/packages/primitives/jest.config.js',
     '<rootDir>/packages/ui/jest.config.js',
     '<rootDir>/packages/uniprimitives/jest.config.js',
+    '<rootDir>/packages/uniui/jest.config.js',
   ],
 };
