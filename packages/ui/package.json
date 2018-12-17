@@ -33,7 +33,6 @@
   "dependencies": {
     "@napred/primitives": "^0.3.2-alpha.2",
     "@types/lodash.debounce": "^4.0.4",
-    "@types/react-native": "^0.57.17",
     "@types/react-transition-group": "^2.0.14",
     "emotion": "^9.2.12",
     "lodash.debounce": "^4.0.8",
