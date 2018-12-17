@@ -19,3 +19,6 @@ shell.exec('npm run build --scripts-prepend-node-path');
 
 shell.cd('../uniprimitives');
 shell.exec('npm run build --scripts-prepend-node-path');
+
+shell.cd('../uniui');
+shell.exec('npm run build --scripts-prepend-node-path');

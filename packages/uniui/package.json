@@ -1,10 +1,10 @@
 {
   "name": "@napred/uniui",
   "version": "0.3.2-alpha.0",
-  "main": "dist/primitives.cjs.js",
-  "umd:main": "dist/primitives.umd.js",
-  "jsnext:main": "dist/primitives.m.js",
-  "module": "dist/primitives.m.js",
+  "main": "dist/ui.cjs.js",
+  "umd:main": "dist/ui.umd.js",
+  "jsnext:main": "dist/ui.m.js",
+  "module": "dist/ui.m.js",
   "typings": "dist/index.d.js",
   "keywords": [
     "react",
