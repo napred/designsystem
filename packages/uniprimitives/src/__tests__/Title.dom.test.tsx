@@ -1,6 +1,8 @@
 /**
  * @jest-environment jsdom
  */
+/// <reference lib="dom" types="react-testing-library" />
+
 import { DesignSystem } from '@napred/native';
 import React from 'react';
 import { render } from 'react-testing-library';
