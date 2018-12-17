@@ -3,6 +3,8 @@ import { Text, View } from 'react-native';
 import { render } from 'react-native-testing-library';
 import { createComponent, DesignSystem } from '../';
 
+jest.mock('Dimensions');
+
 const DSText = createComponent('DSText', Text);
 const DSView = createComponent('DSView', View);
 

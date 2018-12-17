@@ -37,6 +37,7 @@
     "react-native": "^0.57.7"
   },
   "dependencies": {
+    "css-mediaquery": "^0.1.2",
     "css-to-react-native": "^2.2.2",
     "stylis": "^3.5.4"
   },
