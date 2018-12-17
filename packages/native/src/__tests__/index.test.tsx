@@ -14,3 +14,14 @@ it('works in react-native', () => {
 
   expect(toJSON()).toMatchSnapshot();
 });
+
+it('passes ref', () => {
+  const ref = jest.fn();
+  render(
+    <DesignSystem>
+      <DSView ref={ref} />,
+    </DesignSystem>,
+  );
+
+  expect(ref).toHaveBeenCalledTimes(1);
+});

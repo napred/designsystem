@@ -65,4 +65,15 @@ describe('design system usage', () => {
     expect(cache.set).toHaveBeenCalledTimes(3);
     expect(recs).not.toEqual({});
   });
+
+  it('passes ref', () => {
+    const ref = jest.fn();
+    render(
+      <DesignSystem>
+        <Box ref={ref} />,
+      </DesignSystem>,
+    );
+
+    expect(ref).toHaveBeenCalledTimes(1);
+  });
 });

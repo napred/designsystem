@@ -1,7 +1,7 @@
-import { createElement, FunctionComponent } from 'react';
+import { createElement, forwardRef, FunctionComponent } from 'react';
 import { useStyle } from './hooks';
 import { StylerProps } from './styles';
-import { ComponentFactory, IDSComponent, StylerCreatorFn } from './types';
+import { ComponentFactory, IDSComponent, IDSProps, StylerCreatorFn } from './types';
 import { cleanProps } from './utilities';
 
 export interface ICreateComponentFactoryOptions<TStyle> {
@@ -46,19 +46,22 @@ export default function createComponentFactory<
       });
     }
 
-    const factory = ({ as = component, ...restProps }) => {
-      const isDsComp = typeof as !== 'string' && (as as IDSComponent<any>).$$nprdds;
-      const props = useStyle(componentName, restProps as any, {
-        ...opts,
-        passthrough: isDsComp,
-      });
+    const factory: IDSComponent<any> = forwardRef(
+      ({ as = component, ...restProps }: IDSProps<TStyleProps>, ref) => {
+        const isDsComp = typeof as !== 'string' && (as as IDSComponent<any>).$$nprdds;
+        const props = useStyle(componentName, restProps as any, {
+          ...opts,
+          passthrough: isDsComp,
+        });
 
-      return createElement(as as FunctionComponent<any>, {
-        // if is ds component, pass all props through
-        // otherwise clean props
-        ...(isDsComp ? props : cleanProps(props, props.stripProps)),
-      });
-    };
+        return createElement(as as FunctionComponent<any>, {
+          // if is ds component, pass all props through
+          // otherwise clean props
+          ...(isDsComp ? props : cleanProps(props, props.stripProps)),
+          ref,
+        });
+      },
+    ) as any;
 
     factory.displayName = componentName;
     factory.$$nprdds = true;
