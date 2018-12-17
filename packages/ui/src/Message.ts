@@ -4,23 +4,23 @@ import createVariants from './styles/createVariants';
 
 type MessageVariants = 'default' | 'error' | 'warning' | 'success';
 
-export const msgVariants = createVariants<any, { variant?: MessageVariants }>('variant', {
-  default: (_, { theme }) => css`
+export const msgVariants = {
+  default: (_ :any, { theme } :any) => css`
     background-color: ${theme.color('blue', 'transparent')};
   `,
-  error: (_, { theme }) => css`
+  error: (_ :any, { theme } :any) => css`
     background-color: ${theme.color('red', 'transparent')};
   `,
-  success: (_, { theme }) => css`
+  success: (_ :any, { theme } :any) => css`
     background-color: ${theme.color('green', 'transparent')};
   `,
-  warning: (_, { theme }) => css`
+  warning: (_ :any, { theme } :any) => css`
     background-color: ${theme.color('orange', 'transparent')};
   `,
-});
+};
 
 const Message = createComponent('Message', Flex, {
-  styles: [msgVariants],
+  styles: [createVariants<any, { variant?: MessageVariants }>('variant', msgVariants)],
 });
 
 // temporary fix because if we use defaultProps in config object
