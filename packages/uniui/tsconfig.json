@@ -11,15 +11,14 @@
       "@napred/ds",
       "@napred/native",
       "@napred/uniprimitives",
-      "expect-puppeteer",
+      "jest",
       "jest-image-snapshot",
       "jest-environment-puppeteer",
-      "jest",
-      "puppeteer",
       "react",
-      "react-native",
-      "react-native-testing-library"
-    ]
+      "react-dom",
+      "react-native"
+    ],
+    "typeRoots": ["./@types", "./node_modules/@types", "../../node_modules/@types"],
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
