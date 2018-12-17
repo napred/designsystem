@@ -3,15 +3,25 @@
   "compilerOptions": {
     "composite": true,
     "declarationDir": "dist",
-    "jsx": "preserve",
     "lib": ["es2018"],
-    "rootDir": "src",
     "outDir": "temp",
+    "rootDir": "src",
     "target": "esnext",
-    "typeRoots": ["node_modules/@types", "./@types", "../../node_modules/@types"],
-    "types": ["@napred/ds", "@napred/browser", "@napred/native",  "@napred/primitives", "jest", "react"]
+    "types": [
+      "@napred/ds",
+      "@napred/native",
+      "@napred/uniprimitives",
+      "expect-puppeteer",
+      "jest-image-snapshot",
+      "jest-environment-puppeteer",
+      "jest",
+      "puppeteer",
+      "react",
+      "react-native",
+      "react-native-testing-library"
+    ]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
-  "references": [{ "path": "../ds" }, { "path": "../browser" }, { "path": "../primitives" }, { "path": "../native" }]
+  "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
+  "references": [{ "path": "../ds" }, { "path": "../native" }, { "path": "../uniprimitives" }]
 }

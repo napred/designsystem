@@ -1,17 +1,16 @@
+
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
     "declarationDir": "dist",
     "jsx": "preserve",
-    "lib": ["es2018"],
     "rootDir": "src",
     "outDir": "temp",
     "target": "esnext",
-    "typeRoots": ["node_modules/@types", "./@types", "../../node_modules/@types"],
-    "types": ["@napred/ds", "@napred/browser", "@napred/native",  "@napred/primitives", "jest", "react", "react-native"]
+    "typeRoots": ["node_modules/@types", "./@types", "../../node_modules/@types"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
-  "references": [{ "path": "../ds" }, { "path": "../browser" }, { "path": "../primitives" }, { "path": "../native" }]
+  "references": [{ "path": "../browser" }, { "path": "../primitives" }]
 }
