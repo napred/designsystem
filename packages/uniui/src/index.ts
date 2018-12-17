@@ -1,5 +1,5 @@
-import { createComponent } from '@napred/native';
-import { Box, Flex, Image, Link, Text, Title } from '@napred/primitives/native';
+import { createComponent, createVariants } from '@napred/native';
+import { Box, Flex, Link } from '@napred/primitives/native';
 
 import AbsoluteDef from './Absolute';
 import AvatarDef, { style as avatarStyle } from './Avatar';
@@ -57,5 +57,12 @@ ListSubheader.defaultProps = ListSubheaderDef.defaultProps;
 
 // export const Menu = () => {}
 
-export const Message = createComponent('Message', Flex, { styles: [msgVariants] });
+export const Message = createComponent('Message', Flex, { styles: [createVariants('variant', msgVariants)] });
 Message.defaultProps = MessageDef.defaultProps;
+
+export * from './assets';
+// export * from './form';
+// export * from './layout';
+// if you put this on the start of the file
+// rollup will generate invalid build
+export * from '@napred/primitives';

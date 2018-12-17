@@ -5,6 +5,7 @@ export * from './types';
 
 export { default as createComponent } from './createComponent';
 export { default as createStyle } from './createStyle';
+export { default as createVariants } from './createVariants';
 export { default as defaultTheme } from './defaultTheme';
 export { default as DesignSystem } from './DesignSystem';
 export { default as useBreakpointDetection } from './useBreakpointDetection';
