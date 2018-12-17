@@ -1,6 +1,3 @@
-import { createComponent } from '@napred/native';
-import { Box } from '@napred/uniprimitives';
-
-export const Button = createComponent('Button', Box);
+export { default as Button } from './Button';
 
 export * from '@napred/uniprimitives';
