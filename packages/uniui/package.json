@@ -1,6 +1,6 @@
 {
   "name": "@napred/uniui",
-  "version": "0.3.2-alpha.0",
+  "version": "0.3.2-alpha.2",
   "main": "dist/ui.cjs.js",
   "umd:main": "dist/ui.umd.js",
   "jsnext:main": "dist/ui.m.js",
