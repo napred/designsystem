@@ -69,8 +69,6 @@
     ],
     "nohoist": [
       "**/@napred/primitives/**",
-      "**/@napred/uniprimitives/**",
-      "**/@napred/uniui/**",
       "**/babel-jest",
       "**/babel-jest/**",
       "**/metro-react-native-babel-preset",
