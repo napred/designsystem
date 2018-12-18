@@ -10,7 +10,7 @@ module.exports = {
   },
   moduleNameMapper: {
     '@napred/ds': resolve(__dirname, '../ds/src'),
-    '^react$': resolve(__dirname, './node_modules/react'),
+    // '^react$': resolve(__dirname, './node_modules/react'),
   },
   setupTestFrameworkScriptFile: '<rootDir>/jest/setup.js',
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
