@@ -68,7 +68,6 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/@napred/primitives/**",
       "**/babel-jest",
       "**/babel-jest/**",
       "**/metro-react-native-babel-preset",
