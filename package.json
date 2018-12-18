@@ -46,6 +46,8 @@
     "metro-react-native-babel-preset": "^0.50.0",
     "prettier": "^1.15.3",
     "react": "^16.7.0-alpha.2 || >=16.7.0",
+    "react-native": "^0.57.7",
+    "react-test-renderer": "^16.7.0-alpha.2 || >=16.7.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.3",
     "rollup-plugin-babel": "^4.0.3",
@@ -69,16 +71,6 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "**/babel-jest",
-      "**/babel-jest/**",
-      "**/metro-react-native-babel-preset",
-      "**/metro-react-native-babel-preset/**",
-      "**/react-native",
-      "**/react-native/**",
-      "**/ts-jest",
-      "**/ts-jest/**"
     ]
   }
 }

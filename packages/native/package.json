@@ -42,18 +42,8 @@
     "stylis": "^3.5.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "metro-react-native-babel-preset": "^0.50.0",
-    "react-native": "^0.57.7",
     "react-native-testing-library": "^1.4.2",
-    "react-test-renderer": "^16.7.0-alpha.2 || >=16.7.0",
     "typescript": "^3.2.2"
-  },
-  "resolutions": {
-    "babel-core": "^7.0.0-bridge.0",
-    "metro-react-native-babel-preset": "^0.50.0"
   },
   "gitHead": "e1ebe2b90254e41d366a7641dfd014ea834858a0",
   "scripts": {
