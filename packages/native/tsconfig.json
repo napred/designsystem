@@ -15,7 +15,7 @@
       "react-native",
       "react-native-testing-library"
     ],
-    "typeRoots": ["./@types", "./node_modules/@types", "../../node_modules/@types"]
+    "typeRoots": ["./@types", "./node_modules/@types", "../../node_modules/@types", "../../@types"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"]
