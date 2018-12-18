@@ -21,7 +21,7 @@ module.exports = {
     '^react-dom$': '<rootDir>/node_modules/react-dom',
     '^react-native$': '<rootDir>/node_modules/react-native-web/dist/cjs',
   },
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-puppeteer',
   testMatch: ['<rootDir>/**/__tests__/*.(test|spec).{js,jsx,ts,tsx}'],
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
