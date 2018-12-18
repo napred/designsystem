@@ -7,6 +7,17 @@
     "rootDir": "src",
     "outDir": "temp",
     "target": "esnext",
+    "types": [
+      "svg",
+      "@napred/ds",
+      "@napred/primitives",
+      "emotion",
+      "lodash.debounce",
+      "react",
+      "react-dom",
+      "react-testing-library",
+      "react-transition-group"
+    ],
     "typeRoots": ["node_modules/@types", "./@types", "../../node_modules/@types"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
