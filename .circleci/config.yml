@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/designsystem
     docker:
-      - image: circleci/node:10.13.0
+      - image: circleci/node:10.12.0
         environment:
           CI: 1
       - image: browserless/chrome:release-chrome-stable
