@@ -75,12 +75,8 @@
       "**/babel-jest/**",
       "**/metro-react-native-babel-preset",
       "**/metro-react-native-babel-preset/**",
-      "**/react-dom",
-      "**/react-dom/**",
       "**/react-native",
       "**/react-native/**",
-      "**/react-testing-library",
-      "**/react-testing-library/**",
       "**/ts-jest",
       "**/ts-jest/**"
     ]
