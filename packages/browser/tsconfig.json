@@ -8,6 +8,5 @@
     "target": "esnext"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
-  "references": [{ "path": "../ds" }]
+  "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"]
 }
