@@ -4,24 +4,18 @@ jobs:
   build:
     working_directory: ~/designsystem
     docker:
-      - image: circleci/node:10.13.0
+      - image: circleci/node:10.12.0
         environment:
           CI: 1
       - image: browserless/chrome:release-chrome-stable
     steps:
       - checkout
-      - restore_cache:
-          key: yarndeps-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Upgrade yarn to 1.12.3
           command: sudo npm install -g yarn@1.12.3
       - run:
           name: Installing javascript dependencies
-          command: yarn install --cache-folder ~/.yarn-cache
-      - save_cache:
-          key: yarndeps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.yarn-cache
+          command: yarn install
       - run:
           name: Linting the source code
           command: yarn lint

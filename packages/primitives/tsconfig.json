@@ -11,6 +11,5 @@
     "types": ["@napred/ds", "@napred/browser", "@napred/native", "jest", "react", "react-native"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
-  "references": [{ "path": "../ds" }, { "path": "../browser" }, { "path": "../native" }]
+  "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"]
 }

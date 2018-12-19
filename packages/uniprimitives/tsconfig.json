@@ -10,6 +10,7 @@
     "types": [
       "@napred/ds",
       "@napred/native",
+      "css-mediaquery",
       "jest",
       "jest-image-snapshot",
       "jest-environment-puppeteer",
@@ -17,9 +18,8 @@
       "react-dom",
       "react-native"
     ],
-    "typeRoots": ["./@types", "./node_modules/@types", "../../node_modules/@types"]
+    "typeRoots": ["./@types", "./node_modules/@types", "../../node_modules/@types", "../../@types"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
-  "references": [{ "path": "../ds" }, { "path": "../native" }]
+  "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"]
 }
