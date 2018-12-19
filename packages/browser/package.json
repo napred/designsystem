@@ -1,6 +1,6 @@
 {
   "name": "@napred/browser",
-  "version": "0.3.2-alpha.5",
+  "version": "0.3.2-alpha.6",
   "main": "dist/browser.cjs.js",
   "umd:main": "dist/browser.umd.js",
   "jsnext:main": "dist/browser.m.js",
@@ -34,7 +34,7 @@
     "react": "^16.7.0-alpha.2 || >=16.7.0"
   },
   "dependencies": {
-    "@napred/ds": "^0.3.2-alpha.5",
+    "@napred/ds": "^0.3.2-alpha.6",
     "emotion": "^9.2.12"
   },
   "devDependencies": {
