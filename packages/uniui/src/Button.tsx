@@ -8,7 +8,7 @@ import {
 } from '@napred/native';
 import { Box, Text } from '@napred/uniprimitives';
 import React, { ComponentType, ReactNode } from 'react';
-import { Platform, TouchableNativeFeedback, TouchableOpacity } from 'react-native';
+import { GestureResponderEvent, Platform, TouchableNativeFeedback, TouchableOpacity } from 'react-native';
 
 type ButtonVariants = 'default' | 'lightTransparent' | 'primary' | 'transparent';
 
@@ -85,15 +85,17 @@ interface IProps extends DSProps {
   children?: ReactNode;
   disabled?: boolean;
   loading?: boolean;
-  onClick?: () => any;
+  onPress?: (event: GestureResponderEvent) => void;
   variant?: ButtonVariants | undefined;
   [key: string]: any;
 }
 
-function Button({ disabled, children, loading, variant = 'default', ...rest }: IProps) {
-  const Touchable = (Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity) as ComponentType;
+function Button({ disabled, children, loading, onPress, variant = 'default', ...rest }: IProps) {
+  const Touchable = (Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity) as ComponentType<IProps>;
   return (
-    <Touchable>
+    <Touchable
+      onPress={onPress}
+    >
       <ButtonComponent disabled={disabled} loading={loading} variant={variant} {...rest}>
         <Text>{children}</Text>
       </ButtonComponent>
