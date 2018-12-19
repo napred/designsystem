@@ -51,7 +51,7 @@ const ButtonComponent = createComponent<IProps & { variant: string }>('Button', 
     createStyle(
       ['disabled'],
       ({ disabled }) => ({
-        opacity: disabled ? 0.6 : 'initial',
+        opacity: disabled ? 0.6 : 1,
         overflow: 'hidden',
         textAlign: 'center',
       }),
