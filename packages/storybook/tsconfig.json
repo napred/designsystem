@@ -8,6 +8,7 @@
       "@napred/ds": ["../ds/src"],
       "@napred/native": ["../native/src"],
       "@napred/primitives": ["../primitives/src"],
+      "@napred/uniui": ["../uniui/src"],
       "@napred/ui": ["../ui/src"],
       "react-native": ["./@types/react-native/index.d.ts"]
     },

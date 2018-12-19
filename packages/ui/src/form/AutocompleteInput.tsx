@@ -1,11 +1,12 @@
 import { createComponent, createStyle, css, DSProps } from '@napred/browser';
+import { Box } from '@napred/primitives';
 import debounce from 'lodash.debounce';
 import React, { ChangeEvent, useCallback, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import Menu, { MenuItem } from '../Menu';
 import Input from './Input';
 
-const AutocompleteBase = createComponent<{}>('AutocompleteBase', 'div', {
+const AutocompleteBase = createComponent<{}>('AutocompleteBase', Box, {
   styles: [
     createStyle(
       [],

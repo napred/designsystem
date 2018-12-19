@@ -1,12 +1,14 @@
 import { createComponent } from '@napred/browser';
 
+export const style = {
+  borderLeft: 0,
+  borderRight: 0,
+  borderTop: 0,
+  display: 'block',
+};
+
 const Divider = createComponent('Divider', 'hr', {
-  style: {
-    borderLeft: 0,
-    borderRight: 0,
-    borderTop: 0,
-    display: 'block',
-  },
+  style,
 });
 
 // temporary fix because if we use defaultProps in config object

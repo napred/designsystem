@@ -24,7 +24,7 @@ export const Flex = createComponent(FlexDef.name, View);
 
 Flex.defaultProps = FlexDef.defaultProps;
 
-export const Image = createComponent(ImageDef.name, NativeImage);
+export const Image = createComponent(ImageDef.name, NativeImage, { style: { display: 'flex' } });
 
 // @ts-ignore - for now, because we don't have a check for string components, so it should error in browser too
 Image.defaultProps = ImageDef.defaultProps;

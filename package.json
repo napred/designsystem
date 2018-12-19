@@ -33,6 +33,9 @@
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-native": "^0.57.17",
+    "@types/react-test-renderer": "^16.0.3",
     "@babel/core": "^7.2.0",
     "all-contributors-cli": "^5.4.1",
     "babel-core": "^7.0.0-bridge.0",
@@ -43,6 +46,8 @@
     "metro-react-native-babel-preset": "^0.50.0",
     "prettier": "^1.15.3",
     "react": "^16.7.0-alpha.2 || >=16.7.0",
+    "react-native": "^0.57.7",
+    "react-test-renderer": "^16.7.0-alpha.2 || >=16.7.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.3",
     "rollup-plugin-babel": "^4.0.3",
@@ -66,21 +71,6 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "**/@napred/primitives/**",
-      "**/babel-jest",
-      "**/babel-jest/**",
-      "**/metro-react-native-babel-preset",
-      "**/metro-react-native-babel-preset/**",
-      "**/react-dom",
-      "**/react-dom/**",
-      "**/react-native",
-      "**/react-native/**",
-      "**/react-testing-library",
-      "**/react-testing-library/**",
-      "**/ts-jest",
-      "**/ts-jest/**"
     ]
   }
 }

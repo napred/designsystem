@@ -1,11 +1,13 @@
-import { createComponent, css } from '@napred/browser';
+import { createComponent } from '@napred/browser';
+
+export const style = {
+  display: 'inline-block',
+  fontSmoothing: 'antialiased',
+  verticalAlign: 'middle',
+};
 
 const Badge = createComponent('Badge', 'div', {
-  style: css`
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    vertical-align: middle;
-  `,
+  style,
 });
 
 // temporary fix because if we use defaultProps in config object

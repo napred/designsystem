@@ -12,6 +12,7 @@ import createStyleApplicator from './createStyleApplicator';
 import defaultTheme from './defaultTheme';
 import { nativeStyleList } from './styleList';
 import { StyleDefinition } from './types';
+import useBreakpointDetection from './useBreakpointDetection';
 
 const defaultCache = createNullCache();
 
@@ -56,6 +57,7 @@ export default function DesignSystem({
     theme,
     viewport: is,
   });
+  useBreakpointDetection(currentViewport, system);
 
   if (currentViewport !== is) {
     setCurrentViewport(is);

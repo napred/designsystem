@@ -1,7 +1,8 @@
 import { convertUnit, createComponent, createStyle, getResponsiveValue } from '@napred/browser';
+import { Box } from '@napred/primitives';
 import { css } from 'emotion';
 
-const Row = createComponent<{ gutters?: boolean }>('Row', 'div', {
+const Row = createComponent<{ gutters?: boolean }>('Row', Box, {
   styles: [
     createStyle(
       ['gutters'],

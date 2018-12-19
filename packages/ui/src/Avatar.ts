@@ -1,12 +1,14 @@
 import { createComponent } from '@napred/browser';
 import { Image } from '@napred/primitives';
 
+export const style = {
+  borderRadius: '99999px',
+  display: 'inline-block',
+  objectFit: 'contain',
+}
+
 const Avatar = createComponent('Avatar', Image, {
-  style: {
-    borderRadius: '99999px',
-    display: 'inline-block',
-    objectFit: 'contain',
-  },
+  style,
 });
 
 // temporary fix because if we use defaultProps in config object

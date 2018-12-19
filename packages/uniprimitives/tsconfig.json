@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "declarationDir": "dist",
+    "lib": ["es2018"],
+    "outDir": "temp",
+    "rootDir": "src",
+    "target": "esnext",
+    "types": [
+      "@napred/ds",
+      "@napred/native",
+      "css-mediaquery",
+      "jest",
+      "jest-image-snapshot",
+      "jest-environment-puppeteer",
+      "react",
+      "react-dom",
+      "react-native"
+    ],
+    "typeRoots": ["./@types", "./node_modules/@types", "../../node_modules/@types", "../../@types"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["dist", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"]
+}

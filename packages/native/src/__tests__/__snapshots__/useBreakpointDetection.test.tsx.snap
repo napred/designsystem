@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useBreakpointDetection works correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "tomato",
+        "fontFamily": "Palanquin",
+        "fontSize": 16,
+        "lineHeight": 24,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`useBreakpointDetection works correctly 2`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "orchid",
+        "fontFamily": "Palanquin",
+        "fontSize": 16,
+        "lineHeight": 24,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`useBreakpointDetection works correctly 3`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "cornsilk",
+        "fontFamily": "Palanquin",
+        "fontSize": 16,
+        "lineHeight": 24,
+      },
+    ]
+  }
+/>
+`;
