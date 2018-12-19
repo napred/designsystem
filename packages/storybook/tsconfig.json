@@ -10,7 +10,7 @@
       "@napred/primitives": ["../primitives/src"],
       "@napred/uniui": ["../uniui/src"],
       "@napred/ui": ["../ui/src"],
-      "react-native": ["./@types/react-native/index.d.ts"]
+      "react-native": ["./@types/react-native/index.d.ts"],
     },
     "declaration": true,
     "emitDecoratorMetadata": true,
