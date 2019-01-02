@@ -7,6 +7,6 @@ const boxStories = storiesOf('UniUi/Input', module);
 
 boxStories.add('native input', () => (
   <DesignSystem>
-      <Input />
+      <Input px={2} />
   </DesignSystem>
 ));

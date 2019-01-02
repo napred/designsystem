@@ -49,7 +49,7 @@
     "react": "^16.7.0-alpha.2 || >=16.7.0",
     "react-dom": "^16.7.0-alpha.2 || >=16.7.0"
   },
-  "gitHead": "e1ebe2b90254e41d366a7641dfd014ea834858a0",
+  "gitHead": "3d6bf1ca4790f3c79c2b1e8dc2d7ed03a2388319",
   "scripts": {
     "build": "tsc && rollup -c",
     "lint": "tslint -p .",
