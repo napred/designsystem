@@ -1,7 +1,7 @@
 import { DSProps } from '@napred/native';
 import { Box } from '@napred/uniprimitives';
 import React from 'react';
-import {  Animated, TextInput } from 'react-native';
+import { Animated, TextInput } from 'react-native';
 
 interface IProps extends DSProps {
   disabled?: boolean;
@@ -9,11 +9,9 @@ interface IProps extends DSProps {
 
 const Input = (props: IProps) => {
   return (
-    <Box>
       <Box as={Animated.View} {...props}>
-        <Box as={TextInput} height={props.height} />
+        <Box as={TextInput} py={0} px={0} height={props.height} />
       </Box>
-    </Box>
   );
 };
 
