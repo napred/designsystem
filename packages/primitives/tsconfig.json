@@ -4,11 +4,12 @@
     "composite": true,
     "declarationDir": "dist",
     "jsx": "preserve",
+    "lib": ["es2018"],
     "outDir": "temp",
     "rootDir": "src",
-    "target": "esnext"
+    "target": "esnext",
+    "types": ["@napred/ds", "@napred/browser", "@napred/native", "jest", "react", "react-native"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"],
-  "references": [{ "path": "../ds" }]
+  "exclude": ["dist", "temp", "node_modules", "src/**/__tests__/**/*", "src/**/__mocks__/**/*"]
 }

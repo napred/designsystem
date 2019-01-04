@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test styles works correctly for numeric styles 1`] = `
+Object {
+  "default": Object {
+    "borderBottomLeftRadius": 10,
+    "borderBottomRightRadius": 10,
+    "borderBottomWidth": 10,
+    "borderLeftWidth": 10,
+    "borderRightWidth": 10,
+    "borderTopLeftRadius": 10,
+    "borderTopRightRadius": 10,
+    "borderTopWidth": 10,
+    "bottom": 10,
+    "flexBasis": "100%",
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "fontFamily": "Palanquin",
+    "fontSize": 16,
+    "fontWeight": "300",
+    "height": 10,
+    "left": 10,
+    "lineHeight": 24,
+    "marginBottom": 0,
+    "marginLeft": 0,
+    "marginRight": 0,
+    "marginTop": 0,
+    "maxHeight": 10,
+    "maxWidth": 10,
+    "minHeight": 10,
+    "minWidth": 10,
+    "opacity": 0.8,
+    "paddingBottom": 0,
+    "paddingLeft": 0,
+    "paddingRight": 0,
+    "paddingTop": 0,
+    "right": 10,
+    "top": 10,
+    "width": 10,
+    "zIndex": 10,
+  },
+}
+`;
+
+exports[`test styles works for string styles 1`] = `
+Object {
+  "default": Object {
+    "alignContent": "center",
+    "alignItems": "center",
+    "alignSelf": "center",
+    "backgroundColor": "#ccc",
+    "borderBottomColor": "#ccc",
+    "borderLeftColor": "#ccc",
+    "borderRightColor": "#ccc",
+    "borderStyle": "dashed",
+    "borderTopColor": "#ccc",
+    "color": "#ccc",
+    "display": "flex",
+    "flexBasis": 0,
+    "flexGrow": 1,
+    "flexShrink": 1,
+    "fontFamily": "Palanquin",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "lineHeight": 24,
+    "overflow": "hidden",
+    "position": "absolute",
+    "shadowColor": "rgba(0, 0, 255, .2)",
+    "shadowOffset": Object {
+      "height": 12,
+      "width": 12,
+    },
+    "shadowOpacity": 1,
+    "shadowRadius": 1,
+    "textAlign": "center",
+  },
+}
+`;

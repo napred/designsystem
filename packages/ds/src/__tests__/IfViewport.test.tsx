@@ -1,7 +1,6 @@
-import React from 'react';
-// tslint:disable-next-line:no-implicit-dependencies
+import React, { ReactNode } from 'react';
 import { render } from 'react-testing-library';
-import { DesignSystem, IfViewport } from '../';
+import { DesignSystemContext, IfViewport } from '../';
 
 function A() {
   return <div>A</div>;
@@ -9,6 +8,14 @@ function A() {
 
 function B() {
   return <div>B</div>;
+}
+
+function DesignSystem({ children, is }: { children: ReactNode; is: number }) {
+  return (
+    <DesignSystemContext.Provider value={{ viewport: is } as any}>
+      {children}
+    </DesignSystemContext.Provider>
+  );
 }
 
 describe('IfViewport system component', () => {

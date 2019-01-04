@@ -1,4 +1,4 @@
-import { createComponent, createCssStyle, DSProps } from '@napred/ds';
+import { createComponent, createStyle, DSProps } from '@napred/browser';
 import React from 'react';
 import Fixed from './Fixed';
 import Overlay from './Overlay';
@@ -11,11 +11,19 @@ const transforms = {
   top: 'translateY(-100%)',
 };
 
-const side = ({ side: toSide }: IDrawerBaseProps) => {
+const side = ({
+  side: toSide,
+}: IDrawerBaseProps): {
+  bottom: null | number;
+  left: null | number;
+  right: null | number;
+  top: null | number;
+} => {
   if (!transforms[toSide]) {
     return {
       bottom: 0,
       left: 0,
+      right: null,
       top: 0,
     };
   }
@@ -41,7 +49,7 @@ interface IDrawerBaseProps extends DSProps {
   side: keyof (typeof transforms);
 }
 
-const drawerStyle = createCssStyle(['open', 'side'], (props: IDrawerBaseProps) => ({
+const drawerStyle = createStyle(['open', 'side'], (props: IDrawerBaseProps) => ({
   ...transform(props),
   ...side(props),
 }));

@@ -1,4 +1,4 @@
-import { IfViewport } from '@napred/ds';
+import { IfViewport } from '@napred/browser';
 import { Box, Title } from '@napred/primitives';
 import React, { Fragment, ReactNode, useCallback, useState } from 'react';
 import { CloseIcon } from './assets';
@@ -46,8 +46,8 @@ function SelectMenu(props: IProps) {
                     justifyContent="center"
                     px={0}
                     ml="auto"
-                    variant="transparent"
                     onClick={onClickClose}
+                    variant="transparent"
                   >
                     <SvgImage icon={CloseIcon} />
                   </Button>

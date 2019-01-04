@@ -4,7 +4,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 
-const input = 'temp/index.js';
+const nativeInput = 'temp/native.js';
+const webInput = 'temp/index.js';
 const external = id => !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 const name = 'napred.primitives';
 
@@ -25,6 +26,7 @@ const commonjsOptions = {
 };
 
 const globals = {
+  '@napred/browser': 'napred.browser',
   '@napred/ds': 'napred.ds',
   emotion: 'emotion',
   react: 'React',
@@ -35,7 +37,7 @@ export default [
   // cjs dev
   {
     external,
-    input,
+    input: webInput,
     output: {
       exports: 'named',
       file: 'dist/primitives.cjs.js',
@@ -56,7 +58,7 @@ export default [
   // cjs prod, min
   {
     external,
-    input,
+    input: webInput,
     output: {
       exports: 'named',
       file: 'dist/primitives.cjs.min.js',
@@ -77,7 +79,7 @@ export default [
 
   // esm
   {
-    input,
+    input: webInput,
     external,
     output: {
       file: 'dist/primitives.m.js',
@@ -96,7 +98,7 @@ export default [
 
   // umd
   {
-    input,
+    input: webInput,
     output: { exports: 'named', file: 'dist/primitives.umd.js', format: 'umd', name, globals },
     external: Object.keys(globals),
     plugins: [
@@ -111,7 +113,7 @@ export default [
 
   // umd prod
   {
-    input,
+    input: webInput,
     output: { exports: 'named', file: 'dist/primitives.umd.min.js', format: 'umd', name, globals },
     external: Object.keys(globals),
     plugins: [
@@ -123,6 +125,45 @@ export default [
       replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
       terser({
         sourcemap: true,
+      }),
+    ],
+  },
+
+  // cjs native
+  {
+    external,
+    input: nativeInput,
+    output: {
+      exports: 'named',
+      file: 'dist/primitives-native.cjs.js',
+      format: 'cjs',
+    },
+    plugins: [
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      commonjs({
+        ignoreGlobal: true,
+      }),
+      babel(babelCJS),
+    ],
+  },
+
+  // esm native
+  {
+    external,
+    input: nativeInput,
+    output: {
+      file: 'dist/primitives-native.m.js',
+      format: 'esm',
+    },
+    plugins: [
+      babel(babelESM),
+      nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx'],
+      }),
+      commonjs({
+        ignoreGlobal: true,
       }),
     ],
   },

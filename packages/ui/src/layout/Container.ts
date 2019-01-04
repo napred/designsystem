@@ -1,19 +1,18 @@
-import { convertUnit, createComponent, createCssStyle } from '@napred/ds';
+import { convertUnit, createComponent, createStyle, getResponsiveValue } from '@napred/browser';
+import { Box } from '@napred/primitives';
 import { css } from 'emotion';
 
-const Container = createComponent('Container', 'div', {
+const Container = createComponent<{}>('Container', Box, {
   styles: [
-    createCssStyle(
-      [],
-      (_, { theme, viewport }) => {
-        return css`
+    createStyle([], (_, { theme, viewport }) => {
+      return css`
         margin-left: auto;
         margin-right: auto;
-        padding-left: ${convertUnit(theme.getResponsiveValue('gutters', viewport))};
-        padding-right: ${convertUnit(theme.getResponsiveValue('gutters', viewport))};
+        padding-left: ${convertUnit(Number(getResponsiveValue(viewport, theme.get('gutters'))))};
+        padding-right: ${convertUnit(Number(getResponsiveValue(viewport, theme.get('gutters'))))};
         width: 100%;
-      `},
-    ),
+      `;
+    }),
   ],
 });
 

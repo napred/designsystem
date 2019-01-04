@@ -3,9 +3,6 @@ import * as styles from './styles';
 
 export { styles };
 
-export { default as createCssStyle } from './createCssStyle';
-export { default as createStyleApplicator } from './createStyleApplicator';
-export * from './createStyleApplicator';
 export * from './simpleStyleFactories';
 export * from './systemStyleFactories';
 
@@ -62,13 +59,14 @@ export type StylerProps = extractStylerProps<typeof styles.alignContent> &
   extractStylerProps<typeof styles.pl> &
   extractStylerProps<typeof styles.position> &
   extractStylerProps<typeof styles.right> &
-  extractStylerProps<typeof styles.shadow> &
   extractStylerProps<typeof styles.transition> &
+  extractStylerProps<typeof styles.shadow> &
   extractStylerProps<typeof styles.textAlign> &
   extractStylerProps<typeof styles.textOverflow> &
   extractStylerProps<typeof styles.textTransform> &
   extractStylerProps<typeof styles.top> &
   extractStylerProps<typeof styles.width> &
+  extractStylerProps<typeof styles.whiteSpace> &
   extractStylerProps<typeof styles.zIndex>;
 
 export const styleList = [
@@ -112,6 +110,7 @@ export const styleList = [
   styles.minWidth,
   styles.maxHeight,
   styles.maxWidth,
+  styles.opacity,
   styles.overflow,
   styles.overflowX,
   styles.overflowY,

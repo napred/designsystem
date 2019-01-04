@@ -1,10 +1,11 @@
 {
   "name": "@napred/primitives",
-  "version": "0.2.2",
+  "version": "0.3.2-alpha.8",
   "main": "dist/primitives.cjs.js",
   "umd:main": "dist/primitives.umd.js",
   "jsnext:main": "dist/primitives.m.js",
   "module": "dist/primitives.m.js",
+  "react-native": "dist/primitives-native.cjs.js",
   "typings": "dist/index.d.js",
   "keywords": [
     "react",
@@ -23,30 +24,36 @@
     }
   ],
   "files": [
-    "dist"
+    "dist",
+    "native.d.ts",
+    "native.js"
   ],
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
   "sideEffects": false,
+  "peerDependencies": {
+    "@napred/browser": "^0.3.2-alpha.2",
+    "@napred/native": "^0.3.2-alpha.2",
+    "react": "^16.7.0-alpha.2 || >=16.7.0",
+    "react-native": "^0.57.7"
+  },
   "dependencies": {
-    "@napred/ds": "^0.2.2"
+    "@napred/ds": "^0.3.2-alpha.8",
+    "@types/react": "^16.7.13",
+    "@types/react-native": "^0.57.17"
   },
   "devDependencies": {
-    "jest": "^23.6.0",
-    "react": "^16.7.0-alpha.0 || >=16.7.0",
-    "react-dom": "^16.7.0-alpha.0 || >=16.7.0",
-    "react-testing-library": "^5.3.0",
-    "tslint": "^5.11.0",
-    "typescript": "^3.2.1"
+    "typescript": "^3.2.2"
   },
-  "gitHead": "e94b1d302f40e6ababd4428447c22421d452b6ac",
+  "gitHead": "3d6bf1ca4790f3c79c2b1e8dc2d7ed03a2388319",
   "scripts": {
     "build": "tsc && rollup -c",
     "lint": "tslint -p .",
     "prebuild": "rimraf dist temp",
     "prepublishOnly": "npm run build",
+    "test": "jest",
     "typecheck": "tsc --noEmit"
   }
 }

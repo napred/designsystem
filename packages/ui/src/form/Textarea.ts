@@ -1,9 +1,8 @@
-import { createComponent, createCssStyle } from '@napred/ds';
-import { css } from 'emotion';
+import { createComponent, createStyle, css } from '@napred/browser';
 
-const Textarea = createComponent('Textarea', 'textarea', {
+const Textarea = createComponent<{}>('Textarea', 'textarea', {
   styles: [
-    createCssStyle(
+    createStyle(
       [],
       (_, { theme }) => css`
         transition: all 0.3s ease;

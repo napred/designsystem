@@ -1,5 +1,4 @@
-import { createComponent } from '@napred/ds';
-import { css } from 'emotion';
+import { createComponent, css } from '@napred/browser';
 
 import Message from './Message';
 import createVariants from './styles/createVariants';

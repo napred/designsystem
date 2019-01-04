@@ -1,6 +1,10 @@
 import { IStyler } from '../../types';
-import { createNumericStyle, createStringStyle } from '../simpleStyleFactories';
-import { createNumericSystemStyle, createStringSystemStyle } from '../systemStyleFactories';
+import { createStringStyle } from '../simpleStyleFactories';
+import {
+  createNumericSystemStyle,
+  createScaledFontSizeSystemStyle,
+  createStringSystemStyle,
+} from '../systemStyleFactories';
 
 export const fontFamily: IStyler<{
   fontFamily?: string | string[] | void;
@@ -16,7 +20,7 @@ export const fontWeight: IStyler<{
 
 export const lineHeight: IStyler<{
   lineHeight?: number | string | Array<number | string> | void;
-}> = createNumericStyle('lineHeight', 'lineHeight');
+}> = createScaledFontSizeSystemStyle('lineHeight');
 
 export const textAlign: IStyler<{
   textAlign?: string | string[] | void;

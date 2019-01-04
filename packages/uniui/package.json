@@ -1,0 +1,66 @@
+{
+  "name": "@napred/uniui",
+  "version": "0.3.2-alpha.8",
+  "main": "dist/ui.cjs.js",
+  "umd:main": "dist/ui.umd.js",
+  "jsnext:main": "dist/ui.m.js",
+  "module": "dist/ui.m.js",
+  "typings": "dist/index.d.js",
+  "keywords": [
+    "react",
+    "react-native",
+    "design-system",
+    "css-in-js",
+    "ui"
+  ],
+  "contributors": [
+    {
+      "name": "Michal Kvasničák",
+      "url": "https://github.com/michalkvasnicak"
+    },
+    {
+      "name": "Juraj Hríb",
+      "url": "https://github.com/jurajhrib"
+    }
+  ],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "@napred/ds": "^0.3.2-alpha.8",
+    "@napred/native": "^0.3.2-alpha.8",
+    "@napred/uniprimitives": "^0.3.2-alpha.8"
+  },
+  "devDependencies": {
+    "@types/expect-puppeteer": "^3.3.0",
+    "@types/jest-environment-puppeteer": "^2.2.1",
+    "@types/jest-image-snapshot": "^2.4.0",
+    "@types/puppeteer": "^1.11.1",
+    "jest-image-snapshot": "^2.7.0",
+    "jest-puppeteer": "^3.7.0",
+    "puppeteer": "^1.11.0",
+    "react-art": "16.7.0-alpha.2 || >=16.7.0",
+    "react-dom": "^16.7.0-alpha.2 || >=16.7.0",
+    "react-native-web": "^0.9.9",
+    "react-testing-library": "^5.4.0",
+    "typescript": "^3.2.2"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.2 || >=16.7.0",
+    "react-native": "^0.57.7",
+    "react-native-web": "^0.9.9"
+  },
+  "gitHead": "3d6bf1ca4790f3c79c2b1e8dc2d7ed03a2388319",
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "lint": "tslint -p .",
+    "prebuild": "rimraf dist temp",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit"
+  }
+}

@@ -25,9 +25,9 @@ const commonjsOptions = {
 };
 
 const globals = {
-  emotion: 'emotion',
+  //emotion: 'emotion',
   react: 'React',
-  'react-dom': 'ReactDOM',
+  // 'react-dom': 'ReactDOM',
 };
 
 export default [

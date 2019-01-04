@@ -3,6 +3,6 @@ import { SystemAPI } from '../system';
 
 export { SystemAPI };
 
-const DesignSystemContext = createContext<SystemAPI>({} as any);
+const DesignSystemContext = createContext<SystemAPI<any>>({} as any);
 
 export default DesignSystemContext;

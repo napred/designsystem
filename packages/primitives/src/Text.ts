@@ -1,13 +1,7 @@
-import { createComponent } from '@napred/ds';
+export const name = 'Text';
 
-const Text = createComponent('Text', 'div');
-
-// temporary fix because if we use defaultProps in config object
-// it will require them :(
-Text.defaultProps = {
+export const defaultProps = {
   lineHeight: 1.2,
   m: 0,
   p: 0,
 };
-
-export default Text;

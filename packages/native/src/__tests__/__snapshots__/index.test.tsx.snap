@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`works in react-native 1`] = `
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+      ]
+    }
+  />,
+  ",",
+]
+`;

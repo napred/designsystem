@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@napred/browser": ["../browser/src"],
+      "@napred/ds": ["../ds/src"],
+      "@napred/native": ["../native/src"],
+      "@napred/primitives": ["../primitives/src"],
+      "@napred/uniui": ["../uniui/src"],
+      "@napred/ui": ["../ui/src"],
+      "react-native": ["./@types/react-native/index.d.ts"],
+    },
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "esnext",
+    "typeRoots": ["node_modules/@types", "./@types"]
+  },
+  "include": ["stories/**/*"],
+  "exclude": ["node_modules", "__tests__"]
+}

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createStyleApplicator works correctly for no props 1`] = `
+<DocumentFragment>
+  .css-9ehc2m {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-9ehc2m"
+  />
+</DocumentFragment>
+`;
+
+exports[`createStyleApplicator works correctly for props and viewport 1`] = `
+<DocumentFragment>
+  .css-j1x65f {
+  color: #ff0000;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-j1x65f"
+  />
+  .css-j1x65f {
+  color: #ff0000;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-j1x65f"
+  />
+</DocumentFragment>
+`;
+
+exports[`createStyleApplicator works correctly for props and viewport 2`] = `
+<DocumentFragment>
+  .css-j1x65f {
+  color: #ff0000;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-j1x65f"
+  />
+  .css-o473nl {
+  color: #000000;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-o473nl"
+  />
+</DocumentFragment>
+`;

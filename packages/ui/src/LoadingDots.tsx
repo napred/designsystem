@@ -1,4 +1,4 @@
-import { createComponent, createCssStyle, DSProps } from '@napred/ds';
+import { createComponent, createStyle, DSProps } from '@napred/browser';
 import { css, keyframes } from 'emotion';
 import React from 'react';
 
@@ -12,28 +12,29 @@ const LoadingDotsWrapper = createComponent('LoadingDotsWrapper', 'div', {
 });
 
 const loadingDotAnimation = keyframes`
-    50% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  `;
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
 
 const LoadingDot = createComponent<{ animationDelay?: string; dark?: boolean }>(
   'LoadingDot',
   'div',
   {
     styles: [
-      createCssStyle(
+      createStyle(
         ['dark', 'animationDelay'],
         ({ dark, animationDelay }, { theme }) => css`
           border-radius: 50%;
           height: 0.6em;
           margin: 0 0.2em;
           width: 0.6em;
-          border: 0.1em solid ${dark ? theme.get('colors', 'turqoiseDark') : theme.get('colors', 'greyLightest')};
+          border: 0.1em solid
+            ${dark ? theme.get('colors', 'turqoiseDark') : theme.get('colors', 'greyLightest')};
 
           animation: ${loadingDotAnimation} 1s ease infinite;
           animation-delay: ${animationDelay || '0ms'};

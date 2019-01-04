@@ -1,0 +1,58 @@
+{
+  "name": "@napred/native",
+  "version": "0.3.2-alpha.8",
+  "main": "dist/native.cjs.js",
+  "jsnext:main": "dist/native.m.js",
+  "module": "dist/native.m.js",
+  "typings": "dist/index.d.js",
+  "keywords": [
+    "react",
+    "design-system",
+    "css-in-js",
+    "ui",
+    "react-native"
+  ],
+  "contributors": [
+    {
+      "name": "Michal Kvasničák",
+      "url": "https://github.com/michalkvasnicak"
+    },
+    {
+      "name": "Juraj Hríb",
+      "url": "https://github.com/jurajhrib"
+    }
+  ],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@types/react": "^16.7.13",
+    "@types/react-native": "^0.57.17",
+    "react": "^16.7.0-alpha.2 || >=16.7.0",
+    "react-native": "^0.57.7"
+  },
+  "dependencies": {
+    "@napred/ds": "^0.3.2-alpha.8",
+    "css-mediaquery": "^0.1.2",
+    "css-to-react-native": "^2.2.2",
+    "stylis": "^3.5.4"
+  },
+  "devDependencies": {
+    "react-native-testing-library": "^1.4.2",
+    "typescript": "^3.2.2"
+  },
+  "gitHead": "3d6bf1ca4790f3c79c2b1e8dc2d7ed03a2388319",
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "lint": "tslint -p .",
+    "prebuild": "rimraf dist temp",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "sideEffects": false
+}

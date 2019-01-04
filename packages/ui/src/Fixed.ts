@@ -1,4 +1,4 @@
-import { createComponent } from '@napred/ds';
+import { createComponent } from '@napred/browser';
 
 const Fixed = createComponent('Fixed', 'div');
 

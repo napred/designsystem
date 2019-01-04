@@ -1,38 +1,40 @@
-import { IStyler, StylingFn } from '@napred/ds';
-import { Interpolation } from 'emotion';
+import { IStyler, StyleDefinition, StylingFn } from '@napred/browser';
 
-interface IVariantsStylerOptions {
+interface IVariantsStylerOptions<TProps extends object> {
   /** Specifies which props are used for caching */
-  cacheProps?: string[];
+  cacheProps?: Array<keyof TProps>;
   defaultVariant?: string;
   /** Specifies which props are stripped from HTML */
-  stripProps?: string[];
+  stripProps?: Array<keyof TProps>;
 }
 
-export default function createVariants<
-  TProps extends { [key: string]: any },
-  TVariantProps = { variant: string }
->(
+export default function createVariants<TProps extends object, TVariantProps = { variant: string }>(
   propName: keyof TVariantProps,
-  variants: { [variant: string]: Interpolation | StylingFn<TProps & TVariantProps> },
-  { cacheProps = [], defaultVariant = 'default', stripProps = [] }: IVariantsStylerOptions = {},
-): IStyler<TProps & TVariantProps> {
+  variants: {
+    [variant: string]: StyleDefinition | StylingFn<TProps & TVariantProps, StyleDefinition>;
+  },
+  {
+    cacheProps = [],
+    defaultVariant = 'default',
+    stripProps = [],
+  }: IVariantsStylerOptions<TProps & TVariantProps> = {},
+): IStyler<TProps & TVariantProps, StyleDefinition> {
   return {
     apply: (props, system) => {
-      const variant = props[propName as string] || defaultVariant;
-      const styler = variants[variant];
+      const variant = props[propName] || defaultVariant;
+      const styler = variants[variant as string];
 
       if (styler == null) {
-        return;
+        return '';
       }
 
       if (typeof styler === 'function') {
-        return (styler as StylingFn<TProps & TVariantProps>)(props, system);
+        return (styler as StylingFn<TProps & TVariantProps, StyleDefinition>)(props, system);
       }
 
       return styler;
     },
-    propNames: [propName as string, ...cacheProps],
-    stripProps: [propName as string, ...stripProps],
+    propNames: [propName, ...cacheProps],
+    stripProps: [propName, ...stripProps],
   };
 }

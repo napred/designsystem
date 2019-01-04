@@ -49,5 +49,6 @@ export default createTheme({
   importFonts: [
     "@import url('https://fonts.googleapis.com/css?family=Palanquin:400,500,600&subset=latin-ext')",
   ],
+  lineHeight: 'normal',
   spacing: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 });

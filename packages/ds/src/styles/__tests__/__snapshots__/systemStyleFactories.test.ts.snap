@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 1`] = `
+Object {
+  "lineHeight": "16px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 2`] = `
+Object {
+  "lineHeight": "19.2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 3`] = `
+Object {
+  "lineHeight": "32px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 4`] = `
+Object {
+  "lineHeight": "19.2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 5`] = `
+Object {
+  "lineHeight": "30px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 6`] = `
+Object {
+  "lineHeight": "2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 7`] = `
+Object {
+  "lineHeight": "19.2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 8`] = `
+Object {
+  "lineHeight": "30px",
+}
+`;
+
+exports[`styler factories createSystemNumericStyler works correctly (returns unit) 1`] = `
+Object {
+  "test": "4px",
+}
+`;
+
+exports[`styler factories createSystemStringStyler works correctly (returns string) 1`] = `
+Object {
+  "test": "#FFFFFF",
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default responsive) 1`] = `
+Object {
+  "test": 8,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default responsive) 2`] = `
+Object {
+  "test": 8,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default responsive) 3`] = `
+Object {
+  "test": 8,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default responsive) 4`] = `
+Object {
+  "test": 8,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default responsive) 5`] = `
+Object {
+  "test": 16,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default simple) 1`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default simple) 2`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default simple) 3`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default simple) 4`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default simple) 5`] = `
+Object {
+  "test": 16,
+}
+`;
+
+exports[`styler factories createSystemStyle takes last value from responsive value if breakpoint exceeds the range (with default simple) 6`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle takes the value from default responsive value if is not specified in prop (with default) 1`] = `
+Object {
+  "test": 8,
+}
+`;
+
+exports[`styler factories createSystemStyle takes the value from default responsive value if is not specified in prop (with default) 2`] = `
+Object {
+  "test": 8,
+}
+`;
+
+exports[`styler factories createSystemStyle works with responsive value (with default responsive value) 1`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle works with responsive value (with default responsive value) 2`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle works with responsive value (with default simple value) 1`] = `
+Object {
+  "test": 0,
+}
+`;
+
+exports[`styler factories createSystemStyle works with responsive value (with default simple value) 2`] = `
+Object {
+  "test": 8,
+}
+`;
+
+exports[`styler factories createSystemStyle works with responsive value (without default value) 1`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle works with responsive value (without default value) 2`] = `Object {}`;
+
+exports[`styler factories createSystemStyle works with responsive value (without default value) 3`] = `
+Object {
+  "test": 8,
+}
+`;
+
+exports[`styler factories createSystemStyle works with responsive value (without default value) 4`] = `Object {}`;
+
+exports[`styler factories createSystemStyle works with simple value (with default value) 1`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle works with simple value (with default value) 2`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle works with simple value (without default value) 1`] = `
+Object {
+  "test": 4,
+}
+`;
+
+exports[`styler factories createSystemStyle works with simple value (without default value) 2`] = `Object {}`;

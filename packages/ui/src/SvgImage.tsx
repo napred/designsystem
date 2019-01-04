@@ -1,7 +1,5 @@
-import { createComponent } from '@napred/ds';
-import { css } from 'emotion';
+import { arrayize, createComponent, css, getResponsiveValue } from '@napred/browser';
 import React, { Children, ComponentType, ReactNode } from 'react';
-import getResponsiveValue from './utils/getResponsiveValue';
 
 interface IProps {
   children?: ReactNode;
@@ -24,7 +22,7 @@ const Svg = ({ children, icon: Icon, titleAccess, ...rest }: IProps) => {
   return null;
 };
 
-const SvgImage = createComponent('SvgImage', Svg, {
+const SvgImage = createComponent<IProps>('SvgImage', Svg, {
   cacheProps: ['fill'],
   stripProps: ['fill'],
   style: ({ fill }, { theme, viewport }) => css`
@@ -33,7 +31,7 @@ const SvgImage = createComponent('SvgImage', Svg, {
     flex-shrink: 0;
 
     path:last-child {
-      fill: ${theme.color(fill ? getResponsiveValue<string>(fill, viewport) : 'transparent')};
+      fill: ${theme.color(fill ? getResponsiveValue(viewport, arrayize(fill)) as string : 'transparent')};
     }
   `,
 });

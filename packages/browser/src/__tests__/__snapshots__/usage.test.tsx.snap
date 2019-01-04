@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`design system usage works correctly with custom cache 1`] = `
+<DocumentFragment>
+  .css-8ab0db {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  margin: 0px;
+  padding: 4px;
+}
+
+<div
+    class="p1 css-8ab0db"
+  >
+    Green RedBox
+  </div>
+  .css-8ab0db {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  margin: 0px;
+  padding: 4px;
+}
+
+<div
+    class="p1 css-8ab0db"
+  >
+    Green RedBox
+  </div>
+  .css-141a2jf {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  margin: 0px;
+  padding: 8px;
+}
+
+<div
+    class="p2 css-141a2jf"
+  >
+    Green RedBox
+  </div>
+  .css-141a2jf {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  margin: 0px;
+  padding: 8px;
+}
+
+<div
+    class="p2 css-141a2jf"
+  >
+    Green RedBox
+  </div>
+  .css-1cw088o {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  margin: 4px;
+  padding: 8px;
+}
+
+<div
+    class="m1 css-1cw088o"
+  >
+    Green RedBox
+  </div>
+  .css-1cw088o {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  margin: 4px;
+  padding: 8px;
+}
+
+<div
+    class="m1 css-1cw088o"
+  >
+    Green RedBox
+  </div>
+</DocumentFragment>
+`;
+
+exports[`design system usage works correctly with default system stylers 1`] = `
+<DocumentFragment>
+  .css-1i6gk7b {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-1i6gk7b"
+  >
+    Default Box
+  </div>
+  .css-1a53pd4 {
+  color: #3B5998;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-1a53pd4"
+  >
+    Blue box
+  </div>
+  .css-1ss4dro {
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<h1
+    class="css-1ss4dro"
+  >
+    Green title
+  </h1>
+  .css-8ab0db {
+  background-color: black;
+  color: #3CD048;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  margin: 0px;
+  padding: 4px;
+}
+
+<div
+    class="css-8ab0db"
+  >
+    Green RedBox
+  </div>
+</DocumentFragment>
+`;
