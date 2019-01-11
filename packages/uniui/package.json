@@ -1,6 +1,6 @@
 {
   "name": "@napred/uniui",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "main": "dist/ui.cjs.js",
   "umd:main": "dist/ui.umd.js",
   "jsnext:main": "dist/ui.m.js",
@@ -32,9 +32,9 @@
   "license": "MIT",
   "sideEffects": false,
   "dependencies": {
-    "@napred/ds": "^0.3.2",
-    "@napred/native": "^0.3.2",
-    "@napred/uniprimitives": "^0.3.2"
+    "@napred/ds": "^0.4.0",
+    "@napred/native": "^0.4.0",
+    "@napred/uniprimitives": "^0.4.0"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^3.3.0",
