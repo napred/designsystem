@@ -1,12 +1,12 @@
 import { createComponent, createStyle, css, DSProps } from '@napred/browser';
 import { Box } from '@napred/primitives';
 import debounce from 'lodash.debounce';
-import React, { ChangeEvent, useCallback, useState } from 'react';
+import React, { ChangeEvent, ReactNode, useCallback, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import Menu, { MenuItem } from '../Menu';
 import Input from './Input';
 
-const AutocompleteBase = createComponent<{}>('AutocompleteBase', Box, {
+const AutocompleteBase = createComponent('AutocompleteBase', Box, {
   styles: [
     createStyle(
       [],
@@ -41,6 +41,7 @@ interface IProps<T> extends DSProps {
   onKeyUp?: (e: KeyboardEvent) => any;
   onSuggestionClick: (suggestion: T) => any;
   placeholder?: string | void;
+  renderItem?: (suggestion: T) => ReactNode;
   value?: string | void;
 }
 
@@ -57,6 +58,7 @@ function AutocompleteInput<T>(props: IProps<T>) {
     placeholder,
     value,
     disabled,
+    renderItem,
     ...rest
   } = props;
 
@@ -122,12 +124,8 @@ function AutocompleteInput<T>(props: IProps<T>) {
         {status => (
           <Menu opacity={status === 'entered' ? 1 : 0}>
             {results.map((result, index) => (
-              <MenuItem
-                button
-                key={`${result}-${index}`}
-                onMouseDown={() => onSuggestionClick(result)}
-              >
-                {result}
+              <MenuItem button key={index} onMouseDown={() => onSuggestionClick(result)}>
+                {renderItem ? renderItem(result) : result}
               </MenuItem>
             ))}
           </Menu>
