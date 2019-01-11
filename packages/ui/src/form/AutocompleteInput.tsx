@@ -113,7 +113,7 @@ function AutocompleteInput<T>(props: IProps<T>) {
 
   function renderResults() {
     if (!focused || results.length === 0) {
-      // return null;
+      return null;
     }
 
     // onMouseDown because we want to beat onBlur
