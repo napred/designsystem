@@ -68,14 +68,15 @@ DrawerBase.defaultProps = {
 
 interface IDrawerProps extends IDrawerBaseProps {
   containerId: string;
+  overlayContainerId: string;
   overlayed: boolean;
 }
 
-function Drawer({ containerId, overlayed, ...rest }: IDrawerProps) {
+function Drawer({ containerId, overlayContainerId, overlayed, ...rest }: IDrawerProps) {
   return (
     <Portal containerId={containerId}>
       <DrawerBase {...rest} />
-      {overlayed ? <Overlay containerId={containerId} /> : null}
+      {overlayed ? <Overlay containerId={overlayContainerId} /> : null}
     </Portal>
   );
 }
@@ -83,6 +84,7 @@ function Drawer({ containerId, overlayed, ...rest }: IDrawerProps) {
 Drawer.defaultProps = {
   containerId: 'drawer-root',
   open: false,
+  overlayContainerId: 'drawer-overlay-root',
   overlayed: false,
   side: 'left',
 };
