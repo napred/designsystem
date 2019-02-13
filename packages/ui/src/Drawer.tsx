@@ -1,5 +1,5 @@
 import { createComponent, createStyle, DSProps } from '@napred/browser';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Fixed from './Fixed';
 import Overlay from './Overlay';
 import Portal from './Portal';
@@ -45,6 +45,7 @@ const transform = ({ open, side: toSide }: IDrawerBaseProps) => ({
 });
 
 interface IDrawerBaseProps extends DSProps {
+  children?: ReactNode;
   open: boolean;
   side: keyof (typeof transforms);
 }
