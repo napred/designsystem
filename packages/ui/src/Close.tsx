@@ -1,9 +1,8 @@
-import { DSProps } from '@napred/browser';
 import React from 'react';
 import { CloseIcon } from './assets';
-import SvgImage from './SvgImage';
+import SvgImage, { ISvgProps } from './SvgImage';
 
-interface IProps extends DSProps {
+interface IProps extends ISvgProps {
   inverted?: boolean;
 }
 

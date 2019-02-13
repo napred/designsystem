@@ -1,7 +1,7 @@
-import { arrayize, createComponent, css, getResponsiveValue } from '@napred/browser';
+import { arrayize, createComponent, css, DSProps, getResponsiveValue } from '@napred/browser';
 import React, { Children, ComponentType, ReactNode } from 'react';
 
-interface IProps {
+export interface ISvgProps extends DSProps {
   children?: ReactNode;
   fill?: string | string[];
   icon?: ComponentType<any>;
@@ -9,7 +9,7 @@ interface IProps {
   viewBox?: null | string;
 }
 
-const Svg = ({ children, icon: Icon, titleAccess, ...rest }: IProps) => {
+const Svg = ({ children, icon: Icon, titleAccess, ...rest }: ISvgProps) => {
   if (Icon != null) {
     return <Icon aria-hidden={titleAccess ? 'false' : 'true'} {...rest} />;
   } else if (children != null) {
@@ -22,7 +22,7 @@ const Svg = ({ children, icon: Icon, titleAccess, ...rest }: IProps) => {
   return null;
 };
 
-const SvgImage = createComponent<IProps>('SvgImage', Svg, {
+const SvgImage = createComponent<ISvgProps>('SvgImage', Svg, {
   cacheProps: ['fill'],
   stripProps: ['fill'],
   style: ({ fill }, { theme, viewport }) => css`
@@ -31,7 +31,9 @@ const SvgImage = createComponent<IProps>('SvgImage', Svg, {
     flex-shrink: 0;
 
     path:last-child {
-      fill: ${theme.color(fill ? getResponsiveValue(viewport, arrayize(fill)) as string : 'transparent')};
+      fill: ${theme.color(
+        fill ? (getResponsiveValue(viewport, arrayize(fill)) as string) : 'transparent',
+      )};
     }
   `,
 });
