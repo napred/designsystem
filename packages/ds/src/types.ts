@@ -109,6 +109,7 @@ export type StyleCacheKeyFn = (
   cacheProps: string[],
   viewport: number,
   compPath?: string[],
+  componentName?: string,
 ) => string;
 
 export type StyleApplicatorFactory<TStyle, TProps extends object = {}> = (
