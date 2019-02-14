@@ -48,14 +48,11 @@ const Tooltip = createComponent<{ error?: any }>('Tooltip', Message, {
       width: 0;
       position: absolute;
       pointer-events: none;
-      z-index: 100;
+      z-index: 3;
       top: 0;
       margin-top: -12px;
       border: solid transparent;
       border-color: rgba(60, 60, 60, 0);
-      border-bottom-color: ${error
-        ? theme.color('red', 'transparent')
-        : theme.color('blue', 'transparent')};
       border-width: 6px;
     }
   `,

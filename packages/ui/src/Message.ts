@@ -26,7 +26,6 @@ const Message = createComponent('Message', Flex, {
 // temporary fix because if we use defaultProps in config object
 // it will require them :(
 Message.defaultProps = {
-  bgColor: 'blue',
   borderRadius: 0,
   color: 'white',
   fontWeight: 'bold',
