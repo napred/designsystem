@@ -1,5 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`style applicator creates distinct cache for same props but distinct components 1`] = `
+Array [
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#D03C70",
+          "color": "#FFFFFF",
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+      ]
+    }
+  />,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#D03C70",
+          "color": "#FFFFFF",
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+      ]
+    }
+  />,
+  <Text
+    style={
+      Array [
+        Object {
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+      ]
+    }
+  />,
+  <Text
+    style={
+      Array [
+        Object {
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+      ]
+    }
+  />,
+  <Text
+    style={
+      Array [
+        Object {
+          "fontFamily": "Palanquin",
+          "fontSize": 16,
+          "lineHeight": 24,
+        },
+      ]
+    }
+  />,
+]
+`;
+
 exports[`style applicator works correctly for extended system component 1`] = `
 Array [
   <View
