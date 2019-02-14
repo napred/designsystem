@@ -52,6 +52,7 @@
     "prebuild": "rimraf dist temp",
     "prepublishOnly": "npm run build",
     "test": "jest",
+    "test:watch": "jest --watch",
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": false
