@@ -1,5 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`createStyleApplicator creates distinct cache for same props but distinct components 1`] = `
+<DocumentFragment>
+  .css-6aoprm {
+  border: none;
+  margin: 0;
+  min-width: 0;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: background-color ease 0.3s;
+  transition: background-color ease 0.3s;
+  border-bottom-left-radius: 99999px;
+  border-bottom-right-radius: 99999px;
+}
+
+.css-6aoprm:hover {
+  background-color: #FA4B88;
+}
+
+.css-13b38kj {
+  background-color: #D03C70;
+  color: #FFFFFF;
+  display: inline-block;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 20px;
+  height: 2rem;
+  line-height: 2px;
+  padding: 0px;
+  width: 2rem;
+}
+
+<button
+    class="css-6aoprm css-13b38kj"
+    type="button"
+  />
+  .css-6aoprm {
+  border: none;
+  margin: 0;
+  min-width: 0;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: background-color ease 0.3s;
+  transition: background-color ease 0.3s;
+  border-bottom-left-radius: 99999px;
+  border-bottom-right-radius: 99999px;
+}
+
+.css-6aoprm:hover {
+  background-color: #FA4B88;
+}
+
+.css-13b38kj {
+  background-color: #D03C70;
+  color: #FFFFFF;
+  display: inline-block;
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 20px;
+  height: 2rem;
+  line-height: 2px;
+  padding: 0px;
+  width: 2rem;
+}
+
+<button
+    class="css-6aoprm css-13b38kj"
+    type="button"
+  />
+  .css-9ehc2m {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-9ehc2m"
+  />
+  .css-9ehc2m {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<div
+    class="css-9ehc2m"
+  />
+  .css-9ehc2m {
+  font-family: "Palanquin","Helvetica",sans-serif;
+  font-size: 16px;
+  line-height: normal;
+}
+
+<span
+    class="css-9ehc2m"
+  />
+</DocumentFragment>
+`;
+
 exports[`createStyleApplicator works correctly for no props 1`] = `
 <DocumentFragment>
   .css-9ehc2m {

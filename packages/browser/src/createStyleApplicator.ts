@@ -11,12 +11,13 @@ function generateCacheKey(
   cacheProps: string[],
   viewport: number,
   namespace: string[] = [],
+  componentName: string = '',
 ): string {
   if (namespace.length === 0) {
-    return JSON.stringify([props, viewport], cacheProps);
+    return JSON.stringify([props, viewport, componentName], cacheProps);
   }
 
-  return JSON.stringify([props, viewport, namespace], cacheProps);
+  return JSON.stringify([props, viewport, namespace, componentName], cacheProps);
 }
 
 function applyStyles(
@@ -101,7 +102,7 @@ const factory: StyleApplicatorFactory<
           // cache only props length is more than 0
           const styleKey =
             componentCacheProps.length > 0
-              ? cacheKeyFn(props, componentCacheProps, system.viewport, compPath)
+              ? cacheKeyFn(props, componentCacheProps, system.viewport, compPath, componentName)
               : '';
           let componentClsName = cache.get(styleKey);
 
@@ -117,7 +118,7 @@ const factory: StyleApplicatorFactory<
         }
 
         // first look if we have styles
-        const key = cacheKeyFn(props, systemCacheProps, system.viewport);
+        const key = cacheKeyFn(props, systemCacheProps, system.viewport, ['$system']);
 
         let stylesClassName = cache.get(key);
 
