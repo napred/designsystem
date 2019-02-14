@@ -22,6 +22,7 @@ export { default as Popover } from './Popover';
 export { default as Portal } from './Portal';
 export { default as SelectMenu } from './SelectMenu';
 export { default as SvgImage } from './SvgImage';
+export { default as Tabs, Tab } from './Tabs';
 export { default as Tooltip } from './Tooltip';
 
 // if you put this on the start of the file
