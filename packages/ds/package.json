@@ -1,6 +1,6 @@
 {
   "name": "@napred/ds",
-  "version": "0.4.0",
+  "version": "0.4.5",
   "main": "dist/ds.cjs.js",
   "umd:main": "dist/ds.umd.js",
   "jsnext:main": "dist/ds.m.js",
