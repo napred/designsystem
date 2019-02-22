@@ -177,7 +177,6 @@ interface IProps extends DSProps {
   hoverColor?: string;
   loading?: boolean;
   loadingDotsProps?: DSProps;
-  onClick?: () => any;
   variant?: ButtonVariants | undefined;
   [key: string]: any;
 }
