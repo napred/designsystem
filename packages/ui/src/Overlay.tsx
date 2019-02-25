@@ -1,4 +1,4 @@
-import { createComponent } from '@napred/browser';
+import { createComponent, DSProps } from '@napred/browser';
 import React from 'react';
 
 import Portal from './Portal';
@@ -15,9 +15,8 @@ export const OverlayDiv = createComponent('OverlayDiv', 'div', {
   },
 });
 
-interface IProps {
+interface IProps extends DSProps {
   containerId: string;
-  zIndex?: number;
 }
 
 export default function Overlay({ containerId, zIndex = 1, ...rest }: IProps) {

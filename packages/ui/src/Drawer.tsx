@@ -64,20 +64,22 @@ const DrawerBase = createComponent<IDrawerBaseProps>('DrawerBase', Fixed, {
 DrawerBase.defaultProps = {
   height: ['100%'],
   width: ['100%', '75%', '50%'],
-  zIndex: 2,
+  zIndex: 32,
 };
 
 interface IDrawerProps extends IDrawerBaseProps {
   containerId: string;
   overlayContainerId: string;
   overlayed: boolean;
+  overlayProps: DSProps,
 }
 
-function Drawer({ containerId, overlayContainerId, overlayed, ...rest }: IDrawerProps) {
+function Drawer({ containerId, overlayContainerId, overlayProps, overlayed, ...rest }: IDrawerProps) {
+  const allOverlayProps = { zIndex: 31, ...overlayProps };
   return (
     <Portal containerId={containerId}>
       <DrawerBase {...rest} />
-      {overlayed ? <Overlay containerId={overlayContainerId} /> : null}
+      {overlayed ? <Overlay { ...allOverlayProps} containerId={overlayContainerId} /> : null}
     </Portal>
   );
 }
