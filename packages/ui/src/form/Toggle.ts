@@ -13,7 +13,6 @@ const Toggle = createComponent<IProps>('Toggle', 'div', {
       ['disabled', 'height', 'checked', 'borderWidth'],
       ({ disabled, height, checked, borderWidth }, { theme, viewport }) => {
         return css`
-          cursor: pointer;
           display: inline-flex;
           background-color: ${checked ? theme.color('primary') : theme.color('greyLight')};
           transition-property: background-color;
@@ -62,6 +61,7 @@ Toggle.defaultProps = {
   borderRadius: 3,
   borderStyle: 'transparent',
   borderWidth: 1,
+  cursor: 'pointer',
   disabled: false,
   height: 24,
   role: 'checkbox',

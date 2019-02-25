@@ -206,6 +206,7 @@ function Button({
     >
       {loading ? (
         <LoadingDots
+          cursor="pointer"
           dark={variant !== 'primary'}
           p={0}
           position="absolute"
@@ -222,6 +223,7 @@ function Button({
 }
 
 Button.defaultProps = {
+  cursor: 'pointer',
   disabled: false,
   loading: false,
   loadingDotsProps: {},

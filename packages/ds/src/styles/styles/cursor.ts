@@ -40,7 +40,8 @@ export type Cursor =
   | 'nswe-resize'
   | 'zoom-in'
   | 'zoom-out'
-  | 'help';
+  | 'help'
+  | null;
 
 export type PointerEvents =
   | 'auto'
@@ -56,13 +57,14 @@ export type PointerEvents =
   | 'all'
   | 'inherit'
   | 'initial'
-  | 'unset';
+  | 'unset'
+  | null;
 
 export const cursor: IStyler<{
   cursor?: Cursor | Array<Cursor | null | undefined> | null | undefined;
-}> = createStringStyle('cursor', 'cursor');
+}> = createStringStyle('cursor', 'cursor', null);
 
 export const pointerEvents: IStyler<{
   pointerEvents?: PointerEvents | Array<PointerEvents | null | undefined> | null | undefined;
-}> = createStringStyle('pointerEvents', 'pointerEvents');
+}> = createStringStyle('pointerEvents', 'pointerEvents', null);
 
