@@ -20,6 +20,7 @@ export type StylerProps = extractStylerProps<typeof styles.alignContent> &
   extractStylerProps<typeof styles.borderRadiusBottomRight> &
   extractStylerProps<typeof styles.bottom> &
   extractStylerProps<typeof styles.color> &
+  extractStylerProps<typeof styles.cursor> &
   extractStylerProps<typeof styles.display> &
   extractStylerProps<typeof styles.flex> &
   extractStylerProps<typeof styles.flexBasis> &
@@ -57,6 +58,7 @@ export type StylerProps = extractStylerProps<typeof styles.alignContent> &
   extractStylerProps<typeof styles.pb> &
   extractStylerProps<typeof styles.pr> &
   extractStylerProps<typeof styles.pl> &
+  extractStylerProps<typeof styles.pointerEvents> &
   extractStylerProps<typeof styles.position> &
   extractStylerProps<typeof styles.right> &
   extractStylerProps<typeof styles.transition> &
@@ -84,6 +86,7 @@ export const styleList = [
   styles.borderRadiusTopRight,
   styles.bottom,
   styles.color,
+  styles.cursor,
   styles.display,
   styles.flex,
   styles.flexBasis,
@@ -121,6 +124,7 @@ export const styleList = [
   styles.pb,
   styles.pl,
   styles.pr,
+  styles.pointerEvents,
   styles.position,
   styles.right,
   styles.shadow,

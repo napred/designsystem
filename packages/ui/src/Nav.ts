@@ -18,16 +18,13 @@ Nav.defaultProps = {
   zIndex: 30,
 };
 
-export const NavItem = createComponent('NavItem', 'div', {
-  style: {
-    cursor: 'pointer',
-  },
-});
+export const NavItem = createComponent('NavItem', 'div');
 
 // temporary fix because if we use defaultProps in config object
 // it will require them :(
 NavItem.defaultProps = {
   alignItems: 'center',
+  cursor: 'pointer',
   display: 'flex',
   flexGrow: 0,
   flexShrink: 0,
