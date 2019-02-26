@@ -206,7 +206,7 @@ function Button({
     >
       {loading ? (
         <LoadingDots
-          cursor="pointer"
+          cursor={rest.cursor}
           dark={variant !== 'primary'}
           p={0}
           position="absolute"

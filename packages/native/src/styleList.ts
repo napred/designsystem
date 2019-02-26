@@ -59,8 +59,10 @@ export type NativeStylerProps = extractStylerProps<typeof styles.alignContent> &
 
 // these styles are not supported by react native
 const ignoreStyles: Array<IStyler<any, any>> = [
+  styles.cursor,
   styles.overflowX,
   styles.overflowY,
+  styles.pointerEvents,
   styles.textOverflow,
   styles.textTransform,
   styles.transition,
