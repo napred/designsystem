@@ -1,6 +1,6 @@
 {
   "name": "@napred/uniprimitives",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "main": "dist/primitives.cjs.js",
   "umd:main": "dist/primitives.umd.js",
   "jsnext:main": "dist/primitives.m.js",
@@ -37,8 +37,8 @@
     "react-native-web": "^0.9.9"
   },
   "dependencies": {
-    "@napred/ds": "^0.5.0",
-    "@napred/native": "^0.5.0"
+    "@napred/ds": "^0.5.2",
+    "@napred/native": "^0.5.2"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^3.3.0",

@@ -1,6 +1,6 @@
 {
   "name": "@napred/native",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "main": "dist/native.cjs.js",
   "jsnext:main": "dist/native.m.js",
   "module": "dist/native.m.js",
@@ -36,7 +36,7 @@
     "react-native": "^0.57.7"
   },
   "dependencies": {
-    "@napred/ds": "^0.5.0",
+    "@napred/ds": "^0.5.2",
     "css-mediaquery": "^0.1.2",
     "css-to-react-native": "^2.2.2",
     "stylis": "^3.5.4"
