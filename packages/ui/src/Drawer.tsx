@@ -11,6 +11,8 @@ const transforms = {
   top: 'translateY(-100%)',
 };
 
+const BASE_DRAWER_ZINDEX = 32;
+
 const side = ({
   side: toSide,
 }: IDrawerBaseProps): {
@@ -64,22 +66,30 @@ const DrawerBase = createComponent<IDrawerBaseProps>('DrawerBase', Fixed, {
 DrawerBase.defaultProps = {
   height: ['100%'],
   width: ['100%', '75%', '50%'],
-  zIndex: 32,
 };
 
 interface IDrawerProps extends IDrawerBaseProps {
   containerId: string;
   overlayContainerId: string;
   overlayed: boolean;
-  overlayProps: DSProps,
+  overlayProps?: DSProps | null;
 }
 
-function Drawer({ containerId, overlayContainerId, overlayProps, overlayed, ...rest }: IDrawerProps) {
-  const allOverlayProps = { zIndex: 31, ...overlayProps };
+function Drawer({
+  containerId,
+  overlayContainerId,
+  overlayProps,
+  overlayed,
+  ...rest
+}: IDrawerProps) {
+  const allOverlayProps = {
+    zIndex: Number(rest.zIndex || BASE_DRAWER_ZINDEX) - 1,
+    ...(overlayProps || {}),
+  };
   return (
     <Portal containerId={containerId}>
       <DrawerBase {...rest} />
-      {overlayed ? <Overlay { ...allOverlayProps} containerId={overlayContainerId} /> : null}
+      {overlayed ? <Overlay {...allOverlayProps} containerId={overlayContainerId} /> : null}
     </Portal>
   );
 }
@@ -90,6 +100,7 @@ Drawer.defaultProps = {
   overlayContainerId: 'drawer-overlay-root',
   overlayed: false,
   side: 'left',
+  zIndex: BASE_DRAWER_ZINDEX,
 };
 
 export default Drawer;
