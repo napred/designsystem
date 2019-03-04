@@ -6,29 +6,6 @@ import { Transition } from 'react-transition-group';
 import Menu, { MenuItem } from '../Menu';
 import Input from './Input';
 
-const AutocompleteBase = createComponent('AutocompleteBase', Box, {
-  styles: [
-    createStyle(
-      [],
-      css`
-        display: inline-block;
-        position: relative;
-
-        & > .results-wrapper {
-          border-top: none;
-        }
-      `,
-    ),
-  ],
-});
-
-// temporary fix because if we use defaultProps in config object
-// it will require them :(
-AutocompleteBase.defaultProps = {
-  px: 0,
-  py: 0,
-};
-
 interface IProps<T> extends DSProps {
   disabled?: boolean;
   className?: string;
@@ -137,7 +114,7 @@ function AutocompleteInput<T>(props: IProps<T>) {
   const showSuggestions = focused && results.length > 0;
 
   return (
-    <AutocompleteBase suggestions={showSuggestions} {...rest}>
+    <Box suggestions={showSuggestions} {...rest}>
       <Input
         disabled={disabled}
         borderRadiusBottomLeft={showSuggestions ? 0 : undefined}
@@ -153,17 +130,21 @@ function AutocompleteInput<T>(props: IProps<T>) {
         width="100%"
       />
       {renderResults()}
-    </AutocompleteBase>
+    </Box>
   );
 }
 
 AutocompleteInput.defaultProps = {
   debounceTime: 300,
+  display: 'inline-block',
   onAutocomplete: () => [],
   onBlur: () => {},
   onChange: () => {},
   onFocus: () => {},
   onSuggestionClick: () => {},
+  position: 'relative',
+  px: 0,
+  py: 0,
 };
 
 export default AutocompleteInput;
