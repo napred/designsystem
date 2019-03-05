@@ -44,6 +44,7 @@ interface ITabProps extends DSProps {
   bgColor?: string;
   disabled?: boolean;
   onClick?: (i: number) => any;
+  [key: string]: any;
 }
 
 const TransitionFlex = createComponent('TransitionFlex', Flex);
