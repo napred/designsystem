@@ -1,7 +1,7 @@
 import { DSProps } from '@napred/browser';
 import { Box } from '@napred/primitives';
 import debounce from 'lodash.debounce';
-import React, { ChangeEvent, ReactNode, useCallback, useState } from 'react';
+import React, { ChangeEvent, KeyboardEvent, ReactNode, useCallback, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import Menu, { MenuItem } from '../Menu';
 import Input from './Input';
@@ -15,7 +15,7 @@ interface IProps<T> extends DSProps {
   onBlur: (e: any) => any;
   onFocus: (e: any) => any;
   onChange: (e: ChangeEvent<HTMLInputElement>) => any;
-  onKeyUp?: (e: KeyboardEvent) => any;
+  onKeyUp?: (e: KeyboardEvent<HTMLInputElement>) => any;
   onSuggestionClick: (suggestion: T) => any;
   placeholder?: string | void;
   renderItem?: (suggestion: T) => ReactNode;
