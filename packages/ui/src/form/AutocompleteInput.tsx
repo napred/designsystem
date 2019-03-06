@@ -19,6 +19,11 @@ interface IProps<T> extends DSProps {
   onSuggestionClick: (suggestion: T) => any;
   placeholder?: string | void;
   renderItem?: (suggestion: T) => ReactNode;
+  renderResults: (
+    state: { focused: boolean; results: T[] },
+    onSuggestionClick: (suggestion: T) => any,
+    renderItem?: (suggestion: T) => ReactNode,
+  ) => ReactNode;
   value?: string | void;
 }
 
@@ -36,6 +41,7 @@ function AutocompleteInput<T>(props: IProps<T>) {
     value,
     disabled,
     renderItem,
+    renderResults,
     ...rest
   } = props;
 
@@ -90,27 +96,6 @@ function AutocompleteInput<T>(props: IProps<T>) {
     [onFocus],
   );
 
-  function renderResults() {
-    if (!focused || results.length === 0) {
-      return null;
-    }
-
-    // onMouseDown because we want to beat onBlur
-    return (
-      <Transition appear in timeout={100}>
-        {status => (
-          <Menu opacity={status === 'entered' ? 1 : 0}>
-            {results.map((result, index) => (
-              <MenuItem button key={index} onMouseDown={() => onSuggestionClick(result)}>
-                {renderItem ? renderItem(result) : result}
-              </MenuItem>
-            ))}
-          </Menu>
-        )}
-      </Transition>
-    );
-  }
-
   const showSuggestions = focused && results.length > 0;
 
   return (
@@ -129,7 +114,7 @@ function AutocompleteInput<T>(props: IProps<T>) {
         value={value}
         width="100%"
       />
-      {renderResults()}
+      {renderResults({ focused, results }, onSuggestionClick, renderItem)}
     </Box>
   );
 }
@@ -145,6 +130,30 @@ AutocompleteInput.defaultProps = {
   position: 'relative',
   px: 0,
   py: 0,
+  renderResults: (
+    state: { focused: boolean; results: string[] },
+    onSuggestionClick: (suggestion: string) => any,
+    renderItem?: (suggestion: string) => ReactNode,
+  ) => {
+    const { focused, results } = state;
+    if (!focused || results.length === 0) {
+      return null;
+    }
+
+    return (
+      <Transition appear in timeout={100}>
+        {status => (
+          <Menu opacity={status === 'entered' ? 1 : 0}>
+            {results.map((result, index) => (
+              <MenuItem button key={index} onMouseDown={() => onSuggestionClick(result)}>
+                {renderItem ? renderItem(result) : result}
+              </MenuItem>
+            ))}
+          </Menu>
+        )}
+      </Transition>
+    );
+  },
 };
 
 export default AutocompleteInput;
