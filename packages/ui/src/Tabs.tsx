@@ -70,6 +70,7 @@ function Tab({
       bgColor={bgColor || 'greyLightest'}
       mx={1}
       borderWidth="0px"
+      type="button"
       {...rest}
     >
       <Flex flexDirection="row" alignItems="center" justifyContent="center">
