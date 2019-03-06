@@ -4,6 +4,7 @@ import SvgImage, { ISvgProps } from './SvgImage';
 
 interface IProps extends ISvgProps {
   inverted?: boolean;
+  [key: string]: any;
 }
 
 function Close({ inverted, ...props }: IProps) {
