@@ -1,18 +1,31 @@
+import { DSProps } from '@napred/browser';
 import { Flex } from '@napred/primitives';
 import React, { ReactElement, useEffect } from 'react';
 
 import Overlay from './Overlay';
 import Portal from './Portal';
 
-interface IProps {
+interface IProps extends DSProps {
   children: ReactElement<any>;
   modalRootId: string;
   onClose?: (e: Event) => any;
   overlayed?: boolean;
+  overlayContainerId: string;
+  overlayProps?: DSProps | null;
 }
 
+const BASE_MODAL_ZINDEX = 32;
+
 function Modal(props: IProps) {
-  const { modalRootId, overlayed, children, onClose } = props;
+  const {
+    modalRootId,
+    overlayContainerId,
+    overlayed,
+    overlayProps,
+    children,
+    onClose,
+    ...rest
+  } = props;
 
   function handleDocumentClick(e: MouseEvent) {
     if (onClose) {
@@ -42,6 +55,11 @@ function Modal(props: IProps) {
     };
   }, []);
 
+  const allOverlayProps = {
+    zIndex: Number(rest.zIndex || BASE_MODAL_ZINDEX) - 1,
+    ...(overlayProps || {}),
+  };
+
   return (
     <Portal containerId={modalRootId}>
       <Flex
@@ -54,9 +72,9 @@ function Modal(props: IProps) {
         right={0}
         top={0}
         width="100vw"
-        zIndex={2}
+        zIndex={rest.zIndex}
       >
-        {overlayed ? <Overlay containerId={modalRootId} /> : null}
+        {overlayed ? <Overlay {...allOverlayProps} containerId={overlayContainerId} /> : null}
         {children}
       </Flex>
     </Portal>
@@ -65,7 +83,9 @@ function Modal(props: IProps) {
 
 Modal.defaultProps = {
   modalRootId: 'modal-root',
+  overlayContainerId: 'modal-overlay-root',
   overlayed: false,
+  zIndex: BASE_MODAL_ZINDEX
 };
 
 export default Modal;
