@@ -48,8 +48,8 @@
     "jest-image-snapshot": "^2.7.0",
     "jest-puppeteer": "^3.7.0",
     "puppeteer": "^1.11.0",
-    "react-art": "16.7.0-alpha.2 || >=16.7.0",
-    "react-dom": "^16.7.0-alpha.2 || >=16.7.0",
+    "react-art": "16.8.4",
+    "react-dom": "^16.8.4",
     "react-native-web": "^0.9.9",
     "react-testing-library": "^5.4.0",
     "typescript": "^3.2.2"
