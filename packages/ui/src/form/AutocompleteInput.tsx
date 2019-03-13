@@ -113,6 +113,7 @@ function AutocompleteInput<T>(props: IProps<T>) {
         placeholder={placeholder}
         value={value}
         width="100%"
+        height="100%"
       />
       {renderResults({ focused, results }, onSuggestionClick, renderItem)}
     </Box>
