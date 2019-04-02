@@ -115,6 +115,7 @@ describe('styler factories', () => {
       expect(style.apply({ lineHeight: [2, 1] }, { theme, viewport: 0 })).toMatchSnapshot();
       expect(style.apply({ lineHeight: "120%" }, { theme, viewport: 0 })).toMatchSnapshot();
       expect(style.apply({ lineHeight: "30px" }, { theme, viewport: 0 })).toMatchSnapshot();
+      expect(style.apply({ lineHeight: "1em" }, { theme, viewport: 0 })).toMatchSnapshot();
       expect(style.apply({ lineHeight: "2em" }, { theme, viewport: 0 })).toMatchSnapshot();
       expect(style.apply({ lineHeight: ["120%", "140%"] }, { theme, viewport: 0 })).toMatchSnapshot();
       expect(style.apply({ lineHeight: ["30px", "36px"] }, { theme, viewport: 0 })).toMatchSnapshot();

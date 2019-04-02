@@ -12,7 +12,7 @@ function Portal(props: IProps) {
 
   const portalContainer: null | HTMLDivElement = useMemo(
     () => {
-      if (document !== undefined) {
+      if (typeof document !== 'undefined') {
         let el = document.getElementById(props.containerId);
 
         if (el != null) {

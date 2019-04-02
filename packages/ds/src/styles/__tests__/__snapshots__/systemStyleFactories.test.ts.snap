@@ -32,17 +32,23 @@ Object {
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 6`] = `
 Object {
-  "lineHeight": "2px",
+  "lineHeight": "1px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 7`] = `
 Object {
-  "lineHeight": "19.2px",
+  "lineHeight": "2px",
 }
 `;
 
 exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 8`] = `
+Object {
+  "lineHeight": "19.2px",
+}
+`;
+
+exports[`styler factories createSystemFontSizeRatioStyler works correctly (returns unit) 9`] = `
 Object {
   "lineHeight": "30px",
 }
