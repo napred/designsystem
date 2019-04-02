@@ -76,7 +76,6 @@ export function createScaledFontSizeSystemStyle<TProps extends object>(
 
       if (Number.isNaN(Number(value))) {
         // try to parse value and units
-        console.log(value);
         return {
           [propName]: (value as string).replace(
             /^(-?\d+(?:\.\d+)?)(?:\s*([a-zA-Z%]+))?$/,
