@@ -20,11 +20,7 @@ export const borderRadiusTopRight: IStyler<{
 
 export const borderRadiusBottomLeft: IStyler<{
   borderRadiusBottomLeft?: BorderRadius | BorderRadius[];
-}> = createNumericSystemStyle(
-  'borderRadiusBottomLeft',
-  'borderBottomLeftRadius',
-  'borderRadiuses',
-);
+}> = createNumericSystemStyle('borderRadiusBottomLeft', 'borderBottomLeftRadius', 'borderRadiuses');
 
 export const borderRadiusBottomRight: IStyler<{
   borderRadiusBottomRight?: BorderRadius | BorderRadius[];
@@ -40,7 +36,23 @@ export const borderStyle: IStyler<{
 
 export const borderWidth: IStyler<{
   borderWidth?: Size | Size[];
-}> = createNumericStyle('borderWidth', 'borderWidth');
+}> = createNumericStyle('borderWidth', 'borderWidth', 'borderWidths');
+
+export const borderWidthTop: IStyler<{
+  borderWidthTop?: Size | Size[];
+}> = createNumericStyle('borderWidthTop', 'borderTopWidth', 'borderWidths');
+
+export const borderWidthRight: IStyler<{
+  borderWidthRight?: Size | Size[];
+}> = createNumericStyle('borderWidthRight', 'borderRightWidth', 'borderWidths');
+
+export const borderWidthBottom: IStyler<{
+  borderWidthBottom?: Size | Size[];
+}> = createNumericStyle('borderWidthBottom', 'borderBottomWidth', 'borderWidths');
+
+export const borderWidthLeft: IStyler<{
+  borderWidthLeft?: Size | Size[];
+}> = createNumericStyle('borderWidthLeft', 'borderLeftWidth', 'borderWidths');
 
 export const display: IStyler<{
   display?: string | string[] | void;

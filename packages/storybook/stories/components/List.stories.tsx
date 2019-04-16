@@ -20,10 +20,10 @@ listStories.add('clickable list', () => (
   </List>
 ));
 
-listStories.add('clickable list with subheaders', () => (
+listStories.add('clickable list with subheaders and left borders', () => (
   <List>
     <ListSubheader>1</ListSubheader>
-    <ListItem button>A</ListItem>
+    <ListItem borderWidth="0" borderWidthLeft="2px" borderStyle="solid" borderColor="primary" button>A</ListItem>
     <ListSubheader>2</ListSubheader>
     <ListItem button>B</ListItem>
     <ListItem button>C</ListItem>

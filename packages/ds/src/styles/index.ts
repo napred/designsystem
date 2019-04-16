@@ -18,6 +18,10 @@ export type StylerProps = extractStylerProps<typeof styles.alignContent> &
   extractStylerProps<typeof styles.borderRadiusBottomRight> &
   extractStylerProps<typeof styles.borderRadiusTopLeft> &
   extractStylerProps<typeof styles.borderRadiusBottomRight> &
+  extractStylerProps<typeof styles.borderWidthLeft> &
+  extractStylerProps<typeof styles.borderWidthRight> &
+  extractStylerProps<typeof styles.borderWidthTop> &
+  extractStylerProps<typeof styles.borderWidthBottom> &
   extractStylerProps<typeof styles.bottom> &
   extractStylerProps<typeof styles.color> &
   extractStylerProps<typeof styles.cursor> &
@@ -80,6 +84,10 @@ export const styleList = [
   styles.borderRadius,
   styles.borderStyle,
   styles.borderWidth,
+  styles.borderWidthBottom,
+  styles.borderWidthLeft,
+  styles.borderWidthTop,
+  styles.borderWidthRight,
   styles.borderRadiusBottomLeft,
   styles.borderRadiusBottomRight,
   styles.borderRadiusTopLeft,
