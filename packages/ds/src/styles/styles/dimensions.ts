@@ -36,23 +36,23 @@ export const borderStyle: IStyler<{
 
 export const borderWidth: IStyler<{
   borderWidth?: Size | Size[];
-}> = createNumericStyle('borderWidth', 'borderWidth', 'borderWidths');
+}> = createNumericStyle('borderWidth', 'borderWidth');
 
 export const borderWidthTop: IStyler<{
   borderWidthTop?: Size | Size[];
-}> = createNumericStyle('borderWidthTop', 'borderTopWidth', 'borderWidths');
+}> = createNumericStyle('borderWidthTop', 'borderTopWidth');
 
 export const borderWidthRight: IStyler<{
   borderWidthRight?: Size | Size[];
-}> = createNumericStyle('borderWidthRight', 'borderRightWidth', 'borderWidths');
+}> = createNumericStyle('borderWidthRight', 'borderRightWidth');
 
 export const borderWidthBottom: IStyler<{
   borderWidthBottom?: Size | Size[];
-}> = createNumericStyle('borderWidthBottom', 'borderBottomWidth', 'borderWidths');
+}> = createNumericStyle('borderWidthBottom', 'borderBottomWidth');
 
 export const borderWidthLeft: IStyler<{
   borderWidthLeft?: Size | Size[];
-}> = createNumericStyle('borderWidthLeft', 'borderLeftWidth', 'borderWidths');
+}> = createNumericStyle('borderWidthLeft', 'borderLeftWidth');
 
 export const display: IStyler<{
   display?: string | string[] | void;
