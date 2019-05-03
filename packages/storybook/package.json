@@ -1,7 +1,7 @@
 {
   "name": "@napred/storybook",
   "private": true,
-  "version": "0.7.0",
+  "version": "0.7.1",
   "devDependencies": {
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
