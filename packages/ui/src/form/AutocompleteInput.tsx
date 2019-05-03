@@ -73,6 +73,11 @@ const refForwardedAutocomplete: Autocomplete = forwardRef(
       ref,
       () =>
         ({
+          blur: () => {
+            if (inputRef.current) {
+              inputRef.current.blur();
+            }
+          },
           focus: () => {
             if (inputRef.current) {
               inputRef.current.focus();
