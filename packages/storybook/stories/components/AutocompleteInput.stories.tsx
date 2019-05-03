@@ -97,7 +97,10 @@ function AutocompleteWithRef() {
 
               set(e.target.value);
             }}
-            onSuggestionClick={suggestion => {
+            onSuggestionClick={(suggestion: string, e: MouseEvent) => {
+              e.preventDefault();
+              e.stopPropagation();
+
               action('onSuggestionClick')(suggestion);
 
               set(suggestion);
@@ -115,4 +118,4 @@ function AutocompleteWithRef() {
   );
 }
 
-inputStories.add('with ref', () => <AutocompleteWithRef />);
+inputStories.add('with ref and no blur on suggest click', () => <AutocompleteWithRef />);

@@ -29,13 +29,13 @@ interface IProps<T> extends DSProps {
   onFocus?: (e: any) => any;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => any;
   onKeyUp?: (e: KeyboardEvent<HTMLInputElement>) => any;
-  onSuggestionClick?: (suggestion: T) => any;
+  onSuggestionClick?: (suggestion: T, e: MouseEvent) => any;
   placeholder?: string | void;
   ref?: Ref<HTMLInputElement>;
   renderItem?: (suggestion: T) => ReactNode;
   renderResults?: (
     state: { focused: boolean; results: T[] },
-    onSuggestionClick: (suggestion: T) => any,
+    onSuggestionClick: (suggestion: T, e: MouseEvent) => any,
     renderItem?: (suggestion: T) => ReactNode,
   ) => ReactNode;
   value?: string | void;
@@ -167,7 +167,7 @@ refForwardedAutocomplete.defaultProps = {
   py: 0,
   renderResults: (
     state: { focused: boolean; results: string[] },
-    onSuggestionClick: (suggestion: string) => any,
+    onSuggestionClick: (suggestion: string, e: MouseEvent) => any,
     renderItem?: (suggestion: string) => ReactNode,
   ) => {
     const { focused, results } = state;
@@ -180,7 +180,7 @@ refForwardedAutocomplete.defaultProps = {
         {status => (
           <Menu opacity={status === 'entered' ? 1 : 0}>
             {results.map((result, index) => (
-              <MenuItem button key={index} onMouseDown={() => onSuggestionClick(result)}>
+              <MenuItem button key={index} onMouseDown={(e: MouseEvent) => onSuggestionClick(result, e)}>
                 {renderItem ? renderItem(result) : result}
               </MenuItem>
             ))}
