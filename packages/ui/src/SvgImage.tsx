@@ -1,5 +1,5 @@
 import { arrayize, createComponent, css, DSProps, getResponsiveValue } from '@napred/browser';
-import React, { Children, ComponentType, ReactNode } from 'react';
+import React, { Children, ComponentType, ReactElement, ReactNode } from 'react';
 
 export interface ISvgProps extends DSProps {
   children?: ReactNode;
@@ -13,7 +13,7 @@ const Svg = ({ children, icon: Icon, titleAccess, ...rest }: ISvgProps) => {
   if (Icon != null) {
     return <Icon aria-hidden={titleAccess ? 'false' : 'true'} {...rest} />;
   } else if (children != null) {
-    return React.cloneElement(Children.only(children), {
+    return React.cloneElement(Children.only(children as ReactElement), {
       'aria-hidden': titleAccess ? 'false' : 'true',
       ...rest,
     });
