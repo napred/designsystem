@@ -37,7 +37,7 @@ function SelectMenu(props: IProps) {
           width={['100vw', '100vw', 'auto']}
           height={['100vh', '100vh', 'auto']}
           listProps={props.listProps}
-          {...props.menuProps}
+          popoverProps={props.menuProps}
         >
           <IfViewport is={[0, 1]}>
             {() => (
