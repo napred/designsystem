@@ -1,4 +1,4 @@
-import { IfViewport } from '@napred/browser';
+import { DSProps, IfViewport } from '@napred/browser';
 import { Box, Title } from '@napred/primitives';
 import React, { Fragment, ReactNode, useCallback, useState } from 'react';
 import { CloseIcon } from './assets';
@@ -10,6 +10,8 @@ import SvgImage from './SvgImage';
 interface IProps {
   origin?: 'left' | 'right';
   title?: ReactNode;
+  listProps?: DSProps;
+  menuProps?: DSProps;
   renderButton: (opened: boolean, set: (value: boolean) => any) => ReactNode;
   renderMenuContent: (opened: boolean, set: (value: boolean) => any) => ReactNode;
 }
@@ -34,6 +36,8 @@ function SelectMenu(props: IProps) {
           minWidth="200px"
           width={['100vw', '100vw', 'auto']}
           height={['100vh', '100vh', 'auto']}
+          listProps={props.listProps}
+          {...props.menuProps}
         >
           <IfViewport is={[0, 1]}>
             {() => (
