@@ -55,6 +55,7 @@ function Tab({
   disabled = false,
   inactiveColor = 'turqoiseDark',
   activeColor = 'primary',
+  fontSize = 0,
   onClick,
   icon,
   title,
@@ -85,6 +86,7 @@ function Tab({
 
         {title != null && (
           <Title
+            fontSize={fontSize}
             color={active ? activeColor : inactiveColor}
             mx={1}
             display={icon ? ['none', 'block'] : 'block'}
