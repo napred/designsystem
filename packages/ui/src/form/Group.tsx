@@ -16,12 +16,12 @@ const Group = createComponent('Group', BaseGroup, {
 
     & > *:first-child,
     & > *:first-child * {
-      border-radius: 3px 0 0 3px;
+      border-radius: ${groupBorderRadius || '3px'} 0 0 ${groupBorderRadius || '3px'};
     }
 
     & > *:last-child,
     & > *:last-child * {
-      border-radius: 0 3px 3px 0;
+      border-radius: 0 ${groupBorderRadius || '3px'} ${groupBorderRadius || '3px'} 0;
     }
   `,
 });
