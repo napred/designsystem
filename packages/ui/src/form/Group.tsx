@@ -1,4 +1,4 @@
-import { createComponent, css } from '@napred/browser';
+import { createComponent, css, DSProps } from '@napred/browser';
 import React, { ComponentType, ReactNode } from 'react';
 
 import Row from '../layout/Row';
@@ -8,7 +8,7 @@ const BaseGroup: ComponentType<{ children?: ReactNode }> = ({ children, ...props
 );
 
 const Group = createComponent('Group', BaseGroup, {
-  style: css`
+  style: ({ groupBorderRadius }: { groupBorderRadius?: string } & DSProps) => css`
     & > * {
       flex: 1;
       border-radius: 0;
