@@ -1,10 +1,9 @@
 import { createComponent, css, DSProps } from '@napred/browser';
 import React, { ComponentType, ReactNode } from 'react';
-
-import Row from '../layout/Row';
+import { Flex } from '@napred/primitives';
 
 const BaseGroup: ComponentType<{ children?: ReactNode }> = ({ children, ...props }) => (
-  <Row {...props}>{children}</Row>
+  <Flex {...props}>{children}</Flex>
 );
 
 const Group = createComponent('Group', BaseGroup, {
@@ -25,5 +24,11 @@ const Group = createComponent('Group', BaseGroup, {
     }
   `,
 });
+
+Group.defaultProps = {
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  justifyContent: 'center',
+};
 
 export default Group;
